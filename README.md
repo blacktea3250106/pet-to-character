@@ -285,3 +285,7 @@ workflow-validation/         offline Tripo request contract + tests, route compa
 - The scripts are kept as they ran. They expect the original working-tree layout, Blender 5.2 (`bpy`, `mathutils`), Python with `numpy`, `scipy`, `opencv-python`, `Pillow`, `requests`, and Godot 4.7 for the engine experiments. The Tripo client reads `TRIPO_API_KEY` from the environment (or a local `.env` that is git-ignored). No key is stored in this repo.
 
 Built by Hao-Fu Chang.
+
+## License
+
+© 2026 Hao-Fu Chang. All rights reserved.
