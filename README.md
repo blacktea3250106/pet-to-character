@@ -96,7 +96,7 @@ flowchart TD
     S --> I[P02 Identity notes: patches, eyes, nose, paws<br/>each marked observed / partly observed / inferred]
     I --> V[P03-P04 Reference views<br/>photo-constrained AI front / left / back / right]
     V -->|visual gate: cheek asymmetry, leg count, pose| G[P05 Tripo multiview-to-3D]
-    G --> B{P06 Budget gate<br/>glb_preflight: triangles <= 3,500}
+    G --> B{"P06 Budget gate<br/>glb_preflight: triangles ≤ 3,500"}
     B -->|over budget| D[Tripo basic decimate to 3,500]
     D --> M[P07 Material check<br/>metallic / specular / texture size]
     B -->|pass| M
