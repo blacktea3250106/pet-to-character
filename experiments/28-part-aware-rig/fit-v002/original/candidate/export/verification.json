@@ -1,0 +1,156 @@
+{
+  "candidate": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/28-part-aware-rig/fit-v002/original/candidate",
+  "file": "cat-animated.glb",
+  "sha256": "8450f694ca36fd28aefd6b1737073c18159d5a5ab32be1bb91b835905f8a8c84",
+  "triangles": 3500,
+  "skin_count": 1,
+  "joint_count": 56,
+  "animations": [
+    "Idle",
+    "Idle_to_Sit",
+    "Sitting",
+    "Sitting_to_Idle",
+    "Walk"
+  ],
+  "max_influences": 8,
+  "attributes": [
+    [
+      "JOINTS_0",
+      "JOINTS_1",
+      "NORMAL",
+      "POSITION",
+      "TEXCOORD_0",
+      "WEIGHTS_0",
+      "WEIGHTS_1"
+    ]
+  ],
+  "rest_nearest_vertex_max_error": 2.6287013952241978e-06,
+  "rest_corner_position_uv_max_error": 2.6226043701171875e-06,
+  "decoded_texture_max_error": 0.0,
+  "material": {
+    "size": [
+      2048,
+      2048
+    ],
+    "color_space": "sRGB",
+    "metallic": 0.0,
+    "roughness": 0.8999999761581421,
+    "ior_specular": 0.15000000596046448
+  },
+  "deformation_checkpoints": [
+    {
+      "action": "Idle",
+      "original_frame": 1,
+      "imported_frame": 0.0,
+      "max_vertex_error": 4.421476478455588e-05,
+      "mean_vertex_error": 1.0244896202493692e-06
+    },
+    {
+      "action": "Idle",
+      "original_frame": 130,
+      "imported_frame": 129.0,
+      "max_vertex_error": 3.437592022237368e-05,
+      "mean_vertex_error": 1.2406530913722236e-06
+    },
+    {
+      "action": "Idle",
+      "original_frame": 260,
+      "imported_frame": 259.0,
+      "max_vertex_error": 4.421476478455588e-05,
+      "mean_vertex_error": 1.0244896202493692e-06
+    },
+    {
+      "action": "Walk",
+      "original_frame": 1,
+      "imported_frame": 0.0,
+      "max_vertex_error": 3.951779581257142e-05,
+      "mean_vertex_error": 1.523544028714241e-06
+    },
+    {
+      "action": "Walk",
+      "original_frame": 14,
+      "imported_frame": 13.0,
+      "max_vertex_error": 3.893153552780859e-05,
+      "mean_vertex_error": 1.4650545381300617e-06
+    },
+    {
+      "action": "Walk",
+      "original_frame": 27,
+      "imported_frame": 26.0,
+      "max_vertex_error": 3.951779581257142e-05,
+      "mean_vertex_error": 1.523544028714241e-06
+    },
+    {
+      "action": "Idle_to_Sit",
+      "original_frame": 1,
+      "imported_frame": 0.0,
+      "max_vertex_error": 4.421476478455588e-05,
+      "mean_vertex_error": 1.028599626806681e-06
+    },
+    {
+      "action": "Idle_to_Sit",
+      "original_frame": 18,
+      "imported_frame": 17.0,
+      "max_vertex_error": 4.570720557239838e-05,
+      "mean_vertex_error": 3.174181983922608e-06
+    },
+    {
+      "action": "Idle_to_Sit",
+      "original_frame": 35,
+      "imported_frame": 34.0,
+      "max_vertex_error": 7.984031253727153e-05,
+      "mean_vertex_error": 3.4098791275027907e-06
+    },
+    {
+      "action": "Sitting",
+      "original_frame": 1,
+      "imported_frame": 0.0,
+      "max_vertex_error": 7.718359847785905e-05,
+      "mean_vertex_error": 3.3775622796383686e-06
+    },
+    {
+      "action": "Sitting",
+      "original_frame": 120,
+      "imported_frame": 119.0,
+      "max_vertex_error": 7.784679473843426e-05,
+      "mean_vertex_error": 4.785089004144538e-06
+    },
+    {
+      "action": "Sitting",
+      "original_frame": 240,
+      "imported_frame": 239.0,
+      "max_vertex_error": 7.785428169881925e-05,
+      "mean_vertex_error": 3.376058430148987e-06
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "original_frame": 1,
+      "imported_frame": 0.0,
+      "max_vertex_error": 7.984031253727153e-05,
+      "mean_vertex_error": 3.4105064514733385e-06
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "original_frame": 18,
+      "imported_frame": 17.0,
+      "max_vertex_error": 2.5055676815100014e-05,
+      "mean_vertex_error": 1.8619625734572764e-06
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "original_frame": 35,
+      "imported_frame": 34.0,
+      "max_vertex_error": 4.421476478455588e-05,
+      "mean_vertex_error": 1.0272942745359614e-06
+    }
+  ],
+  "max_deformation_error": 7.984031253727153e-05,
+  "export_roundtrip_pass": true,
+  "animation_quality_pass": false,
+  "unity_pass": false,
+  "limits": [
+    "Roundtrip tests first/middle/last of each clip, not every interpolated time.",
+    "Skin weights and material extensions still need Unity importer/runtime verification.",
+    "Correct export preserves the existing measured animation defects; it does not fix them."
+  ]
+}

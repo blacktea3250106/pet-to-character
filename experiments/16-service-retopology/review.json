@@ -1,0 +1,105 @@
+{
+  "status": "working_3500_candidate_not_final_art_or_automation_acceptance",
+  "selected_candidate": "basic-v001/restored/cat.glb",
+  "updated": "2026-09-30",
+  "question": "Can the reduction stage reach 3500 triangles without hand-selected head/paw protection and preserve the source appearance?",
+  "source": "13-dorsal/color-v002/cat.glb",
+  "source_triangles": 5072,
+  "source_involves_prior_manual_work": true,
+  "experiments": [
+    {
+      "variant": "smart-v001",
+      "algorithm": "Tripo /mesh/decimate v2.0",
+      "requested_triangles": 3500,
+      "actual_triangles": 4422,
+      "budget_pass": false,
+      "seconds": 97.86,
+      "credits": 30.0,
+      "outcome": "rejected_over_budget_and_topology_diagnostics"
+    },
+    {
+      "variant": "basic-v001",
+      "algorithm": "Tripo /mesh/decimate v1.0",
+      "requested_triangles": 3500,
+      "actual_triangles": 3500,
+      "budget_pass": true,
+      "seconds": 16.57,
+      "credits": 10.0,
+      "outcome": "geometry_candidate_material_repair_required"
+    }
+  ],
+  "service_total_credits_this_experiment": 40.0,
+  "manual_regions_added": 0,
+  "geometry_method": "Service basic decimation; local uniform scale/translation restores source bounds. No further local shape changes.",
+  "material_failure": "Source metallicFactor=0 was omitted in basic output; default factor 1 with nearly white metallic B channel made the dielectric fur metallic. Specular extension also missing; base image became JPEG and roughness map 1024 instead of 2048.",
+  "material_repairs_compared": [
+    "Copy source metallic/specular scalars, flat shading, keep service textures",
+    "Copy source shader and deterministically rebake base color/roughness into current UV, flat shading"
+  ],
+  "selection_reason": "Rebaked candidate is closer to source in all four measured views and has cleaner facial color. Both corrections use the same general rule without per-cat masks; rebake retained for this already-textured input, not declared mandatory before future texturing.",
+  "render_comparison": "render-fidelity-final.json",
+  "metric_scope": "RGB change from source within overlapping cat silhouettes; not photo identity or cat.png similarity",
+  "geometry": {
+    "triangles": 3500,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "sampled_surface_distance": {
+      "source_to_candidate": {
+        "max_m": 0.00239961058832705,
+        "p95_m": 0.000779754150426015,
+        "mean_m": 0.00028281256005127886,
+        "samples": 7610
+      },
+      "candidate_to_source": {
+        "max_m": 0.0016679666005074978,
+        "p95_m": 0.0008089612965704872,
+        "mean_m": 0.00027063158012124235,
+        "samples": 8122
+      },
+      "scope": "World-space vertices and triangle centroids after the recorded uniform scale/translation; not continuous Hausdorff maximum or deformation validation"
+    }
+  },
+  "bake": {
+    "base-color": {
+      "type": "DIFFUSE",
+      "seconds": 1.1914271250134334,
+      "color_space": "sRGB",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "format": "PNG"
+    },
+    "roughness": {
+      "type": "ROUGHNESS",
+      "seconds": 1.0950687079457566,
+      "color_space": "Non-Color",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "format": "PNG"
+    }
+  },
+  "manual_review": "Hero, face, opposite and back-high inspected. White fur color restored; existing flank folds, facial shape and photo-identity uncertainty remain.",
+  "automation_scope": "One aligned single-mesh/single-material source. Model-specific manual protection was removed from this stage. Source anatomy/texture decisions and review still involve humans; unseen-cat validation not run.",
+  "not_passed": [
+    "cat.png overall art target",
+    "photo identity across unseen surfaces",
+    "Low Poly Animated Cats animation adaptation",
+    "Unity appearance validation",
+    "end-to-end unseen-cat automation"
+  ],
+  "new_cat_automation_proven": false,
+  "identity_or_art_pass": false,
+  "action_gate": "action_gate.json",
+  "failure_provenance": [
+    "smart-v001/candidate records pre-alignment diagnostics, not comparable geometry error",
+    "Basic review first failed because a relative baseline cache path was treated as absolute; exit 1 and artifacts preserved, path resolved and rerun",
+    "Early aligned-distance labels said unaligned; descriptions corrected with values untouched"
+  ],
+  "official_sources": [
+    "https://developers.tripo3d.ai/en/docs/mesh-decimate",
+    "https://raw.githubusercontent.com/KhronosGroup/glTF/main/specification/2.0/schema/material.pbrMetallicRoughness.schema.json"
+  ]
+}

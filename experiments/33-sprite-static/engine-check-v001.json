@@ -1,0 +1,87 @@
+{
+	"camera_projection": "orthographic",
+	"camera_view_dir": [
+		-1.05,
+		1.05,
+		1.4
+	],
+	"captures": [
+		{
+			"camera_size": 4.85158824920654,
+			"name": "01-overview",
+			"no_depth_test": false,
+			"test_point": "rug"
+		},
+		{
+			"camera_size": 1.70000004768372,
+			"name": "02-close",
+			"no_depth_test": false,
+			"test_point": "rug"
+		},
+		{
+			"camera_size": 1.70000004768372,
+			"name": "03-bed-front",
+			"no_depth_test": false,
+			"test_point": "bed_front"
+		},
+		{
+			"camera_size": 1.70000004768372,
+			"name": "04-bed-behind-depth-on",
+			"no_depth_test": false,
+			"test_point": "bed_behind"
+		},
+		{
+			"camera_size": 1.70000004768372,
+			"name": "05-bed-behind-depth-off-diagnostic",
+			"no_depth_test": true,
+			"test_point": "bed_behind"
+		},
+		{
+			"camera_size": 1.70000004768372,
+			"name": "06-bed-edge",
+			"no_depth_test": false,
+			"test_point": "bed_edge"
+		}
+	],
+	"cat_mesh_present": false,
+	"cat_skeleton_present": false,
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"ground_shadow_separate": true,
+	"pivot_source": "One manually reviewed layout pivot: x is composition center; y is the foreground forepaw contact baseline. This is not automatic semantic support detection and is not claimed valid for other poses/cats.",
+	"scope": "Static pose only; no walking, navigation, collision or new-cat automation acceptance.",
+	"sprite_alpha_cut": 1,
+	"sprite_pixel_size": 0.000551470613572747,
+	"sprite_shaded": false,
+	"test_positions": {
+		"bed_behind": [
+			3.33039975166321,
+			0.00300000002607703,
+			-2.13719987869263
+		],
+		"bed_edge": [
+			2.43879985809326,
+			0.00300000002607703,
+			-1.98839998245239
+		],
+		"bed_front": [
+			2.53359985351562,
+			0.00300000002607703,
+			-1.07480001449585
+		],
+		"rug": [
+			1.60000002384186,
+			0.0209999997168779,
+			-0.850000023841858
+		]
+	}
+}

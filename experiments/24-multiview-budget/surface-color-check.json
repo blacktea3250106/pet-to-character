@@ -1,0 +1,15 @@
+{
+  "sample_count": 10500,
+  "source_sha256": "dfdaa1a27ad99495b8ef243c7686424c8a7f6c1be18c0b85e4dba206c247b791",
+  "candidate_sha256": "798df81b9cfda049cfa684037bb7362e900f591dadb7d9b82f683dde0b4ccc34",
+  "mean_absolute_rgb_error_255": 1.786354303938239,
+  "median_absolute_rgb_error_255": 1.0221736126128178,
+  "p95_absolute_rgb_error_255": 5.611588944892707,
+  "p99_absolute_rgb_error_255": 13.518816578977264,
+  "fraction_error_above_20": 0.005238095238095238,
+  "method": "Three interior samples per reduced triangle; nearest source surface and barycentric UV interpolation. Decode sRGB, bilinear-sample linear RGB with repeat wrapping, then report sRGB channel error.",
+  "scope": "Unweighted surface color-change diagnostic from generated source; not photo reconstruction accuracy, identity acceptance or exact renderer pixel matching. Nearest-surface correspondence may be ambiguous near seams and close surfaces.",
+  "restoration_review_trigger": false,
+  "trigger_status": "Initial diagnostic thresholds, not calibrated product acceptance",
+  "identity_or_art_pass": false
+}

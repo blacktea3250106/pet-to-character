@@ -1,0 +1,7 @@
+Use case: style-transfer
+Asset type: transparent low-poly calico cat sprite for the existing cozy 3D room.
+Input images: Image 1 is the edit target, a transparent cat cutout. Image 2 (cat.png) is the authoritative character identity reference. Image 3 is ONLY the room art-direction reference; do not output the room or text.
+Edit the cat in Image 1 so its art better matches the calm broad color planes and soft warm illumination of the room. Make a clearly visible simplification: substantially fewer, larger flat polygon facets, remove small noisy triangle fur strokes within coat patches, soften adjacent facet value contrasts. Retain a recognizably angular low-poly surface, not smooth clay, not blurred. Warm charcoal dark fur, warm ivory white fur, slightly muted warm orange. Preserve the large black/orange/white asymmetric patch map and narrow golden-green eyes.
+Strict invariants: same individual cat as cat.png, same face and head shape, ears, body proportions, exact lying pose, curled raised tail to the left, forepaws extending right, same viewing angle, silhouette and pixel placement. Do not make the head bigger or cartoonishly cute. Do not redraw coat boundaries into a different pattern.
+Composition: preserve the exact 1448x1086 canvas, cat size and location of Image 1; do not crop, zoom or recenter. Only art treatment inside the cat changes. Keep all ears, tail and paws inside the canvas.
+Output: one cat on actual alpha-transparent background, no floor, no cast shadow, no room, no text, no checkerboard painted into pixels.

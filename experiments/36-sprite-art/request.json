@@ -1,0 +1,18 @@
+{
+  "tool": "built-in image_gen",
+  "prompt_file": "prompt-v001.txt",
+  "inputs": [
+    {
+      "path": "experiments/generation-v001/33-sprite-static/godot/assets/cat-cutout-v001.png",
+      "sha256": "b6e8a2e5ef9f75d3e7db529f61d6d6ca0628f4e2fd2276b906125cfd7b0f0b47"
+    },
+    {
+      "path": "cat.png",
+      "sha256": "d54cb98dfb9093766654d549d279e56b8d8f57a351738462cba5486e31e6f06b"
+    },
+    {
+      "path": "experiments/generation-v001/33-sprite-static/evidence/01-overview.png",
+      "sha256": "f4c55f28619f76b1b7752eb99362aa612a0a10f6389396eb53e6b9af92789ede"
+    }
+  ]
+}

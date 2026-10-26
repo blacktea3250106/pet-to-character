@@ -1,0 +1,14 @@
+{
+	"animation": "static lying sprite, no walking frames",
+	"cell_size": 0.075,
+	"distance_traveled": 1.7613961501047,
+	"frames_to_arrive": 177,
+	"max_height_error": 0.000000000491738320201884,
+	"passed": true,
+	"projected_click": true,
+	"radius": 0.375,
+	"reachable_cells": 552,
+	"reject_bed_and_outside": true,
+	"retarget_and_stop": true,
+	"scope": "one fixed room and cat.png prototype"
+}

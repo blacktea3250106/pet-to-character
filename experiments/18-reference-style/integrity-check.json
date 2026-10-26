@@ -1,0 +1,11 @@
+{
+  "input_image_hashes_match": true,
+  "prompt_hash_matches": true,
+  "saved_output_hash_matches": true,
+  "current_3500_model_unchanged": true,
+  "current_model_sha256": "4487376d7a2816492d084c6d821a15188cdf4433f0aa847f55ee8d4fc7942b87",
+  "source_and_candidate_kind": "AI reference experiment; no new mesh",
+  "imagegen_calls": 1,
+  "tripo_calls": 0,
+  "status": "completed_rejected"
+}

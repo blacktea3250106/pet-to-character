@@ -1,0 +1,220 @@
+{
+  "source": "13-dorsal/color-v002/scene.blend",
+  "source_sha256": "156862c4ad7be9969c5e7c3ecc47013846f5c38c6fec31f9bbad33d0a9a98ad7",
+  "script_sha256": "5cdfb2a962c1220134873922e0bc85d0a8fbf11af4007ccef3c3de53e72b6f69",
+  "method": "Blender Decimate COLLAPSE with weighted allowance; flat shading and existing color/roughness textures retained",
+  "official_reference": "https://docs.blender.org/UATEST/manual/en/dev/modeling/modifiers/generate/decimate.html",
+  "requested_triangles": 3500,
+  "source_triangles": 5072,
+  "actual_triangles": 3500,
+  "reduction_fraction": 0.3099369085173501,
+  "modifier_seconds": 0.010729749919846654,
+  "manual_regions": {
+    "protected_head": "x > 0.15 and z > 0.18 metres",
+    "protected_paws": "z < 0.055 metres",
+    "leg_weight": "0.25 below z=0.20",
+    "tail_weight": "0.35 below x=-0.17",
+    "else_weight": 1.0,
+    "coordinate_system": "current normalized and manually oriented case",
+    "protected_vertices": 1171
+  },
+  "protected_original_vertex_max_distance_m": 0.0,
+  "sampled_surface_distance_m": {
+    "source_to_candidate_max": 0.01341562531888485,
+    "candidate_to_source_max": 0.009150945581495762,
+    "source_to_candidate_p95": 0.003554576146416364,
+    "candidate_to_source_p95": 0.0011662974429782473,
+    "scope": "vertices and face-centers only; not a full surface maximum or deformation test"
+  },
+  "stats": {
+    "vertices": 1752,
+    "polygons": 3500,
+    "triangles": 3500,
+    "triangle_count_method": "evaluated mesh loop triangles, not polygon count",
+    "welded_vertices": 1752,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "low_height_components": [
+      {
+        "height": 0.05,
+        "count": 4,
+        "groups": [
+          {
+            "n": 171,
+            "center": [
+              -0.12338813708016746,
+              -0.09926966081062953,
+              0.01933910724385614
+            ]
+          },
+          {
+            "n": 160,
+            "center": [
+              -0.10109869092702865,
+              0.10714720035903155,
+              0.019254827391705476
+            ]
+          },
+          {
+            "n": 170,
+            "center": [
+              0.18237678277141908,
+              -0.08163244730847723,
+              0.01868474109865287
+            ]
+          },
+          {
+            "n": 173,
+            "center": [
+              0.240989187118635,
+              0.05129162621592855,
+              0.016630369924934784
+            ]
+          }
+        ]
+      },
+      {
+        "height": 0.08,
+        "count": 4,
+        "groups": [
+          {
+            "n": 189,
+            "center": [
+              -0.12588295604659136,
+              -0.09835905006165227,
+              0.023373875298867464
+            ]
+          },
+          {
+            "n": 177,
+            "center": [
+              -0.1037154128659243,
+              0.10674346545658543,
+              0.023289811042384746
+            ]
+          },
+          {
+            "n": 188,
+            "center": [
+              0.17936046100518804,
+              -0.08050586356523823,
+              0.02312135140589894
+            ]
+          },
+          {
+            "n": 190,
+            "center": [
+              0.23768631251234756,
+              0.05217297308539089,
+              0.021046154468173258
+            ]
+          }
+        ]
+      },
+      {
+        "height": 0.11,
+        "count": 4,
+        "groups": [
+          {
+            "n": 203,
+            "center": [
+              -0.12683401546748402,
+              -0.0977743076793666,
+              0.02836394844475785
+            ]
+          },
+          {
+            "n": 192,
+            "center": [
+              -0.10606157477013767,
+              0.10564178496133536,
+              0.02915179293631809
+            ]
+          },
+          {
+            "n": 207,
+            "center": [
+              0.17570769257735516,
+              -0.07910225583591322,
+              0.030024058999862647
+            ]
+          },
+          {
+            "n": 208,
+            "center": [
+              0.2334573806191866,
+              0.05302188839190281,
+              0.027535208888226546
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "topology_changed": true,
+  "uv_layout_repacked": false,
+  "uv_interpolation_changed": true,
+  "invalidated_data": [
+    "prior triangle IDs and barycentric correspondences",
+    "prior geometry QA and any deformation assumptions"
+  ],
+  "animation_compatibility": "not_tested; source and candidate are unrigged",
+  "new_cat_automation_proven": false,
+  "identity_or_art_pass": false,
+  "manual_review_pending": false,
+  "views": [
+    [
+      "hero",
+      -69,
+      10,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ],
+    [
+      "face",
+      -69,
+      9,
+      [
+        0.23,
+        0,
+        0.31
+      ],
+      0.28
+    ],
+    [
+      "opposite",
+      110,
+      10,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ],
+    [
+      "back-high",
+      110,
+      48,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ]
+  ],
+  "limitations": [
+    "Protected areas were manually defined for this case.",
+    "No semantic joint rings or deformation tests are available; 3500 triangles does not prove animation compatibility.",
+    "Decimation does not necessarily remove existing folded flank geometry.",
+    "Texture reprojection after this step must rebuild mappings using the new mesh."
+  ],
+  "adopted_as_selected_asset": false,
+  "review_outcome": "rejected",
+  "rejection_reason": "Over-prioritized leg/tail weights concentrated simplification on torso; torso facets became oversized, and inherited UV interpolation produced severe color smears/background texels. A valid count/manifold check does not establish appearance."
+}

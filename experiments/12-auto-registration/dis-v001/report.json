@@ -1,0 +1,42 @@
+{
+  "method": "OpenCV DIS medium optical flow, finest scale 0, bidirectional consistency",
+  "opencv": "5.0.0",
+  "reference_documentation": "https://docs.opencv.org/4.10.0/de/d4f/classcv_1_1DISOpticalFlow.html",
+  "input_hashes": {
+    "render": "e85f04b959f7c2fbdd5508f18a0eaf922712e28e510f0eeae996f5194de22666",
+    "reference": "650fbbf8b0374c0c8259496439054ed82527fe54980c72ca94ad15875b29efaf",
+    "render_mask": "a8a6a2e92e880941164e160ba819ecfd69f1cf15c1537fee47a351cdd318ea86",
+    "reference_mask": "3c061ed6d373ca9974af8d987bb479dd3ba4e42c635964c2f430f340290de5e6"
+  },
+  "script_hash": "f5db2932311745c7cbf267619b13300ac7c7bb977d539a501dc740b153f4dfe0",
+  "shape": [
+    1024,
+    1536
+  ],
+  "landmarks_used_for_estimation": 0,
+  "settings": {
+    "gray_gaussian_sigma": 1.1,
+    "background_gray": 190,
+    "fb_error_limit_px": 3,
+    "jacobian_range": [
+      0.1,
+      8
+    ],
+    "max_flow_fraction_width": 0.1,
+    "rng_seed": 3101,
+    "threads": 1
+  },
+  "elapsed_seconds": 2.225901582976803,
+  "trusted_fraction_of_render_mask": 0.47628887556072025,
+  "nonpositive_jacobian_fraction_of_render_mask": 0.08336769501818045,
+  "fb_error_render_mask_median_px": 3.015676975250244,
+  "identity_pass": null,
+  "art_pass": null,
+  "new_cat_automation_pass": false,
+  "limitations": [
+    "Requires rough global camera alignment and masks supplied separately",
+    "Optical consistency does not establish semantic identity",
+    "Single-case experiment; repeated stripes can match the wrong stripe",
+    "No 3D asset altered by this command"
+  ]
+}

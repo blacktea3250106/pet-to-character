@@ -1,0 +1,27 @@
+{
+  "request_replay_policy": "Saved task states prevent resubmission. Do not delete state files to repeat the commands. Start new variants in new output directories only after action_gate review.",
+  "service_configs": [
+    "profile.json",
+    "profile-basic.json"
+  ],
+  "commands": [
+    "uv run --with requests python experiments/generation-v001/tripo_process.py experiments/generation-v001/16-service-retopology/profile-basic.json",
+    "blender --background --python-exit-code 1 --python experiments/generation-v001/review_processed_mesh.py -- experiments/generation-v001/16-service-retopology/profile-basic.json --align-bounds --baseline-cache experiments/generation-v001/16-service-retopology/smart-v001/baseline",
+    "blender --background --python-exit-code 1 --python experiments/generation-v001/restore_processed_materials.py -- experiments/generation-v001/16-service-retopology/profile-basic.json",
+    "blender --background --python-exit-code 1 --python experiments/generation-v001/verify_visual_candidate.py -- 16-service-retopology/basic-v001/restored"
+  ],
+  "blender": "/Applications/Blender.app/Contents/MacOS/Blender 5.2.1 LTS",
+  "uv": "~/.local/bin/uv",
+  "comparison_environment": {
+    "python": "3.14",
+    "numpy": "2.5.3",
+    "pillow": "12.3.0",
+    "opencv-python-headless": "5.0.0.93"
+  },
+  "required_upstream_artifacts": [
+    "13-dorsal/color-v002/cat.glb",
+    "13-dorsal/color-v002/scene.blend",
+    "13-dorsal/color-v002/mesh.npz"
+  ],
+  "manual_inputs_before_this_stage": "See full experiment history; no end-to-end automation claim."
+}

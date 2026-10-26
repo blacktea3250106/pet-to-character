@@ -1,0 +1,132 @@
+{
+  "method": "assistant visual annotation, manually checked POC; no detector implemented",
+  "features": [
+    {
+      "id": "face_right_orange",
+      "region": "anatomical right cheek / image left",
+      "source": [
+        "photo-04",
+        "photo-05"
+      ],
+      "bbox_photo05": [
+        588,
+        703,
+        718,
+        863
+      ],
+      "description": "Orange around eye/cheek, white lower muzzle.",
+      "evidence": "observed"
+    },
+    {
+      "id": "face_left_black",
+      "region": "anatomical left cheek / image right",
+      "source": [
+        "photo-04",
+        "photo-05"
+      ],
+      "bbox_photo05": [
+        765,
+        735,
+        882,
+        885
+      ],
+      "description": "Large black cheek patch with warm orange/cream eyebrow.",
+      "evidence": "observed"
+    },
+    {
+      "id": "nose_bridge",
+      "region": "central face",
+      "source": [
+        "photo-05"
+      ],
+      "bbox_photo05": [
+        710,
+        740,
+        788,
+        889
+      ],
+      "description": "Broad black nasal bridge.",
+      "evidence": "observed"
+    },
+    {
+      "id": "nose_pink",
+      "region": "nose tip",
+      "source": [
+        "photo-05"
+      ],
+      "bbox_photo05": [
+        720,
+        870,
+        767,
+        902
+      ],
+      "description": "Small pink mottled patch on otherwise dark nose tip; not all-black or all-pink.",
+      "evidence": "observed"
+    },
+    {
+      "id": "bib",
+      "region": "chest",
+      "source": [
+        "photo-04",
+        "photo-05",
+        "photo-06"
+      ],
+      "bbox_photo05": [
+        549,
+        844,
+        876,
+        1004
+      ],
+      "description": "Large white chin and chest bib.",
+      "evidence": "observed"
+    },
+    {
+      "id": "paws",
+      "region": "visible paws",
+      "source": [
+        "photo-02",
+        "photo-03",
+        "photo-05",
+        "photo-06"
+      ],
+      "description": "White paws with orange markings on foreleg; exact standing sock boundaries need inference.",
+      "evidence": "partly_observed"
+    },
+    {
+      "id": "back_nape",
+      "region": "dorsal coat",
+      "source": [
+        "photo-01",
+        "photo-03"
+      ],
+      "description": "Black/orange mottled back and nape, no complete dorsal white collar.",
+      "evidence": "observed"
+    },
+    {
+      "id": "eyes",
+      "region": "eyes",
+      "source": [
+        "photo-05"
+      ],
+      "description": "Yellow-green irises; narrow pupils and partially closed eyelids in this lighting.",
+      "evidence": "observed"
+    },
+    {
+      "id": "tail",
+      "region": "tail",
+      "source": [
+        "photo-05",
+        "photo-06"
+      ],
+      "description": "Dark mottled tail, black tip supported by photo-06; lifted standing curve will be inferred.",
+      "evidence": "partly_observed"
+    },
+    {
+      "id": "standing_proportions",
+      "region": "body and legs",
+      "source": [],
+      "description": "Neutral standing limb lengths and hidden surfaces are inferred, not true measurements.",
+      "evidence": "inferred"
+    }
+  ]
+}

@@ -1,0 +1,288 @@
+{
+  "status": "bounded_animation_poc_complete_quality_not_passed",
+  "user_scope": "目前外觀可接受作動畫實驗，選擇待機、走路、坐下/起立共五段；不是 23 動作全測。",
+  "actions": [
+    "Idle",
+    "Walk",
+    "Idle_to_Sit",
+    "Sitting",
+    "Sitting_to_Idle"
+  ],
+  "frames_per_candidate_and_source": 597,
+  "inputs_unchanged": {
+    "source": {
+      "path": "experiments/texture-transfer-v001/source/SKM_Cat_Domestic_Shorthair.fbx",
+      "sha256": "2c052fe87f29e0c11fb78432f7af9c7d293a41eeed7b76470d38556aa65c1e4d",
+      "unchanged": true
+    },
+    "target": {
+      "path": "experiments/generation-v001/25-appearance-diagnostic/matte-candidate/cat.glb",
+      "sha256": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+      "unchanged": true
+    }
+  },
+  "result": "已讓原生成貓保持 3500 面和原底色，使用 Low Poly Animated Cats 的 56 骨與五段動作。權重平滑加八影響有局部改善，仍有拉伸、塌陷、相交及穿地；不作正式交付或通用體型方案。",
+  "workflow_executed": [
+    "唯讀盤點母版網格、骨架、靜止軸、來源 action 與目標網格。",
+    "固定一次來源/目標座標軸規格；由站姿網格低處連通區自動找四腳。",
+    "四腳中心與腿部合併高度推導整體 XYZ 縮放和平移；不是非剛性包覆。",
+    "保留母版局部靜止軸及階層，仿射映射骨架位置；以來源最近表面三角形插值權重。",
+    "複製五段動作的局部旋轉與尺度，按骨架方向轉換位置通道；逐幀量測來源/目標。",
+    "僅測一個通用修正：分析焊接網格的權重平滑，五輪、0.35，最多八影響。",
+    "實際渲染兩個候選、另一側檢視；匯出五段 GLB 並回讀驗證。"
+  ],
+  "comparison": [
+    {
+      "action": "Idle",
+      "frames": 260,
+      "baseline": {
+        "nonadjacent_crossing_pairs": 29,
+        "max_edge_stretch": 2.796895980834961,
+        "edges_stretched_over_2x": 6,
+        "faces_area_below_30pct": 11,
+        "vertices_below_1pct_extent": 0,
+        "lowest_relative_to_ground": -0.002075672149658203,
+        "worst_crossing_frame": 134
+      },
+      "repair": {
+        "nonadjacent_crossing_pairs": 19,
+        "max_edge_stretch": 1.725907564163208,
+        "edges_stretched_over_2x": 0,
+        "faces_area_below_30pct": 10,
+        "vertices_below_1pct_extent": 0,
+        "lowest_relative_to_ground": -0.001790851354598999,
+        "worst_crossing_frame": 123
+      },
+      "source_control": {
+        "nonadjacent_crossing_pairs": 168,
+        "max_edge_stretch": 3.359040565359635,
+        "edges_stretched_over_2x": 5,
+        "faces_area_below_30pct": 18,
+        "vertices_below_1pct_extent": 0,
+        "lowest_relative_to_ground": -0.0008976247169447671,
+        "worst_crossing_frame": 193
+      }
+    },
+    {
+      "action": "Walk",
+      "frames": 27,
+      "baseline": {
+        "nonadjacent_crossing_pairs": 107,
+        "max_edge_stretch": 10.330757141113281,
+        "edges_stretched_over_2x": 164,
+        "faces_area_below_30pct": 25,
+        "vertices_below_1pct_extent": 16,
+        "lowest_relative_to_ground": -0.012583374977111816,
+        "worst_crossing_frame": 26
+      },
+      "repair": {
+        "nonadjacent_crossing_pairs": 73,
+        "max_edge_stretch": 4.163490295410156,
+        "edges_stretched_over_2x": 26,
+        "faces_area_below_30pct": 31,
+        "vertices_below_1pct_extent": 16,
+        "lowest_relative_to_ground": -0.012391984462738037,
+        "worst_crossing_frame": 12
+      },
+      "source_control": {
+        "nonadjacent_crossing_pairs": 182,
+        "max_edge_stretch": 5.194678673497965,
+        "edges_stretched_over_2x": 3,
+        "faces_area_below_30pct": 12,
+        "vertices_below_1pct_extent": 1,
+        "lowest_relative_to_ground": -0.010268870012127174,
+        "worst_crossing_frame": 14
+      }
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frames": 35,
+      "baseline": {
+        "nonadjacent_crossing_pairs": 470,
+        "max_edge_stretch": 6.219980716705322,
+        "edges_stretched_over_2x": 124,
+        "faces_area_below_30pct": 65,
+        "vertices_below_1pct_extent": 238,
+        "lowest_relative_to_ground": -0.04281586408615112,
+        "worst_crossing_frame": 32
+      },
+      "repair": {
+        "nonadjacent_crossing_pairs": 319,
+        "max_edge_stretch": 2.7373716831207275,
+        "edges_stretched_over_2x": 38,
+        "faces_area_below_30pct": 73,
+        "vertices_below_1pct_extent": 231,
+        "lowest_relative_to_ground": -0.03916984796524048,
+        "worst_crossing_frame": 27
+      },
+      "source_control": {
+        "nonadjacent_crossing_pairs": 369,
+        "max_edge_stretch": 5.352889772730076,
+        "edges_stretched_over_2x": 7,
+        "faces_area_below_30pct": 51,
+        "vertices_below_1pct_extent": 0,
+        "lowest_relative_to_ground": -0.007197638035856824,
+        "worst_crossing_frame": 26
+      }
+    },
+    {
+      "action": "Sitting",
+      "frames": 240,
+      "baseline": {
+        "nonadjacent_crossing_pairs": 451,
+        "max_edge_stretch": 4.726346015930176,
+        "edges_stretched_over_2x": 126,
+        "faces_area_below_30pct": 67,
+        "vertices_below_1pct_extent": 244,
+        "lowest_relative_to_ground": -0.04297301173210144,
+        "worst_crossing_frame": 96
+      },
+      "repair": {
+        "nonadjacent_crossing_pairs": 304,
+        "max_edge_stretch": 2.659940004348755,
+        "edges_stretched_over_2x": 14,
+        "faces_area_below_30pct": 65,
+        "vertices_below_1pct_extent": 231,
+        "lowest_relative_to_ground": -0.04155510663986206,
+        "worst_crossing_frame": 49
+      },
+      "source_control": {
+        "nonadjacent_crossing_pairs": 369,
+        "max_edge_stretch": 3.8173849736553573,
+        "edges_stretched_over_2x": 8,
+        "faces_area_below_30pct": 46,
+        "vertices_below_1pct_extent": 0,
+        "lowest_relative_to_ground": -0.004789273789239212,
+        "worst_crossing_frame": 3
+      }
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frames": 35,
+      "baseline": {
+        "nonadjacent_crossing_pairs": 516,
+        "max_edge_stretch": 7.101952075958252,
+        "edges_stretched_over_2x": 124,
+        "faces_area_below_30pct": 65,
+        "vertices_below_1pct_extent": 238,
+        "lowest_relative_to_ground": -0.04281586408615112,
+        "worst_crossing_frame": 3
+      },
+      "repair": {
+        "nonadjacent_crossing_pairs": 320,
+        "max_edge_stretch": 3.114511728286743,
+        "edges_stretched_over_2x": 22,
+        "faces_area_below_30pct": 69,
+        "vertices_below_1pct_extent": 231,
+        "lowest_relative_to_ground": -0.03916984796524048,
+        "worst_crossing_frame": 2
+      },
+      "source_control": {
+        "nonadjacent_crossing_pairs": 359,
+        "max_edge_stretch": 4.970678591719149,
+        "edges_stretched_over_2x": 6,
+        "faces_area_below_30pct": 45,
+        "vertices_below_1pct_extent": 0,
+        "lowest_relative_to_ground": -0.006622822164407738,
+        "worst_crossing_frame": 1
+      }
+    }
+  ],
+  "interpretation": [
+    "Walk 最差一幀超過兩倍的邊樣本 164→26，相交面對 107→73；部分權重問題可被通用處理減輕。",
+    "Walk 塌陷面數 25→31、坐下轉場 65→73；不能只報有利指標或宣稱全方面改善。",
+    "Sitting 最低處仍低於地面 0.04156，約最大模型尺寸 4.16%；尚無腳部 IK/接觸修正。單位不是公分。",
+    "最近表面對應距離 p95 約最大尺寸 21.9%，最大約 39.7%；只是距離警訊，不是已正確對應的證據。",
+    "此候選同時改平滑和影響數，不能分別推定哪項造成多少改善。",
+    "來源本身有內部頭部等相交；來源/目標三角化不同，原始交叉對數不能當跨網格品質分數。",
+    "邊/頂點統計來自實際渲染拆點網格，可能含 UV/法線拆點副本；同拓樸前後可比，不等同焊接唯一邊/頂點數。",
+    "全幀量測是離散 30 fps，不是連續碰撞保證；量測器與最終自動放行門檻仍需獨立校驗。"
+  ],
+  "visual_review": {
+    "evidence": [
+      "weights-v001/preview/Walk-0007.png",
+      "weights-v001/preview/Walk-0020.png",
+      "weights-v001/preview/Sitting-0001.png",
+      "weights-v001/preview-opposite/Walk-0020.png",
+      "weights-v001/preview-opposite/Sitting-0001.png"
+    ],
+    "observations": "動作與坐姿可辨認，未出現無效初版的整體爆開。步行腿部仍有拉薄與折痕；另一側坐姿後腳折疊/地面接觸不自然，尾巴姿態對應仍需改善。",
+    "limits": "不是完整接觸語義驗證；沒有獨立眼球/眼皮、滑步判定或動態 flat 法線一致性驗收。"
+  },
+  "automation": {
+    "fixed_template_settings": [
+      "來源骨頭名稱/階層與座標軸約定",
+      "五段動作清單",
+      "平滑五輪、0.35、八影響的單次 POC 設定"
+    ],
+    "automatically_derived_per_cat": [
+      "站姿四腳連通區和中心",
+      "整體比例和平移",
+      "最近表面權重與鄰接平滑",
+      "逐幀變形/地面/相交診斷",
+      "匯出與回讀檢查"
+    ],
+    "manual_dependencies": [
+      "既有上游照片/參考/外觀審查",
+      "來源骨架語義與朝向規格的一次整理",
+      "動畫多角度視覺審查",
+      "量測結果解讀與放行標準制定"
+    ],
+    "new_per_cat_manual_landmarks": 0,
+    "new_per_cat_manual_weight_paint": false,
+    "removed_manual_work_in_this_stage": "這隻站姿模型的腳點、初始尺度和權重不需逐點手標/手刷；未證明未知貓也都可免人工。",
+    "tested_inputs": [
+      "目前一隻生成三花",
+      "Low Poly Animated Cats 原母版作量測對照"
+    ],
+    "held_out_cats_tested": 0,
+    "new_cat_automation_proven": false
+  },
+  "body_variation_support": {
+    "current_answer": "不能保證不同腿長、瘦胖都能解；整體 XYZ 比例與最近表面只屬初始化。",
+    "unvalidated_cases": [
+      "等比例大小",
+      "長腿/短腿但身體不等比例改變",
+      "胖腹/寬胸/瘦身",
+      "前後腿骨段比例不同",
+      "頭頸比例差異",
+      "短尾/長尾/翹尾或彎尾"
+    ],
+    "structural_limits": [
+      "腿部合併高度同時受腹部下垂及站姿影響，不能直接當真實腿長。",
+      "一組 Z 縮放會一起改骨架各部位，無法獨立調腿與軀幹。",
+      "四脚位置不提供肘膝髖肩的解剖真值；貼近表面不代表關節正確。",
+      "胖肚子/鄰近兩腿可使最近點落到錯部位；無語義限制的平滑不能根治。",
+      "來源尾巴向後、目標尾巴上翹；一個仿射映射不能建立沿尾巴長度的正確對應。",
+      "動作接觸需依各腿骨段長度及腹部空間調整，不能只複製旋轉或乘一個腿長比。"
+    ],
+    "next_proposed_not_implemented": [
+      "先建立帶置信度的身體/四腿/頭頸/尾分區，分部位配準；不清楚就拒絕，不用新手工點靜默補過。",
+      "用解剖約束的非剛性母版對應和肢體中心線，分别求骨段長、關節中心與局部方向；關節環只能在對應正確後使用。",
+      "按部位限制權重轉移，避免腹部↔腿、左右腿、頭↔尾誤配；修正靜止軸差時做完整旋轉座標轉換。",
+      "對三種行為建立腳掌支撐期、接地 IK、適配體型的碰撞體與坐姿空間；仍用實際表面驗收。",
+      "標準/短腿/長腿/偏瘦/胖腹做受控壓力測試，另以真實獨立 Tripo 網格作留出驗證；衍生同一網格不算新貓泛化。",
+      "由驗證資料界定支援比例範圍，超出就拒絕或进入明確審查；不偷偷瘦身、換模板或犧牲照片身份來宣稱成功。"
+    ]
+  },
+  "export_verification": "weights-v001/export/verification.json",
+  "export_roundtrip_pass": true,
+  "export_max_deformation_error": 4.2210980609524995e-05,
+  "export_note": "3500 面、56 關節、五動畫、JOINTS/WEIGHTS 0+1，原底色解碼像素差 0。回讀每段首/中/末共 15 個幀，不是每一匯出幀。",
+  "invalid_attempts": [
+    {
+      "path": "baseline-v001/rejection.json",
+      "reason": "零長度 edit bone 初始化使 rest 軸錯誤；此實作錯誤已修正，該變形不當作方案不可行證據。"
+    },
+    {
+      "path": "weights-v001/export-rejected-v001/failure.json",
+      "reason": "浮點座標量化排序造成錯誤角點配對；改雙向空間/UV 比較後通過。保留原失敗輸出。"
+    }
+  ],
+  "decision": "一個有效基準加一個通用修正已完成；保留 weights-v001 作較佳診斷候選，仍拒絕自動交付。不繼續掃平滑參數，不做逐貓手修。下一個實質缺口是體型/部位對應與接觸適配。",
+  "appearance_scope": "使用者接受現況供動畫實驗；不改原照片身份或本次原外觀，完整 cat.png 一致性仍是獨立未完成項。",
+  "paid_api_calls": 0,
+  "animation_quality_pass": false,
+  "unity_pass": false,
+  "new_cat_automation_proven": false
+}

@@ -1,0 +1,14 @@
+{
+  "output_kind": "AI_2D_reference",
+  "full_body_in_frame": true,
+  "visible_paws": 4,
+  "tail_tip_visible": true,
+  "pose_issue": "Head still faces the camera while torso runs across the frame; a neutral head/spine alignment is not met.",
+  "other_limitations": [
+    "Body/leg proportions and hidden patches inferred",
+    "Fine fur-like edges and tiny facets remain",
+    "Photo identity across the hidden side not proven"
+  ],
+  "approved_for_poc_submission": false,
+  "next_action": "One allowed head-orientation-only correction; no Tripo submission yet."
+}

@@ -1,0 +1,12 @@
+{
+  "timing": "before_execution",
+  "purpose": "依同鏡頭診斷，測試共用霧面反射強度是否能改善黑毛偏灰，同時保留花色、切面幾何與後續骨架適配資料。",
+  "scope": "一次設定的候選美術規格；目前只支持單一非金屬表面材質，不依賴本貓顏色、部位或座標。",
+  "automation_method": "只修改 GLB 的 KHR_materials_specular.specularFactor 為 0.3。保留所有二進位資料及其他 JSON 欄位，回讀檢查並渲染左右兩側。遇到多材質、金屬、反射貼圖或不支援的表面擴充就拒絕，不能靜默套用。",
+  "remaining_manual_inputs": ["風格候選是否比原版更接近 cat.png 的目視判斷", "眼睛尚未自動定位及獨立控制"],
+  "case_necessity": "H4 診斷已在兩角度顯示反射增亮深色區域；試驗一個共用值能否改善，省掉逐貓重畫深色貼圖。0.3 是有界候選，不宣稱最佳。",
+  "validation": ["BIN chunk 完全相同", "除指定材質因子及 extensionsUsed 外 JSON 完全相同", "實際 GLB 仍為 3500 面", "Blender 匯入確認材質因子生效", "相同鏡頭光照比較左右兩側", "來源 GLB 不變"],
+  "stop_condition": "只做一個 0.3 候選及一次必要的實作修正，不連續調參。若只改善展示而改變身份或切面可讀性就不採用。眼睛、引擎擴充支援、花色毛邊及動畫維持未通過。",
+  "decision": "one_shared_matte_material_candidate",
+  "new_cat_automation_proven": false
+}

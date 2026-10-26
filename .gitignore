@@ -1,0 +1,26 @@
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Secrets: Tripo API key lives in the environment or a local .env, never in the repo
+.env
+.env.*
+
+# Heavy or regenerable working files from the original project
+*.blend
+*.blend1
+*.npz
+*.fbx
+*.unitypackage
+*.avi
+*.log
+.run.lock
+
+# Local build notes
+.build-log.json

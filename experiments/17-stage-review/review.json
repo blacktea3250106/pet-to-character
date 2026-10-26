@@ -1,0 +1,41 @@
+{
+  "scope": "Consolidated staged presentation and current-spec correction; no model/image mutation or generation",
+  "stage_count": 10,
+  "linked_files": 43,
+  "decoded_images": 13,
+  "contract_tests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "current_generation_request_triangles": 3500,
+  "historical_3000_requests_preserved": true,
+  "new_network_requests": 0,
+  "new_tripo_credits": 0,
+  "visual_inspection": "Viewed cat.png and every embedded stage image without altering them. Captions distinguish source photographs, AI references and actual renders.",
+  "findings": [
+    {
+      "id": "reference_facet_density",
+      "observation": "P03 same-pose.png already has finer, more fragmented color facets than cat.png; P04 standing carries this forward. This is a qualitative observation, not a calibrated score or proof of a sole cause.",
+      "next_test": "A shared style rule should be tested on normal-view reference imagery before further per-cat surface editing; evaluate major identity boundaries and facet scale separately."
+    },
+    {
+      "id": "geometry_defect",
+      "observation": "Current 3500-triangle clay view retains flank ridges. Material repair does not remove these geometry defects."
+    }
+  ],
+  "automation_scope": "The stage renderer reads a manifest, validates file paths and image decoding, hashes evidence and updates the workflow section. Stage assignment and quality judgments remain manual.",
+  "removed_manual_work": "Future stage presentation can be regenerated from manifest without manually assembling markdown links; no upstream cat-generation manual dependency was removed.",
+  "generalization_validation": "Only this case manifest tested; no claim of unseen-cat generation success.",
+  "unpassed": [
+    "cat.png art target",
+    "photo identity across surfaces",
+    "semantic localization and registration",
+    "Unity appearance",
+    "Low Poly Animated Cats animation compatibility",
+    "end-to-end new-cat automation"
+  ],
+  "goal_complete": false,
+  "reproduce_stage_review": "uv run --python 3.14 --with pillow==12.3.0 python experiments/generation-v001/build_stage_review.py experiments/generation-v001/17-stage-review/stages.json --root . --document workflow.md --report experiments/generation-v001/17-stage-review/evidence-check.json --write",
+  "provenance_check": "provenance-check.json",
+  "hash_failure_resolution": "Scene, GLB and analysis mesh match original verification hashes. Render-report differs only in a proven description correction and its note; reverting those two fields reconstructs the exact historical SHA256. No geometry, camera, numeric or material-report field changed."
+}

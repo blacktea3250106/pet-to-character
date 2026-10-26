@@ -1,0 +1,401 @@
+{
+  "baseline": {
+    "variant": "baseline",
+    "source_file": "13-dorsal/color-v002/cat.glb",
+    "source_sha256": "c24aaef29901a18e66dc6f7888562dd4e0be97857e1a6ae68c9e6afa67a67ada",
+    "service_output_sha256": "639c0459ca9fe2a0a9df6884683a7dfe2f5d391d0533fb5e95345e315c0e24b7",
+    "stats": {
+      "vertices": 2538,
+      "polygons": 5072,
+      "triangles": 5072,
+      "triangle_count_method": "evaluated mesh loop triangles, not polygon count",
+      "welded_vertices": 2538,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "low_height_components": [
+        {
+          "height": 0.05,
+          "count": 4,
+          "groups": [
+            {
+              "n": 169,
+              "center": [
+                0.18251446577218863,
+                -0.08186003096269433,
+                0.01852523554226703
+              ]
+            },
+            {
+              "n": 171,
+              "center": [
+                -0.12338813708016746,
+                -0.09926966081062953,
+                0.01933910724385614
+              ]
+            },
+            {
+              "n": 173,
+              "center": [
+                0.240989187118635,
+                0.05129162621592855,
+                0.016630369924934784
+              ]
+            },
+            {
+              "n": 160,
+              "center": [
+                -0.10109869092702865,
+                0.10714720035903155,
+                0.019254827391705476
+              ]
+            }
+          ]
+        },
+        {
+          "height": 0.08,
+          "count": 4,
+          "groups": [
+            {
+              "n": 215,
+              "center": [
+                -0.12803052383106808,
+                -0.09768054620471112,
+                0.02887342995422524
+              ]
+            },
+            {
+              "n": 194,
+              "center": [
+                0.17818659021682345,
+                -0.08023389601676735,
+                0.024506510465799533
+              ]
+            },
+            {
+              "n": 192,
+              "center": [
+                0.23718476380842426,
+                0.052132261771475896,
+                0.021520101011750132
+              ]
+            },
+            {
+              "n": 196,
+              "center": [
+                -0.1067650028105293,
+                0.10631349344490743,
+                0.02786557726818612
+              ]
+            }
+          ]
+        },
+        {
+          "height": 0.11,
+          "count": 4,
+          "groups": [
+            {
+              "n": 257,
+              "center": [
+                -0.12977958357519676,
+                -0.0968777676355746,
+                0.03973605626186624
+              ]
+            },
+            {
+              "n": 218,
+              "center": [
+                0.17370762190687547,
+                -0.07893701490664154,
+                0.032632555923672445
+              ]
+            },
+            {
+              "n": 216,
+              "center": [
+                0.2315965163073054,
+                0.053314345345521964,
+                0.029752331244742015
+              ]
+            },
+            {
+              "n": 238,
+              "center": [
+                -0.11064558635864939,
+                0.1053994583482502,
+                0.04011982942915702
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "glb": {
+      "triangles": 5072,
+      "mesh_count": 1,
+      "skins": 0,
+      "animations": 0,
+      "materials": [
+        {
+          "doubleSided": true,
+          "extensions": {
+            "KHR_materials_specular": {
+              "specularFactor": 0.30000001192092896
+            }
+          },
+          "name": "tripo_material_<redacted-id>",
+          "pbrMetallicRoughness": {
+            "baseColorTexture": {
+              "index": 0
+            },
+            "metallicFactor": 0,
+            "metallicRoughnessTexture": {
+              "index": 1
+            }
+          }
+        }
+      ],
+      "image_count": 2
+    },
+    "bounds_m": [
+      [
+        -0.32499998807907104,
+        -0.1447489708662033,
+        0.0
+      ],
+      [
+        0.32499998807907104,
+        0.1447489708662033,
+        0.41993486881256104
+      ]
+    ],
+    "smooth_polygon_count": 0,
+    "manual_processing_regions": [],
+    "local_geometry_edits": false,
+    "local_material_edits": false,
+    "local_texture_edits": false,
+    "automatic_alignment_applied": false,
+    "views": [
+      [
+        "hero",
+        -69,
+        10,
+        [
+          0,
+          0,
+          0.2
+        ],
+        0.79
+      ],
+      [
+        "face",
+        -69,
+        9,
+        [
+          0.23,
+          0,
+          0.31
+        ],
+        0.28
+      ],
+      [
+        "opposite",
+        110,
+        10,
+        [
+          0,
+          0,
+          0.2
+        ],
+        0.79
+      ],
+      [
+        "back-high",
+        110,
+        48,
+        [
+          0,
+          0,
+          0.2
+        ],
+        0.79
+      ]
+    ],
+    "identity_or_art_pass": false,
+    "animation_compatibility": "not_tested",
+    "new_cat_automation_proven": false
+  },
+  "candidate": {
+    "variant": "candidate",
+    "source_file": "13-dorsal/color-v002/cat.glb",
+    "source_sha256": "c24aaef29901a18e66dc6f7888562dd4e0be97857e1a6ae68c9e6afa67a67ada",
+    "service_output_sha256": "639c0459ca9fe2a0a9df6884683a7dfe2f5d391d0533fb5e95345e315c0e24b7",
+    "stats": {
+      "vertices": 5225,
+      "polygons": 4422,
+      "triangles": 4422,
+      "triangle_count_method": "evaluated mesh loop triangles, not polygon count",
+      "welded_vertices": 2213,
+      "boundary_edges": 11,
+      "nonmanifold_edges": 14,
+      "low_height_components": [
+        {
+          "height": 0.05,
+          "count": 1,
+          "groups": [
+            {
+              "n": 1450,
+              "center": [
+                0.034835009081610316,
+                0.0016762261760645898,
+                -0.16217828347765167
+              ]
+            }
+          ]
+        },
+        {
+          "height": 0.08,
+          "count": 2,
+          "groups": [
+            {
+              "n": 1519,
+              "center": [
+                0.0355774025096165,
+                0.0021650093884119635,
+                -0.15186566910985427
+              ]
+            },
+            {
+              "n": 11,
+              "center": [
+                0.3991282744841142,
+                -0.14881693775003607,
+                0.0755203745581887
+              ]
+            }
+          ]
+        },
+        {
+          "height": 0.11,
+          "count": 1,
+          "groups": [
+            {
+              "n": 1640,
+              "center": [
+                0.04535105733609781,
+                -0.0010787077066374989,
+                -0.1338193870535711
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "glb": {
+      "triangles": 4422,
+      "mesh_count": 1,
+      "skins": 0,
+      "animations": 0,
+      "materials": [
+        {
+          "doubleSided": true,
+          "name": "Cat_material",
+          "normalTexture": {
+            "index": 0
+          },
+          "pbrMetallicRoughness": {
+            "baseColorTexture": {
+              "index": 1
+            },
+            "metallicRoughnessTexture": {
+              "index": 2
+            }
+          }
+        }
+      ],
+      "image_count": 3
+    },
+    "bounds_m": [
+      [
+        -0.5,
+        -0.2240704596042633,
+        -0.3238747715950012
+      ],
+      [
+        0.5,
+        0.2221134901046753,
+        0.3219178318977356
+      ]
+    ],
+    "smooth_polygon_count": 4422,
+    "manual_processing_regions": [],
+    "local_geometry_edits": false,
+    "local_material_edits": false,
+    "local_texture_edits": false,
+    "automatic_alignment_applied": false,
+    "views": [
+      [
+        "hero",
+        -69,
+        10,
+        [
+          0,
+          0,
+          0.2
+        ],
+        0.79
+      ],
+      [
+        "face",
+        -69,
+        9,
+        [
+          0.23,
+          0,
+          0.31
+        ],
+        0.28
+      ],
+      [
+        "opposite",
+        110,
+        10,
+        [
+          0,
+          0,
+          0.2
+        ],
+        0.79
+      ],
+      [
+        "back-high",
+        110,
+        48,
+        [
+          0,
+          0,
+          0.2
+        ],
+        0.79
+      ]
+    ],
+    "identity_or_art_pass": false,
+    "animation_compatibility": "not_tested",
+    "new_cat_automation_proven": false,
+    "sampled_surface_distance": {
+      "source_to_candidate": {
+        "max_m": 0.1762794852256775,
+        "p95_m": 0.13396934345364567,
+        "mean_m": 0.06273263458958346,
+        "samples": 7610
+      },
+      "candidate_to_source": {
+        "max_m": 0.3537786602973938,
+        "p95_m": 0.32848337590694426,
+        "mean_m": 0.16686750380263177,
+        "samples": 9647
+      },
+      "scope": "Unaligned world-space vertices and triangle centroids only; not continuous Hausdorff maximum or deformation validation"
+    },
+    "budget_pass": false
+  }
+}

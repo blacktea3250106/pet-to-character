@@ -1,0 +1,45 @@
+{
+  "status": "art_candidate_not_adopted",
+  "tool": "built-in image_gen",
+  "imagegen_calls": 2,
+  "tested_inputs": [
+    "cat.png 原型衍生單張趴姿",
+    "原房間副本固定全景與近景"
+  ],
+  "observations": [
+    "切面數量視覺上減少、局部細碎感減低",
+    "黑白橘反差仍大，全景仍有貼紙感",
+    "花色大方向保留，但臉與花色邊界、輪廓發生重畫",
+    "v001 放大接近畫布邊；v002 修正仍失敗，且尺寸1447x1087不同於1448x1086",
+    "固定 pivot 下 B 腳掌部分低於地面，不能視為公平的純美術因素對照"
+  ],
+  "validation": {
+    "baseline_replay_pixel_delta": 0,
+    "recorded_engine_change_only": "texture",
+    "art_and_identity_registration_pass": false,
+    "production_ready": false
+  },
+  "decision": "A 保持基準；B 僅作美術候選。达到一候選加一次修正上限，停止生成。",
+  "automation": {
+    "removed_manual_work": "本次未需手工重畫每個切面；尚未證明移除逐貓生產人工",
+    "new_manual_anatomical_points": 0,
+    "inherited_manual_pivot": true,
+    "human_review_required": true,
+    "new_cat_automation_proven": false
+  },
+  "unverified": [
+    "其他真實貓",
+    "四方向與動畫一致性",
+    "精確貼地與視角融合"
+  ],
+  "evidence": [
+    "evidence/comparison.png",
+    "evidence/overview-B.png",
+    "ab-check.json",
+    "asset-check.json"
+  ],
+  "prompt_files": [
+    "prompt-v001.txt",
+    "prompt-v002.txt"
+  ]
+}

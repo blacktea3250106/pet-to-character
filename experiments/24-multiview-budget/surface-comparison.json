@@ -1,0 +1,75 @@
+{
+  "source_sha256": "dfdaa1a27ad99495b8ef243c7686424c8a7f6c1be18c0b85e4dba206c247b791",
+  "candidate_sha256": "798df81b9cfda049cfa684037bb7362e900f591dadb7d9b82f683dde0b4ccc34",
+  "source_triangles": 5356,
+  "candidate_triangles": 3500,
+  "source_bounds": [
+    [
+      -0.4980430603027344,
+      -0.2612524628639221,
+      -0.4178082346916199
+    ],
+    [
+      0.5,
+      0.2612524628639221,
+      0.41389429569244385
+    ]
+  ],
+  "candidate_bounds": [
+    [
+      -0.4999999701976776,
+      -0.2617647051811218,
+      -0.4166666269302368
+    ],
+    [
+      0.5,
+      0.2629172205924988,
+      0.4166666567325592
+    ]
+  ],
+  "uniform_alignment": {
+    "scale": 0.9980430603027344,
+    "source_center": [
+      0.0009784698486328125,
+      0.0,
+      -0.0019569694995880127
+    ],
+    "candidate_center": [
+      1.4901161193847656e-08,
+      0.0005762577056884766,
+      1.4901161193847656e-08
+    ],
+    "rotation_applied": false,
+    "per_axis_deformation": false
+  },
+  "sampled_surface_distance": {
+    "source_to_candidate": {
+      "count": 11271,
+      "max_source_units": 0.003357312874868512,
+      "p95_source_units": 0.001358209177851677,
+      "mean_source_units": 0.0005197495367667101,
+      "max_extent_ratio": 0.0033638958161285597,
+      "p95_extent_ratio": 0.0013608723229233156
+    },
+    "candidate_to_source": {
+      "count": 7878,
+      "max_source_units": 0.002580408938229084,
+      "p95_source_units": 0.001346711709629744,
+      "mean_source_units": 0.0004982994007820557,
+      "max_extent_ratio": 0.0025854685442593768,
+      "p95_extent_ratio": 0.001349352310732213
+    }
+  },
+  "distance_scope": "World-space vertices and triangle centroids after uniform bbox alignment; source GLB units are not true pet measurements; not continuous Hausdorff distance or anatomical proof",
+  "uv_surface_correspondence": {
+    "samples": 10500,
+    "p50": 0.0005897556802924672,
+    "p95": 0.005146096796161514,
+    "max": 1.156475460591018,
+    "fraction_within_one_2048_texel": 0.4297142857142857,
+    "scope": "Nearest-source-surface interpolation at three interior samples per target triangle; UV chart ambiguity may occur near seams. Not a whole-surface identity score."
+  },
+  "source_extent": 0.9980430603027344,
+  "geometry_review_trigger_pass": true,
+  "asset_accepted": false
+}

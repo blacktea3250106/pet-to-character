@@ -1,0 +1,20 @@
+{
+  "timing": "before_execution",
+  "recorded_at": "2026-10-01T02:37:39.380990+08:00",
+  "purpose": "修正新增陰影使用線性色彩在橘色地毯上使G/B通道變亮的共同混合問題；陰影應壓暗受體。",
+  "scope": "唯一一次共用陰影參數修正，color [0.16,0.105,0.065]→[0,0,0]；不改輪廓、寬度、強度或貓圖。",
+  "automation": "共用黑色alpha混合，適用任意底色；不新增手工mask/個體點位。",
+  "manual_dependencies": [
+    "辨識顏色混合不應提亮地面的缺陷",
+    "既有pivot及外觀審查依賴仍保留"
+  ],
+  "case_necessity": "圖像差異量測證明初版近景changed pixels平均RGB[-7.71,+3.55,+7.18]，不應當成純接觸暗化。",
+  "validation": [
+    "新增陰影改變區域RGB不提亮(容許量化1級)",
+    "A保持逐像素基準一致",
+    "近景/全景/床前對照",
+    "檢查過黑描邊及地面高度交界限制"
+  ],
+  "stop_condition": "修正後保存A/B與結論，不再調強度寬度或補手工遮罩。",
+  "new_cat_automation_proven": false
+}

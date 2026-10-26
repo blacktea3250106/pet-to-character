@@ -1,0 +1,18 @@
+{
+  "environment": {
+    "python": "3.14",
+    "numpy": "2.5.3",
+    "pillow": "12.3.0",
+    "scipy": "1.18.1",
+    "opencv_python_headless": "5.0.0.93",
+    "blender": "5.2.1 LTS"
+  },
+  "processing": "uv run --python 3.14 --with numpy==2.5.3 --with pillow==12.3.0 --with scipy==1.18.1 --with opencv-python-headless==5.0.0.93 python experiments/generation-v001/adaptive_facet_color.py <PROFILE_WITH_FRESH_OUTPUT_DIRECTORY>",
+  "rendering": "blender --background --threads 4 --python-exit-code 1 --python experiments/generation-v001/review_generated_model.py -- <CANDIDATE_GLB> <FRESH_PREVIEW_DIRECTORY> --views -45 45 --skip-diagnostics",
+  "detail_script": "render_detail.py",
+  "comparison_script": "make_comparisons.py",
+  "detail_reproduction_note": "detail-v001 已存在，腳本拒絕覆寫。若重跑，複製腳本並將 cases/output 指向新目錄；它只調攝影機。",
+  "source_hash_bound": true,
+  "paid_calls_required": false,
+  "asset_source_overwritten": false
+}

@@ -1,0 +1,15 @@
+{
+  "approved_for_poc_submission": true,
+  "visible_paws": 4,
+  "face_identity": "orange right cheek, black left cheek, pink nose-tip patch and white bib retained by visual review",
+  "native_size": [
+    1536,
+    1024
+  ],
+  "inferred": [
+    "standing proportions",
+    "hidden-side markings",
+    "tail curl"
+  ],
+  "route_change": "single-view fallback after multi-view model generated extra hindlimb; not a controlled superiority test"
+}

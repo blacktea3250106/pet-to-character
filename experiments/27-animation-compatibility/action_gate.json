@@ -1,0 +1,46 @@
+{
+  "timing": "before_execution",
+  "authorization": "使用者要求從動畫穿模／自動化與外觀風格中選效益較高路線，並表示目前版本已滿意；本輪選動畫相容性。",
+  "purpose": "在保留目前照片身份、外觀與 3500 面下，實際測試 Low Poly Animated Cats 動作能否適配生成貓，量測穿地、自我相交及蒙皮拉扯，找出可自動化與仍未可靠的部分。",
+  "source_asset": "../../texture-transfer-v001/source/SKM_Cat_Domestic_Shorthair.fbx",
+  "target_asset": "../25-appearance-diagnostic/matte-candidate/cat.glb",
+  "target_choice": "沿用未被 26 實驗覆寫的 25 基準。26 A/B 已因改善不足拒絕；它們與 25 幾何完全相同，動畫結論不依賴這些底色變化。",
+  "scope": "背景 Blender 工作副本；購買原始資產、catworld 與輸入模型唯讀。僅建立對應、骨架、權重及動畫，不藉機改外觀或增加面數。",
+  "automation_method": "先盤點來源骨架／動作、標準化朝向、以來源骨骼語義和生成網格幾何推導部位；建立自動尺度對齊＋最近表面權重轉移基準。基準失敗後最多一種按部位對應的修正，不逐頂點手修。",
+  "fixed_template_setup": "來源骨骼名称、階層與部位語義可做一次性母版設定；不是每隻貓重標。",
+  "per_cat_inputs": "生成 GLB 的幾何、UV／材質、標準朝向與自動取得的身體特徵。來源之外的人工特徵點或權重修補不冒充自動化。",
+  "manual_dependencies": [
+    "來源骨架語義盤點",
+    "關節位置／動畫與接觸的多視角視覺審查"
+  ],
+  "case_necessity": "先用目前一隻三花驗證完全不同網格與姿勢的實際失敗模式。單例成功不等於未知貓支援範圍。",
+  "core_actions": [
+    "Idle",
+    "Walk",
+    "Idle_to_Sit",
+    "Sitting",
+    "Sitting_to_Idle"
+  ],
+  "validation": [
+    "來源與生成資產 hash 保持不變",
+    "來源母版與目標各自評估，不把來源原有接觸當轉移新錯誤",
+    "實际每幀蒙皮後幾何，檢查低於地面、非相鄰表面相交與邊／三角面塌陷",
+    "源/目標動作與實際渲染分開標示",
+    "固定 3500 面及 UV／底色保留",
+    "匯出 skin 和動作後實際回讀，檢查權重截斷和形變",
+    "原地走路與世界位移分開；尚無支撐期／根移動時不把腳部移動率冒充滑步分數"
+  ],
+  "stop_condition": "基準加最多一種通用修正。無法可靠定位時保留失敗並拒絕自動放行；不無限手修／重生，不使用逐貓硬寫節點座標。",
+  "new_cat_automation_proven": false,
+  "unity_validation": "本輪先確立真實蒙皮與動畫證據；沒有實際 Unity 匯入／播放時，不宣稱 Unity 通過。",
+  "original_proposed_core_actions": [
+    "Idle",
+    "Walk",
+    "Idle_to_Sit",
+    "Sitting",
+    "Sitting_to_Idle",
+    "Sitting_to_Sleep",
+    "Sleeping"
+  ],
+  "scope_confirmation": "使用者明確選擇推薦的三種行為與坐下/起立轉場，共五段；睡覺及其餘動作不納入本輪。"
+}

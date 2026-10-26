@@ -1,0 +1,203 @@
+{
+  "assets": [
+    {
+      "source": "experiments/generation-v001/23-multiview-3500/native-v001/model_url.glb",
+      "source_sha256": "dfdaa1a27ad99495b8ef243c7686424c8a7f6c1be18c0b85e4dba206c247b791",
+      "triangles": 5356,
+      "render_vertices": 5915,
+      "exact_unique_positions": 2680,
+      "adjacency_method": "Exact equality of stored positions; no geometry welding or tolerance-based edits",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "shared_edges": 8034,
+      "corner_normal_dot_face_normal": {
+        "p0": -0.24763038656217629,
+        "p10": 0.8796364884371906,
+        "p25": 0.9418903227976445,
+        "p50": 0.974117854288485,
+        "p75": 0.9893523410729997,
+        "p90": 0.9960809437588536,
+        "p95": 0.9980809121634688,
+        "p100": 1.0
+      },
+      "fraction_corners_matching_flat_normal_within_1e_5": 0.0003734129947722181,
+      "adjacent_face_angle_degrees": {
+        "p0": 0.0,
+        "p10": 2.525036518582657,
+        "p25": 6.28398025786928,
+        "p50": 13.03449595253311,
+        "p75": 21.95188344371344,
+        "p90": 33.28899871501057,
+        "p95": 42.12811313358873,
+        "p100": 142.69639886207395
+      },
+      "angle_fraction_below_degrees": {
+        "1": 0.043315907393577296,
+        "5": 0.19529499626587005,
+        "10": 0.39108787652476973,
+        "20": 0.7061239731142643,
+        "30": 0.8719193427931292
+      },
+      "edge_length_weighted_angle_fraction_below_degrees": {
+        "1": 0.04774977325028124,
+        "5": 0.21015007200408353,
+        "10": 0.4178665121753883,
+        "20": 0.7363674455810287,
+        "30": 0.8961704879188604
+      },
+      "face_area_relative_to_median": {
+        "p0": 0.03972757946756274,
+        "p10": 0.3817158845608002,
+        "p25": 0.6609978651675217,
+        "p50": 1.0,
+        "p75": 1.3746166283369659,
+        "p90": 1.844878155766909,
+        "p95": 2.2772969097335443,
+        "p100": 6.61067783882848
+      },
+      "texture_size": [
+        2048,
+        2048
+      ],
+      "samples_per_triangle": 55,
+      "texture_coordinate_origin": "glTF upper-left, matching decoded image rows",
+      "max_within_face_channel_range_255": {
+        "p0": 7.105427357601002e-15,
+        "p10": 3.1170744617655437,
+        "p25": 5.921632896961825,
+        "p50": 27.35585399264425,
+        "p75": 80.1454196760082,
+        "p90": 121.51870799429258,
+        "p95": 141.29602976749698,
+        "p100": 226.3936170785402
+      },
+      "fraction_faces_with_channel_range_above": {
+        "5": 0.7834204630321135,
+        "20": 0.5408887229275579,
+        "50": 0.3805078416728902,
+        "100": 0.17270351008215085
+      },
+      "surface_area_fraction_with_channel_range_above": {
+        "5": 0.8005029070698764,
+        "20": 0.5864670048418703,
+        "50": 0.426106504728534,
+        "100": 0.1900752849747678
+      },
+      "adjacent_face_median_color_rgb_rms_255": {
+        "p0": 0.0,
+        "p10": 0.38100363126036546,
+        "p25": 1.0596855814734705,
+        "p50": 4.262387509493944,
+        "p75": 19.961901671473104,
+        "p90": 47.78533202553257,
+        "p95": 66.62572272714445,
+        "p100": 181.8640292517656
+      },
+      "fraction_edges_angle_below_10_and_color_rms_below_5": 0.20575056011949217,
+      "source_file_unchanged": true,
+      "scope": "Global geometric distributions and 55 fixed interior texture samples per face. No semantic body regions, no light-dependent visibility prediction, no full-texel extrema, no identity/art/animation score. High within-face variation may be legitimate coat boundaries or eyes.",
+      "quality_acceptance": false
+    },
+    {
+      "source": "experiments/generation-v001/25-appearance-diagnostic/matte-candidate/cat.glb",
+      "source_sha256": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+      "triangles": 3500,
+      "render_vertices": 10498,
+      "exact_unique_positions": 1752,
+      "adjacency_method": "Exact equality of stored positions; no geometry welding or tolerance-based edits",
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "shared_edges": 5250,
+      "corner_normal_dot_face_normal": {
+        "p0": 0.999999996415016,
+        "p10": 0.9999999983363015,
+        "p25": 0.9999999987743357,
+        "p50": 0.9999999992918716,
+        "p75": 0.9999999996752335,
+        "p90": 0.9999999998767032,
+        "p95": 0.9999999999494357,
+        "p100": 1.0
+      },
+      "fraction_corners_matching_flat_normal_within_1e_5": 1.0,
+      "adjacent_face_angle_degrees": {
+        "p0": 3.340645104108921e-05,
+        "p10": 3.7726660354709183,
+        "p25": 8.840087269170272,
+        "p50": 16.439854918378295,
+        "p75": 26.178368902949416,
+        "p90": 38.15505252647306,
+        "p95": 49.453923849113956,
+        "p100": 145.1390263369381
+      },
+      "angle_fraction_below_degrees": {
+        "1": 0.024761904761904763,
+        "5": 0.13276190476190478,
+        "10": 0.29123809523809524,
+        "20": 0.6064761904761905,
+        "30": 0.8184761904761905
+      },
+      "edge_length_weighted_angle_fraction_below_degrees": {
+        "1": 0.029497935404933423,
+        "5": 0.15263899575311146,
+        "10": 0.3278061421368372,
+        "20": 0.6603826262153814,
+        "30": 0.8622504580115903
+      },
+      "face_area_relative_to_median": {
+        "p0": 0.02676341320220739,
+        "p10": 0.3431835167968729,
+        "p25": 0.6026463109425961,
+        "p50": 1.0,
+        "p75": 1.5466907529413136,
+        "p90": 2.2650194655127347,
+        "p95": 2.8092445499573087,
+        "p100": 9.798490996708006
+      },
+      "texture_size": [
+        2048,
+        2048
+      ],
+      "samples_per_triangle": 55,
+      "texture_coordinate_origin": "glTF upper-left, matching decoded image rows",
+      "max_within_face_channel_range_255": {
+        "p0": 0.0,
+        "p10": 3.0000000000000284,
+        "p25": 8.535972428332109,
+        "p50": 39.98360055251497,
+        "p75": 94.44890837214311,
+        "p90": 135.13449689221676,
+        "p95": 154.8588754389961,
+        "p100": 231.80612202311696
+      },
+      "fraction_faces_with_channel_range_above": {
+        "5": 0.8391428571428572,
+        "20": 0.6082857142857143,
+        "50": 0.4437142857142857,
+        "100": 0.22885714285714287
+      },
+      "surface_area_fraction_with_channel_range_above": {
+        "5": 0.8571722765956593,
+        "20": 0.6576205378744728,
+        "50": 0.5014625642028984,
+        "100": 0.2690034680755641
+      },
+      "adjacent_face_median_color_rgb_rms_255": {
+        "p0": 0.0,
+        "p10": 0.5066389127974638,
+        "p25": 1.2909944487358,
+        "p50": 5.616724840497192,
+        "p75": 24.72446101793132,
+        "p90": 56.006104773331586,
+        "p95": 74.16429830989507,
+        "p100": 180.99499952776685
+      },
+      "fraction_edges_angle_below_10_and_color_rms_below_5": 0.13447619047619047,
+      "source_file_unchanged": true,
+      "scope": "Global geometric distributions and 55 fixed interior texture samples per face. No semantic body regions, no light-dependent visibility prediction, no full-texel extrema, no identity/art/animation score. High within-face variation may be legitimate coat boundaries or eyes.",
+      "quality_acceptance": false
+    }
+  ],
+  "sampler_orientation_fixture": "Passed 2x2 red/green/blue/white pixel centers in glTF upper-left coordinates",
+  "comparison_limit": "cat.png is a 2D AI image; its actual mesh topology is unknown. These numbers cannot establish an exact target or prove stylistic similarity.",
+  "analysis_only": true
+}

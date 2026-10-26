@@ -1,0 +1,12 @@
+{
+  "timing": "before_execution",
+  "purpose": "以多照片約束的新完整站姿四視圖，實測 Tripo 原生 3500 面建模是否改善身份及解剖，推進實際 3D 成果。",
+  "scope": "配置化多視角建模、可續查任務、GLB 面數與自動包圍盒取景；不套用旧模型手工修色或座標。",
+  "automation_method": "讀取四視圖選擇、核准 hash 與共用 Tripo profile；檢查輸入未變後提交一次。下載後讀 GLB 實際三角面數，Blender 自動取景產出原材質與灰模多視角。",
+  "remaining_manual_inputs": ["上游照片／身份／參考圖審查", "解剖、cat.png 美術和花色的目視判斷"],
+  "case_necessity": "前次原生多視圖只有一張身份來源而猜錯臉斑；此次多照片參考已排除明確左右臉錯誤，測試是否能保留到真實網格。",
+  "validation": ["服務確實收到 face_limit=3500, smart_low_poly=true, quad=false", "GLB 實際三角面數", "全身原材質／灰模角度檢查四腿、耳、尾與異常凸起", "左右臉、黑肩、白胸與腿襪是否保留", "骨架和動畫現況獨立記錄"],
+  "stop_condition": "至多一個 40 credits 預估的 3D 任務；未知 POST 不重送。原生面數不合格就記錄，不自動本地減面。出現明確多腿、缺腿、花色或形狀錯誤不在本輪新增手工點位硬修。",
+  "decision": "one_native_multiview_3500_generation_then_actual_asset_qa",
+  "new_cat_automation_proven": false
+}

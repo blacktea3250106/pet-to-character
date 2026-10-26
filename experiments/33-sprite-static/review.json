@@ -1,0 +1,135 @@
+{
+  "stage": "S00-S01",
+  "status": "static_candidate_with_partial_acceptance",
+  "completed_at": "2026-10-01T02:08:31.801544+08:00",
+  "decision": "保留單張2D房間候選作視覺審查；不宣稱完整S01品質或新貓自動化通過，本輪不推進S02動畫素材。",
+  "input": "../../../cat.png",
+  "tested_real_cat_count": 0,
+  "tested_AI_prototype_count": 1,
+  "output_kind": "AI-generated transparent cutout displayed by Sprite3D in an actual Godot-rendered 3D room; not a 3D cat mesh",
+  "scope_note": "No animation, click-to-move, physics collision or navigation implemented; keys 1-5 switch static test locations and mouse wheel zooms.",
+  "accepted_local_checks": {
+    "true_RGBA_transparency": true,
+    "unclipped_alpha128_silhouette": true,
+    "one_main_alpha128_component": true,
+    "actual_engine_loading": true,
+    "no_cat_mesh_or_skeleton": true,
+    "fixed_orthographic_overview_and_closeup": true,
+    "separate_shadow_effect_observed": true,
+    "furniture_edge_depth_effect_observed": true,
+    "major_visible_character_features": "目視仍有不對稱黑橘臉斑、黃綠眼、白胸/白腳、翹尾與趴姿；不是像素一致性或真實照片身份分數。"
+  },
+  "not_passed_or_not_validated": {
+    "pixel_exact_extraction": "ImageGen重新生成了部分切面/輪廓細節，不能稱為原圖僅去背的逐像素保留。未花第二次生成追逐微小局部修補。",
+    "fully_automatic_grounding": "使用一組人工檢閱的composition-center/foreground-forepaw-baseline pivot [0.5,0.935]；未實作腳掌/支撐面自動辨識。",
+    "precise_contact": "地毯中央的單例視覺候選成立；平面不具體積，跨地毯/地板邊緣和家具交錯時無逐部位接觸保證。",
+    "camera_and_room_cohesion": "使用31度房間鏡頭；原圖俯角未量測，未從未知3D真值驗證。黑白反差和切面密度仍較房間強。",
+    "lighting": "unshaded保留圖片明暗；未驗證場景陰影落在貓身或走過明暗區的效果。",
+    "animation_and_direction": "本次只有一張趴姿；站姿、四方向、walk/sit/轉場都未生成。",
+    "new_cat_personalization": "未測新真實貓；不宣稱可自動處理新照片。",
+    "performance": "只測M3上Godot4.7.2 Mobile/Metal正常畫面；未做記憶體/行動裝置/多貓效能驗收。"
+  },
+  "rejected_or_limited_evidence": [
+    {
+      "evidence": "evidence-v001/04-bed-behind-depth-on.png",
+      "finding": "原貓窩床位靠牆與窗台，三者同時截角色，不能當純床邊遮擋驗收。保留失敗。"
+    },
+    {
+      "evidence": "evidence/04-bed-behind-depth-on.png",
+      "finding": "移床後後方測試沒有投影重疊，depth toggle差異0，不把它當遮擋證據。改以已安排的床邊同相機對照驗證。"
+    },
+    {
+      "evidence": "verify-initial-parse-error.log",
+      "finding": "診斷腳本首次型別推論解析錯誤，修正宣告後重跑通過；非美術失敗。"
+    }
+  ],
+  "render_ablation_measurements": {
+    "shadow": {
+      "changed_pixels_gt2": 16760,
+      "max_channel_difference": 12,
+      "difference_bbox": [
+        480,
+        520,
+        789,
+        600
+      ],
+      "files": [
+        "02-close.png",
+        "02b-close-shadow-off-diagnostic.png"
+      ],
+      "meaning": "Effect of the single rendering toggle, not a perceptual quality or identity score."
+    },
+    "depth_behind_no_projected_overlap": {
+      "changed_pixels_gt2": 0,
+      "max_channel_difference": 0,
+      "difference_bbox": null,
+      "files": [
+        "04-bed-behind-depth-on.png",
+        "05-bed-behind-depth-off-diagnostic.png"
+      ],
+      "meaning": "Effect of the single rendering toggle, not a perceptual quality or identity score."
+    },
+    "depth_bed_edge": {
+      "changed_pixels_gt2": 8303,
+      "max_channel_difference": 248,
+      "difference_bbox": [
+        639,
+        410,
+        720,
+        552
+      ],
+      "files": [
+        "07-bed-edge-depth-on.png",
+        "08-bed-edge-depth-off-diagnostic.png"
+      ],
+      "meaning": "Effect of the single rendering toggle, not a perceptual quality or identity score."
+    }
+  },
+  "manual_inputs": {
+    "per_case_support_pivot_count": 1,
+    "per_case_masks": 0,
+    "per_case_fur_repainting": 0,
+    "shared_specs": [
+      "0.75 world-unit visible width",
+      "independent ellipse shadow",
+      "alpha discard .5",
+      "fixed camera",
+      "room-based test locations"
+    ],
+    "reviews": [
+      "alpha/identity visual review",
+      "scene/contact/occlusion visual review"
+    ],
+    "manual_minutes": null
+  },
+  "manual_work_removed": "本例未製作貓3D模型、UV、骨架、蒙皮或逐點去背遮罩；流程仍依賴人工外觀/支撐基準審查，不代表生產個人化已自動化。",
+  "costs": {
+    "imagegen_calls": 1,
+    "tool_elapsed_seconds": 49.7,
+    "imagegen_cost": "not_exposed",
+    "tripo_calls": 0,
+    "tripo_credits": 0
+  },
+  "artifacts": {
+    "overview": "evidence/01-overview.png",
+    "close": "evidence/02-close.png",
+    "depth_on": "evidence/07-bed-edge-depth-on.png",
+    "depth_off": "evidence/08-bed-edge-depth-off-diagnostic.png",
+    "transparent_asset": "godot/assets/cat-cutout-v001.png",
+    "prompt": "prompt-v001.txt",
+    "launcher": "試看2D貓.command"
+  },
+  "invariants": {
+    "catworld_source_files_checked": 46,
+    "changed_source_files": [],
+    "cat_png_unchanged": true,
+    "readme_unchanged": true,
+    "purchased_assets_not_used_or_modified": true
+  },
+  "action_gates": [
+    "action_gate.json",
+    "layout-correction-action_gate.json"
+  ],
+  "next_step": "先用本候選判斷原圖保留與貼地規格是否足夠；未通過共用接地/俯角規格前不批量產方向或動畫。",
+  "new_cat_automation_proven": false
+}

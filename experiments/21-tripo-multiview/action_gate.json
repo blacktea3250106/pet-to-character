@@ -1,0 +1,12 @@
+{
+  "timing": "before_execution",
+  "purpose": "驗證完整中立站姿能否透過 Tripo 原生 Image to Multiview 自動產生可用的四視圖，推進照片到 3500 面模型主線。",
+  "scope": "通用且配置化的多視图產生、下載及檔案驗證；不包含已驗證的跨視角身份判斷。",
+  "automation_method": "將已核准的站姿基準作唯一影像輸入，呼叫 /generation/image-to-multiview；保留任務 ID、輸入 hash、原始視角命名及輸出。不要人工裁圖或重新標記角度掩蓋錯誤。",
+  "remaining_manual_inputs": ["既有照片選擇與站姿基準驗收", "輸出四視圖的姿勢、花色及左右側人工比較"],
+  "case_necessity": "單張基準看不到對側花色；本測試驗證服務能否保持姿勢，同時揭露無照片約束下的身份推測錯誤，不能把新視角視為真實證據。",
+  "validation": ["4 張獨立視圖與文件宣告的 front/left/back/right 對應", "耳朵、腳掌、尾巴完整且姿勢一致", "同一隻貓比例及不對稱臉斑、白胸、黑肩斑與真實照片相符", "可解碼及尺寸檢查不代替上述視覺驗收"],
+  "stop_condition": "僅一個付費多視圖產生任務，官方預估 10 credits；未知 POST 不自動重送。這次 runner 不提交任何 3D 任務。視角、身份或姿勢不合格就拒絕送多視角建模，不在本實驗無限重生或手繪修補。",
+  "decision": "bounded_native_multiview_poc",
+  "new_cat_automation_proven": false
+}

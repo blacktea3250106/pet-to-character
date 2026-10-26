@@ -1,0 +1,43 @@
+{
+  "status": "major_identity_and_pose_visual_gate_pass_for_single_3d_poc",
+  "artifact_kind": "AI_2D_not_mesh",
+  "selected": {
+    "front": "front-v002.png",
+    "left": "left-v001.png",
+    "back": "back-v001.png",
+    "right": "right-v001.png"
+  },
+  "input_hashes": {
+    "front": "1277db0fb28e3b9fd78973e2ce34103e1f43d73cdda89ba7543ac29f7f661db1",
+    "left": "e47337807be5c8bc4f4bd2ef5ba45d030018f765bdff9cad12c5f2ac803bcf66",
+    "back": "3c3373d488e501ff769a56882b3446ad5c00054803a20241907617042a2e5d95",
+    "right": "6df4054dd6ac875abbbb158dce58a4444bc96eb30cf83ed2cb2529f7ccd64888"
+  },
+  "method": "Manual visual comparison of all four generated views against real photos and cat.png; not camera calibration, not a numerical similarity score",
+  "checks": {
+    "frontal_asymmetric_cheeks": "Right orange, left predominantly black retained",
+    "left_side": "Black cheek under warm brow and broad black shoulder retained; no mirrored orange cheek",
+    "right_side": "Orange cheek, black shoulder, orange/black flank and right leg markings retained",
+    "back": "Head faces forward, black/orange nape and dark-tipped raised tail; no broad white dorsal collar",
+    "pose": "Full body in each view; front corrected to centered head/body, side profiles approximately align head with spine; no obvious added limbs",
+    "cross_view": "Major body proportions and raised curled tail visually compatible; no calibrated proof",
+    "style": "Matte faceted natural feline appearance is adequate for this reconstruction test, with locally fine facets still present"
+  },
+  "limitations": [
+    "Exact coat boundaries and standing proportions inferred",
+    "Rear/underside coat not fully observed in photos",
+    "Side cameras still have mild obliqueness; not exact orthographic matrices",
+    "Potential subtler view inconsistency must be checked on actual 3D",
+    "Final cat.png appearance, UV, eye geometry/material and animation not accepted by this reference review"
+  ],
+  "approved_for_poc_submission": true,
+  "approved_for_production": false,
+  "imagegen_calls": 5,
+  "tripo_calls": 0,
+  "manual_inputs": [
+    "Existing per-cat photo roles and identity descriptions",
+    "One frontal alignment correction",
+    "Human visual QA of reference set"
+  ],
+  "new_cat_automation_proven": false
+}

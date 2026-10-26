@@ -1,0 +1,33 @@
+{
+  "workflow": "Manual semantic regions -> 45 samples/triangle -> label vote -> CORNER colors -> flat shading. No image texture or new AI generation.",
+  "vertices": 1078,
+  "original_polygons": 1190,
+  "triangles": 2144,
+  "triangulation": "Original quads expanded into their existing render triangles; no added/moved vertices.",
+  "rendered_surface_uv_weights_bones_sha256_before": "04c9e6fb144c3fc16cd05fcbc6f1c47999a10cd82ffa7012e10b72835d2b7b6d",
+  "rendered_surface_uv_weights_bones_sha256_after": "04c9e6fb144c3fc16cd05fcbc6f1c47999a10cd82ffa7012e10b72835d2b7b6d",
+  "animation_keyframes_sha256_before": "51c50c0d6d98bc1aed010a710c10cee45fa49936bd3e9c741969c61fee98a8d2",
+  "animation_keyframes_sha256_after": "51c50c0d6d98bc1aed010a710c10cee45fa49936bd3e9c741969c61fee98a8d2",
+  "animations_retained": 23,
+  "all_faces_constant_color": true,
+  "material_image_texture_nodes": 0,
+  "labels": {
+    "white": 1026,
+    "orange": 315,
+    "black": 591,
+    "inner_ear": 20,
+    "nose": 4,
+    "mouth": 28,
+    "iris": 148,
+    "pupil": 12
+  },
+  "triangles_crossing_authored_color_boundaries": 597,
+  "sample_vote_agreement_is_not_identity_accuracy": true,
+  "limits": [
+    "Manual authored masks are approximate; this is not an accuracy upper bound.",
+    "Strict face colors constrain boundary detail, especially eyes and face.",
+    "No automatic photo segmentation, LAB clustering or landmark detection has been implemented.",
+    "Rest-pose visual experiment only; GLB has no animation clips; Blender retains original actions.",
+    "No new evidence for hidden coat regions."
+  ]
+}

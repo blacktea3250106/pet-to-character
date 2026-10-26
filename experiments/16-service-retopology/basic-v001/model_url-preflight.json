@@ -1,0 +1,35 @@
+{
+  "file": "experiments/generation-v001/16-service-retopology/basic-v001/model_url.glb",
+  "sha256": "2a0f522cf818e1003a2cb46f10a8f58777da1acf88d246ce5a7c889f1af183c9",
+  "bytes": 774396,
+  "scene_index": 0,
+  "mesh_triangle_counts": [
+    3500
+  ],
+  "active_mesh_instances": [
+    {
+      "node": 0,
+      "mesh": 0,
+      "triangles": 3500
+    }
+  ],
+  "active_scene_triangles": 3500,
+  "unique_mesh_triangles": 3500,
+  "unsupported_primitives": [],
+  "triangle_limit": 3500,
+  "budget_pass": true,
+  "status": "budget_pass",
+  "method": "TRIANGLES accessor count / 3 for each active scene mesh instance; index positions are not decoded here",
+  "skins": 0,
+  "animations": 0,
+  "asset_accepted": false,
+  "not_validated": [
+    "buffer/index integrity beyond JSON metadata",
+    "manifoldness and self-intersections",
+    "anatomy",
+    "photo identity",
+    "cat.png style",
+    "UV fidelity",
+    "skin deformation and source-animation compatibility"
+  ]
+}

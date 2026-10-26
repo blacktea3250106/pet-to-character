@@ -1,0 +1,57 @@
+{
+  "artifact_kind": "actual_skinned_3D_animation_render",
+  "candidate": "weights-v001",
+  "renders": [
+    {
+      "action": "Idle",
+      "frame": 1,
+      "file": "Idle-0001.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 7,
+      "file": "Walk-0007.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 20,
+      "file": "Walk-0020.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 18,
+      "file": "Idle_to_Sit-0018.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 35,
+      "file": "Idle_to_Sit-0035.png"
+    },
+    {
+      "action": "Sitting",
+      "frame": 1,
+      "file": "Sitting-0001.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 18,
+      "file": "Sitting_to_Idle-0018.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 35,
+      "file": "Sitting_to_Idle-0035.png"
+    }
+  ],
+  "fps_source": 30,
+  "frame_step": null,
+  "camera": {
+    "center": [
+      1.4901161193847656e-08,
+      0.0005762577056884766,
+      1.4901161193847656e-08
+    ],
+    "ortho_scale": 1.5859241485595703
+  },
+  "note": "In-place source animation; no foot IK or locomotion root travel imposed."
+}

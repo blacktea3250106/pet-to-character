@@ -1,0 +1,103 @@
+{
+  "source_unchanged": true,
+  "variants": [
+    {
+      "variant": {
+        "id": "delta18",
+        "max_delta_e76": 18.0
+      },
+      "source_sha256": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+      "output_sha256": "a772b9fb39fe76b91c998c5d160a2b1c93290afdeac32951b51747ab89ad32c5",
+      "triangles": 3500,
+      "texture_size": [
+        2048,
+        2048
+      ],
+      "uv_origin": "glTF upper-left; decoded image upper-left",
+      "covered_texels": 2406378,
+      "overlap_texels": 36,
+      "overlap_faces_preserved": 11,
+      "flat_cells_by_depth": [
+        1762,
+        3525,
+        8918
+      ],
+      "preserved_cells": 4580,
+      "flattened_coverage_fraction": 0.8845160652233357,
+      "changed_coverage_fraction": 0.6649346029593023,
+      "max_covered_delta_e76": 17.996479034423828,
+      "mean_covered_delta_e76": 1.8551249504089355,
+      "preserved_pixels_identical": true,
+      "original_binary_prefix_identical": true,
+      "only_image_binding_and_appended_image_buffer_changed": true,
+      "geometry_uv_normals_materials_identical": true,
+      "texture_roundtrip_bytes_identical": true,
+      "processing_regions_legend": {
+        "green": "one color on original face",
+        "orange": "one color on quarter-face",
+        "blue": "one color on sixteenth-face",
+        "magenta": "original source preserved",
+        "black": "outside UV coverage"
+      },
+      "pixel_bound_limit": "Applies to decoded covered texel centers, not filtered mipmap samples, source-photo accuracy or semantic identity.",
+      "eye_detection": "None; bounded color change and high-variation preservation only",
+      "art_pass": false,
+      "identity_pass": false,
+      "animation_pass": false,
+      "new_cat_automation_proven": false,
+      "versions": {
+        "numpy": "2.5.3",
+        "opencv": "5.0.0"
+      }
+    },
+    {
+      "variant": {
+        "id": "delta28",
+        "max_delta_e76": 28.0
+      },
+      "source_sha256": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+      "output_sha256": "67b274007757049bc54f44f105ea4244fec1ff3e7b92f5c5c90e803bf956eb4c",
+      "triangles": 3500,
+      "texture_size": [
+        2048,
+        2048
+      ],
+      "uv_origin": "glTF upper-left; decoded image upper-left",
+      "covered_texels": 2406378,
+      "overlap_texels": 36,
+      "overlap_faces_preserved": 11,
+      "flat_cells_by_depth": [
+        2211,
+        3361,
+        5274
+      ],
+      "preserved_cells": 1696,
+      "flattened_coverage_fraction": 0.9531353760714235,
+      "changed_coverage_fraction": 0.7419565837121184,
+      "max_covered_delta_e76": 27.98956298828125,
+      "mean_covered_delta_e76": 2.983006477355957,
+      "preserved_pixels_identical": true,
+      "original_binary_prefix_identical": true,
+      "only_image_binding_and_appended_image_buffer_changed": true,
+      "geometry_uv_normals_materials_identical": true,
+      "texture_roundtrip_bytes_identical": true,
+      "processing_regions_legend": {
+        "green": "one color on original face",
+        "orange": "one color on quarter-face",
+        "blue": "one color on sixteenth-face",
+        "magenta": "original source preserved",
+        "black": "outside UV coverage"
+      },
+      "pixel_bound_limit": "Applies to decoded covered texel centers, not filtered mipmap samples, source-photo accuracy or semantic identity.",
+      "eye_detection": "None; bounded color change and high-variation preservation only",
+      "art_pass": false,
+      "identity_pass": false,
+      "animation_pass": false,
+      "new_cat_automation_proven": false,
+      "versions": {
+        "numpy": "2.5.3",
+        "opencv": "5.0.0"
+      }
+    }
+  ]
+}

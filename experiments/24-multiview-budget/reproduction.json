@@ -1,0 +1,21 @@
+{
+  "paid_task_resume_only": "uv run --python 3.14 --with requests python experiments/generation-v001/tripo_process.py experiments/generation-v001/24-multiview-budget/config.json",
+  "safety": "Task is terminal/downloaded. Do not delete state or resubmit to reproduce local checks. Use a new local output directory for each comparison.",
+  "commands": {
+    "surface_correspondence": "blender --background --python-exit-code 1 --python experiments/generation-v001/compare_asset_surfaces.py -- experiments/generation-v001/23-multiview-3500/native-v001/model_url.glb experiments/generation-v001/24-multiview-budget/basic-v001/model_url.glb <NEW_OUTPUT>/surface-samples.json",
+    "surface_color": "uv run --python 3.14 --with numpy==2.5.3 --with pillow==12.3.0 python experiments/generation-v001/compare_surface_colors.py experiments/generation-v001/23-multiview-3500/native-v001/model_url.glb experiments/generation-v001/24-multiview-budget/basic-v001/model_url.glb <NEW_OUTPUT>/surface-samples.samples.npz <NEW_OUTPUT>/surface-color.json",
+    "flat_export": "blender --background --python-exit-code 1 --python experiments/generation-v001/export_flat_candidate.py -- experiments/generation-v001/24-multiview-budget/basic-v001/model_url.glb <NEW_OUTPUT>/flat",
+    "preflight": "python3 experiments/generation-v001/glb_preflight.py <NEW_OUTPUT>/flat/cat.glb <NEW_OUTPUT>/flat/preflight.json --triangle-limit 3500",
+    "actual_export_previews": "blender --background --python-exit-code 1 --python experiments/generation-v001/review_generated_model.py -- <NEW_OUTPUT>/flat/cat.glb <NEW_OUTPUT>/preview --views -45 0 45 90 180 270 --skip-diagnostics"
+  },
+  "versions": {
+    "blender": "5.2.1 LTS",
+    "python": "3.14",
+    "numpy": "2.5.3",
+    "pillow": "12.3.0"
+  },
+  "source_sha256": "dfdaa1a27ad99495b8ef243c7686424c8a7f6c1be18c0b85e4dba206c247b791",
+  "service_sha256": "798df81b9cfda049cfa684037bb7362e900f591dadb7d9b82f683dde0b4ccc34",
+  "final_sha256": "e09acc1a792ba078ec32d53183ab816e01cc7dd1c7f6b50548926134371820d1",
+  "limitations": "Technical comparisons are single-case diagnostics. Thresholds are not calibrated identity/art/animation gates."
+}

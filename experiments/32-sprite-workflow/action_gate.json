@@ -1,0 +1,25 @@
+{
+  "timing": "before_execution",
+  "recorded_at": "2026-10-01T01:54:28.040020+08:00",
+  "kind": "workflow_change_only_not_generation_experiment",
+  "authorization": "使用者選擇3D房間＋2D Low Poly角色，以cat.png為原型，最新要求先整理新的workflow.md。",
+  "purpose": "重寫當前流程為2D逐格角色路線，保留外觀身份、cat.png美術與動作要求，分開定義首隻原型及未來照片個人化。",
+  "scope": "共用流程與一次美術/引擎規格；本次不生成圖、不執行動畫或場景整合。",
+  "automation": "文件規劃可重用的素材驗證、打包及執行時控制；各項能力明確標示未實作/未驗證。",
+  "manual_dependencies": [
+    "本次人工整理規格與檢閱文件",
+    "後續風格/身份/步態及場景視覺審查仍需人工；不可宣稱可全自動產出一致動畫"
+  ],
+  "case_necessity": "cat.png首隻原型用於驗證共通2D角色方案；本次僅規劃，不構成跨貓成功證據。",
+  "constraint_change": "使用者最新路線不要求製作貓咪3D模型；3500三角面、UV、3D骨架/蒙皮驗收留在歷史3D支線，不套用2D角色。照片身份與動畫品質要求保留。",
+  "validation": [
+    "保存舊workflow逐位元副本及SHA256",
+    "新文件使用cat.png作首隻原型",
+    "區分2D外觀/3D位置/碰撞/導航",
+    "階段有輸入輸出、人工依賴、驗收及有限停止条件",
+    "所有新流程標示規劃，無新實测成功宣稱",
+    "本地文件連結存在、歷史JSON可解析、readme和catworld不修改"
+  ],
+  "stop_condition": "完成workflow.md與歷史/自動化狀態紀錄即停止；不啟動ImageGen、Tripo、Blender或Godot試跑。",
+  "new_cat_automation_proven": false
+}

@@ -1,0 +1,13 @@
+Use case: stylized-concept
+Create a production 2D animation sprite atlas of the SAME calico cat in the reference cat.png, for an isometric game. Transparent alpha background, no shadows, no text, no grid lines. Low-poly angular flat triangular planes, orange black and ivory patches, narrow gold-green eyes; same adult slender head/ears/proportions and asymmetrical face markings. This cat now STANDS AND WALKS ON ALL FOUR LEGS, never lies down. Consistent identity and coat patches across all frames, no mirrored coat.
+EXACT layout: square 2048x2048 image, 8 columns x 8 rows, each cell 256x256. Exactly 64 separate full-body cats. Every cell has identical scale and centered body root, ground baseline y=224 within cell, at least16px transparent margin all edges including tail. Orthographic camera looking down at31 degrees, no perspective or camera change.
+Each row is ONE heading and never changes heading across that row. Directions are SCREEN directions:
+row1: east RIGHT, side view head to right
+row2: southeast DOWN-RIGHT, front three-quarter
+row3: south DOWN toward camera, frontal
+row4: southwest DOWN-LEFT, front three-quarter
+row5: west LEFT, side view head to left
+row6: northwest UP-LEFT, rear three-quarter
+row7: north UP away from camera, REAR view, face not visible
+row8: northeast UP-RIGHT, rear three-quarter.
+Columns within EVERY row: col1 standing idle four paws planted; cols2 through7 are SIX consecutive evenly timed phases of ONE seamless calm quadruped WALK CYCLE IN PLACE; col8 same standing idle as col1. Animate paws clearly with alternating support and swing, joint bending, weight transfer, gentle tail counterbalance. No running, jumping or trotting. Body/head scale and coat topology stable, only limbs and subtle spine/tail change. Feet move backward on ground during stance and lift and reach forward during swing. End of col7 loops smoothly into col2. Near/far legs alternate, no extra limbs. Root remains stationary in each cell, ground feet aligned to y224. Exact equally spaced cells are essential for game playback. Preserve each direction rather than copying the same view across rows. Output only the transparent atlas.

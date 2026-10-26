@@ -1,0 +1,13 @@
+{
+  "paid_task_resume_only": "uv run --with requests --with pillow python experiments/generation-v001/tripo_generate_views.py experiments/generation-v001/23-multiview-3500/config.json",
+  "source_diagnostics": "blender --background --python-exit-code 1 --python experiments/generation-v001/23-multiview-3500/raw-review/executed-source.py -- experiments/generation-v001/23-multiview-3500/native-v001/model_url.glb <NEW_REVIEW_DIRECTORY>",
+  "flat_export": "blender --background --python-exit-code 1 --python experiments/generation-v001/export_flat_candidate.py -- experiments/generation-v001/23-multiview-3500/native-v001/model_url.glb <NEW_OUTPUT_DIRECTORY>",
+  "safety": "Do not delete task state to retry generation; keep historical outputs and use a new directory for independent local verification.",
+  "versions": {
+    "blender": "5.2.1 LTS",
+    "python_runner": "3.14",
+    "pillow": "12.3.0"
+  },
+  "no_new_paid_task_on_completed_replay_verified": true,
+  "preview_actual_export": "blender --background --python-exit-code 1 --python experiments/generation-v001/review_generated_model.py -- experiments/generation-v001/23-multiview-3500/flat-candidate/cat.glb <NEW_PREVIEW_DIRECTORY> --views -45 45 --skip-diagnostics"
+}

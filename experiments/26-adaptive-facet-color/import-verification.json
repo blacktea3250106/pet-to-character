@@ -1,0 +1,22 @@
+{
+  "variants": [
+    {
+      "variant": "delta18",
+      "triangles": 3500,
+      "same_camera_lights_geometry_material_settings": true,
+      "source_sha256_verified": true,
+      "blender_import_verified": true
+    },
+    {
+      "variant": "delta28",
+      "triangles": 3500,
+      "same_camera_lights_geometry_material_settings": true,
+      "source_sha256_verified": true,
+      "blender_import_verified": true
+    }
+  ],
+  "source_unchanged": true,
+  "limitations": [
+    "This confirms import and comparison controls, not identity, style or animation."
+  ]
+}

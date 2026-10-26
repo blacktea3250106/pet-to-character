@@ -1,0 +1,78 @@
+{
+	"bed_layout": {
+		"isolated_test": [
+			1.60000002384186,
+			0.0,
+			-0.850000023841858
+		],
+		"original": [
+			2.95000004768372,
+			0.0,
+			-1.62999999523163
+		],
+		"reason": "Prevent wall/window-seat occlusion confounding the bed test."
+	},
+	"camera_projection": "orthographic",
+	"camera_view_dir": [
+		-1.05,
+		1.05,
+		1.4
+	],
+	"captures": [
+		{
+			"camera_size": 1.70000004768372,
+			"ground_shadow_visible": true,
+			"name": "07-bed-edge-depth-on",
+			"no_depth_test": false,
+			"test_point": "bed_edge"
+		},
+		{
+			"camera_size": 1.70000004768372,
+			"ground_shadow_visible": true,
+			"name": "08-bed-edge-depth-off-diagnostic",
+			"no_depth_test": true,
+			"test_point": "bed_edge"
+		}
+	],
+	"cat_mesh_present": false,
+	"cat_skeleton_present": false,
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"ground_shadow_separate": true,
+	"pivot_source": "One manually reviewed layout pivot: x is composition center; y is the foreground forepaw contact baseline. This is not automatic semantic support detection and is not claimed valid for other poses/cats.",
+	"scope": "Static pose only; no walking, navigation, collision or new-cat automation acceptance.",
+	"sprite_alpha_cut": 1,
+	"sprite_pixel_size": 0.000551470613572747,
+	"sprite_shaded": false,
+	"test_positions": {
+		"bed_behind": [
+			1.98039984703064,
+			0.0209999997168779,
+			-1.35719990730286
+		],
+		"bed_edge": [
+			1.08879995346069,
+			0.0209999997168779,
+			-1.20840001106262
+		],
+		"bed_front": [
+			1.18359994888306,
+			0.00300000002607703,
+			-0.294800043106079
+		],
+		"rug": [
+			1.60000002384186,
+			0.0209999997168779,
+			-0.850000023841858
+		]
+	}
+}

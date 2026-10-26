@@ -1,0 +1,40 @@
+{
+  "status": "native_multiview_completed_identity_rejected",
+  "artifact_kind": "AI_2D_not_mesh",
+  "task_id": "<redacted-id>",
+  "tripo_calls": 1,
+  "credits_consumed": 10.0,
+  "server_task_seconds": 21.407,
+  "submission_to_download_seconds": 60.49,
+  "time_scope": "下載時間包含輪詢及實際回應與文件不同而暫停修正 adapter；不是端到端生成貓耗時。",
+  "images": ["native-v001/front.jpg", "native-v001/left.jpg", "native-v001/back.jpg", "native-v001/right.jpg"],
+  "source": "20-standing-reference/standing-v002.png",
+  "identity_evidence_not_sent_to_this_endpoint": ["02-identity/features.json", "00-input/photo-03.png", "02-identity/face-evidence.png"],
+  "transport": {
+    "all_four_images_decoded": true,
+    "dimensions_each": [1024, 1024],
+    "actual_format": "JPEG",
+    "documented_container": "output.<view>_view_url",
+    "observed_container": "output.generate_multiview_image.<view>_view_url",
+    "observed_task_type": "image_to_multiview",
+    "task_reuse_documented_source_types": ["generate_multiview_image", "edit_multiview_image"],
+    "task_id_reuse_tested": false,
+    "recovery": "保存第一次執行程式，修正明確欄位包裝後續取同一任務；沒有重新 POST 生成。"
+  },
+  "visual_review": {
+    "method": "人工比較原始輸出、站姿基準、真實 photo-03 及既有身份證據；非自動配準／數值身份分數。",
+    "pose": "四圖均為全身站姿，輪廓與比例大致相近；沒有相機標定或精確四肢一致性驗證。",
+    "view_labels": "服務 front 是接近輸入的斜前方，left 為另一側斜前方，back/right 為兩側斜後方；它們是服務命名，不能直接稱為貓解剖正／側／背的正交視圖。保留命名，不手動裁切或換標。",
+    "identity_failure": "left.jpg 的貓自身左眼下／臉頰被補為大片橘色，和原照及 face_left_black 的黑色臉斑不符。左右臉個體不對稱特徵未保留。",
+    "inferred_regions": ["背後與尾巴底部新出現的白色分布尚無完整照片支持", "站姿腿長與尾巴曲度仍為生成推測"],
+    "art": "保留切面風格，但沒有因此通過 cat.png 整體美術驗收。"
+  },
+  "approved_for_3d_submission": false,
+  "new_3d_tasks": 0,
+  "current_model_changed": false,
+  "automation_gain": "本任務可由一張配置化輸入自動取得四張獨立圖片，無人工裁圖、對點或尺度修補；已驗證僅本例檔案輸送。",
+  "remaining_manual_dependency": ["上游照片選擇與站姿核對", "用原照核對生成多視圖的身份與姿勢"],
+  "generalizable_finding": "單張站姿到多視圖缺少另一側身份約束。生成圖彼此相似不能取代原照身份一致性；此分支不可單獨作為個人化生產流程。",
+  "next_requirement": "多視圖製作須接收每貓的多張原照／身份证據及共同站姿約束；先修正另一側臉斑並重驗各視角，再考慮 multiview-to-model。這是待驗證路線，不在本次無限重生。",
+  "new_cat_automation_proven": false
+}

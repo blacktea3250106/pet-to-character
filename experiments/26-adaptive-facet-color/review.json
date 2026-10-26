@@ -1,0 +1,141 @@
+{
+  "status": "rejected_insufficient_perceptual_style_improvement",
+  "completed_at": "2026-09-30T15:45:29.335703+00:00",
+  "authorization": "使用者於分析後說「改變心意，你可以試試看」，本輪恢復受控風格試驗。",
+  "action_gate": "action_gate.json",
+  "source": "../25-appearance-diagnostic/matte-candidate/cat.glb",
+  "method": "在實際 UV 三角面上按最大 Lab 色差自適應均色；最多兩層貼圖內子三角區；高變化小區保留原色。代表色取最接近中位 Lab 的原始 texel，不生成新調色盤。",
+  "fixed_parameters": {
+    "max_delta_e76": [
+      18,
+      28
+    ],
+    "max_texture_subdivision_depth": 2,
+    "padding_pixels": 12,
+    "min_cell_texels": 8
+  },
+  "variants": [
+    {
+      "variant": {
+        "id": "delta18",
+        "max_delta_e76": 18.0
+      },
+      "output_sha256": "a772b9fb39fe76b91c998c5d160a2b1c93290afdeac32951b51747ab89ad32c5",
+      "triangles": 3500,
+      "flattened_coverage_fraction": 0.8845160652233357,
+      "max_covered_delta_e76": 17.996479034423828,
+      "mean_covered_delta_e76": 1.8551249504089355,
+      "flat_cells_by_depth": [
+        1762,
+        3525,
+        8918
+      ]
+    },
+    {
+      "variant": {
+        "id": "delta28",
+        "max_delta_e76": 28.0
+      },
+      "output_sha256": "67b274007757049bc54f44f105ea4244fec1ff3e7b92f5c5c90e803bf956eb4c",
+      "triangles": 3500,
+      "flattened_coverage_fraction": 0.9531353760714235,
+      "max_covered_delta_e76": 27.98956298828125,
+      "mean_covered_delta_e76": 2.983006477355957,
+      "flat_cells_by_depth": [
+        2211,
+        3361,
+        5274
+      ]
+    }
+  ],
+  "display_candidate": "results-v001/delta28/cat.glb",
+  "conservative_alternative": "results-v001/delta18/cat.glb",
+  "production_candidate_adopted": false,
+  "actual_3d_renders_created": 13,
+  "comparison_images": [
+    "comparison-before-after.png",
+    "comparison-all.png",
+    "comparison-face.png"
+  ],
+  "technical_verification": {
+    "triangles": 3500,
+    "source_unchanged": true,
+    "geometry_uv_normals_material_settings_identical": true,
+    "glb_import_and_same_camera_render_verified": true,
+    "covered_pixel_color_bound_verified": true,
+    "preserved_pixels_byte_identical": true,
+    "uv_overlapping_texels": 36,
+    "uv_overlap_faces_left_original": 11,
+    "evidence": [
+      "import-verification.json",
+      "results-v001/summary.json",
+      "detail-v001/report.json"
+    ],
+    "limits": [
+      "色差上限只適用貼圖覆蓋區的解碼 texel，不等於視覺身份分數或 mipmap 誤差上限。",
+      "12px 邊界擴張並非所有縮放、引擎和 mipmap 的接縫保證。"
+    ]
+  },
+  "visual_review": {
+    "inputs": [
+      "cat.png",
+      "既有真實照片臉部身份證據",
+      "25 基準實際模型渲染",
+      "26 兩側全身及三角度臉部實際 GLB 渲染"
+    ],
+    "body_tail": "兩版都把部分毛絲與柔軟漸層改成可見角狀色塊；B 的身體與尾巴變化更明顯。",
+    "face": "兩版主要右橘／左黑臉、黑鼻樑、白口鼻和小粉鼻仍可辨認；B 的額頭／眉部色塊較大，尚未形成 cat.png 的細緻尺度配置。",
+    "eyes": "實際近照仍能辨認虹膜和瞳孔，沒有被整面平均成單色；未做語義眼區偵測，因此不宣稱眼部完全保真或其他眼色也安全。",
+    "remaining_edges": "白胸、頸側與部分黑白交界仍有細碎毛邊；誤差保留規則也保留了部分不合風格的高反差紋理。",
+    "color": "原貼圖的灰暗色階與光照痕跡仍被保留；此試驗沒有把它們誤當新的毛色去重新設計。",
+    "geometry": "外形及平面配置完全未改，不能據本結果宣稱幾何美術已通過。",
+    "seams": "已看兩側全身及臉部三角度，未見明顯新增跨島裂線；背腹、遠距 mipmap 與 Unity 尚未驗收。",
+    "comparison_limit": "原照與 cat.png 的姿勢、視角、光照不同；視覺判斷是定性觀察，非數值相似度。"
+  },
+  "automation": {
+    "processing_input": "模型及其既有底色；每隻貓可自動取得 UV 與像素分布。",
+    "new_per_cat_manual_masks_points_or_coordinates": 0,
+    "per_cat_data_used_for_processing": [
+      "UV",
+      "底色像素",
+      "自動計算的色差及 UV 重疊"
+    ],
+    "removed_dependency_for_this_method": "這次色塊化不需要手工眼圈、頭部 x/z 視窗或舊眼區 roughness 遮罩。這不表示上游手工照片分析已被移除。",
+    "still_manual": [
+      "兩個共用強度的選擇",
+      "原照身份與 cat.png 的目視審查"
+    ],
+    "camera_note": "近照取景使用標準朝向及包圍盒比例，只影響攝影機，不是處理遮罩或通用頭部偵測。",
+    "tested_inputs": "同一隻三花貓的一個 3500 面模型、兩個強度。",
+    "new_cat_automation_proven": false
+  },
+  "decision": "使用者回饋正常觀看看不出差別。局部色塊確有變化，但不足以達成 cat.png 整體風格；A/B 不採用為下一版工作模型，保存作失敗對照。",
+  "next_unresolved_question": "色差保留規則同時保住毛邊，無法完成整體風格轉換。後續應先解決身份斑界與毛髮雜訊區分，並以正常全身觀看驗收；不直接提高現有全域強度。",
+  "technical_pass": true,
+  "partial_style_improvement_observed": true,
+  "final_art_pass": false,
+  "full_photo_identity_pass": false,
+  "eyes_pass": false,
+  "animation_pass": false,
+  "new_cat_automation_proven": false,
+  "tripo_calls": 0,
+  "imagegen_calls": 0,
+  "additional_credits": 0,
+  "stopping_condition_reached": "兩個預定強度已完成，沒有新增強度、逐貓修補或付費重生。",
+  "perceptual_style_improvement_validated": false,
+  "user_feedback_review": {
+    "recorded_at": "2026-09-30T15:52:00.687193+00:00",
+    "verbatim_feedback": "老實說我看不出差別",
+    "initial_assessment_preserved": {
+      "status": "bounded_trial_complete_partial_style_improvement_not_final",
+      "decision": "保留兩個可回讀候選及比較，不覆寫基準。結果支持先處理表面色塊可在不加面下改善 low-poly 感，但未通過完整 cat.png 美術。",
+      "partial_style_improvement_observed": true
+    },
+    "reinspection": "重看實際全身原尺寸對照、正面近照與 cat.png。局部色塊形狀有變化，但普通全身觀看未提供足夠整體風格差異，原回報的強調程度過高。",
+    "method_limit": "顏色最大誤差限制優先保留高反差區，連需清除的毛色交界也可能保留。幾何、主要斑紋布局、整體色調與明暗未變，局部均色不能證明縮小整體風格差距。",
+    "acceptance_correction": "技術改動存在、匯入通過、可放大看見局部變化，都不能取代正常觀看尺寸的美術改善。",
+    "next_experiment_requirement": "先定義正常全身觀看即能辨識的清楚斑界、黑橘白層次與切面尺度；處理身份斑界與毛髮雜訊的區分，不延伸同一個全域色差強度掃描。新方法執行前另做 action gate。",
+    "no_new_asset_changes": true,
+    "new_cat_automation_proven": false
+  }
+}

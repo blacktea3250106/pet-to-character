@@ -1,0 +1,32 @@
+{
+  "status": "playable_animation_prototype",
+  "user_reference": "36-sprite-art/godot/assets/cat-art-v002.png (latest user attached image)",
+  "assets": "8 sheets, 1254x1254 each;32 native627x627 cells;no upscaling",
+  "features": [
+    "8-direction walk poses",
+    "distance-driven gait",
+    "gradual heading changes with turn slowdown",
+    "acceleration/deceleration",
+    "clear-segment path simplification",
+    "click destination, right-click stop, close follow camera, automatic demo"
+  ],
+  "validation": "walk-check.json plus movement-check.json; actual Godot Movie Maker capture evidence/walk-demo.mp4",
+  "manual_removed": "無逐格手畫切面或逐格手點pivot；以共同alpha規則計算註冊。",
+  "manual_dependencies": [
+    "風格、身份、步態目視審查",
+    "共用world height .62及cycle distance .42為原型規格",
+    "地面底部輪廓估算不等於解剖足底"
+  ],
+  "limitations": [
+    "每方向4格，節奏仍偏逐格；不宣稱完全自然",
+    "左後初版有回頭及2個邊界像素，最後修正被使用者中斷；標為待修正候選",
+    "背面花色為AI推測；不同方向與幀間花紋仍有漂移",
+    "停下使用接觸相位，尚無專用站立idle與停步轉場",
+    "不是逐足鎖地，仍可能腳滑",
+    "只測此原型和此房間，跨貓未驗證"
+  ],
+  "generation_calls_completed": 9,
+  "generation_calls_interrupted": 1,
+  "new_cat_automation_proven": false,
+  "original_catworld_modified": false
+}

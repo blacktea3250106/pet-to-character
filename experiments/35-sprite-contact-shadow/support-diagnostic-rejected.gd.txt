@@ -1,0 +1,184 @@
+extends "res://baseline.gd"
+
+var variant := "A"
+var variant_label: Label
+var contact_shadow: MeshInstance3D
+var contact_profile: Dictionary
+var contour_report: Dictionary = {}
+var shadow_report := {"changed_factor": "derived contact shadow added", "captures": []}
+
+func _ready() -> void:
+	super._ready()
+	contact_profile = JSON.parse_string(FileAccess.get_file_as_string("res://contact-profile.json"))
+	assert(contact_profile.supported_pose == "lying", "Contact proxy only validated for this lying-pose experiment")
+	_build_contact_shadow()
+	var layer := CanvasLayer.new()
+	add_child(layer)
+	variant_label = Label.new()
+	variant_label.position = Vector2(28, 128)
+	variant_label.add_theme_font_size_override("font_size", 23)
+	variant_label.add_theme_color_override("font_color", Color("62492f"))
+	layer.add_child(variant_label)
+	_set_variant("B")
+	if OS.get_cmdline_user_args().has("--support-check"):
+		_audit_support.call_deferred()
+	elif OS.get_cmdline_user_args().has("--shadow-capture"):
+		_capture_shadow.call_deferred()
+
+func _build_contact_shadow() -> void:
+	var source := Image.load_from_file(ProjectSettings.globalize_path(profile.texture))
+	assert(source != null and source.get_format() == Image.FORMAT_RGBA8, "Expected RGBA source")
+	var box := source.get_used_rect()
+	var band_start: float = box.position.y + box.size.y * float(contact_profile.lower_band_start_fraction_of_alpha_height)
+	var pivot := Vector2(profile.pivot_normalized[0] * source.get_width(), profile.pivot_normalized[1] * source.get_height())
+	var stride: int = contact_profile.sample_stride_pixels
+	var samples: Array[Vector3] = []
+	var sample_x: Array[int] = []
+	for x in range(box.position.x, box.end.x, stride):
+		var lower := -1
+		for y in range(box.end.y - 1, int(band_start) - 1, -1):
+			if source.get_pixel(x, y).a >= float(contact_profile.alpha_threshold):
+				lower = y
+				break
+		if lower < 0:
+			continue
+		# The image lower contour is a visual contact cue, NOT a foot/ground detector.
+		# Project the visible contour onto the existing flat support plane without
+		# changing the character root/pivot or declaring anatomical contact points.
+		var plane_point := cam.global_basis.x * ((x - pivot.x) * sprite.pixel_size)
+		plane_point += cam.global_basis.y * ((pivot.y - lower) * sprite.pixel_size)
+		var floor_point := plane_point - VIEW_DIR * (plane_point.y / VIEW_DIR.y)
+		floor_point.y = float(contact_profile.floor_lift_world)
+		samples.append(floor_point)
+		sample_x.append(x)
+	assert(samples.size() >= 3, "Insufficient contour; reject instead of guessing")
+	var strip_half_width: float = float(profile.visual_width_world) * float(contact_profile.half_width_fraction_of_world_width)
+	var toward := Vector3(VIEW_DIR.x, 0.0, VIEW_DIR.z).normalized()
+	var vertices := PackedVector3Array()
+	var uv := PackedVector2Array()
+	var indices := PackedInt32Array()
+	for i in samples.size():
+		var u := float(i) / float(samples.size() - 1)
+		vertices.append(samples[i] - toward * strip_half_width)
+		vertices.append(samples[i] + toward * strip_half_width)
+		uv.append(Vector2(u, 0.0))
+		uv.append(Vector2(u, 1.0))
+		if i > 0 and sample_x[i] - sample_x[i - 1] <= stride:
+			var j := 2 * i
+			indices.append_array(PackedInt32Array([j - 2, j - 1, j, j - 1, j + 1, j]))
+	var arrays := []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = vertices
+	arrays[Mesh.ARRAY_TEX_UV] = uv
+	arrays[Mesh.ARRAY_INDEX] = indices
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	contact_shadow = MeshInstance3D.new()
+	contact_shadow.name = "DerivedContactShadow"
+	contact_shadow.mesh = mesh
+	contact_shadow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var shader := Shader.new()
+	shader.code = """shader_type spatial;
+render_mode unshaded, blend_mix, cull_disabled, depth_draw_never;
+uniform float opacity = 0.46;
+uniform float endpoint_fade = 0.06;
+uniform vec3 shadow_color = vec3(0.16, 0.105, 0.065);
+void fragment() {
+  float across = abs(UV.y * 2.0 - 1.0);
+  float core = exp(-5.0 * across * across) * (1.0 - smoothstep(0.75, 1.0, across));
+  float ends = smoothstep(0.0, endpoint_fade, UV.x) * smoothstep(0.0, endpoint_fade, 1.0 - UV.x);
+  ALBEDO = shadow_color;
+  ALPHA = opacity * core * ends;
+}
+"""
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	material.set_shader_parameter("opacity", contact_profile.opacity)
+	material.set_shader_parameter("endpoint_fade", contact_profile.endpoint_fade_fraction)
+	var rgb: Array = contact_profile.color
+	material.set_shader_parameter("shadow_color", Vector3(rgb[0], rgb[1], rgb[2]))
+	contact_shadow.material_override = material
+	actor.add_child(contact_shadow)
+	contour_report = {
+		"samples": samples.size(), "shadow_triangles": indices.size() / 3,
+		"alpha_bounds_including_faint_edge": [box.position.x, box.position.y, box.size.x, box.size.y],
+		"band_start_y": band_start, "half_width_world": strip_half_width,
+		"semantic_foot_detection": false, "pivot_changed": false,
+		"new_manual_per_cat_points": 0,
+		"floor_points_local": samples.map(func(p: Vector3): return [p.x, p.y, p.z])
+	}
+
+func _set_variant(value: String) -> void:
+	variant = value
+	sprite.shaded = false
+	contact_shadow.visible = value == "B"
+	variant_label.text = ("A 原版：柔和橢圓陰影" if value == "A" else "B 本階段：增加接觸陰影") + "　[A / B 切換]"
+
+func _unhandled_input(event: InputEvent) -> void:
+	super._unhandled_input(event)
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_A:
+			_set_variant("A")
+		elif event.keycode == KEY_B:
+			_set_variant("B")
+
+func _capture_shadow() -> void:
+	variant_label.hide()
+	for view in ["close", "overview", "bed-front"]:
+		_set_test("bed_front" if view == "bed-front" else "rug", view != "overview")
+		for value in ["A", "B"]:
+			_set_variant(value)
+			var file_name: String = view + "-" + value
+			await _save_capture(file_name)
+			shadow_report.captures.append({
+				"file": file_name + ".png", "contact_shadow_visible": contact_shadow.visible,
+				"shaded": sprite.shaded,
+				"position": [actor.position.x, actor.position.y, actor.position.z],
+				"camera_size": cam.size, "pixel_size": sprite.pixel_size,
+				"offset": [sprite.offset.x, sprite.offset.y],
+				"original_shadow_visible": ground_shadow.visible,
+				"alpha_cut": sprite.alpha_cut, "no_depth_test": sprite.no_depth_test,
+				"texture": sprite.texture.resource_path,
+			})
+	shadow_report.contour = contour_report
+	FileAccess.open("res://../shadow-check.json", FileAccess.WRITE).store_string(JSON.stringify(shadow_report, "\t"))
+	get_tree().quit()
+
+func _actual_surface_y(point: Vector3) -> float:
+	var best := -INF
+	for key in ["RoomFloor", "RoomRug"]:
+		var node := meshes[key] as MeshInstance3D
+		var faces: PackedVector3Array = node.mesh.get_faces()
+		for i in range(0, faces.size(), 3):
+			var a := node.to_global(faces[i])
+			var b := node.to_global(faces[i + 1])
+			var c := node.to_global(faces[i + 2])
+			var plane := Plane(a, b, c)
+			if absf(plane.normal.y) < 0.8:
+				continue
+			if Geometry2D.is_point_in_triangle(Vector2(point.x, point.z), Vector2(a.x, a.z), Vector2(b.x, b.z), Vector2(c.x, c.z)):
+				best = maxf(best, (plane.d - plane.normal.x * point.x - plane.normal.z * point.z) / plane.normal.y)
+	return best
+
+func _audit_support() -> void:
+	var results := {}
+	for key in ["rug", "bed_front"]:
+		_set_test(key, true)
+		var gaps: Array[float] = []
+		var below := 0
+		var unsupported := 0
+		for sample in contour_report.floor_points_local:
+			var point := actor.to_global(Vector3(sample[0], sample[1], sample[2]))
+			var actual_y := _actual_surface_y(point)
+			if not is_finite(actual_y):
+				unsupported += 1
+				continue
+			var gap := point.y - actual_y
+			gaps.append(gap)
+			if gap < -0.001:
+				below += 1
+		gaps.sort()
+		results[key] = {"samples": gaps.size(), "below_surface_samples": below, "no_support_samples": unsupported, "min_gap_world": gaps[0], "max_gap_world": gaps[-1], "note": "Actual floor/rug triangle heights; diagnostic only, no contact geometry correction."}
+	FileAccess.open("res://../support-check.json", FileAccess.WRITE).store_string(JSON.stringify(results, "\t"))
+	print(JSON.stringify(results))
+	get_tree().quit()

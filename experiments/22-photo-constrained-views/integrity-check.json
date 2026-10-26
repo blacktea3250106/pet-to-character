@@ -1,0 +1,27 @@
+{
+  "selected_images": [
+    {
+      "view": "front",
+      "selected": "front-v002.png",
+      "hash_matches_review": true
+    },
+    {
+      "view": "left",
+      "selected": "left-v001.png",
+      "hash_matches_review": true
+    },
+    {
+      "view": "back",
+      "selected": "back-v001.png",
+      "hash_matches_review": true
+    },
+    {
+      "view": "right",
+      "selected": "right-v001.png",
+      "hash_matches_review": true
+    }
+  ],
+  "completed_image_calls": 5,
+  "all_input_hashes_intact": true,
+  "scope": "File provenance, not numerical camera or identity validation"
+}

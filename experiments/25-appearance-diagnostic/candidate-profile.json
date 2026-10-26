@@ -1,0 +1,10 @@
+{
+  "source": "24-multiview-budget/flat-candidate/cat.glb",
+  "output": "25-appearance-diagnostic/matte-candidate",
+  "specular_factor": 0.3,
+  "support": "single opaque non-metallic material without specular textures or other optical extensions",
+  "status": "provisional common art setting, not optimized or validated on unseen cats",
+  "official_spec": "https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_materials_specular",
+  "engine_requirement": "Viewer must support KHR_materials_specular for this appearance change. Blender is checked here; Unity remains unverified.",
+  "eye_control": "No eye-specific region or material; this is not final eye treatment"
+}

@@ -1,0 +1,5 @@
+Use case: background-extraction
+Asset type: transparent PNG sprite for a 3D room, single static cat.
+Input image 1 is the edit target and authoritative character prototype, cat.png.
+Remove ONLY the gray studio background and every cast shadow on the floor. Deliver the exact same complete low-poly calico cat isolated on a genuinely transparent alpha background. Keep the same lying pose, silhouette, body proportions, camera viewpoint, crop composition and fine faceted polygon artwork. Preserve all black/orange/white coat markings, asymmetric face, yellow-green eyes, ears, curled raised tail, white chest and overlapping extended white forepaws. Keep the existing illumination and facets ON the cat; do not relight or redraw its face or fur. Preserve clean antialiased cutout edges with no gray halo.
+The empty region between tail and body must also be fully transparent. Do not add a new shadow or floor. Do not flatten or paint a checkerboard; output actual transparent pixels. One cat only, no text, no border, no added props. Do not change pose or invent hidden limbs. Retain full ears, tail and toes with transparent padding all around.

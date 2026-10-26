@@ -1,0 +1,42 @@
+{
+  "source_texture_room_profile_unchanged": true,
+  "views": {
+    "close": {
+      "only_recorded_property_changed": "texture",
+      "pixels_changed_gt2": 80645,
+      "max_channel_delta": 254,
+      "mean_absolute_channel_delta_changed_pixels": 66.61809163618327,
+      "difference_bbox": [
+        420,
+        272,
+        863,
+        565
+      ],
+      "mean_signed_RGB_delta_changed_pixels": [
+        9.163159526319053,
+        14.580655961311923,
+        14.72998945997892
+      ],
+      "baseline_replay_max_pixel_delta": 0
+    },
+    "overview": {
+      "only_recorded_property_changed": "texture",
+      "pixels_changed_gt2": 9905,
+      "max_channel_delta": 250,
+      "mean_absolute_channel_delta_changed_pixels": 66.67921924953727,
+      "difference_bbox": [
+        579,
+        589,
+        734,
+        691
+      ],
+      "mean_signed_RGB_delta_changed_pixels": [
+        8.849671882887431,
+        14.320545179202423,
+        14.515699141847552
+      ],
+      "baseline_replay_max_pixel_delta": 0
+    }
+  },
+  "caveat": "These are rendering differences, not an identity/style improvement score."
+}

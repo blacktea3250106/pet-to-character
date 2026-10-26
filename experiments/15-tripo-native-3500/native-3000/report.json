@@ -1,0 +1,152 @@
+{
+  "source": "05b-tripo/model_url.glb",
+  "container": {
+    "sha256": "e5ec0aa7272cbc47e4bd5b5858ff8d42e3509e5fee9fc4a5c51c5b1da3457c0d",
+    "mesh_triangles": [
+      5128
+    ],
+    "unique_mesh_triangles": 5128,
+    "mesh_instances": 1,
+    "skins": 0,
+    "animations": 0,
+    "method": "GLB TRIANGLES index accessor count / 3, summed over mesh primitives; independent of UV vertex splitting"
+  },
+  "stats": {
+    "vertices": 6168,
+    "polygons": 5128,
+    "triangles": 5128,
+    "triangle_count_method": "evaluated mesh loop triangles, not polygon count",
+    "welded_vertices": 2576,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "low_height_components": [
+      {
+        "height": 0.05,
+        "count": 4,
+        "groups": [
+          {
+            "n": 171,
+            "center": [
+              -0.12338813708016746,
+              -0.09926966081062953,
+              0.01933910724385614
+            ]
+          },
+          {
+            "n": 173,
+            "center": [
+              0.240989187118635,
+              0.05129162621592855,
+              0.016630369924934784
+            ]
+          },
+          {
+            "n": 169,
+            "center": [
+              0.18251446577218863,
+              -0.08186003096269433,
+              0.01852523554226703
+            ]
+          },
+          {
+            "n": 160,
+            "center": [
+              -0.10109869092702865,
+              0.10714720035903155,
+              0.019254827391705476
+            ]
+          }
+        ]
+      },
+      {
+        "height": 0.08,
+        "count": 4,
+        "groups": [
+          {
+            "n": 215,
+            "center": [
+              -0.12803052383106808,
+              -0.09768054620471112,
+              0.02887342995422524
+            ]
+          },
+          {
+            "n": 192,
+            "center": [
+              0.23718476380842426,
+              0.052132261771475896,
+              0.021520101011750132
+            ]
+          },
+          {
+            "n": 194,
+            "center": [
+              0.17818659021682345,
+              -0.08023389601676735,
+              0.024506510465799533
+            ]
+          },
+          {
+            "n": 196,
+            "center": [
+              -0.1067650028105293,
+              0.10631349344490743,
+              0.02786557726818612
+            ]
+          }
+        ]
+      },
+      {
+        "height": 0.11,
+        "count": 4,
+        "groups": [
+          {
+            "n": 257,
+            "center": [
+              -0.12977958357519676,
+              -0.0968777676355746,
+              0.03973605626186624
+            ]
+          },
+          {
+            "n": 216,
+            "center": [
+              0.2315965163073054,
+              0.053314345345521964,
+              0.029752331244742015
+            ]
+          },
+          {
+            "n": 218,
+            "center": [
+              0.17370762190687547,
+              -0.07893701490664154,
+              0.032632555923672445
+            ]
+          },
+          {
+            "n": 238,
+            "center": [
+              -0.11064558635864939,
+              0.1053994583482502,
+              0.04011982942915702
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "geometry_edits": false,
+  "decimation": false,
+  "reference_geometry_transform": {
+    "rotation_z_degrees": -69.72070751701202,
+    "normalized_max_extent_m": 0.65,
+    "note": "Same manually established baseline rotation for both, not automatic orientation estimation"
+  },
+  "texture_edits": false,
+  "material_edits": false,
+  "normals_edits": false,
+  "identity_or_art_pass": false,
+  "animation_validated": false,
+  "new_cat_automation_proven": false
+}

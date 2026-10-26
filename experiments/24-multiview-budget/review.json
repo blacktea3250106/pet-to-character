@@ -1,0 +1,167 @@
+{
+  "status": "provider_reduction_and_export_verified_art_identity_eyes_animation_pending",
+  "artifact_kind": "actual_3D_asset_and_Blender_renders",
+  "source": "../23-multiview-3500/native-v001/model_url.glb",
+  "source_sha256": "dfdaa1a27ad99495b8ef243c7686424c8a7f6c1be18c0b85e4dba206c247b791",
+  "model": "flat-candidate/cat.glb",
+  "model_sha256": "e09acc1a792ba078ec32d53183ab816e01cc7dd1c7f6b50548926134371820d1",
+  "task_id": "<redacted-id>",
+  "tripo_calls": 1,
+  "credits_consumed": 10.0,
+  "submission_to_download_seconds": 25.84,
+  "geometry": {
+    "source_triangles": 5356,
+    "requested_triangles": 3500,
+    "actual_triangles": 3500,
+    "budget_pass": true,
+    "glb_and_blender_counts_agree": true,
+    "method": "Tripo /mesh/decimate v1.0; no local geometry reduction or manual region protection",
+    "local_shape_edits": false,
+    "human_region_inputs": [],
+    "sampled_surface_distances": {
+      "source_to_candidate": {
+        "count": 11271,
+        "max_source_units": 0.003357312874868512,
+        "p95_source_units": 0.001358209177851677,
+        "mean_source_units": 0.0005197495367667101,
+        "max_extent_ratio": 0.0033638958161285597,
+        "p95_extent_ratio": 0.0013608723229233156
+      },
+      "candidate_to_source": {
+        "count": 7878,
+        "max_source_units": 0.002580408938229084,
+        "p95_source_units": 0.001346711709629744,
+        "mean_source_units": 0.0004982994007820557,
+        "max_extent_ratio": 0.0025854685442593768,
+        "p95_extent_ratio": 0.001349352310732213
+      }
+    },
+    "sample_limitations": "World-space vertices and triangle centroids after uniform bbox alignment; source GLB units are not true pet measurements; not continuous Hausdorff distance or anatomical proof",
+    "comparison_alignment_only": {
+      "scale": 0.9980430603027344,
+      "source_center": [
+        0.0009784698486328125,
+        0.0,
+        -0.0019569694995880127
+      ],
+      "candidate_center": [
+        1.4901161193847656e-08,
+        0.0005762577056884766,
+        1.4901161193847656e-08
+      ],
+      "rotation_applied": false,
+      "per_axis_deformation": false
+    },
+    "final_asset_coordinate_policy": "Retains provider coordinates. Uniform bbox transform is for comparison/render scenes only. Do not reuse prior face IDs, UV correspondence, skin weights or joint positions.",
+    "analysis_welded_topology": {
+      "vertices": 1752,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "meaning": "Analysis-copy topology; not anatomical or animation acceptance"
+    },
+    "visual_anatomy": "Six full-body views inspected: four recognizable legs, two ears and separated raised tail; static visual review, not anatomy automation or deformation proof.",
+    "anatomy_and_deformation_pass": false
+  },
+  "surface_color": {
+    "source_dimensions": [
+      2048,
+      2048
+    ],
+    "service_dimensions": [
+      2048,
+      2048
+    ],
+    "service_reencoded_image": true,
+    "source_texture_and_UVs_identical": false,
+    "surface_sample_check": {
+      "sample_count": 10500,
+      "source_sha256": "dfdaa1a27ad99495b8ef243c7686424c8a7f6c1be18c0b85e4dba206c247b791",
+      "candidate_sha256": "798df81b9cfda049cfa684037bb7362e900f591dadb7d9b82f683dde0b4ccc34",
+      "mean_absolute_rgb_error_255": 1.786354303938239,
+      "median_absolute_rgb_error_255": 1.0221736126128178,
+      "p95_absolute_rgb_error_255": 5.611588944892707,
+      "p99_absolute_rgb_error_255": 13.518816578977264,
+      "fraction_error_above_20": 0.005238095238095238,
+      "method": "Three interior samples per reduced triangle; nearest source surface and barycentric UV interpolation. Decode sRGB, bilinear-sample linear RGB with repeat wrapping, then report sRGB channel error.",
+      "scope": "Unweighted surface color-change diagnostic from generated source; not photo reconstruction accuracy, identity acceptance or exact renderer pixel matching. Nearest-surface correspondence may be ambiguous near seams and close surfaces.",
+      "restoration_review_trigger": false,
+      "trigger_status": "Initial diagnostic thresholds, not calibrated product acceptance",
+      "identity_or_art_pass": false
+    },
+    "rebake_performed": false,
+    "material_restoration_performed": false,
+    "recovery_decision": "Skip restoration: no lost material factors or resolution and no significant corresponding-surface color change under initial diagnostic thresholds. A changed encoded image hash alone does not establish visible loss; retaining the current texture avoids an unnecessary rebake.",
+    "policy_clarification": "Config bake_source_base_color_if_service_texture_changed is treated as a fidelity review trigger, not mandatory rebaking for any changed byte or UV. Original request/config is preserved unchanged."
+  },
+  "export": {
+    "review": "flat-candidate/export-review.json",
+    "roundtrip_pass": true,
+    "position_and_UV_deltas_relative_to": "service 3500 mesh, not original 5356 mesh",
+    "max_corner_position_delta": 0.0,
+    "max_corner_uv_delta": 0.0,
+    "decoded_texture_pixels_identical_to_service": true,
+    "minimum_corner_normal_dot_face_normal": 0.9999998521599744,
+    "material_factors_preserved": true
+  },
+  "identity": {
+    "review_method": "Manual comparison of six actual GLB renders with identity-source.png, real photo-03.png and the selected AI references.",
+    "major_features_retained": [
+      "anatomical right orange cheek and left dark cheek",
+      "dark nasal bridge and small pink nose",
+      "white chest and paws",
+      "broad dark shoulder patches and unequal foreleg markings"
+    ],
+    "remaining": [
+      "Exact flank/back patch boundaries differ from real photos and include generated inference",
+      "Hidden surfaces are not supported by full photo coverage",
+      "No calibrated photo-identity score"
+    ],
+    "full_pass": false
+  },
+  "style": {
+    "reference": "../../../cat.png",
+    "final_art_pass": false,
+    "observations": [
+      "Chest/paws and body have real geometric facets",
+      "Dark fur appears gray in the current render",
+      "Coat boundaries remain softer and more fur-like than the intended clean polygonal treatment",
+      "Head/muzzle planes and volume still differ from cat.png; pose alone is not the criterion",
+      "Face-wise colors are not mandatory: reference includes both large planes and localized fine boundaries"
+    ],
+    "next_diagnostic": "Separate base-color/lighting/material contributions before darkening or repainting the asset; no per-cat coordinates or hand mask."
+  },
+  "eyes_and_material": {
+    "metallic": 0,
+    "roughness_all_surfaces": 0.9,
+    "separate_eye_control": false,
+    "blink_controls": false,
+    "eyes_pass": false
+  },
+  "animation": {
+    "skins": 0,
+    "animations": 0,
+    "low_poly_animated_cats_tested": false,
+    "pass": false
+  },
+  "render_views": [
+    "original-az315-el12.png",
+    "original-az000-el12.png",
+    "original-az045-el12.png",
+    "original-az090-el12.png",
+    "original-az180-el12.png",
+    "original-az270-el12.png"
+  ],
+  "automation_gain": [
+    "Provider reduction used no per-cat head/paw masks",
+    "Read-only surface correspondence and base-color sampling decide whether restoration is needed",
+    "Common flat-normal export was reused without a new case-specific repair",
+    "Current branch does not use old 52 projection points, manual eye polygon or dorsal coordinate window"
+  ],
+  "manual_dependencies": [
+    "Real-photo feature interpretation and photo roles",
+    "AI-reference acceptance and one frontal-pose correction",
+    "Visual multi-angle identity, anatomy and art review"
+  ],
+  "new_cat_automation_proven": false,
+  "production_pass": false
+}

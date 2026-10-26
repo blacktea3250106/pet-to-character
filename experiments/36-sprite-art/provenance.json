@@ -1,0 +1,11 @@
+{
+  "type": "AI transparent sprite shown in actual Godot room renders",
+  "generated_files": [
+    "~/.codex/generated_images/<redacted-id>/exec-<redacted-id>.png",
+    "~/.codex/generated_images/<redacted-id>/exec-<redacted-id>.png"
+  ],
+  "baseline": "33-sprite-static",
+  "lighting_B_adopted": false,
+  "contact_shadow_B_adopted": false,
+  "original_catworld_46_files_unchanged": true
+}

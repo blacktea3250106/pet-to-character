@@ -1,0 +1,13 @@
+{
+  "timing": "before_execution",
+  "purpose": "補齊使用者要求的逐階段成果展示，並移除現行 workflow 與實測結果矛盾的指示。",
+  "scope": "通用證據整理與文件一致性；本輪資料用於驗證格式，不修改貓的外觀。",
+  "automation_method": "由階段 manifest 產生既有 workflow 的成果區塊，自動檢查檔案存在、SHA256、圖像類型標示及必要階段。",
+  "remaining_manual_inputs": ["各阶段視覺判斷、採用或拒絕理由仍由人工核對", "歷史檔案與階段的對應首次整理；不宣稱已自動判定身份或美術"],
+  "case_necessity": "需要用已生成的實物驗證每個展示連結與狀態，確保不同貓可以沿用相同紀錄格式，而不是替本例補畫成果。",
+  "validation": "檢查 P00–P09 的實物／證據連結、圖檔可解碼、AI 圖與真實 3D 渲染分別標示；現行面數設定一致為 3500，3000 僅保留歷史基準。",
+  "stop_condition": "僅完成一次成果整理及必要文件修正；不新增生成任務、模型修補、付費服務或未驗證的品質承諾。",
+  "decision": "proceed",
+  "new_cat_automation_proven": false,
+  "previous_goal_turn_classification": "no_progress_for_generation_goal: only existing memory rules were rechecked; this action addresses the missing consolidated stage evidence"
+}

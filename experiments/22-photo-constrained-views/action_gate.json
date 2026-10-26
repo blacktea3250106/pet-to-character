@@ -1,0 +1,12 @@
+{
+  "timing": "before_execution",
+  "purpose": "解決單張基準轉多視圖時遺失對側身份的問題，取得可供 multiview-to-model 的同姿勢建模輸入。",
+  "scope": "共用的視角／站姿／美術提示規則；每貓身份與照片是資料輸入，不能把本貓描述硬寫成全域規則。",
+  "automation_method": "程式依 features.json 與每張照片角色產生具輸入 hash 的請求；使用 imagegen built-in 分視角產圖，後續視角沿用已檢查的正面與站姿基準。",
+  "remaining_manual_inputs": ["目前 P02 身份清單及照片角色仍由人工取得", "目視核對每張圖與原照，尚無可靠自動相似度裁判", "built-in model/seed 未公開，不能承諾像素級重現"],
+  "case_necessity": "驗證多照片身份約束能否避免上一輪兩侧橘臉；不新增本貓手繪區域、控制點、UV 繪製或局部幾何修補。",
+  "validation": ["正面保留解剖右橘／左黑臉及黑鼻樑小粉鼻", "側面沿用同一完整站姿且黑肩與腿襪對照原照", "尾巴完整、四肢解剖合理；正側視角允許自然遮擋，不為了看見四腳而新增肢體", "各視角身體比例、頭部朝向與尾巴曲度無明顯矛盾", "cat.png 的乾淨切面與霧面方向保留，無文字和場景"],
+  "stop_condition": "四張初版視圖＋最多一次明確缺陷修正；正面身份不過就不盲做後續視角。任何視圖組仍有明確身份或姿勢矛盾就不送 3D。通過時可在另行記錄提交 gate 後，至多一次 multiview-to-model，請求 3500 面。",
+  "decision": "bounded_multiphoto_conditioned_reference_poc",
+  "new_cat_automation_proven": false
+}

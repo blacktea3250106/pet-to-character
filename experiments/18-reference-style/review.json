@@ -1,0 +1,55 @@
+{
+  "status": "rejected_for_downstream_submission",
+  "stage": "P03",
+  "artifact_kind": "AI_2D_reference_not_3D",
+  "provider": "built_in_imagegen",
+  "imagegen_calls": 1,
+  "tripo_calls": 0,
+  "new_tripo_credits": 0,
+  "imagegen_cost": null,
+  "model_and_seed_not_exposed": true,
+  "control": "Same identity-source.png and cat.png; replaced exactly one style paragraph of the previous prompt. Stochastic model/version effects are uncontrolled.",
+  "comparison_method": "Manual visual inspection at native output view against original isolated photo, cat.png and old P03; no calibrated identity/style score.",
+  "findings": [
+    {
+      "dimension": "body_facet_hierarchy",
+      "result": "partial_improvement",
+      "observation": "Some dark torso and forehead regions have larger calmer planes than the old P03. Orange body areas still contain many small fragmented facets."
+    },
+    {
+      "dimension": "material_and_fur",
+      "result": "failed",
+      "observation": "Visible white whiskers and hair-like streaks appeared around muzzle and white bib despite explicit no-hair constraints. The chest also has thin radiating facets."
+    },
+    {
+      "dimension": "identity",
+      "result": "broad_features_retained_fine_boundaries_unverified",
+      "observation": "Right orange/left black cheek asymmetry, dark nasal bridge, small pink nose, white bib/paws and yellow-green eyes remain broadly recognizable. Exact patch boundaries were simplified and have not passed quantitative or multi-view validation."
+    },
+    {
+      "dimension": "pose",
+      "result": "broad_pose_retained_exact_alignment_unverified",
+      "observation": "Lying pose, source-visible paws and left clipped tail remain; no exact silhouette/landmark preservation claim."
+    },
+    {
+      "dimension": "geometry_and_animation",
+      "result": "not_applicable_to_this_2D_output",
+      "observation": "No new mesh, UV, rig or animation was generated. Current 3500-triangle model is unchanged."
+    }
+  ],
+  "approved_for_P04": false,
+  "approved_for_Tripo": false,
+  "adopt_as_shared_style_preset": false,
+  "automatic_style_acceptance": false,
+  "new_cat_automation_proven": false,
+  "manual_dependencies_removed": [],
+  "system_learning": "Prompt-only facet-size control did not reliably enforce the no-hair/clean-facet specification in this one trial. A successful isolated region does not justify adding this as a mandatory production step.",
+  "not_proven": [
+    "That this prompt never works",
+    "That the changed paragraph alone caused every observed difference",
+    "A generally reliable automatic style scorer",
+    "Improved true 3D output from this reference"
+  ],
+  "stop_condition_reached": "One allowed image generated and reviewed; no repeat image edits or downstream Tripo request.",
+  "next_required_work": "Separate reference-image style and identity requirements from actual mesh/material acceptance; next experiment must test a shared rule with a defined quality check, rather than keep adjusting this cat by hand."
+}

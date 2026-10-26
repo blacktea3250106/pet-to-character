@@ -1,0 +1,35 @@
+{
+  "source": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/27-animation-compatibility/weights-v001/export/cat-animated.glb",
+  "source_sha256": "9c4b4f1843ca26d137caeb89c2eb09733f740af2a513c78e2251e19097c03664",
+  "output": "cat-walk-sit.glb",
+  "output_sha256": "635596ba49316e441969b73bb627ad953290bf0c93e0fc12bd31b49c6e99c475",
+  "user_visible_behaviors": [
+    "Walk",
+    "Sitting"
+  ],
+  "clips": [
+    "Walk",
+    "Idle_to_Sit",
+    "Sitting",
+    "Sitting_to_Idle"
+  ],
+  "supporting_transitions": [
+    "Idle_to_Sit",
+    "Sitting_to_Idle"
+  ],
+  "removed_clip": "Idle",
+  "triangles": 3500,
+  "bones": 56,
+  "binary_chunks_unchanged": true,
+  "retained_animation_channels_unchanged": true,
+  "other_gltf_metadata_unchanged": true,
+  "packing_note": "Unreferenced Idle buffers remain in BIN to preserve byte-identical geometry/material/skin/curve data; file-size compaction is not claimed.",
+  "animation_quality_pass": false,
+  "new_cat_automation_proven": false,
+  "unity_pass": false,
+  "known_limitations": [
+    "Previous stage 27 contact/stretch defects remain; selection does not repair them.",
+    "Walking is in-place; world travel, stop/start blending and support-phase transitions are not configured or tested in Unity.",
+    "Two behaviors need supporting sit-down/stand-up transitions. Four clips are not four requested user behaviors."
+  ]
+}

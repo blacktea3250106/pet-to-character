@@ -1,0 +1,15 @@
+{
+  "timing": "before_execution",
+  "purpose": "驗證 P03 的共用切面風格設定能否更接近 cat.png，同時保留原照身份與姿勢，減少後續逐貓修色需求。",
+  "scope": "一次設定的美術規則候選，以同一隻貓的原照作受控 POC；非個案局部重畫。",
+  "hypothesis": "原提示詞的 medium/small irregular facets 與 denser smaller face facets 使參考圖過碎。改為主次明確的中型切面、穩定同色區與少量必要細節，可能改善源頭風格。",
+  "automation_method": "固定藝術段落供每隻貓共用；每貓原照與身份條件作獨立輸入。可程式化組裝提示詞，但目前身份辨識與圖像品質審核仍未自動化。",
+  "remaining_manual_inputs": ["沿用已有人工分割與身份描述", "視覺審查姿勢、花色邊界、鼻眼與切面風格"],
+  "case_necessity": "用現有案例作首個風格規則對照，釐清上游碎色是否能在輸入端改善；不新增點位、遮罩或世界座標。",
+  "controls": ["相同 identity-source.png 與 cat.png", "只替換既有提示詞中的切面風格句，保留其他文字", "工具未暴露模型版本或種子，無法聲稱嚴格可重現或單次即可證明因果"],
+  "validation": "與 cat.png、原照和旧 P03 同時目視比較：主要切面是否更乾淨、左右臉與粉鼻等身份是否保留、姿勢與可見腳掌是否漂移。圖片只作 AI 2D 參考，不算模型改善。",
+  "stop_condition": "本實驗最多生成一張 P03 候選；保存失敗，不反覆手修。未通過則不送 Tripo。即使較好也需另外驗證站姿與真實 3D，不能取代當前模型。",
+  "decision": "proceed_with_one_reference_candidate",
+  "previous_goal_turn_classification": "progress: stage evidence and current specs updated; upstream over-fragmented style identified",
+  "new_cat_automation_proven": false
+}

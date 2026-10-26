@@ -1,0 +1,8 @@
+{
+  "endpoint": "/mesh/decimate",
+  "input_file": "23-multiview-3500/native-v001/model_url.glb",
+  "input_sha256": "dfdaa1a27ad99495b8ef243c7686424c8a7f6c1be18c0b85e4dba206c247b791",
+  "model": "v1.0",
+  "face_limit": 3500,
+  "quad": false
+}

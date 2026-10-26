@@ -1,0 +1,8 @@
+{
+  "artifact_kind": "actual_3D_animation_render",
+  "source": "experiments/generation-v001/28-part-aware-rig/media/previous/review.mp4",
+  "source_candidate": "27-animation-compatibility/weights-v001",
+  "sha256": "6527a94dea39a0bc2c8e5ed6b36c2523318a85f2723d2e24d91405020e103092",
+  "same_as_selected_previous_version": true,
+  "note": "Reuses the selected previous-version rendered montage, not a new render. Walk/sit-down/stand-up move; standing and Sitting portions are held stills. No new crouch animation."
+}

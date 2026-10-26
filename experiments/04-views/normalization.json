@@ -1,0 +1,125 @@
+{
+  "method": "reviewed ear-to-ground shared scale; no anisotropic warp; no native-detail claim from upscaling",
+  "views": {
+    "front": {
+      "crop": [
+        40,
+        20,
+        420,
+        570
+      ],
+      "source_ear_y": 80,
+      "source_ground_y": 541,
+      "uniform_scale": 1.3015184381778742,
+      "target_ear_y": 280,
+      "target_ground_y": 880,
+      "native_crop_size": [
+        380,
+        550
+      ],
+      "upscaled": true,
+      "matrix": [
+        [
+          1.301518440246582,
+          0.0,
+          275.7744140625
+        ],
+        [
+          0.0,
+          1.301518440246582,
+          201.9088897705078
+        ]
+      ]
+    },
+    "left": {
+      "crop": [
+        530,
+        25,
+        1230,
+        565
+      ],
+      "source_ear_y": 118,
+      "source_ground_y": 537,
+      "uniform_scale": 1.431980906921241,
+      "target_ear_y": 280,
+      "target_ground_y": 880,
+      "native_crop_size": [
+        700,
+        540
+      ],
+      "upscaled": true,
+      "matrix": [
+        [
+          1.431980848312378,
+          0.0,
+          12.238663673400879
+        ],
+        [
+          0.0,
+          1.431980848312378,
+          146.82577514648438
+        ]
+      ]
+    },
+    "back": {
+      "crop": [
+        100,
+        590,
+        425,
+        1185
+      ],
+      "source_ear_y": 676,
+      "source_ground_y": 1156,
+      "uniform_scale": 1.25,
+      "target_ear_y": 280,
+      "target_ground_y": 880,
+      "native_crop_size": [
+        325,
+        595
+      ],
+      "upscaled": true,
+      "matrix": [
+        [
+          1.25,
+          0.0,
+          291.375
+        ],
+        [
+          0.0,
+          1.25,
+          172.5
+        ]
+      ]
+    },
+    "right": {
+      "crop": [
+        490,
+        610,
+        1230,
+        1180
+      ],
+      "source_ear_y": 700,
+      "source_ground_y": 1150,
+      "uniform_scale": 1.3333333333333333,
+      "target_ear_y": 280,
+      "target_ground_y": 880,
+      "native_crop_size": [
+        740,
+        570
+      ],
+      "upscaled": true,
+      "matrix": [
+        [
+          1.3333333730697632,
+          0.0,
+          -4.666666507720947
+        ],
+        [
+          0.0,
+          1.3333333730697632,
+          160.0
+        ]
+      ]
+    }
+  }
+}

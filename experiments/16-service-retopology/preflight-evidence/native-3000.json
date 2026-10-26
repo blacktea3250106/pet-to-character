@@ -1,0 +1,35 @@
+{
+  "file": "experiments/generation-v001/05b-tripo/model_url.glb",
+  "sha256": "e5ec0aa7272cbc47e4bd5b5858ff8d42e3509e5fee9fc4a5c51c5b1da3457c0d",
+  "bytes": 1174476,
+  "scene_index": 0,
+  "mesh_triangle_counts": [
+    5128
+  ],
+  "active_mesh_instances": [
+    {
+      "node": 0,
+      "mesh": 0,
+      "triangles": 5128
+    }
+  ],
+  "active_scene_triangles": 5128,
+  "unique_mesh_triangles": 5128,
+  "unsupported_primitives": [],
+  "triangle_limit": 3500,
+  "budget_pass": false,
+  "status": "budget_rejected",
+  "method": "TRIANGLES accessor count / 3 for each active scene mesh instance; index positions are not decoded here",
+  "skins": 0,
+  "animations": 0,
+  "asset_accepted": false,
+  "not_validated": [
+    "buffer/index integrity beyond JSON metadata",
+    "manifoldness and self-intersections",
+    "anatomy",
+    "photo identity",
+    "cat.png style",
+    "UV fidelity",
+    "skin deformation and source-animation compatibility"
+  ]
+}

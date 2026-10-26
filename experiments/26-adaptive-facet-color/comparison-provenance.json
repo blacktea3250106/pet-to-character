@@ -1,0 +1,73 @@
+{
+  "processing": "Labeled layout and uniform resizing only; no repainting",
+  "source_images": [
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/25-appearance-diagnostic/matte-candidate/preview/original-az315-el12.png",
+      "sha256": "127e09e33343c4a8c4f193a7e6674c4d0d6c562c5a9921e55bb332b1412ee872"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/25-appearance-diagnostic/matte-candidate/preview/original-az045-el12.png",
+      "sha256": "9041a841f605c8f7e6de92ada5143f3cd452e5f43cd424a1f5e616cc38ed355f"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/results-v001/delta18/preview/original-az315-el12.png",
+      "sha256": "4facbfee9c1bd6ca6807dc107dfce0f051d0e6afc9e94a4376d2361a390ad965"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/results-v001/delta18/preview/original-az045-el12.png",
+      "sha256": "521e1c61f2338c72367708067d7e825cb946872baa1d61be54f5df33bd0f2fe1"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/results-v001/delta28/preview/original-az315-el12.png",
+      "sha256": "9241b97b5ebb001830e6f9f26e944acd56b3b17bdaac901723d2bd775e13b2cb"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/results-v001/delta28/preview/original-az045-el12.png",
+      "sha256": "df80f03755c6b3da6d05c9383687b71960879f522f85ee0499170637db46c7ae"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/25-appearance-diagnostic/matte-candidate/preview/original-az315-el12.png",
+      "sha256": "127e09e33343c4a8c4f193a7e6674c4d0d6c562c5a9921e55bb332b1412ee872"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/results-v001/delta28/preview/original-az315-el12.png",
+      "sha256": "9241b97b5ebb001830e6f9f26e944acd56b3b17bdaac901723d2bd775e13b2cb"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/detail-v001/baseline-az315.png",
+      "sha256": "01dd55e45b0f8289c0da33377eaf3830742d1554fd28c02db9a4b360426872ab"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/detail-v001/baseline-az000.png",
+      "sha256": "77d7a5783e45f195ee1620986091f017dc5792c6f1a2ba8f95ef564f6859f53f"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/detail-v001/baseline-az045.png",
+      "sha256": "149383f2a4261082babc5c67db4ceff825fece3f8630e6b7bf444bf5723860f4"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/detail-v001/delta18-az315.png",
+      "sha256": "e1e9010f4f3a0fdfc49ce5885d8e2ae5ea21dc2961966c8e671a70ec54e6a503"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/detail-v001/delta18-az000.png",
+      "sha256": "a17d1211ff05fe58d74d8782f55b07ea565729473c6938e371fbd520cbe0af9e"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/detail-v001/delta18-az045.png",
+      "sha256": "11edc6804a4c771415075e86df6cc5cd14e3280edd45a2ddae5bf70c52c8305a"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/detail-v001/delta28-az315.png",
+      "sha256": "2bf108fd4543e7bb8a73e3a488e6f39f37b351cec6f06849ab6a8077e06b021d"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/detail-v001/delta28-az000.png",
+      "sha256": "3f5afd459319b7bebea55f89fd5d2b7ffa22effe234f9eb83296c695a64f7bff"
+    },
+    {
+      "path": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/detail-v001/delta28-az045.png",
+      "sha256": "f7b93c02e369db28ee634cc73b116245afdca76f0684d5aca0825f2aca3e5091"
+    }
+  ]
+}

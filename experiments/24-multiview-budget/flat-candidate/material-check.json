@@ -1,0 +1,55 @@
+{
+  "service": {
+    "sha256": "798df81b9cfda049cfa684037bb7362e900f591dadb7d9b82f683dde0b4ccc34",
+    "materials": [
+      {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8999999761581421,
+        "alphaMode": "OPAQUE",
+        "doubleSided": true,
+        "emissiveFactor": [
+          0,
+          0,
+          0
+        ],
+        "extensions": {}
+      }
+    ],
+    "skins": 0,
+    "animations": 0
+  },
+  "flat": {
+    "sha256": "e09acc1a792ba078ec32d53183ab816e01cc7dd1c7f6b50548926134371820d1",
+    "materials": [
+      {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8999999761581421,
+        "alphaMode": "OPAQUE",
+        "doubleSided": true,
+        "emissiveFactor": [
+          0,
+          0,
+          0
+        ],
+        "extensions": {}
+      }
+    ],
+    "skins": 0,
+    "animations": 0
+  },
+  "material_factors_preserved": true,
+  "tolerance": 1e-06,
+  "scope": "GLB material factors only. Decoded texture pixels, UVs, geometry and normals are checked separately in export-review.json; no identity, art or animation acceptance."
+}

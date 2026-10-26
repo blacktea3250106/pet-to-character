@@ -1,0 +1,55 @@
+{
+  "assets": [
+    {
+      "file": "../33-sprite-static/godot/assets/cat-cutout-v001.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "alpha_bbox_128": [
+        18,
+        84,
+        1378,
+        1012
+      ],
+      "opaque_border_pixels": 0,
+      "fully_transparent_fraction": 0.5294958181984677,
+      "sha256": "b6e8a2e5ef9f75d3e7db529f61d6d6ca0628f4e2fd2276b906125cfd7b0f0b47"
+    },
+    {
+      "file": "candidate-v001.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "alpha_bbox_128": [
+        15,
+        86,
+        1433,
+        1078
+      ],
+      "opaque_border_pixels": 0,
+      "fully_transparent_fraction": 0.47771041278756243,
+      "sha256": "8a438b3a715c3c5fc2f2edc6f02b2dc07d577ce6bcacae6de908702d97960c4e",
+      "silhouette_iou_vs_baseline": 0.8249400164102663
+    },
+    {
+      "file": "godot/assets/cat-art-v002.png",
+      "size": [
+        1447,
+        1087
+      ],
+      "alpha_bbox_128": [
+        23,
+        83,
+        1439,
+        1061
+      ],
+      "opaque_border_pixels": 0,
+      "fully_transparent_fraction": 0.4780235604673947,
+      "sha256": "f68f6dc63287f882de3bf2d0c6bad1c86149b30ca783e362446dcfe597883074"
+    }
+  ],
+  "catworld_changed_files": [],
+  "note": "alpha IoU measures registration only, not identity or visual quality."
+}

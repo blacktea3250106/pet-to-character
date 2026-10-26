@@ -1,0 +1,22 @@
+{
+  "source_file": "23-multiview-3500/native-v001/model_url.glb",
+  "source_review": "23-multiview-3500/review.json",
+  "output": "24-multiview-budget/basic-v001",
+  "endpoint": "/mesh/decimate",
+  "parameters": {"model": "v1.0", "face_limit": 3500, "quad": false},
+  "official_docs": "https://developers.tripo3d.ai/en/docs/mesh-decimate",
+  "expected_credits": 10,
+  "input_policy": "Raw source mesh before shading-only duplication; no changes to source file or upstream identity",
+  "recovery_policy": {
+    "uniform_alignment_only": true,
+    "surface_sample_max_extent_ratio_limit": 0.01,
+    "surface_sample_p95_extent_ratio_limit": 0.003,
+    "threshold_status": "Initial technical rejection triggers, not calibrated identity/art/deformation acceptance",
+    "restore_material_from_source": true,
+    "bake_source_base_color_if_service_texture_changed": true,
+    "texture_resolution_policy": "Match source base color; do not upscale beyond source",
+    "flat_corner_normals": true
+  },
+  "human_region_inputs": [],
+  "request_limit": 1
+}

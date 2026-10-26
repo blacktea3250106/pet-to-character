@@ -1,0 +1,25 @@
+{
+  "paid_calls_required": false,
+  "commands": {
+    "diagnostic": "blender --background --python-exit-code 1 --python experiments/generation-v001/diagnose_surface_appearance.py -- experiments/generation-v001/25-appearance-diagnostic/config.json --output <NEW_DIAGNOSTIC_DIRECTORY>",
+    "diagnostic_statistics": "uv run --python 3.14 --with numpy==2.5.3 --with pillow==12.3.0 python experiments/generation-v001/analyze_appearance_diagnostic.py <NEW_DIAGNOSTIC_DIRECTORY> <NEW_STATISTICS_JSON>",
+    "material_candidate": "python3 experiments/generation-v001/apply_matte_material.py experiments/generation-v001/25-appearance-diagnostic/candidate-profile.json --output <NEW_MATERIAL_DIRECTORY>",
+    "actual_glb_preview": "blender --background --python-exit-code 1 --python experiments/generation-v001/review_generated_model.py -- <NEW_MATERIAL_DIRECTORY>/cat.glb <NEW_PREVIEW_DIRECTORY> --views -45 45 --skip-diagnostics",
+    "read_only_structure_analysis": "uv run --python 3.14 --with numpy==2.5.3 --with pillow==12.3.0 python experiments/generation-v001/analyze_facet_structure.py experiments/generation-v001/23-multiview-3500/native-v001/model_url.glb experiments/generation-v001/25-appearance-diagnostic/matte-candidate/cat.glb --output <NEW_ANALYSIS_JSON>"
+  },
+  "versions": {
+    "blender": "5.2.1 LTS",
+    "python_statistics": "3.14",
+    "numpy": "2.5.3",
+    "pillow": "12.3.0"
+  },
+  "evidence": [
+    "isolated-v001/executed-source.py",
+    "isolated-v001/executed-config.json",
+    "color-statistics.executed.py",
+    "matte-candidate/executed-source.py",
+    "matte-candidate/executed-profile.json",
+    "matte-candidate/preview/executed-source.py"
+  ],
+  "scope": "Diagnostic and preview scripts reuse an existing source-bound scene or recreate the standard bbox-based scene; no original source file is overwritten."
+}

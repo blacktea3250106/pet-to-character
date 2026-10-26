@@ -1,0 +1,51 @@
+{
+  "tool": "built-in image_gen",
+  "input_reference": "36-sprite-art/godot/assets/cat-art-v002.png (latest user attached image)",
+  "prompts": [
+    "prompt-0.txt",
+    "prompt-1.txt",
+    "prompt-2.txt",
+    "prompt-3.txt",
+    "prompt-4.txt",
+    "prompt-5-correction.txt",
+    "prompt-5.txt",
+    "prompt-6.txt",
+    "prompt-7-correction.txt",
+    "prompt-7.txt"
+  ],
+  "assets": [
+    {
+      "path": "godot/assets/walk-0.png",
+      "sha256": "386d4029c2289b48a559f89c4b86005bca039358a8e80e1e5434e21531ab225e"
+    },
+    {
+      "path": "godot/assets/walk-1.png",
+      "sha256": "279434168370bd1923545814438ce6cc8eb8da91517a27b01114e85b510369eb"
+    },
+    {
+      "path": "godot/assets/walk-2.png",
+      "sha256": "1b5831a0833b20bafce7c3c66e74d2cb3d27829836ee64762c46cc81026e9b95"
+    },
+    {
+      "path": "godot/assets/walk-3.png",
+      "sha256": "eab162532d5233d78ce4ae7ce53554d183d08a72fe109e9fb499d99d5b93ad7a"
+    },
+    {
+      "path": "godot/assets/walk-4.png",
+      "sha256": "5d98769aa09a50052660ef6be683a8b20e78e4e1bea0476791aaa4f1b4e12ad4"
+    },
+    {
+      "path": "godot/assets/walk-5.png",
+      "sha256": "4a82ef9b902c22afafd56e47fe4d81b14e94ec868d2b471ade408ebaf3ebd9b0"
+    },
+    {
+      "path": "godot/assets/walk-6.png",
+      "sha256": "5aa519672f5ba1f07d7d8c712b7ca9df6374598f822cbf4c3fe95a23a297683f"
+    },
+    {
+      "path": "godot/assets/walk-7.png",
+      "sha256": "aeec251740834a04ac603d0decff04c9b43477f6ca07083727ede8a349647a65"
+    }
+  ],
+  "renders": "actual Godot 3D room with 2D sprite animation;not AI room mockups"
+}

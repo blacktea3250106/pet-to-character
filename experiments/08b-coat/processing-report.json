@@ -1,0 +1,28 @@
+{
+  "stage": "P08-P09 deterministic surface processing",
+  "camera": [
+    2119.8329616373835,
+    775.5556153838761,
+    905.2992604677152,
+    -61.64417350285038,
+    6.372683261828755
+  ],
+  "silhouette_iou_at_160px": 0.805824098090073,
+  "projection_accepted_for_poc": false,
+  "production_iou_review_trigger": 0.85,
+  "source": "04b-single-reference/standing.png",
+  "atlas": [
+    2048,
+    2048
+  ],
+  "reference_projected_fraction_of_covered_texels": 0.0,
+  "head_policy": "native reviewed face retained; no unvalidated head projection",
+  "facet_averaged_faces": 14927,
+  "total_faces": 20512,
+  "boundary_or_feature_faces_preserved": 5585,
+  "color_space": "exact sRGB transfer; weighted means in linear space",
+  "palette_labels": "Lab threshold heuristic to protect black/orange/white transitions, not a learned fur detector",
+  "padding_px": 16,
+  "unseen_surface": "Tripo base retained, inferred; not original-photo observed evidence",
+  "automatic_quality_pass": false
+}

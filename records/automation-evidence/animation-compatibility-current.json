@@ -1,0 +1,63 @@
+{
+  "recorded_at": "2026-09-30T12:18:36.064496+00:00",
+  "purpose": "前段外觀與部位定位需銜接 Low Poly Animated Cats 動畫；僅盤點現況，不擴展動畫製作支線。",
+  "method": "唯讀解析 GLB 2.0 JSON chunk 與既有來源資產盤點；未執行动畫或修改模型。",
+  "generated_asset": {
+    "path": "10-style-recovery/eye-material/cat.glb",
+    "sha256": "f7ee09f799f2f9e5d438ae497386f527dd45b68b74858da49ab37757f9595fec",
+    "skin_count": 0,
+    "embedded_animation_count": 0,
+    "primitive_attributes": [
+      [
+        "NORMAL",
+        "POSITION",
+        "TEXCOORD_0"
+      ]
+    ]
+  },
+  "animation_source": {
+    "name": "Low Poly Animated Cats",
+    "evidence_path": "../texture-transfer-v001/mesh-info.json",
+    "evidence_sha256": "24d0d5955c895f45bde05eb26e7c4f209ba6e7514762772b2bd05e88cccc2b0e",
+    "action_count": 23,
+    "actions": [
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Attack",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Cleaning",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Death",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Eating",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Hit",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Idle",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Idle_to_Sit",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Itching",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Jog",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Jump",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|JumpDown",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|JumpUp",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|LickingButt",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Puke",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Run",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Scared",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Sitting",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Sitting_to_Idle",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Sitting_to_LickingButt",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Sitting_to_Sleep",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Sleeping",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Stretch",
+      "Cat_Domestic_Shorthair|Cat_Domestic_Shorthair|Walk"
+    ],
+    "evidence_limit": "既有盤點包含名稱；未在本次重新匯入或播放來源，也未證明所有來源動畫自身品質。"
+  },
+  "existing_landmarks": {
+    "evidence": "local_landmarks.json",
+    "role": "2D 局部花色配準；不是已解出的 3D 骨架關節"
+  },
+  "compatibility_status": "not_tested",
+  "animation_compatibility_pass": null,
+  "new_cat_automation_proven": false,
+  "next_required_evidence": [
+    "部位與來源骨架的對應、基準姿勢及局部軸核對",
+    "生成網格上的適配骨架、權重與變形結果",
+    "來源核心動作、轉場及目標引擎播放證據"
+  ],
+  "scope": "繼續原照身份與 cat.png 外觀主線；現在記錄介面要求，首次骨架候選時進行最小動畫檢查。"
+}

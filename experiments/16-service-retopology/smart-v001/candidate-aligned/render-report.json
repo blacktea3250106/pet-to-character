@@ -1,0 +1,256 @@
+{
+  "variant": "candidate-aligned",
+  "source_file": "13-dorsal/color-v002/cat.glb",
+  "source_sha256": "c24aaef29901a18e66dc6f7888562dd4e0be97857e1a6ae68c9e6afa67a67ada",
+  "service_output_sha256": "639c0459ca9fe2a0a9df6884683a7dfe2f5d391d0533fb5e95345e315c0e24b7",
+  "stats": {
+    "vertices": 5225,
+    "polygons": 4422,
+    "triangles": 4422,
+    "triangle_count_method": "evaluated mesh loop triangles, not polygon count",
+    "welded_vertices": 2213,
+    "boundary_edges": 11,
+    "nonmanifold_edges": 14,
+    "low_height_components": [
+      {
+        "height": 0.05,
+        "count": 4,
+        "groups": [
+          {
+            "n": 127,
+            "center": [
+              -0.12350069584808951,
+              -0.09944757514112577,
+              0.021038060588258002
+            ]
+          },
+          {
+            "n": 113,
+            "center": [
+              0.18077818152651323,
+              -0.08058724634810886,
+              0.02047087875348351
+            ]
+          },
+          {
+            "n": 127,
+            "center": [
+              0.2396046694104127,
+              0.050560123397140055,
+              0.018904680230927024
+            ]
+          },
+          {
+            "n": 124,
+            "center": [
+              -0.10187408796721889,
+              0.10923947634235505,
+              0.020057554004574006
+            ]
+          }
+        ]
+      },
+      {
+        "height": 0.08,
+        "count": 4,
+        "groups": [
+          {
+            "n": 154,
+            "center": [
+              -0.12701984369135522,
+              -0.0973009266346306,
+              0.02901082382368849
+            ]
+          },
+          {
+            "n": 137,
+            "center": [
+              0.1750878408333681,
+              -0.07833572670164769,
+              0.028561295602635487
+            ]
+          },
+          {
+            "n": 145,
+            "center": [
+              0.23495882502917587,
+              0.05167015785801,
+              0.024744416290496733
+            ]
+          },
+          {
+            "n": 148,
+            "center": [
+              -0.10681493167538901,
+              0.107588462028149,
+              0.02781995411754218
+            ]
+          }
+        ]
+      },
+      {
+        "height": 0.11,
+        "count": 4,
+        "groups": [
+          {
+            "n": 195,
+            "center": [
+              -0.13055120125795022,
+              -0.09591649239644026,
+              0.04278544369407404
+            ]
+          },
+          {
+            "n": 158,
+            "center": [
+              0.17005560514104517,
+              -0.07640143554610541,
+              0.037810586865356224
+            ]
+          },
+          {
+            "n": 180,
+            "center": [
+              -0.11156283513539367,
+              0.10676451639996634,
+              0.03977881066247291
+            ]
+          },
+          {
+            "n": 168,
+            "center": [
+              0.22853880189359188,
+              0.053258088594746025,
+              0.034459566103361705
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "glb": {
+    "triangles": 4422,
+    "mesh_count": 1,
+    "skins": 0,
+    "animations": 0,
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "Cat_material",
+        "normalTexture": {
+          "index": 0
+        },
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 1
+          },
+          "metallicRoughnessTexture": {
+            "index": 2
+          }
+        }
+      }
+    ],
+    "image_count": 3
+  },
+  "bounds_m": [
+    [
+      -0.32499998807907104,
+      -0.14500977098941803,
+      8.484596764901653e-05
+    ],
+    [
+      0.32499998807907104,
+      0.14500977098941803,
+      0.41985002160072327
+    ]
+  ],
+  "smooth_polygon_count": 4422,
+  "manual_processing_regions": [],
+  "local_shape_edits": false,
+  "local_material_edits": false,
+  "local_texture_edits": false,
+  "automatic_alignment_applied": true,
+  "alignment": {
+    "method": "Restore source bounding-box center and longest extent with one uniform scale; no rotation or per-axis deformation",
+    "scale": 0.6499999761581421,
+    "service_center": [
+      0.0,
+      -0.0009784847497940063,
+      -0.0009784698486328125
+    ],
+    "source_center": [
+      0.0,
+      0.0,
+      0.20996743440628052
+    ],
+    "manual_landmarks_or_regions": false,
+    "orientation_assumption": "Service retained source axes; unverified rotations would fail surface/visual checks"
+  },
+  "views": [
+    [
+      "hero",
+      -69,
+      10,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ],
+    [
+      "face",
+      -69,
+      9,
+      [
+        0.23,
+        0,
+        0.31
+      ],
+      0.28
+    ],
+    [
+      "opposite",
+      110,
+      10,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ],
+    [
+      "back-high",
+      110,
+      48,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ]
+  ],
+  "identity_or_art_pass": false,
+  "animation_compatibility": "not_tested",
+  "new_cat_automation_proven": false,
+  "baseline_cache": "16-service-retopology/smart-v001/baseline",
+  "sampled_surface_distance": {
+    "source_to_candidate": {
+      "max_m": 0.004748905543237925,
+      "p95_m": 0.0015553729783277957,
+      "mean_m": 0.000670101460658344,
+      "samples": 7610
+    },
+    "candidate_to_source": {
+      "max_m": 0.004623361397534609,
+      "p95_m": 0.0015747445868328214,
+      "mean_m": 0.0006752685976014485,
+      "samples": 9647
+    },
+    "scope": "World-space vertices and triangle centroids after the recorded uniform scale/translation; not continuous Hausdorff maximum or deformation validation"
+  },
+  "budget_pass": false,
+  "metric_description_correction": "The executed code initially mislabeled aligned world-space measurements as unaligned; values and geometry are unchanged."
+}

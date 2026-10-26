@@ -1,0 +1,9 @@
+{
+  "endpoint": "/mesh/decimate",
+  "input_file": "13-dorsal/color-v002/cat.glb",
+  "input_sha256": "c24aaef29901a18e66dc6f7888562dd4e0be97857e1a6ae68c9e6afa67a67ada",
+  "model": "v2.0",
+  "face_limit": 3500,
+  "quad": false,
+  "bake": true
+}

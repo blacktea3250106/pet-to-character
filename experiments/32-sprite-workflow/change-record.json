@@ -1,0 +1,46 @@
+{
+  "status": "completed_documentation_only",
+  "before": {
+    "workflow_sha256": "079552b3a2f78799dcde954ebdebc0a3acbef70b56a3a1ea68f2840dd7136429",
+    "readme_sha256": "2fb06f432eb2aad0cf187db9db1cd1bf4a27d573b0bb496275a3f71067298d4e",
+    "cat_png_sha256": "d54cb98dfb9093766654d549d279e56b8d8f57a351738462cba5486e31e6f06b",
+    "catworld_main_sha256": "e283c6f80c73688ce3269e56198e89711ec5a56d88a1bf663378a7882f151509"
+  },
+  "completed_at": "2026-10-01T01:57:09.996422+08:00",
+  "after": {
+    "workflow_sha256": "0f800bb875c6c54859a821e4d17aeeeb9b69a557ea734c4931c958cd1685a476"
+  },
+  "checks": {
+    "local_workflow_links_exist": true,
+    "missing_links": [],
+    "old_workflow_byte_identical": true,
+    "readme_unchanged": true,
+    "cat_png_unchanged": true,
+    "catworld_main_unchanged": true,
+    "stage_count": 8,
+    "balanced_code_fences": true,
+    "camera_elevation_degrees_from_source": 30.96375653207352,
+    "new_generation_calls": 0,
+    "engine_execution_performed": false,
+    "new_cat_automation_proven": false
+  },
+  "scope": "cat.png prototype; existing 3D room with 2D low-poly sprite; future photo personalization separated",
+  "manual_work_removed_this_turn": "none; workflow planning only",
+  "tested_inputs": "Read-only inspection of cat.png, existing photo references and Godot source; no new sprite generation or runtime test",
+  "unvalidated": [
+    "background extraction without appearance changes",
+    "camera/pivot match",
+    "multi-direction identity",
+    "walk/sit frames and transitions",
+    "depth and furniture interaction",
+    "new-cat automation",
+    "memory/performance/cost"
+  ],
+  "archive_note": "workflow-3d-before.md is a byte-identical snapshot; its relative links were authored relative to project root",
+  "source_urls": [
+    "https://docs.godotengine.org/en/stable/classes/class_camera3d.html",
+    "https://docs.godotengine.org/en/stable/classes/class_spritebase3d.html",
+    "https://docs.godotengine.org/en/stable/classes/class_animatedsprite3d.html",
+    "https://docs.godotengine.org/en/stable/tutorials/navigation/navigation_using_navigationagents.html"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case": "short_fat",
+  "steps": [
+    {
+      "step": "fit",
+      "exit_code": 0,
+      "log": "stress-short_fat-fit.log"
+    },
+    {
+      "step": "bind",
+      "exit_code": 0,
+      "log": "stress-short_fat-bind.log"
+    },
+    {
+      "step": "sampled_animation",
+      "exit_code": 0,
+      "log": "stress-short_fat-sampled_animation.log"
+    }
+  ],
+  "status": "diagnostics_completed_not_quality_pass"
+}

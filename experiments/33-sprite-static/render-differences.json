@@ -1,0 +1,42 @@
+{
+  "shadow": {
+    "changed_pixels_gt2": 16760,
+    "max_channel_difference": 12,
+    "difference_bbox": [
+      480,
+      520,
+      789,
+      600
+    ],
+    "files": [
+      "02-close.png",
+      "02b-close-shadow-off-diagnostic.png"
+    ],
+    "meaning": "Effect of the single rendering toggle, not a perceptual quality or identity score."
+  },
+  "depth_behind_no_projected_overlap": {
+    "changed_pixels_gt2": 0,
+    "max_channel_difference": 0,
+    "difference_bbox": null,
+    "files": [
+      "04-bed-behind-depth-on.png",
+      "05-bed-behind-depth-off-diagnostic.png"
+    ],
+    "meaning": "Effect of the single rendering toggle, not a perceptual quality or identity score."
+  },
+  "depth_bed_edge": {
+    "changed_pixels_gt2": 8303,
+    "max_channel_difference": 248,
+    "difference_bbox": [
+      639,
+      410,
+      720,
+      552
+    ],
+    "files": [
+      "07-bed-edge-depth-on.png",
+      "08-bed-edge-depth-off-diagnostic.png"
+    ],
+    "meaning": "Effect of the single rendering toggle, not a perceptual quality or identity score."
+  }
+}

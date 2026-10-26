@@ -1,0 +1,110 @@
+{
+  "phase": 1,
+  "topic": "scene_lighting_only",
+  "completed_at": "2026-10-01T02:26:18.106035+08:00",
+  "status": "controlled_AB_completed_not_adopted_as_fusion_improvement",
+  "baseline": "../33-sprite-static",
+  "variant_A": {
+    "shaded": false
+  },
+  "variant_B": {
+    "shaded": true
+  },
+  "changed_property": "Sprite3D.shaded",
+  "invariants": [
+    "same PNG bytes",
+    "same room/camera",
+    "same world size and position",
+    "same alpha-cut/depth settings",
+    "same manual pivot",
+    "same independent shadow",
+    "same lighting sources and intensities"
+  ],
+  "observations": [
+    "B白毛略暖、整體稍暗；大輪廓、切面密度與接觸陰影不變。",
+    "正常遊戲大小下視覺差異小，仍有貼紙感。",
+    "本測試不能證明光影不重要，只能說明目前這張帶明暗圖片與平面sprite直接開啟受光不足。"
+  ],
+  "decision": "A保留為基準；B保留對照，不作為融合改善完成。未追加調色/陰影/視角/重生成。",
+  "measurement": {
+    "source_texture_room_profile_unchanged": true,
+    "views": {
+      "close": {
+        "only_recorded_property_changed": "shaded",
+        "pixels_changed_gt2": 66473,
+        "max_channel_delta": 20,
+        "mean_absolute_channel_delta_changed_pixels": 6.298477075905505,
+        "difference_bbox": [
+          420,
+          272,
+          844,
+          561
+        ],
+        "mean_signed_RGB_delta_changed_pixels": [
+          -2.05784303401381,
+          -4.127359980744061,
+          -4.8049433604621425
+        ],
+        "baseline_replay_max_pixel_delta": 0
+      },
+      "overview": {
+        "only_recorded_property_changed": "shaded",
+        "pixels_changed_gt2": 8158,
+        "max_channel_delta": 20,
+        "mean_absolute_channel_delta_changed_pixels": 6.33018713737027,
+        "difference_bbox": [
+          579,
+          589,
+          727,
+          690
+        ],
+        "mean_signed_RGB_delta_changed_pixels": [
+          -2.127727384162785,
+          -4.217822995832312,
+          -4.868104927678353
+        ],
+        "baseline_replay_max_pixel_delta": 0
+      }
+    },
+    "caveat": "These are rendering differences, not an identity/style improvement score."
+  },
+  "unvalidated": [
+    "照明方向/平面法線的獨立影響",
+    "角色走過明暗區",
+    "照片個人化",
+    "動畫",
+    "其他真實貓",
+    "完整貼地/融合品質"
+  ],
+  "manual_dependencies": [
+    "沿用33人工pivot，並未移除此依賴",
+    "人工外觀評估"
+  ],
+  "manual_work_removed": "本階段受光開關為共用設定，不需逐貓遮罩或修色；未移除原有支撐點/美術審查人工。",
+  "inputs_tested": {
+    "AI_prototype_count": 1,
+    "new_real_cat_count": 0,
+    "camera_views": [
+      "close",
+      "overview"
+    ]
+  },
+  "imagegen_calls": 0,
+  "tripo_calls": 0,
+  "new_cat_automation_proven": false,
+  "sources_unchanged": {
+    "catworld_checked_files": 46,
+    "readme": true,
+    "cat_png": true
+  },
+  "artifacts": {
+    "comparison": "evidence/comparison.png",
+    "close_A": "evidence/close-A.png",
+    "close_B": "evidence/close-B.png",
+    "overview_A": "evidence/overview-A.png",
+    "overview_B": "evidence/overview-B.png",
+    "launcher": "第一階段受光AB.command"
+  },
+  "presentation_note": "comparison.png is a Godot UI side-by-side display of the same crop from actual raw renders, not an AI-generated improvement illustration.",
+  "next_phase": "獨立測試接觸陰影；以A作基準，不累加本輪未證明改善的B。"
+}

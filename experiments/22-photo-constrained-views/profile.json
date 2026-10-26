@@ -1,0 +1,73 @@
+{
+  "case_id": "generation-v001",
+  "identity_features": "02-identity/features.json",
+  "output": "22-photo-constrained-views",
+  "sources": {
+    "pose": {
+      "path": "20-standing-reference/standing-v002.png",
+      "role": "AI neutral standing pose/proportion anchor only; real-photo markings override it"
+    },
+    "identity": {
+      "path": "01-segmentation/identity-source.png",
+      "role": "real cat face and anatomical right-side identity evidence; ignore its lying pose"
+    },
+    "opposite": {
+      "path": "00-input/photo-03.png",
+      "role": "real anatomical left cheek, black shoulder and left flank identity; ignore lying pose and background"
+    },
+    "tail": {
+      "path": "00-input/photo-06.png",
+      "role": "real tail/leg colors and facial asymmetry; ignore phone UI and lying pose"
+    },
+    "style": {
+      "path": "../../cat.png",
+      "role": "art direction only: clean faceted volume, matte surfaces, natural feline anatomy; do not copy its pose or markings"
+    },
+    "front": {
+      "path": "22-photo-constrained-views/front-v002.png",
+      "role": "checked AI frontal reference of the same standing cat; preserve its facial asymmetry and body proportions"
+    }
+  },
+  "views": {
+    "front": {
+      "camera": "Strict anatomical FRONT view, camera centered directly ahead of the nose, eye-level orthographic. Cat faces viewer. The animal's RIGHT cheek is on image LEFT and LEFT cheek is on image RIGHT. Full standing body, all ear tips and paws in frame. Natural occlusion of rear feet is allowed; do not splay or invent limbs to show four separate feet.",
+      "inputs": [
+        "pose",
+        "identity",
+        "opposite",
+        "tail",
+        "style"
+      ]
+    },
+    "left": {
+      "camera": "Strict anatomical LEFT side profile, camera looks squarely at the animal's left flank; head and nose point to IMAGE LEFT. Preserve the observed left cheek, shoulder, flank and leg markings from the real identity evidence. Do not mirror the right side onto this side.",
+      "inputs": [
+        "pose",
+        "front",
+        "opposite",
+        "identity",
+        "style"
+      ]
+    },
+    "right": {
+      "camera": "Strict anatomical RIGHT side profile, camera looks squarely at the animal's right flank; head and nose point to IMAGE RIGHT. Preserve the observed right cheek and right-side body markings from the real identity evidence.",
+      "inputs": [
+        "pose",
+        "front",
+        "identity",
+        "tail",
+        "style"
+      ]
+    },
+    "back": {
+      "camera": "Strict anatomical BACK view, camera directly behind the tail root, eye-level orthographic. Cat looks away in the same direction as its spine; do not turn the head toward the camera. Preserve the same tail curve and stance, seen from behind. Do not invent new coat patches on unobserved regions; unseen details remain conservative inference.",
+      "inputs": [
+        "pose",
+        "front",
+        "opposite",
+        "tail",
+        "style"
+      ]
+    }
+  }
+}

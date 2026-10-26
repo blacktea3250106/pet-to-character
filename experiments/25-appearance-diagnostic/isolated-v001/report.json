@@ -1,0 +1,103 @@
+{
+  "artifact_kind": "actual_3D_diagnostic_renders",
+  "source": "experiments/generation-v001/24-multiview-budget/flat-candidate/cat.glb",
+  "source_sha256": "e09acc1a792ba078ec32d53183ab816e01cc7dd1c7f6b50548926134371820d1",
+  "review_scene_sha256": "58fa0bbf1e16e83d5b5948f2349b9027d48e5f25ccf54e284af170a9dffb392c",
+  "blender": "5.2.1 LTS",
+  "config": {
+    "source": "24-multiview-budget/flat-candidate/cat.glb",
+    "scene": "24-multiview-budget/flat-candidate/preview/scene.blend",
+    "scene_report": "24-multiview-budget/flat-candidate/preview/report.json",
+    "output": "25-appearance-diagnostic/isolated-v001",
+    "views": [
+      -45,
+      45
+    ],
+    "elevation_degrees": 12,
+    "cycles_samples": 32,
+    "cycles_seed": 0,
+    "modes": [
+      "baseline",
+      "no_specular",
+      "base_color"
+    ],
+    "luminance_groups_srgb_255": [
+      [
+        0,
+        70
+      ],
+      [
+        70,
+        140
+      ],
+      [
+        140,
+        256
+      ]
+    ],
+    "threshold_scope": "Fixed diagnostic bins, not semantic black/orange/white labels or quality thresholds"
+  },
+  "mesh_state_before": "4cab577d6f3e08e150657d3126286ae516f8cdcb59bf5c70631d5ae828df2425",
+  "render_settings": {
+    "view_transform": "Standard",
+    "look": "None",
+    "exposure": 0.0,
+    "gamma": 1.0
+  },
+  "modes": {
+    "baseline": "Imported GLB material, unchanged",
+    "no_specular": "Only Principled Specular IOR Level set to 0 over the entire surface; diagnostic, not an eye-material solution",
+    "base_color": "Base Color socket drives strength-1 emission only for camera rays; other rays retain original BSDF"
+  },
+  "renders": [
+    {
+      "file": "baseline-az315.png",
+      "azimuth": -45,
+      "mode": "baseline"
+    },
+    {
+      "file": "no_specular-az315.png",
+      "azimuth": -45,
+      "mode": "no_specular"
+    },
+    {
+      "file": "base_color-az315.png",
+      "azimuth": -45,
+      "mode": "base_color"
+    },
+    {
+      "file": "alpha-source-az315.png",
+      "azimuth": -45,
+      "mode": "alpha_source",
+      "scope": "Only alpha used; hiding the ground changes indirect lighting in this diagnostic RGB"
+    },
+    {
+      "file": "baseline-az045.png",
+      "azimuth": 45,
+      "mode": "baseline"
+    },
+    {
+      "file": "no_specular-az045.png",
+      "azimuth": 45,
+      "mode": "no_specular"
+    },
+    {
+      "file": "base_color-az045.png",
+      "azimuth": 45,
+      "mode": "base_color"
+    },
+    {
+      "file": "alpha-source-az045.png",
+      "azimuth": 45,
+      "mode": "alpha_source",
+      "scope": "Only alpha used; hiding the ground changes indirect lighting in this diagnostic RGB"
+    }
+  ],
+  "asset_modified": false,
+  "identity_or_art_pass": false,
+  "new_cat_automation_proven": false,
+  "mesh_state_after": "4cab577d6f3e08e150657d3126286ae516f8cdcb59bf5c70631d5ae828df2425",
+  "source_file_unchanged": true,
+  "review_scene_file_unchanged": true,
+  "geometry_uv_normals_unchanged": true
+}

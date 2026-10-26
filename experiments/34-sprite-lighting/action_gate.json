@@ -1,0 +1,22 @@
+{
+  "timing": "before_execution",
+  "recorded_at": "2026-10-01T02:23:15.915636+08:00",
+  "authorization": "使用者要求一個一個階段改，觀看每階段差別；本輪只做第一階段受光A/B。",
+  "purpose": "隔離場景受光對2D貓融入感的影響，保留cat.png身份及後续動畫方向；不改圖或新增3D貓。",
+  "scope": "共用引擎顯示規格，单一變因 Sprite3D.shaded false→true。",
+  "automation": "相同素材/相機/場景/位置/陰影下擷取近景和全景A/B；比對圖像差異及資產hash。設定不包含逐貓遮罩或修色。",
+  "manual_dependencies": [
+    "沿用33的一組人工pivot，未改善此依賴",
+    "人工比較身份/色彩/陰影與場景融合"
+  ],
+  "case_necessity": "驗證平面sprite接受場景燈光是否有幫助及重複打光/平面法線副作用；方法可套用其他cat但本輪仅此原型。",
+  "validation": [
+    "唯一角色屬性改動shaded",
+    "PNG/世界尺寸/pivot/相機/房間/接觸陰影相同",
+    "同鏡頭近景和全景實際Godot渲染",
+    "不把變亮/變暗或程式成功當融合改善",
+    "原catworld/readme/cat.png不改"
+  ],
+  "stop_condition": "一次A/B；如結果不足或退步直接保存，不在同輪追加調色/換圖/陰影/相機/粗化。完成可看的對照後停止，第二階段另行處理。",
+  "new_cat_automation_proven": false
+}

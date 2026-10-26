@@ -1,0 +1,35 @@
+{
+  "file": "experiments/generation-v001/16-service-retopology/smart-v001/model_url.glb",
+  "sha256": "639c0459ca9fe2a0a9df6884683a7dfe2f5d391d0533fb5e95345e315c0e24b7",
+  "bytes": 979564,
+  "scene_index": 0,
+  "mesh_triangle_counts": [
+    4422
+  ],
+  "active_mesh_instances": [
+    {
+      "node": 0,
+      "mesh": 0,
+      "triangles": 4422
+    }
+  ],
+  "active_scene_triangles": 4422,
+  "unique_mesh_triangles": 4422,
+  "unsupported_primitives": [],
+  "triangle_limit": 3500,
+  "budget_pass": false,
+  "status": "budget_rejected",
+  "method": "TRIANGLES accessor count / 3 for each active scene mesh instance; index positions are not decoded here",
+  "skins": 0,
+  "animations": 0,
+  "asset_accepted": false,
+  "not_validated": [
+    "buffer/index integrity beyond JSON metadata",
+    "manifoldness and self-intersections",
+    "anatomy",
+    "photo identity",
+    "cat.png style",
+    "UV fidelity",
+    "skin deformation and source-animation compatibility"
+  ]
+}

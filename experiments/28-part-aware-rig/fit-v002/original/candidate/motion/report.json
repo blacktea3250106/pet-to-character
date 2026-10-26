@@ -1,0 +1,268 @@
+{
+  "artifact_kind": "actual_skinned_3D_animation_render",
+  "candidate": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/28-part-aware-rig/fit-v002/original/candidate",
+  "renders": [
+    {
+      "action": "Walk",
+      "frame": 1,
+      "file": "Walk-0001.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 3,
+      "file": "Walk-0003.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 5,
+      "file": "Walk-0005.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 7,
+      "file": "Walk-0007.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 9,
+      "file": "Walk-0009.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 11,
+      "file": "Walk-0011.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 13,
+      "file": "Walk-0013.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 15,
+      "file": "Walk-0015.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 17,
+      "file": "Walk-0017.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 19,
+      "file": "Walk-0019.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 21,
+      "file": "Walk-0021.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 23,
+      "file": "Walk-0023.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 25,
+      "file": "Walk-0025.png"
+    },
+    {
+      "action": "Walk",
+      "frame": 27,
+      "file": "Walk-0027.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 1,
+      "file": "Idle_to_Sit-0001.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 3,
+      "file": "Idle_to_Sit-0003.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 5,
+      "file": "Idle_to_Sit-0005.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 7,
+      "file": "Idle_to_Sit-0007.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 9,
+      "file": "Idle_to_Sit-0009.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 11,
+      "file": "Idle_to_Sit-0011.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 13,
+      "file": "Idle_to_Sit-0013.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 15,
+      "file": "Idle_to_Sit-0015.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 17,
+      "file": "Idle_to_Sit-0017.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 19,
+      "file": "Idle_to_Sit-0019.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 21,
+      "file": "Idle_to_Sit-0021.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 23,
+      "file": "Idle_to_Sit-0023.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 25,
+      "file": "Idle_to_Sit-0025.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 27,
+      "file": "Idle_to_Sit-0027.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 29,
+      "file": "Idle_to_Sit-0029.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 31,
+      "file": "Idle_to_Sit-0031.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 33,
+      "file": "Idle_to_Sit-0033.png"
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frame": 35,
+      "file": "Idle_to_Sit-0035.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 1,
+      "file": "Sitting_to_Idle-0001.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 3,
+      "file": "Sitting_to_Idle-0003.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 5,
+      "file": "Sitting_to_Idle-0005.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 7,
+      "file": "Sitting_to_Idle-0007.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 9,
+      "file": "Sitting_to_Idle-0009.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 11,
+      "file": "Sitting_to_Idle-0011.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 13,
+      "file": "Sitting_to_Idle-0013.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 15,
+      "file": "Sitting_to_Idle-0015.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 17,
+      "file": "Sitting_to_Idle-0017.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 19,
+      "file": "Sitting_to_Idle-0019.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 21,
+      "file": "Sitting_to_Idle-0021.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 23,
+      "file": "Sitting_to_Idle-0023.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 25,
+      "file": "Sitting_to_Idle-0025.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 27,
+      "file": "Sitting_to_Idle-0027.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 29,
+      "file": "Sitting_to_Idle-0029.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 31,
+      "file": "Sitting_to_Idle-0031.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 33,
+      "file": "Sitting_to_Idle-0033.png"
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frame": 35,
+      "file": "Sitting_to_Idle-0035.png"
+    }
+  ],
+  "fps_source": 30,
+  "frame_step": 2,
+  "camera": {
+    "center": [
+      1.4901161193847656e-08,
+      0.0005762577056884766,
+      1.4901161193847656e-08
+    ],
+    "ortho_scale": 1.5859241485595703,
+    "azimuth": -45
+  },
+  "note": "In-place source animation; no foot IK or locomotion root travel imposed."
+}

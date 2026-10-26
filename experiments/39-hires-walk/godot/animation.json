@@ -1,0 +1,666 @@
+{
+  "directions": [
+    {
+      "texture": "res://assets/walk-0.png",
+      "pixel_size": 0.0012903225806451613,
+      "frames": [
+        {
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            12,
+            77,
+            620,
+            565
+          ],
+          "pivot": [
+            335.0,
+            565
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            17,
+            79,
+            620,
+            562
+          ],
+          "pivot": [
+            339.0,
+            562
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            12,
+            57,
+            621,
+            535
+          ],
+          "pivot": [
+            337.0,
+            535
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            11,
+            52,
+            621,
+            525
+          ],
+          "pivot": [
+            336.0,
+            525
+          ],
+          "border_body_pixels": 0
+        }
+      ]
+    },
+    {
+      "texture": "res://assets/walk-1.png",
+      "pixel_size": 0.0011775878442545108,
+      "frames": [
+        {
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            49,
+            78,
+            608,
+            599
+          ],
+          "pivot": [
+            372.0,
+            599
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            49,
+            77,
+            604,
+            577
+          ],
+          "pivot": [
+            373.0,
+            577
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            40,
+            37,
+            612,
+            575
+          ],
+          "pivot": [
+            372.0,
+            575
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            41,
+            43,
+            609,
+            575
+          ],
+          "pivot": [
+            383.0,
+            575
+          ],
+          "border_body_pixels": 0
+        }
+      ]
+    },
+    {
+      "texture": "res://assets/walk-2.png",
+      "pixel_size": 0.0010393964794635374,
+      "frames": [
+        {
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            142,
+            14,
+            485,
+            620
+          ],
+          "pivot": [
+            356.0,
+            620
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            99,
+            14,
+            452,
+            600
+          ],
+          "pivot": [
+            318.0,
+            600
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            143,
+            6,
+            489,
+            607
+          ],
+          "pivot": [
+            367.0,
+            607
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            99,
+            6,
+            460,
+            598
+          ],
+          "pivot": [
+            322.0,
+            598
+          ],
+          "border_body_pixels": 0
+        }
+      ]
+    },
+    {
+      "texture": "res://assets/walk-3.png",
+      "pixel_size": 0.0011081322609472744,
+      "frames": [
+        {
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            72,
+            35,
+            594,
+            609
+          ],
+          "pivot": [
+            304.0,
+            609
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            72,
+            37,
+            597,
+            592
+          ],
+          "pivot": [
+            300.0,
+            592
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            70,
+            25,
+            609,
+            589
+          ],
+          "pivot": [
+            306.0,
+            589
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            66,
+            21,
+            585,
+            568
+          ],
+          "pivot": [
+            305.0,
+            568
+          ],
+          "border_body_pixels": 0
+        }
+      ]
+    },
+    {
+      "texture": "res://assets/walk-4.png",
+      "pixel_size": 0.0013979706877113867,
+      "frames": [
+        {
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            21,
+            124,
+            622,
+            568
+          ],
+          "pivot": [
+            308.0,
+            568
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            34,
+            126,
+            614,
+            567
+          ],
+          "pivot": [
+            323.0,
+            567
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            21,
+            78,
+            611,
+            527
+          ],
+          "pivot": [
+            304.0,
+            527
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            14,
+            82,
+            609,
+            525
+          ],
+          "pivot": [
+            304.0,
+            525
+          ],
+          "border_body_pixels": 0
+        }
+      ]
+    },
+    {
+      "texture": "res://assets/walk-5.png",
+      "pixel_size": 0.001203883495145631,
+      "frames": [
+        {
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            96,
+            75,
+            610,
+            590
+          ],
+          "pivot": [
+            332.0,
+            590
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            93,
+            75,
+            602,
+            590
+          ],
+          "pivot": [
+            338.0,
+            590
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            96,
+            53,
+            627,
+            564
+          ],
+          "pivot": [
+            335.0,
+            564
+          ],
+          "border_body_pixels": 2
+        },
+        {
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            94,
+            53,
+            605,
+            573
+          ],
+          "pivot": [
+            338.0,
+            573
+          ],
+          "border_body_pixels": 0
+        }
+      ]
+    },
+    {
+      "texture": "res://assets/walk-6.png",
+      "pixel_size": 0.0010973451327433627,
+      "frames": [
+        {
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            172,
+            34,
+            522,
+            599
+          ],
+          "pivot": [
+            403.0,
+            599
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            122,
+            34,
+            456,
+            599
+          ],
+          "pivot": [
+            330.0,
+            599
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            215,
+            16,
+            528,
+            558
+          ],
+          "pivot": [
+            406.5,
+            558
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            123,
+            13,
+            462,
+            579
+          ],
+          "pivot": [
+            329.0,
+            579
+          ],
+          "border_body_pixels": 0
+        }
+      ]
+    },
+    {
+      "texture": "res://assets/walk-7.png",
+      "pixel_size": 0.0011355311355311355,
+      "frames": [
+        {
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            89,
+            49,
+            558,
+            607
+          ],
+          "pivot": [
+            373.0,
+            607
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "bbox": [
+            73,
+            50,
+            518,
+            586
+          ],
+          "pivot": [
+            343.0,
+            586
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            106,
+            24,
+            558,
+            574
+          ],
+          "pivot": [
+            378.0,
+            574
+          ],
+          "border_body_pixels": 0
+        },
+        {
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "bbox": [
+            93,
+            24,
+            524,
+            566
+          ],
+          "pivot": [
+            349.0,
+            566
+          ],
+          "border_body_pixels": 0
+        }
+      ]
+    }
+  ],
+  "layout": "2x2",
+  "cycle_distance": 0.42,
+  "frame_count": 4,
+  "registration": "largest alpha component, body-band median x and bottommost silhouette y; shared rule, not anatomical paw detection",
+  "world_height": 0.62,
+  "rear_left_status": "initial candidate; requested correction interrupted by user; head still partially looks sideways"
+}

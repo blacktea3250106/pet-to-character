@@ -1,0 +1,21 @@
+{
+  "case": "short_legs",
+  "steps": [
+    {
+      "step": "fit",
+      "exit_code": 0,
+      "log": "stress-short_legs-fit.log"
+    },
+    {
+      "step": "bind",
+      "exit_code": 0,
+      "log": "stress-short_legs-bind.log"
+    },
+    {
+      "step": "sampled_animation",
+      "exit_code": 0,
+      "log": "stress-short_legs-sampled_animation.log"
+    }
+  ],
+  "status": "diagnostics_completed_not_quality_pass"
+}

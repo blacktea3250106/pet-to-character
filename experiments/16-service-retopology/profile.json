@@ -1,0 +1,12 @@
+{
+  "source_file": "13-dorsal/color-v002/cat.glb",
+  "output": "16-service-retopology/smart-v001",
+  "endpoint": "/mesh/decimate",
+  "parameters": {"model": "v2.0", "face_limit": 3500, "quad": false, "bake": true},
+  "official_docs": "https://developers.tripo3d.ai/en/docs/mesh-decimate",
+  "purpose": "Evaluate a no-manual-region 3500-triangle retopology stage on the existing colored candidate.",
+  "source_provenance_warning": "Source geometry orientation, photo interpretation and texture corrections previously involved manual work. This experiment cannot establish end-to-end or unseen-cat automation.",
+  "human_inputs_to_this_processing_stage": [],
+  "acceptance": "Inspect actual GLB triangles, silhouette, head/paws/tail, color, roughness and invalidated surface mappings; animation remains untested.",
+  "request_limit_this_variant": 1
+}

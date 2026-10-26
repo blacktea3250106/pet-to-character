@@ -1,0 +1,16 @@
+{
+  "source_sha256": "e09acc1a792ba078ec32d53183ab816e01cc7dd1c7f6b50548926134371820d1",
+  "candidate_sha256": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+  "previous_specular_factor": 1,
+  "candidate_specular_factor": 0.3,
+  "all_binary_data_identical": true,
+  "all_other_json_fields_identical": true,
+  "source_file_unchanged": true,
+  "binary_sha256": "af0096ff366e055cb10eb0a646ec0e6ac94e1cea2f2819ecfbfb91fbf647528e",
+  "meaning": "Geometry, UVs, normals, textures and their bindings are byte-identical; only specular factor and extension declaration change.",
+  "scope": "Provisional single-surface material preset. No coat recolor, eye-specific treatment, topology edits or rigging.",
+  "blender_import_verified": false,
+  "unity_verified": false,
+  "asset_accepted": false,
+  "new_cat_automation_proven": false
+}

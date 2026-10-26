@@ -1,0 +1,65 @@
+{
+  "kind": "actual_3D_detail_renders",
+  "cases": [
+    {
+      "label": "baseline",
+      "source": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/25-appearance-diagnostic/matte-candidate/cat.glb",
+      "source_sha256": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+      "scene": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/25-appearance-diagnostic/matte-candidate/preview/scene.blend",
+      "framing": {
+        "center": [
+          0.22922368347644806,
+          0.06647101044654846,
+          0.3835873007774353
+        ],
+        "ortho_scale": 0.3859896004199982
+      },
+      "renders": [
+        "baseline-az315.png",
+        "baseline-az000.png",
+        "baseline-az045.png"
+      ]
+    },
+    {
+      "label": "delta18",
+      "source": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/results-v001/delta18/cat.glb",
+      "source_sha256": "a772b9fb39fe76b91c998c5d160a2b1c93290afdeac32951b51747ab89ad32c5",
+      "scene": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/results-v001/delta18/preview/scene.blend",
+      "framing": {
+        "center": [
+          0.22922368347644806,
+          0.06647101044654846,
+          0.3835873007774353
+        ],
+        "ortho_scale": 0.3859896004199982
+      },
+      "renders": [
+        "delta18-az315.png",
+        "delta18-az000.png",
+        "delta18-az045.png"
+      ]
+    },
+    {
+      "label": "delta28",
+      "source": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/results-v001/delta28/cat.glb",
+      "source_sha256": "67b274007757049bc54f44f105ea4244fec1ff3e7b92f5c5c90e803bf956eb4c",
+      "scene": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/26-adaptive-facet-color/results-v001/delta28/preview/scene.blend",
+      "framing": {
+        "center": [
+          0.22922368347644806,
+          0.06647101044654846,
+          0.3835873007774353
+        ],
+        "ortho_scale": 0.3859896004199982
+      },
+      "renders": [
+        "delta28-az315.png",
+        "delta28-az000.png",
+        "delta28-az045.png"
+      ]
+    }
+  ],
+  "same_geometry_camera_lights_material_scalars": true,
+  "camera_only_heuristic": "Front +X 30% / upper 50% bbox; not a detector or processing region",
+  "art_acceptance": false
+}

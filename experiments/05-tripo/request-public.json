@@ -1,0 +1,36 @@
+{
+  "inputs": [
+    {
+      "view": "front",
+      "sha256": "405ee3d550be5f44d5956db34ecac375a05c4b55bc3c14f16f12ac588970b349"
+    },
+    {
+      "view": "left",
+      "sha256": "39c8955c712734328ab84af2874d1404b95f6358e9e232582814e9624c62a171"
+    },
+    {
+      "view": "back",
+      "sha256": "20359a7322a5860a4edeb1c3c30338f3ff341f7af614295cbac22c68476692af"
+    },
+    {
+      "view": "right",
+      "sha256": "0409b18c0f0266cea4dd37ddefaaace64746b17aab602604547319c26f2e446f"
+    }
+  ],
+  "model": "v3.1-20260211",
+  "texture": true,
+  "pbr": false,
+  "texture_alignment": "original_image",
+  "texture_version": "v3.0-20250812",
+  "texture_quality": "standard",
+  "geometry_quality": "standard",
+  "smart_low_poly": true,
+  "face_limit": 3000,
+  "quad": false,
+  "auto_size": false,
+  "generate_parts": false,
+  "orientation": "default",
+  "export_uv": true,
+  "model_seed": 3101,
+  "texture_seed": 3102
+}

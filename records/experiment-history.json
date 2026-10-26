@@ -1,0 +1,2497 @@
+{
+  "schema_version": 1,
+  "case_id": "generation-v001",
+  "recorded_retrospectively_on": "2026-09-30",
+  "historical_script_revision_hashes": null,
+  "hash_caveat": "部分腳本在實驗中有修改；現在快照的 code hash 只代表紀錄時版本，不能宣稱等同所有歷史執行版本。",
+  "manual_minutes": null,
+  "events": [
+    {
+      "id": "E01",
+      "issues": [
+        "INPUT-01"
+      ],
+      "script": "prepare.py",
+      "inputs": [
+        "00-input/photo-05.png"
+      ],
+      "outputs": [
+        "01-segmentation/manifest.json",
+        "02-identity/features.json"
+      ],
+      "manual_inputs": [
+        "輪廓點、裁切框、身份區域框與描述"
+      ],
+      "outcome": "case_candidate",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E02",
+      "issues": [
+        "REF-01"
+      ],
+      "script": null,
+      "inputs": [
+        "03-style/prompt.txt",
+        "01-segmentation/identity-source.png"
+      ],
+      "outputs": [
+        "03-style/same-pose.png",
+        "03-style/review.json"
+      ],
+      "manual_inputs": [
+        "ImageGen 提示詞、原照身份與風格目視審查"
+      ],
+      "outcome": "style_candidate_identity_not_fully_verified",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E03",
+      "issues": [
+        "REF-01"
+      ],
+      "script": "normalize_views.py",
+      "inputs": [
+        "04-views/prompt.txt",
+        "04-views/repair-prompt.txt"
+      ],
+      "outputs": [
+        "04-views/review.json",
+        "04-views/normalization.json"
+      ],
+      "manual_inputs": [
+        "四視圖裁切框、耳尖/地面對應及目視審查"
+      ],
+      "outcome": "production_gate_failed_but_poc_submitted",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E04",
+      "issues": [
+        "GEN-01",
+        "QA-01"
+      ],
+      "script": "tripo_run.py",
+      "inputs": [
+        "05-tripo/request-public.json"
+      ],
+      "outputs": [
+        "05-tripo/state.json",
+        "06-raw-model/report.json",
+        "06-raw-model/threequarter.png"
+      ],
+      "manual_inputs": [
+        "生成後辨識多腿"
+      ],
+      "outcome": "generation_succeeded_anatomy_failed",
+      "service_elapsed_seconds": 210.18,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E05",
+      "issues": [
+        "GEN-01"
+      ],
+      "script": "blender_stage.py",
+      "inputs": [
+        "06-raw-model/mesh.npz"
+      ],
+      "outputs": [
+        "06b-repair/rejected-flat-cap/report.json",
+        "06b-repair/review.json",
+        "06b-repair/report.json"
+      ],
+      "manual_inputs": [
+        "多餘腿座標範圍、補洞/對側表面候選與視覺審查"
+      ],
+      "outcome": "both_repair_candidates_rejected",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E06",
+      "issues": [
+        "GEN-01",
+        "REF-01"
+      ],
+      "script": "tripo_run.py",
+      "inputs": [
+        "04b-single-reference/prompt.txt",
+        "05b-tripo/request-public.json"
+      ],
+      "outputs": [
+        "04b-single-reference/standing.png",
+        "05b-tripo/state.json",
+        "06c-raw-single/report.json"
+      ],
+      "manual_inputs": [
+        "新站姿參考、身體朝向及四腿核對"
+      ],
+      "outcome": "four_leg_candidate_art_not_passed",
+      "service_elapsed_seconds": 177.12,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E07",
+      "issues": [
+        "GEO-01",
+        "GEO-02"
+      ],
+      "script": "blender_stage.py",
+      "inputs": [
+        "06c-raw-single/mesh.npz"
+      ],
+      "outputs": [
+        "07b-geometry/rejected-uv-split-smoothing/report.json",
+        "07b-geometry/report.json"
+      ],
+      "manual_inputs": [
+        "固定座標頭部保護、平滑係數與位移上限"
+      ],
+      "outcome": "cracks_fixed_uniform_subdivision_not_adopted_as_style_solution",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E08",
+      "issues": [
+        "TEX-01",
+        "TEX-03"
+      ],
+      "script": "surface_color.py",
+      "inputs": [
+        "07b-geometry/mesh.npz",
+        "04b-single-reference/standing.png"
+      ],
+      "outputs": [
+        "08b-coat/processing-report.json",
+        "08b-coat/registration-overlay.png",
+        "08b-coat/report.json"
+      ],
+      "manual_inputs": [
+        "相機搜尋範圍與全頭固定座標保護"
+      ],
+      "outcome": "projection_rejected_native_texture_averaging_only",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E09",
+      "issues": [
+        "GEO-02",
+        "GEO-03",
+        "RENDER-01"
+      ],
+      "script": "style_probe.py",
+      "inputs": [
+        "06c-raw-single/scene.blend",
+        "07b-geometry/scene.blend"
+      ],
+      "outputs": [
+        "10-style-recovery/native/report.json",
+        "10-style-recovery/flat/report.json",
+        "10-style-recovery/uniform20k/report.json",
+        "10-style-recovery/clean-flat/report.json"
+      ],
+      "manual_inputs": [
+        "固定觀察相機；確認五個小部件確實是眉鬚刺片"
+      ],
+      "outcome": "clean_5072_face_baseline_for_case",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E10",
+      "issues": [
+        "TEX-01",
+        "TEX-02",
+        "TEX-03"
+      ],
+      "script": "local_reprojection.py",
+      "inputs": [
+        "local_landmarks.json",
+        "10-style-recovery/clean-flat/mesh.npz",
+        "04b-single-reference/standing.png"
+      ],
+      "outputs": [
+        "10-style-recovery/local-projection/report.json",
+        "10-style-recovery/local-color/hero.png",
+        "10-style-recovery/local-color/opposite.png"
+      ],
+      "manual_inputs": [
+        "52 個人工控制點與 4 個留出檢查點"
+      ],
+      "outcome": "visible_side_improved_multiview_quality_incomplete",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E11",
+      "issues": [
+        "EYE-01"
+      ],
+      "script": "eye_material_probe.py",
+      "inputs": [
+        "10-style-recovery/local-projection/surface-correspondence.npz"
+      ],
+      "outputs": [
+        "10-style-recovery/eye-material/report.json",
+        "10-style-recovery/eye-material/face.png"
+      ],
+      "manual_inputs": [
+        "兩眼眼裂多邊形"
+      ],
+      "outcome": "material_candidate_small_visual_effect_eye_quality_unverified",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E12",
+      "issues": [
+        "EXPORT-01"
+      ],
+      "script": "verify_recovery_glb.py",
+      "inputs": [
+        "10-style-recovery/eye-material/cat.glb"
+      ],
+      "outputs": [
+        "10-style-recovery/export-review/report.json"
+      ],
+      "manual_inputs": [
+        "回讀渲染目視核對"
+      ],
+      "outcome": "blender_roundtrip_pass_unity_unverified",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E13",
+      "issues": [
+        "GEO-04",
+        "EYE-01"
+      ],
+      "script": "side_review.py",
+      "inputs": [
+        "10-style-recovery/eye-material/scene.blend"
+      ],
+      "outputs": [
+        "11-other-side/opposite-clay.png",
+        "11-other-side/face-oblique-a.png",
+        "11-other-side/face-oblique-b.png"
+      ],
+      "manual_inputs": [
+        "檢查角度與缺陷識別"
+      ],
+      "outcome": "new_flank_and_face_issues_found",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E14",
+      "issues": [
+        "GEO-04",
+        "OPS-01"
+      ],
+      "script": "relax_flank.py",
+      "inputs": [
+        "10-style-recovery/eye-material/scene.blend"
+      ],
+      "outputs": [
+        "11-other-side/flank-relax/report.json",
+        "11-other-side/flank-relax-v2/report.json",
+        "11-other-side/flank-relax-v2/geometry-check.json",
+        "flank-relax-v2.log"
+      ],
+      "manual_inputs": [
+        "橢圓修補區；4/9 mm 位移限制與 5/10 次平滑"
+      ],
+      "outcome": "neither_variant_visually_accepted_v2_artifacts_created_but_process_failed",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E15",
+      "issues": [
+        "TEX-02"
+      ],
+      "script": null,
+      "inputs": [
+        "00-input/photo-03.png",
+        "00-input/photo-01.png"
+      ],
+      "outputs": [
+        "11-other-side/reference-prompt.txt"
+      ],
+      "manual_inputs": [
+        "原照肩部、頸側、背紋核對與候選提示詞"
+      ],
+      "outcome": "prepared_only_no_new_imagegen_call",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E16",
+      "issues": [
+        "GEO-03",
+        "GEN-01",
+        "QA-01"
+      ],
+      "script": "inspect_geometry.py",
+      "inputs": [
+        "06c-raw-single/mesh.npz",
+        "10-style-recovery/clean-flat/mesh.npz",
+        "06-raw-model/mesh.npz",
+        "06b-repair/mesh.npz"
+      ],
+      "outputs": [
+        "automation-evidence/raw-single.json",
+        "automation-evidence/clean-single.json",
+        "automation-evidence/five-leg.json",
+        "automation-evidence/failed-repair.json"
+      ],
+      "manual_inputs": [],
+      "outcome": "read_only_generic_geometry_measurements_executed_on_four_artifacts_no_semantic_acceptance",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E17",
+      "issues": [
+        "TEX-01"
+      ],
+      "script": "dense_registration.py",
+      "inputs": [
+        "10-style-recovery/registration/native-aligned.png",
+        "04b-single-reference/standing.png",
+        "12-auto-registration/render-mask.png",
+        "08b-coat/reference-mask.png"
+      ],
+      "outputs": [
+        "12-auto-registration/dis-v001/report.json",
+        "12-auto-registration/dis-v001/evaluation.json",
+        "12-auto-registration/dis-v001/estimator-source.py"
+      ],
+      "manual_inputs": [
+        "沿用先前人工確認的資料組與全局初始姿勢；人工點只用於事後評估，不參與估計"
+      ],
+      "outcome": "rejected_no_asset_projection",
+      "notes": "未使用手工點擬合；事後 56 點 RMS 18.66 px，6 個可信點仍偏差超過 15 px",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E18",
+      "issues": [
+        "TEX-01"
+      ],
+      "script": "dense_registration.py",
+      "inputs": [
+        "10-style-recovery/registration/native-aligned.png",
+        "04b-single-reference/standing.png",
+        "12-auto-registration/render-mask.png",
+        "08b-coat/reference-mask.png"
+      ],
+      "outputs": [
+        "12-auto-registration/dis-boundary-v002/report.json",
+        "12-auto-registration/dis-boundary-v002/evaluation.json",
+        "12-auto-registration/dis-boundary-v002/estimator-source.py"
+      ],
+      "manual_inputs": [
+        "沿用先前人工確認的資料組與全局初始姿勢；人工點只用於事後評估，不參與估計"
+      ],
+      "outcome": "rejected_no_asset_projection",
+      "notes": "依首版缺陷加入輪廓輔助；同案例 RMS 惡化至 29.02 px，不是獨立新貓測試",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E19",
+      "issues": [
+        "TEX-02",
+        "REF-01"
+      ],
+      "script": null,
+      "tool": "built-in image_gen.imagegen",
+      "inputs": [
+        "11-other-side/opposite-clay.png",
+        "00-input/photo-03.png",
+        "00-input/photo-01.png",
+        "../../cat.png",
+        "11-other-side/reference-v001/prompt.txt"
+      ],
+      "outputs": [
+        "11-other-side/reference-v001/reference.png",
+        "11-other-side/reference-v001/review.json"
+      ],
+      "manual_inputs": [
+        "原照部位判讀、來源與視角選擇、提示詞、人工視覺檢查"
+      ],
+      "outcome": "reference_candidate_with_pose_drift",
+      "notes": "真正 3D 灰模作姿勢輸入；結果仍為 AI 2D 參考，不是模型渲染。肩斑改善，局部比例偏移、細斑與遠側腿推測仍在。",
+      "manual_minutes": null,
+      "service_cost": null,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E20",
+      "issues": [
+        "TEX-01"
+      ],
+      "script": "opposite_projection.py",
+      "inputs": [
+        "11-other-side/reference-v001/reference.png",
+        "10-style-recovery/eye-material/mesh.npz"
+      ],
+      "outputs": [
+        "11-other-side/projection-v001/diagnostic-report.json",
+        "11-other-side/projection-v001/executed-source.py",
+        "11-other-side/projection-v001/silhouette-overlay.png"
+      ],
+      "manual_inputs": [
+        "沿用既定相機與人工選擇參考；無手工配準點"
+      ],
+      "outcome": "rejected_before_baking",
+      "notes": "直接投影輪廓 IoU 0.724954，未寫新貼圖；原始 python 啟動缺 cv2，改用 pinned uv 環境後完成診斷。",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E21",
+      "issues": [
+        "TEX-01",
+        "TEX-02",
+        "TEX-03",
+        "OPS-01",
+        "EXPORT-01",
+        "RIG-01"
+      ],
+      "script": "opposite_projection.py",
+      "additional_scripts": [
+        "opposite_render.py",
+        "verify_visual_candidate.py"
+      ],
+      "inputs": [
+        "11-other-side/reference-v001/reference.png",
+        "10-style-recovery/eye-material/mesh.npz",
+        "10-style-recovery/eye-material/scene.blend",
+        "10-style-recovery/local-projection/local-color.png",
+        "10-style-recovery/local-projection/surface-correspondence.npz"
+      ],
+      "outputs": [
+        "11-other-side/projection-v002/report.json",
+        "11-other-side/projection-v002/executed-source.py",
+        "11-other-side/color-v001/cat.glb",
+        "11-other-side/color-v001/render-report.json",
+        "11-other-side/color-v001/executed-source.py",
+        "11-other-side/color-v001/export-review/report.json",
+        "11-other-side/color-v001/export-review/executed-source.py",
+        "11-other-side/color-v001/hero.png",
+        "11-other-side/color-v001/opposite.png",
+        "11-other-side/color-v001/back-high.png",
+        "11-other-side/review.json",
+        "11-other-side/reproduction.json"
+      ],
+      "manual_inputs": [
+        "未新增手工標點；參考、相機與視覺採用決策由人工提供",
+        "沿用先前人工建立的正面投影與模型朝向"
+      ],
+      "outcome": "working_color_candidate_full_quality_not_passed",
+      "notes": "輪廓尺度/平移校正 IoU 0.938203；新增 AI 參考投影 30.258%，聯集 67.465%。幾何/UV 完全相同，GLB 回讀通過；背部銜接、細斑身份、凸起與頭部仍未通過；無骨架動畫。首輪渲染 import 失敗且 exit 0，修依賴與退出碼後第二次正常完成。",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E22",
+      "issues": [
+        "REF-01",
+        "TEX-01",
+        "TEX-02"
+      ],
+      "script": "opposite_projection.py",
+      "inputs": [
+        "11-other-side/color-v001/back-high.png",
+        "00-input/photo-01.png",
+        "../../cat.png",
+        "13-dorsal/reference-v001/prompt.txt",
+        "13-dorsal/projection-profile.json"
+      ],
+      "outputs": [
+        "13-dorsal/reference-v001/reference.png",
+        "13-dorsal/reference-v001/review.json",
+        "13-dorsal/projection-v001/diagnostic-report.json",
+        "13-dorsal/projection-v001/executed-source.py"
+      ],
+      "manual_inputs": [
+        "背面照片判讀、提示詞及視角選擇；built-in ImageGen 生成正常視角參考"
+      ],
+      "outcome": "reference_candidate_first_projection_rejected",
+      "notes": "背部參考仍有姿勢及細斑推測。矩形 GrabCut 納入陰影，校正 IoU 0.688，投影遭拒絕。",
+      "manual_minutes": null,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E23",
+      "issues": [
+        "TEX-01",
+        "TEX-02"
+      ],
+      "script": "opposite_projection.py",
+      "inputs": [
+        "13-dorsal/projection-profile-v002.json",
+        "13-dorsal/render-profile.json",
+        "13-dorsal/reference-v001/reference.png"
+      ],
+      "outputs": [
+        "13-dorsal/projection-v002/report.json",
+        "13-dorsal/projection-v002/executed-source.py",
+        "13-dorsal/color-v001/render-report.json",
+        "13-dorsal/color-v001/executed-source.py",
+        "13-dorsal/color-v001/back-high.png"
+      ],
+      "manual_inputs": [
+        "改用模型輪廓作分割先驗；人工目視發現耳朵白色污染"
+      ],
+      "outcome": "rejected_ear_background_contamination",
+      "notes": "輪廓先驗使 IoU 達 0.928，但不是獨立姿勢證據；參考頭部偏移造成背景投到耳朵，只限制向上法線不足。",
+      "manual_minutes": null,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E24",
+      "issues": [
+        "TEX-01",
+        "TEX-02",
+        "RIG-01"
+      ],
+      "script": "opposite_projection.py",
+      "inputs": [
+        "13-dorsal/projection-profile-v003.json",
+        "13-dorsal/render-profile-v002.json",
+        "13-dorsal/reference-v001/reference.png",
+        "11-other-side/color-v001/scene.blend"
+      ],
+      "outputs": [
+        "13-dorsal/projection-v003/report.json",
+        "13-dorsal/projection-v003/executed-source.py",
+        "13-dorsal/color-v002/render-report.json",
+        "13-dorsal/color-v002/executed-source.py",
+        "13-dorsal/color-v002/cat.glb",
+        "13-dorsal/color-v002/back-high.png",
+        "13-dorsal/review.json"
+      ],
+      "manual_inputs": [
+        "手動限定軀幹 x=-0.17 至 0.14 m，淡化 0.025 m；不是已完成語意分區"
+      ],
+      "outcome": "working_color_candidate_art_and_animation_not_passed",
+      "notes": "僅軀幹補色避開耳朵；新增 4.629% 有效 UV，AI 參考聯集 69.439%，非原照還原率；幾何保持 5072 三角面。",
+      "manual_minutes": null,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E25",
+      "issues": [
+        "GEO-02",
+        "TEX-03",
+        "QA-01"
+      ],
+      "script": "reduce_3500.py",
+      "inputs": [
+        "13-dorsal/color-v002/scene.blend"
+      ],
+      "outputs": [
+        "14-budget-3500/weighted-v001/executed-source.py",
+        "14-budget-3500/weighted-v001/render-report.json",
+        "14-budget-3500/weighted-v001/hero.png",
+        "14-budget-3500/weighted-v001/cat.glb"
+      ],
+      "manual_inputs": [
+        "按本例座標保護頭部/整個腳掌並為腿尾降低減面權重"
+      ],
+      "outcome": "rejected_torso_collapse_and_texture_artifacts",
+      "notes": "本地 Blender 減至 3500 面，但身體面數分配失衡、大片折面與 UV 污染；不是 Tripo 原生輸出。",
+      "manual_minutes": null,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E26",
+      "issues": [
+        "GEO-02",
+        "TEX-03",
+        "QA-01",
+        "EXPORT-01",
+        "RIG-01"
+      ],
+      "script": "reduce_3500.py",
+      "inputs": [
+        "13-dorsal/color-v002/scene.blend"
+      ],
+      "outputs": [
+        "14-budget-3500/balanced-v002/executed-source.py",
+        "14-budget-3500/balanced-v002/render-report.json",
+        "14-budget-3500/balanced-v002/base-color.png",
+        "14-budget-3500/balanced-v002/roughness.png",
+        "14-budget-3500/balanced-v002/cat.glb",
+        "14-budget-3500/balanced-v002/hero.png",
+        "14-budget-3500/balanced-v002/export-review/report.json",
+        "14-budget-3500/balanced-v002/export-review/executed-source.py"
+      ],
+      "manual_inputs": [
+        "頭部 x>0.15,z>0.18 m 和腳底 z<0.008 m 是人工案例區域；人工視覺比較"
+      ],
+      "outcome": "local_3500_fallback_candidate_not_production_validated",
+      "notes": "所有未保護部位改相同權重，重新 UV 並烘焙顏色/粗糙度；3500 三角面、封閉、GLB 頂點回讀誤差 0。臉部重烘焙稍柔化，側腹凸起未修。舊 triangle IDs/表面對應失效，未綁骨。先做本地減面而跳過 Tripo 原生 3500 對照的順序已被使用者指出，改為原生优先。",
+      "manual_minutes": null,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E27",
+      "issues": [
+        "QA-01",
+        "GEO-02",
+        "RIG-01"
+      ],
+      "script": "tripo_run.py",
+      "additional_scripts": [
+        "native_budget_review.py"
+      ],
+      "inputs": [
+        "04b-single-reference/standing.png",
+        "05b-tripo/request-public.json",
+        "15-tripo-native-3500/request-public.json"
+      ],
+      "outputs": [
+        "15-tripo-native-3500/executed-source.py",
+        "15-tripo-native-3500/state.json",
+        "15-tripo-native-3500/task-status.json",
+        "15-tripo-native-3500/model_url.glb",
+        "15-tripo-native-3500/baseline-output-inventory.json",
+        "15-tripo-native-3500/native-comparison.json",
+        "15-tripo-native-3500/native-3500/executed-source.py",
+        "15-tripo-native-3500/native-3500/hero.png",
+        "15-tripo-native-3500/review.json"
+      ],
+      "manual_inputs": [
+        "人工選擇同一張歷史站姿參考；視覺比較沿用該例人工設定的剛性朝向；未做本地減面"
+      ],
+      "outcome": "api_succeeded_native_triangle_budget_failed",
+      "service_elapsed_seconds": 189.73,
+      "credits_consumed": 40.0,
+      "notes": "只將 face_limit 3000→3500，其他請求和圖 hash 相同；伺服器確實收到 3500，原始 GLB 與 Blender 雙重統計均為 5501 三角面。文件上限與結果不符，原因待查；未證明 Tripo 所有版本均不能控面。原生優先、實際验收、必要時後處理的流程取代預設本地減面。",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E28",
+      "issues": [
+        "QA-01",
+        "GEO-02"
+      ],
+      "script": "tripo_process.py",
+      "inputs": [
+        "16-service-retopology/profile.json",
+        "13-dorsal/color-v002/cat.glb"
+      ],
+      "outputs": [
+        "16-service-retopology/smart-v001/executed-source.py",
+        "16-service-retopology/smart-v001/executed-api-helper.py",
+        "16-service-retopology/smart-v001/state.json",
+        "16-service-retopology/smart-v001/model_url.glb",
+        "16-service-retopology/smart-v001/model_url-preflight.json",
+        "16-service-retopology/smart-v001/comparison-aligned.json",
+        "16-service-retopology/smart-v001/candidate-aligned/executed-source.py"
+      ],
+      "manual_inputs": [
+        "選擇既有單貓來源與目視審查；本階段未新增手工部位座標或遮罩"
+      ],
+      "outcome": "rejected_4422_triangles",
+      "notes": "智慧重拓樸 97.86 秒、30 credits；超標，分析副本 11 邊界邊/14 非流形邊；自動以來源 bounds 還原供應商改動的尺度/中心。",
+      "new_cat_automation_proven": false,
+      "action_gate": {
+        "timing": "retrospective_after_user_instruction",
+        "scope": "通用服務處理候選",
+        "case_necessity": "用本例檢查供應商與處理規則是否保留共通資產性質；不是個案修臉或重新指定花色。",
+        "generalization_limit": "新貓及多材質/不同姿勢尚未驗證。"
+      }
+    },
+    {
+      "id": "E29",
+      "issues": [
+        "QA-01",
+        "OPS-01"
+      ],
+      "script": "glb_preflight.py",
+      "inputs": [
+        "05b-tripo/model_url.glb",
+        "15-tripo-native-3500/model_url.glb",
+        "14-budget-3500/balanced-v002/cat.glb"
+      ],
+      "outputs": [
+        "16-service-retopology/preflight-evidence/native-3000.json",
+        "16-service-retopology/preflight-evidence/native-3500.json",
+        "16-service-retopology/preflight-evidence/local-3500.json",
+        "16-service-retopology/preflight-evidence/executed-source.py"
+      ],
+      "manual_inputs": [
+        "選擇既有單貓來源與目視審查；本階段未新增手工部位座標或遮罩"
+      ],
+      "outcome": "automatic_budget_gate_implemented",
+      "notes": "active scene mesh instance 索引計數；5128/5501 拒絕，3500 通過面數；不是全資產品質認證。",
+      "new_cat_automation_proven": false,
+      "action_gate": {
+        "timing": "retrospective_after_user_instruction",
+        "scope": "通用技術驗收",
+        "case_necessity": "用本例檢查供應商與處理規則是否保留共通資產性質；不是個案修臉或重新指定花色。",
+        "generalization_limit": "新貓及多材質/不同姿勢尚未驗證。"
+      }
+    },
+    {
+      "id": "E30",
+      "issues": [
+        "QA-01",
+        "GEO-02",
+        "OPS-01",
+        "MAT-01"
+      ],
+      "script": "tripo_process.py",
+      "inputs": [
+        "16-service-retopology/profile-basic.json",
+        "13-dorsal/color-v002/cat.glb"
+      ],
+      "outputs": [
+        "16-service-retopology/basic-v001/executed-source.py",
+        "16-service-retopology/basic-v001/executed-preflight.py",
+        "16-service-retopology/basic-v001/state.json",
+        "16-service-retopology/basic-v001/model_url.glb",
+        "16-service-retopology/basic-v001/model_url-preflight.json",
+        "16-service-retopology/basic-v001/comparison-aligned.json",
+        "16-service-retopology/basic-v001/review-attempt01-failed/executed-source.py",
+        "16-service-retopology/review-basic-attempt01-failed.log"
+      ],
+      "manual_inputs": [
+        "選擇既有單貓來源與目視審查；本階段未新增手工部位座標或遮罩"
+      ],
+      "outcome": "budget_pass_material_fidelity_failed",
+      "notes": "基本減面 16.57 秒、10 credits；正好3500面，0邊界/非流形邊，但材質金屬度與specular未保留。首次本地審查有相對路徑錯誤，保留失敗後修正；未重送服務。",
+      "new_cat_automation_proven": false,
+      "action_gate": {
+        "timing": "retrospective_after_user_instruction",
+        "scope": "無手工保護區的通用減面候選",
+        "case_necessity": "用本例檢查供應商與處理規則是否保留共通資產性質；不是個案修臉或重新指定花色。",
+        "generalization_limit": "新貓及多材質/不同姿勢尚未驗證。"
+      }
+    },
+    {
+      "id": "E31",
+      "issues": [
+        "MAT-01",
+        "EXPORT-01",
+        "GEO-02"
+      ],
+      "script": "restore_processed_materials.py",
+      "inputs": [
+        "16-service-retopology/basic-v001/candidate-aligned/cat.glb",
+        "13-dorsal/color-v002/scene.blend"
+      ],
+      "outputs": [
+        "16-service-retopology/basic-v001/restored/executed-source.py",
+        "16-service-retopology/basic-v001/restored/render-report.json",
+        "16-service-retopology/basic-v001/restored/cat.glb",
+        "16-service-retopology/basic-v001/restored/hero.png",
+        "16-service-retopology/basic-v001/restored/face.png",
+        "16-service-retopology/basic-v001/restored/export-review/report.json"
+      ],
+      "manual_inputs": [
+        "選擇既有單貓來源與目視審查；本階段未新增手工部位座標或遮罩"
+      ],
+      "outcome": "working_candidate_no_new_manual_regions",
+      "notes": "來源shader與顏色/roughness自動重烘焙；幾何未再修改。四視角RGB差降至約1.56–2.51/255；仍不是cat.png美術或原照身份通過。",
+      "new_cat_automation_proven": false,
+      "action_gate": {
+        "timing": "retrospective_after_user_instruction",
+        "scope": "一致性恢復候選，限定單一材質且形狀已對齊",
+        "case_necessity": "用本例檢查供應商與處理規則是否保留共通資產性質；不是個案修臉或重新指定花色。",
+        "generalization_limit": "新貓及多材質/不同姿勢尚未驗證。"
+      }
+    },
+    {
+      "id": "E32",
+      "issues": [
+        "MAT-01"
+      ],
+      "script": "restore_processed_materials.py",
+      "inputs": [
+        "16-service-retopology/basic-v001/candidate-aligned/cat.glb",
+        "13-dorsal/color-v002/scene.blend"
+      ],
+      "outputs": [
+        "16-service-retopology/basic-v001/factor-only/executed-source.py",
+        "16-service-retopology/basic-v001/factor-only/render-report.json",
+        "16-service-retopology/basic-v001/factor-only/hero.png",
+        "16-service-retopology/material-diagnostics.json"
+      ],
+      "manual_inputs": [
+        "選擇既有單貓來源與目視審查；本階段未新增手工部位座標或遮罩"
+      ],
+      "outcome": "simpler_candidate_improved_but_rebake_closer_to_source",
+      "notes": "僅恢復Metallic/Specular常數與flat shading，不重烘焙。四視角RGB差約2.52–4.08/255，比原服務輸出24–31改善，但原色重烘焙候選更接近來源。",
+      "new_cat_automation_proven": false,
+      "action_gate": {
+        "timing": "retrospective_after_user_instruction",
+        "scope": "檢查能否省掉重烘焙的共通對照",
+        "case_necessity": "用本例檢查供應商與處理規則是否保留共通資產性質；不是個案修臉或重新指定花色。",
+        "generalization_limit": "新貓及多材質/不同姿勢尚未驗證。"
+      }
+    },
+    {
+      "id": "E33",
+      "issues": [
+        "MAT-01",
+        "EXPORT-01"
+      ],
+      "script": "compare_render_fidelity.py",
+      "additional_scripts": [
+        "verify_visual_candidate.py"
+      ],
+      "inputs": [
+        "16-service-retopology/action_gate.json",
+        "16-service-retopology/smart-v001/baseline/mesh.npz",
+        "16-service-retopology/basic-v001/restored/cat.glb",
+        "16-service-retopology/basic-v001/factor-only/cat.glb"
+      ],
+      "outputs": [
+        "16-service-retopology/render-fidelity-final.json",
+        "16-service-retopology/basic-v001/factor-only/export-review/report.json",
+        "16-service-retopology/basic-v001/factor-only/export-review/executed-source.py",
+        "16-service-retopology/review.json",
+        "16-service-retopology/reproduction.json"
+      ],
+      "manual_inputs": [
+        "候選視覺比較；相機來自既有案例，不參與減面或材質修復"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "16-service-retopology/action_gate.json",
+        "scope": "通用驗證方法的單例實測",
+        "case_necessity": "判斷原服務材質、常數恢復、來源重烘焙三者差異，決定可省略的處理步驟。"
+      },
+      "outcome": "candidate_comparison_and_export_validation_completed",
+      "notes": "保留自動重烘焙版為本階段工作候選；常數修復版較簡單但四視角均與來源差距較大；两者都沒有新增手工區域，僅單例證據。",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E34",
+      "issues": [
+        "REF-01",
+        "QA-01"
+      ],
+      "script": "build_stage_review.py",
+      "inputs": [
+        "17-stage-review/action_gate.json",
+        "17-stage-review/stages.json"
+      ],
+      "outputs": [
+        "17-stage-review/evidence-check.json",
+        "17-stage-review/review.json",
+        "17-stage-review/executed-source.py",
+        "17-stage-review/current-request.dry-run.json",
+        "../../workflow.md",
+        "../workflow-validation-v001/postprocess-spec.md",
+        "../workflow-validation-v001/photo-to-model-spec.md",
+        "../workflow-validation-v001/front-end-profile.json",
+        "17-stage-review/provenance-check.json"
+      ],
+      "manual_inputs": [
+        "階段對應、目視判斷與說明；不修改任何貓模型／參考圖"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "17-stage-review/action_gate.json"
+      },
+      "outcome": "P00-P09_visible_evidence_consolidated_and_stale_current_specs_corrected",
+      "notes": "本輪參考圖已含過細碎切面；記為上游未通過項，未宣稱唯一原因。現行3500請求離線驗證，舊3000任務保存。",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E35",
+      "issues": [
+        "REF-01"
+      ],
+      "script": null,
+      "inputs": [
+        "18-reference-style/action_gate.json",
+        "01-segmentation/identity-source.png",
+        "../../cat.png",
+        "03-style/prompt.txt",
+        "18-reference-style/prompt.txt"
+      ],
+      "outputs": [
+        "18-reference-style/request.json",
+        "18-reference-style/same-pose-v002.png",
+        "18-reference-style/review.json",
+        "18-reference-style/integrity-check.json",
+        "../workflow-validation-v001/reference-prompts.md",
+        "17-stage-review/stages.json",
+        "17-stage-review/evidence-check.json"
+      ],
+      "manual_inputs": [
+        "沿用人工分割、身份描述；人工視覺驗收，未新增點位／遮罩"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "18-reference-style/action_gate.json"
+      },
+      "outcome": "single_shared_style_prompt_candidate_rejected_no_downstream_generation",
+      "imagegen_calls": 1,
+      "tool_elapsed_seconds": 34.8,
+      "tripo_calls": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E36",
+      "issues": [
+        "QA-01"
+      ],
+      "script": "facet_color_control.py",
+      "additional_scripts": [
+        "render_facet_color.py"
+      ],
+      "inputs": [
+        "19-facet-color/action_gate.json",
+        "19-facet-color/profile.json",
+        "16-service-retopology/basic-v001/restored/mesh.npz",
+        "16-service-retopology/basic-v001/restored/base-color.png",
+        "16-service-retopology/basic-v001/restored/roughness.png"
+      ],
+      "outputs": [
+        "19-facet-color/attempt01-overlap-rejected/executed-color-source.py",
+        "19-facet-color/attempt01-overlap-rejected/color-process.log",
+        "19-facet-color/uv-check.json",
+        "19-facet-color/delta12/processing-report.json",
+        "19-facet-color/delta20/processing-report.json",
+        "19-facet-color/review.json"
+      ],
+      "manual_inputs": [
+        "既有上游身份与眼區資料；未新增人工區域"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "19-facet-color/action_gate.json"
+      },
+      "outcome": "stopped_before_rendering_after_user_corrected_priority",
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E37",
+      "issues": [
+        "REF-01"
+      ],
+      "script": null,
+      "inputs": [
+        "20-standing-reference/action_gate.json",
+        "20-standing-reference/prompt.txt",
+        "20-standing-reference/pose-correction-prompt.txt",
+        "01-segmentation/identity-source.png",
+        "00-input/photo-03.png",
+        "00-input/photo-06.png",
+        "../../cat.png"
+      ],
+      "outputs": [
+        "20-standing-reference/request.json",
+        "20-standing-reference/standing-v001.png",
+        "20-standing-reference/review-v001.json",
+        "20-standing-reference/pose-correction-request.json",
+        "20-standing-reference/standing-v002.png",
+        "20-standing-reference/standing.png",
+        "20-standing-reference/review.json"
+      ],
+      "manual_inputs": [
+        "照片選擇、身份條件、視覺姿勢檢查與一項頭部朝向修正；未新增座標／遮罩"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "20-standing-reference/action_gate.json"
+      },
+      "outcome": "full_standing_pose_anchor_created_cardinal_views_and_3D_still_pending",
+      "imagegen_calls": 2,
+      "tripo_calls": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E38",
+      "issues": [
+        "REF-01"
+      ],
+      "script": "tripo_multiview.py",
+      "inputs": [
+        "21-tripo-multiview/action_gate.json",
+        "21-tripo-multiview/config.json",
+        "20-standing-reference/standing-v002.png",
+        "20-standing-reference/review.json",
+        "02-identity/features.json",
+        "00-input/photo-03.png"
+      ],
+      "outputs": [
+        "21-tripo-multiview/native-v001/request-public.json",
+        "21-tripo-multiview/native-v001/state.json",
+        "21-tripo-multiview/native-v001/task-status.json",
+        "21-tripo-multiview/native-v001/file-check.json",
+        "21-tripo-multiview/native-v001/executed-source.py",
+        "21-tripo-multiview/native-v001/executed-download-source.py",
+        "21-tripo-multiview/native-v001/executed-api-helper.py",
+        "21-tripo-multiview/native-v001/front.jpg",
+        "21-tripo-multiview/native-v001/left.jpg",
+        "21-tripo-multiview/native-v001/back.jpg",
+        "21-tripo-multiview/native-v001/right.jpg",
+        "21-tripo-multiview/review.json",
+        "21-tripo-multiview/transport-check.json"
+      ],
+      "manual_inputs": [
+        "既有站姿基準及原照身份證據；人工核對四視圖，未新增裁切、座標或遮罩"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "21-tripo-multiview/action_gate.json"
+      },
+      "outcome": "four_native_views_generated_but_unseen_cheek_identity_rejected_no_3d_submission",
+      "imagegen_calls": 0,
+      "tripo_calls": 1,
+      "credits_consumed": 10,
+      "server_task_seconds": 21.407,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E39",
+      "issues": [
+        "REF-01"
+      ],
+      "script": "build_view_request.py",
+      "inputs": [
+        "22-photo-constrained-views/action_gate.json",
+        "22-photo-constrained-views/profile.json",
+        "20-standing-reference/standing-v002.png",
+        "01-segmentation/identity-source.png",
+        "00-input/photo-03.png",
+        "00-input/photo-06.png",
+        "02-identity/features.json",
+        "../../cat.png"
+      ],
+      "outputs": [
+        "22-photo-constrained-views/action_gate.json",
+        "22-photo-constrained-views/profile.json",
+        "22-photo-constrained-views/front-request.json",
+        "22-photo-constrained-views/front-prompt.txt",
+        "22-photo-constrained-views/front-v001.png",
+        "22-photo-constrained-views/front-review-v001.json",
+        "22-photo-constrained-views/front-correction-prompt.txt",
+        "22-photo-constrained-views/front-correction-request.json",
+        "22-photo-constrained-views/front-v002.png",
+        "22-photo-constrained-views/front-review.json",
+        "22-photo-constrained-views/left-request.json",
+        "22-photo-constrained-views/left-prompt.txt",
+        "22-photo-constrained-views/left-v001.png",
+        "22-photo-constrained-views/right-request.json",
+        "22-photo-constrained-views/right-prompt.txt",
+        "22-photo-constrained-views/right-v001.png",
+        "22-photo-constrained-views/back-request.json",
+        "22-photo-constrained-views/back-prompt.txt",
+        "22-photo-constrained-views/back-v001.png",
+        "22-photo-constrained-views/review.json",
+        "22-photo-constrained-views/integrity-check.json",
+        "22-photo-constrained-views/executed-request-builder.py"
+      ],
+      "manual_inputs": [
+        "Existing per-cat photo roles and identity list",
+        "One frontal head/body pose correction",
+        "Four-view visual comparison; no new coordinates, masks, crops or point labels"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "22-photo-constrained-views/action_gate.json"
+      },
+      "outcome": "multiphoto_conditioned_four_views_preserve_major_cheek_asymmetry_visual_gate_for_one_3d_poc_only",
+      "imagegen_calls": 5,
+      "tripo_calls": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E40",
+      "issues": [
+        "REF-01",
+        "QA-01",
+        "TEX-02",
+        "EXPORT-01",
+        "RIG-01",
+        "RENDER-01"
+      ],
+      "script": "tripo_generate_views.py",
+      "additional_scripts": [
+        "review_generated_model.py",
+        "export_flat_candidate.py"
+      ],
+      "inputs": [
+        "23-multiview-3500/action_gate.json",
+        "23-multiview-3500/flat-export-action-gate.json",
+        "23-multiview-3500/config.json",
+        "22-photo-constrained-views/review.json",
+        "22-photo-constrained-views/front-v002.png",
+        "22-photo-constrained-views/left-v001.png",
+        "22-photo-constrained-views/back-v001.png",
+        "22-photo-constrained-views/right-v001.png",
+        "../workflow-validation-v001/front-end-profile.json"
+      ],
+      "outputs": [
+        "23-multiview-3500/action_gate.json",
+        "23-multiview-3500/config.json",
+        "23-multiview-3500/flat-candidate/cat.glb",
+        "23-multiview-3500/flat-candidate/executed-source.py",
+        "23-multiview-3500/flat-candidate/export-review.json",
+        "23-multiview-3500/flat-candidate/material-check.json",
+        "23-multiview-3500/flat-candidate/preflight.json",
+        "23-multiview-3500/flat-candidate/preview/executed-source.py",
+        "23-multiview-3500/flat-candidate/preview/original-az045-el12.png",
+        "23-multiview-3500/flat-candidate/preview/original-az315-el12.png",
+        "23-multiview-3500/flat-candidate/preview/report.json",
+        "23-multiview-3500/flat-export-action-gate.json",
+        "23-multiview-3500/flat-rejected-v001/cat.glb",
+        "23-multiview-3500/flat-rejected-v001/executed-source.py",
+        "23-multiview-3500/flat-rejected-v001/export-review.json",
+        "23-multiview-3500/native-v001/executed-api-helper.py",
+        "23-multiview-3500/native-v001/executed-preflight.py",
+        "23-multiview-3500/native-v001/executed-source.py",
+        "23-multiview-3500/native-v001/model_url-preflight.json",
+        "23-multiview-3500/native-v001/model_url.glb",
+        "23-multiview-3500/native-v001/rendered_image_url.png",
+        "23-multiview-3500/native-v001/request-public.json",
+        "23-multiview-3500/native-v001/state.json",
+        "23-multiview-3500/native-v001/task-status.json",
+        "23-multiview-3500/raw-review/clay-az045-el12.png",
+        "23-multiview-3500/raw-review/clay-az135-el12.png",
+        "23-multiview-3500/raw-review/clay-az225-el12.png",
+        "23-multiview-3500/raw-review/clay-az315-el12.png",
+        "23-multiview-3500/raw-review/executed-source.py",
+        "23-multiview-3500/raw-review/flat-only-az045-el12.png",
+        "23-multiview-3500/raw-review/flat-only-az315-el12.png",
+        "23-multiview-3500/raw-review/original-az000-el12.png",
+        "23-multiview-3500/raw-review/original-az045-el12.png",
+        "23-multiview-3500/raw-review/original-az045-el60.png",
+        "23-multiview-3500/raw-review/original-az090-el12.png",
+        "23-multiview-3500/raw-review/original-az135-el12.png",
+        "23-multiview-3500/raw-review/original-az180-el12.png",
+        "23-multiview-3500/raw-review/original-az225-el12.png",
+        "23-multiview-3500/raw-review/original-az270-el12.png",
+        "23-multiview-3500/raw-review/original-az315-el12.png",
+        "23-multiview-3500/raw-review/report.json",
+        "23-multiview-3500/reproduction.json",
+        "23-multiview-3500/review.json"
+      ],
+      "manual_inputs": [
+        "Existing photo/reference visual approval; actual model multi-angle visual inspection",
+        "No prior local projection points or per-cat geometry masks reused"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "23-multiview-3500/action_gate.json",
+        "flat_export_record": "23-multiview-3500/flat-export-action-gate.json"
+      },
+      "outcome": "native_3500_request_yielded_5356_triangles_major_identity_retained_flat_export_fixed_and_verified_no_geometry_reduction",
+      "tripo_calls": 1,
+      "credits_consumed": 40,
+      "server_task_seconds": 194.529,
+      "submission_to_download_seconds": 206.78,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E41",
+      "issues": [
+        "QA-01",
+        "GEO-02",
+        "MAT-01",
+        "EXPORT-01",
+        "TEX-02",
+        "EYE-01",
+        "RIG-01"
+      ],
+      "script": "tripo_process.py",
+      "additional_scripts": [
+        "compare_asset_surfaces.py",
+        "compare_surface_colors.py",
+        "export_flat_candidate.py",
+        "review_generated_model.py",
+        "glb_preflight.py"
+      ],
+      "inputs": [
+        "24-multiview-budget/action_gate.json",
+        "24-multiview-budget/config.json",
+        "23-multiview-3500/native-v001/model_url.glb",
+        "23-multiview-3500/review.json"
+      ],
+      "outputs": [
+        "24-multiview-budget/action_gate.json",
+        "24-multiview-budget/basic-v001/executed-api-helper.py",
+        "24-multiview-budget/basic-v001/executed-preflight.py",
+        "24-multiview-budget/basic-v001/executed-source.py",
+        "24-multiview-budget/basic-v001/model_url-preflight.json",
+        "24-multiview-budget/basic-v001/model_url.glb",
+        "24-multiview-budget/basic-v001/request-public.json",
+        "24-multiview-budget/basic-v001/state.json",
+        "24-multiview-budget/basic-v001/task-status.json",
+        "24-multiview-budget/config.json",
+        "24-multiview-budget/flat-candidate/cat.glb",
+        "24-multiview-budget/flat-candidate/executed-source.py",
+        "24-multiview-budget/flat-candidate/export-review.json",
+        "24-multiview-budget/flat-candidate/material-check.json",
+        "24-multiview-budget/flat-candidate/preflight.json",
+        "24-multiview-budget/flat-candidate/preview/executed-source.py",
+        "24-multiview-budget/flat-candidate/preview/original-az000-el12.png",
+        "24-multiview-budget/flat-candidate/preview/original-az045-el12.png",
+        "24-multiview-budget/flat-candidate/preview/original-az090-el12.png",
+        "24-multiview-budget/flat-candidate/preview/original-az180-el12.png",
+        "24-multiview-budget/flat-candidate/preview/original-az270-el12.png",
+        "24-multiview-budget/flat-candidate/preview/original-az315-el12.png",
+        "24-multiview-budget/flat-candidate/preview/report.json",
+        "24-multiview-budget/reproduction.json",
+        "24-multiview-budget/review.json",
+        "24-multiview-budget/surface-color-check.executed.py",
+        "24-multiview-budget/surface-color-check.json",
+        "24-multiview-budget/surface-comparison.executed.py",
+        "24-multiview-budget/surface-comparison.json",
+        "24-multiview-budget/surface-samples.executed.py",
+        "24-multiview-budget/surface-samples.json",
+        "24-multiview-budget/surface-samples.samples.npz",
+        "24-multiview-budget/texture-container-check.json"
+      ],
+      "manual_inputs": [
+        "Real-photo feature interpretation and photo roles",
+        "AI-reference acceptance and one frontal-pose correction",
+        "Visual multi-angle identity, anatomy and art review"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "24-multiview-budget/action_gate.json"
+      },
+      "outcome": "provider_3500_triangles_no_manual_regions_material_retained_no_rebake_flat_export_verified_art_eyes_animation_pending",
+      "tripo_calls": 1,
+      "credits_consumed": 10.0,
+      "submission_to_download_seconds": 25.84,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E42",
+      "issues": [
+        "RENDER-01",
+        "MAT-01",
+        "TEX-02"
+      ],
+      "script": "diagnose_surface_appearance.py",
+      "additional_scripts": [
+        "analyze_appearance_diagnostic.py"
+      ],
+      "inputs": [
+        "25-appearance-diagnostic/action_gate.json",
+        "25-appearance-diagnostic/config.json",
+        "24-multiview-budget/flat-candidate/cat.glb",
+        "24-multiview-budget/flat-candidate/preview/scene.blend",
+        "24-multiview-budget/flat-candidate/preview/report.json"
+      ],
+      "outputs": [
+        "25-appearance-diagnostic/isolated-v001/alpha-source-az045.png",
+        "25-appearance-diagnostic/isolated-v001/alpha-source-az315.png",
+        "25-appearance-diagnostic/isolated-v001/base_color-az045.png",
+        "25-appearance-diagnostic/isolated-v001/base_color-az315.png",
+        "25-appearance-diagnostic/isolated-v001/baseline-az045.png",
+        "25-appearance-diagnostic/isolated-v001/baseline-az315.png",
+        "25-appearance-diagnostic/isolated-v001/executed-config.json",
+        "25-appearance-diagnostic/isolated-v001/executed-source.py",
+        "25-appearance-diagnostic/isolated-v001/no_specular-az045.png",
+        "25-appearance-diagnostic/isolated-v001/no_specular-az315.png",
+        "25-appearance-diagnostic/isolated-v001/report.json",
+        "25-appearance-diagnostic/color-statistics.json",
+        "25-appearance-diagnostic/color-statistics.executed.py",
+        "25-appearance-diagnostic/review.json",
+        "25-appearance-diagnostic/reproduction.json"
+      ],
+      "manual_inputs": [
+        "Visual comparison to cat.png; no hand region mask or model edits"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "25-appearance-diagnostic/action_gate.json"
+      },
+      "outcome": "two_view_isolation_confirms_specular_contribution_to_gray_coat_but_texture_softness_remains",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E43",
+      "issues": [
+        "MAT-01",
+        "RENDER-01",
+        "EXPORT-01",
+        "EYE-01"
+      ],
+      "script": "apply_matte_material.py",
+      "additional_scripts": [
+        "review_generated_model.py",
+        "glb_preflight.py"
+      ],
+      "inputs": [
+        "25-appearance-diagnostic/candidate-action-gate.json",
+        "25-appearance-diagnostic/candidate-profile.json",
+        "25-appearance-diagnostic/color-statistics.json",
+        "24-multiview-budget/flat-candidate/cat.glb"
+      ],
+      "outputs": [
+        "25-appearance-diagnostic/matte-candidate/cat.glb",
+        "25-appearance-diagnostic/matte-candidate/change-report.json",
+        "25-appearance-diagnostic/matte-candidate/executed-preflight.py",
+        "25-appearance-diagnostic/matte-candidate/executed-profile.json",
+        "25-appearance-diagnostic/matte-candidate/executed-source.py",
+        "25-appearance-diagnostic/matte-candidate/import-verification.json",
+        "25-appearance-diagnostic/matte-candidate/preflight.json",
+        "25-appearance-diagnostic/matte-candidate/preview/executed-source.py",
+        "25-appearance-diagnostic/matte-candidate/preview/original-az045-el12.png",
+        "25-appearance-diagnostic/matte-candidate/preview/original-az315-el12.png",
+        "25-appearance-diagnostic/matte-candidate/preview/report.json",
+        "25-appearance-diagnostic/review.json",
+        "25-appearance-diagnostic/reproduction.json"
+      ],
+      "manual_inputs": [
+        "One provisional common art parameter: glTF specularFactor=0.3",
+        "Two-view visual art review; no per-cat coordinates or masks"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "25-appearance-diagnostic/candidate-action-gate.json"
+      },
+      "outcome": "provisional_matte_GLB_preserves_all_binary_data_and_3500_triangles_Blender_import_verified_Unity_and_eyes_pending",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E44",
+      "issues": [
+        "GEO-02",
+        "TEX-03",
+        "RENDER-01"
+      ],
+      "script": "analyze_facet_structure.py",
+      "inputs": [
+        "25-appearance-diagnostic/structure-action-gate.json",
+        "23-multiview-3500/native-v001/model_url.glb",
+        "25-appearance-diagnostic/matte-candidate/cat.glb"
+      ],
+      "outputs": [
+        "25-appearance-diagnostic/structure-analysis.json",
+        "25-appearance-diagnostic/structure-analysis.executed.py",
+        "25-appearance-diagnostic/structure-analysis-rejected-uv-origin.json",
+        "25-appearance-diagnostic/structure-analysis-rejected-uv-origin.executed.py",
+        "25-appearance-diagnostic/structure-analysis-rejected-uv-origin-note.json",
+        "25-appearance-diagnostic/review.json",
+        "25-appearance-diagnostic/reproduction.json"
+      ],
+      "manual_inputs": [
+        "Visual interpretation against existing renders and cat.png; no per-cat sample coordinates"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "25-appearance-diagnostic/structure-action-gate.json"
+      },
+      "outcome": "read_only_flat_normals_confirmed_geometry_angles_and_within_face_color_variation_measured_no_asset_mutation",
+      "measurement_repair": "One UV-origin correction in new direct-GLB analyzer; rejected output preserved. A four-color orientation fixture and Khronos convention validate corrected sampling. Existing models and Blender-UV-based checks are unaffected.",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E45",
+      "issues": [
+        "TEX-03",
+        "GEO-02",
+        "EYE-01"
+      ],
+      "script": null,
+      "inputs": [
+        "25-appearance-diagnostic/structure-analysis.json",
+        "25-appearance-diagnostic/matte-candidate/cat.glb"
+      ],
+      "outputs": [
+        "25-appearance-diagnostic/catworld-comparison.json",
+        "25-appearance-diagnostic/review.json"
+      ],
+      "manual_inputs": [
+        "唯讀程式與實際渲染比較；無新逐貓座標、遮罩或提示詞"
+      ],
+      "action_gate": {
+        "timing": "retrospective_assessment",
+        "record": "25-appearance-diagnostic/catworld-comparison.json",
+        "field": "action_gate"
+      },
+      "outcome": "catworld_explicit_face_color_processing_confirmed_12300_vs_3500_budget_difference_preserved_no_repair_executed",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E46",
+      "issues": [
+        "TEX-03",
+        "GEO-02",
+        "EYE-01",
+        "EXPORT-01"
+      ],
+      "script": "adaptive_facet_color.py",
+      "additional_scripts": [
+        "review_generated_model.py",
+        "glb_preflight.py",
+        "26-adaptive-facet-color/render_detail.py",
+        "26-adaptive-facet-color/make_comparisons.py"
+      ],
+      "inputs": [
+        "26-adaptive-facet-color/action_gate.json",
+        "26-adaptive-facet-color/profile.json",
+        "25-appearance-diagnostic/matte-candidate/cat.glb",
+        "02-identity/features.json",
+        "02-identity/face-evidence.png",
+        "../../cat.png"
+      ],
+      "outputs": [
+        "26-adaptive-facet-color/comparison-all.png",
+        "26-adaptive-facet-color/comparison-before-after.png",
+        "26-adaptive-facet-color/comparison-face.png",
+        "26-adaptive-facet-color/comparison-provenance.json",
+        "26-adaptive-facet-color/detail-v001/baseline-az000.png",
+        "26-adaptive-facet-color/detail-v001/baseline-az045.png",
+        "26-adaptive-facet-color/detail-v001/baseline-az315.png",
+        "26-adaptive-facet-color/detail-v001/delta18-az000.png",
+        "26-adaptive-facet-color/detail-v001/delta18-az045.png",
+        "26-adaptive-facet-color/detail-v001/delta18-az315.png",
+        "26-adaptive-facet-color/detail-v001/delta28-az000.png",
+        "26-adaptive-facet-color/detail-v001/delta28-az045.png",
+        "26-adaptive-facet-color/detail-v001/delta28-az315.png",
+        "26-adaptive-facet-color/detail-v001/executed-source.py",
+        "26-adaptive-facet-color/detail-v001/progress.json",
+        "26-adaptive-facet-color/detail-v001/report.json",
+        "26-adaptive-facet-color/import-verification.json",
+        "26-adaptive-facet-color/reproduction.json",
+        "26-adaptive-facet-color/results-v001/delta18/base-color.png",
+        "26-adaptive-facet-color/results-v001/delta18/cat.glb",
+        "26-adaptive-facet-color/results-v001/delta18/preflight.json",
+        "26-adaptive-facet-color/results-v001/delta18/preview/executed-source.py",
+        "26-adaptive-facet-color/results-v001/delta18/preview/original-az045-el12.png",
+        "26-adaptive-facet-color/results-v001/delta18/preview/original-az315-el12.png",
+        "26-adaptive-facet-color/results-v001/delta18/preview/report.json",
+        "26-adaptive-facet-color/results-v001/delta18/preview/scene.blend",
+        "26-adaptive-facet-color/results-v001/delta18/processing-regions.png",
+        "26-adaptive-facet-color/results-v001/delta18/processing-report.json",
+        "26-adaptive-facet-color/results-v001/delta28/base-color.png",
+        "26-adaptive-facet-color/results-v001/delta28/cat.glb",
+        "26-adaptive-facet-color/results-v001/delta28/preflight.json",
+        "26-adaptive-facet-color/results-v001/delta28/preview/executed-source.py",
+        "26-adaptive-facet-color/results-v001/delta28/preview/original-az045-el12.png",
+        "26-adaptive-facet-color/results-v001/delta28/preview/original-az315-el12.png",
+        "26-adaptive-facet-color/results-v001/delta28/preview/report.json",
+        "26-adaptive-facet-color/results-v001/delta28/preview/scene.blend",
+        "26-adaptive-facet-color/results-v001/delta28/processing-regions.png",
+        "26-adaptive-facet-color/results-v001/delta28/processing-report.json",
+        "26-adaptive-facet-color/results-v001/executed-preflight.py",
+        "26-adaptive-facet-color/results-v001/executed-profile.json",
+        "26-adaptive-facet-color/results-v001/executed-source.py",
+        "26-adaptive-facet-color/results-v001/source-base-color.png",
+        "26-adaptive-facet-color/results-v001/summary.json",
+        "26-adaptive-facet-color/results-v001/surface-map.npz",
+        "26-adaptive-facet-color/review.json"
+      ],
+      "manual_inputs": [
+        "Two common style thresholds, 18 and 28; no per-cat processing masks or coordinates",
+        "Visual identity and style review; bbox-based camera framing is for evidence only"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "26-adaptive-facet-color/action_gate.json"
+      },
+      "outcome": "two_texture_only_adaptive_facet_candidates_actual_3500_triangles_13_renders_partial_style_improvement_semantic_identity_and_final_art_not_passed",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false,
+      "latest_review": "User feedback: no perceptible overall difference. Candidates rejected for insufficient style improvement; original technical results and local-change observations retained.",
+      "review_record": "26-adaptive-facet-color/review.json"
+    },
+    {
+      "id": "E47",
+      "issues": [
+        "RIG-01",
+        "EXPORT-01",
+        "GEO-02"
+      ],
+      "script": "27-animation-compatibility/bind_baseline.py",
+      "additional_scripts": [
+        "27-animation-compatibility/inspect_sources.py",
+        "27-animation-compatibility/locate_feet.py",
+        "27-animation-compatibility/bake_and_measure.py",
+        "27-animation-compatibility/render_motion.py",
+        "27-animation-compatibility/export_verify.py",
+        "27-animation-compatibility/assemble_previews.py",
+        "27-animation-compatibility/finalize_review.py"
+      ],
+      "inputs": [
+        "27-animation-compatibility/action_gate.json",
+        "27-animation-compatibility/weight-repair-gate.json",
+        "25-appearance-diagnostic/matte-candidate/cat.glb",
+        "../texture-transfer-v001/source/SKM_Cat_Domestic_Shorthair.fbx"
+      ],
+      "outputs": [
+        "27-animation-compatibility/action_gate.json",
+        "27-animation-compatibility/animation-comparison.mp4",
+        "27-animation-compatibility/animation-preview.gif",
+        "27-animation-compatibility/assemble_previews.py",
+        "27-animation-compatibility/bake_and_measure.py",
+        "27-animation-compatibility/baseline-v001/Idle-checkpoints.npz",
+        "27-animation-compatibility/baseline-v001/Idle-frames.json",
+        "27-animation-compatibility/baseline-v001/Idle_to_Sit-checkpoints.npz",
+        "27-animation-compatibility/baseline-v001/Idle_to_Sit-frames.json",
+        "27-animation-compatibility/baseline-v001/Sitting-checkpoints.npz",
+        "27-animation-compatibility/baseline-v001/Sitting-frames.json",
+        "27-animation-compatibility/baseline-v001/Sitting_to_Idle-checkpoints.npz",
+        "27-animation-compatibility/baseline-v001/Sitting_to_Idle-frames.json",
+        "27-animation-compatibility/baseline-v001/Walk-checkpoints.npz",
+        "27-animation-compatibility/baseline-v001/Walk-frames.json",
+        "27-animation-compatibility/baseline-v001/animated.blend",
+        "27-animation-compatibility/baseline-v001/animation-report.json",
+        "27-animation-compatibility/baseline-v001/executed-animation-source.py",
+        "27-animation-compatibility/baseline-v001/executed-source.py",
+        "27-animation-compatibility/baseline-v001/matrix-flags-probe.py",
+        "27-animation-compatibility/baseline-v001/matrix-probe.json",
+        "27-animation-compatibility/baseline-v001/rejection.json",
+        "27-animation-compatibility/baseline-v001/report.json",
+        "27-animation-compatibility/baseline-v001/rigged-rest.blend",
+        "27-animation-compatibility/baseline-v001/weights.npz",
+        "27-animation-compatibility/baseline-v002/Idle-checkpoints.npz",
+        "27-animation-compatibility/baseline-v002/Idle-frames.json",
+        "27-animation-compatibility/baseline-v002/Idle_to_Sit-checkpoints.npz",
+        "27-animation-compatibility/baseline-v002/Idle_to_Sit-frames.json",
+        "27-animation-compatibility/baseline-v002/Sitting-checkpoints.npz",
+        "27-animation-compatibility/baseline-v002/Sitting-frames.json",
+        "27-animation-compatibility/baseline-v002/Sitting_to_Idle-checkpoints.npz",
+        "27-animation-compatibility/baseline-v002/Sitting_to_Idle-frames.json",
+        "27-animation-compatibility/baseline-v002/Walk-checkpoints.npz",
+        "27-animation-compatibility/baseline-v002/Walk-frames.json",
+        "27-animation-compatibility/baseline-v002/animated.blend",
+        "27-animation-compatibility/baseline-v002/animation-report.json",
+        "27-animation-compatibility/baseline-v002/executed-animation-source.py",
+        "27-animation-compatibility/baseline-v002/executed-source.py",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0001.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0003.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0005.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0007.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0009.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0011.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0013.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0015.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0017.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0019.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0021.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0023.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0025.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0027.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0029.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0031.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0033.png",
+        "27-animation-compatibility/baseline-v002/motion/Idle_to_Sit-0035.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0001.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0003.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0005.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0007.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0009.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0011.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0013.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0015.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0017.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0019.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0021.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0023.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0025.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0027.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0029.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0031.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0033.png",
+        "27-animation-compatibility/baseline-v002/motion/Sitting_to_Idle-0035.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0001.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0003.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0005.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0007.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0009.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0011.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0013.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0015.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0017.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0019.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0021.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0023.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0025.png",
+        "27-animation-compatibility/baseline-v002/motion/Walk-0027.png",
+        "27-animation-compatibility/baseline-v002/motion/executed-source.py",
+        "27-animation-compatibility/baseline-v002/motion/report.json",
+        "27-animation-compatibility/baseline-v002/motion/review-sequence.ffconcat",
+        "27-animation-compatibility/baseline-v002/motion/review.mp4",
+        "27-animation-compatibility/baseline-v002/preview/Idle-0001.png",
+        "27-animation-compatibility/baseline-v002/preview/Idle_to_Sit-0018.png",
+        "27-animation-compatibility/baseline-v002/preview/Idle_to_Sit-0035.png",
+        "27-animation-compatibility/baseline-v002/preview/Sitting-0001.png",
+        "27-animation-compatibility/baseline-v002/preview/Sitting_to_Idle-0018.png",
+        "27-animation-compatibility/baseline-v002/preview/Sitting_to_Idle-0035.png",
+        "27-animation-compatibility/baseline-v002/preview/Walk-0007.png",
+        "27-animation-compatibility/baseline-v002/preview/Walk-0020.png",
+        "27-animation-compatibility/baseline-v002/preview/executed-source.py",
+        "27-animation-compatibility/baseline-v002/preview/report.json",
+        "27-animation-compatibility/baseline-v002/report.json",
+        "27-animation-compatibility/baseline-v002/rigged-rest.blend",
+        "27-animation-compatibility/baseline-v002/weights.npz",
+        "27-animation-compatibility/bind_baseline.py",
+        "27-animation-compatibility/export_verify.py",
+        "27-animation-compatibility/finalize_review.py",
+        "27-animation-compatibility/foot-detection.json",
+        "27-animation-compatibility/inspect_sources.py",
+        "27-animation-compatibility/inventory/executed-source.py",
+        "27-animation-compatibility/inventory/report.json",
+        "27-animation-compatibility/inventory/source-mesh.npz",
+        "27-animation-compatibility/inventory/target-mesh.npz",
+        "27-animation-compatibility/locate_feet.py",
+        "27-animation-compatibility/preview-provenance.json",
+        "27-animation-compatibility/probe_export.py",
+        "27-animation-compatibility/probe_pose_matrices.py",
+        "27-animation-compatibility/register_result.py",
+        "27-animation-compatibility/render_motion.py",
+        "27-animation-compatibility/reproduction.json",
+        "27-animation-compatibility/review.json",
+        "27-animation-compatibility/weight-repair-gate.json",
+        "27-animation-compatibility/weights-v001/Idle-checkpoints.npz",
+        "27-animation-compatibility/weights-v001/Idle-frames.json",
+        "27-animation-compatibility/weights-v001/Idle_to_Sit-checkpoints.npz",
+        "27-animation-compatibility/weights-v001/Idle_to_Sit-frames.json",
+        "27-animation-compatibility/weights-v001/Sitting-checkpoints.npz",
+        "27-animation-compatibility/weights-v001/Sitting-frames.json",
+        "27-animation-compatibility/weights-v001/Sitting_to_Idle-checkpoints.npz",
+        "27-animation-compatibility/weights-v001/Sitting_to_Idle-frames.json",
+        "27-animation-compatibility/weights-v001/Walk-checkpoints.npz",
+        "27-animation-compatibility/weights-v001/Walk-frames.json",
+        "27-animation-compatibility/weights-v001/animated.blend",
+        "27-animation-compatibility/weights-v001/animation-report.json",
+        "27-animation-compatibility/weights-v001/executed-animation-source.py",
+        "27-animation-compatibility/weights-v001/executed-source.py",
+        "27-animation-compatibility/weights-v001/export/cat-animated.glb",
+        "27-animation-compatibility/weights-v001/export/executed-source.py",
+        "27-animation-compatibility/weights-v001/export/reimported.blend",
+        "27-animation-compatibility/weights-v001/export/verification.json",
+        "27-animation-compatibility/weights-v001/export-rejected-v001/cat-animated.glb",
+        "27-animation-compatibility/weights-v001/export-rejected-v001/executed-source.py",
+        "27-animation-compatibility/weights-v001/export-rejected-v001/failure.json",
+        "27-animation-compatibility/weights-v001/export-rejected-v001/probe.json",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0001.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0003.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0005.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0007.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0009.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0011.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0013.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0015.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0017.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0019.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0021.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0023.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0025.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0027.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0029.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0031.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0033.png",
+        "27-animation-compatibility/weights-v001/motion/Idle_to_Sit-0035.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0001.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0003.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0005.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0007.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0009.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0011.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0013.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0015.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0017.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0019.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0021.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0023.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0025.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0027.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0029.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0031.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0033.png",
+        "27-animation-compatibility/weights-v001/motion/Sitting_to_Idle-0035.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0001.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0003.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0005.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0007.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0009.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0011.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0013.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0015.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0017.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0019.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0021.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0023.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0025.png",
+        "27-animation-compatibility/weights-v001/motion/Walk-0027.png",
+        "27-animation-compatibility/weights-v001/motion/executed-source.py",
+        "27-animation-compatibility/weights-v001/motion/report.json",
+        "27-animation-compatibility/weights-v001/motion/review-sequence.ffconcat",
+        "27-animation-compatibility/weights-v001/motion/review.mp4",
+        "27-animation-compatibility/weights-v001/preview/Idle-0001.png",
+        "27-animation-compatibility/weights-v001/preview/Idle_to_Sit-0018.png",
+        "27-animation-compatibility/weights-v001/preview/Idle_to_Sit-0035.png",
+        "27-animation-compatibility/weights-v001/preview/Sitting-0001.png",
+        "27-animation-compatibility/weights-v001/preview/Sitting_to_Idle-0018.png",
+        "27-animation-compatibility/weights-v001/preview/Sitting_to_Idle-0035.png",
+        "27-animation-compatibility/weights-v001/preview/Walk-0007.png",
+        "27-animation-compatibility/weights-v001/preview/Walk-0020.png",
+        "27-animation-compatibility/weights-v001/preview/executed-source.py",
+        "27-animation-compatibility/weights-v001/preview/report.json",
+        "27-animation-compatibility/weights-v001/preview-opposite/Idle-0001.png",
+        "27-animation-compatibility/weights-v001/preview-opposite/Idle_to_Sit-0018.png",
+        "27-animation-compatibility/weights-v001/preview-opposite/Idle_to_Sit-0035.png",
+        "27-animation-compatibility/weights-v001/preview-opposite/Sitting-0001.png",
+        "27-animation-compatibility/weights-v001/preview-opposite/Sitting_to_Idle-0018.png",
+        "27-animation-compatibility/weights-v001/preview-opposite/Sitting_to_Idle-0035.png",
+        "27-animation-compatibility/weights-v001/preview-opposite/Walk-0007.png",
+        "27-animation-compatibility/weights-v001/preview-opposite/Walk-0020.png",
+        "27-animation-compatibility/weights-v001/preview-opposite/executed-source.py",
+        "27-animation-compatibility/weights-v001/preview-opposite/report.json",
+        "27-animation-compatibility/weights-v001/report.json",
+        "27-animation-compatibility/weights-v001/rigged-rest.blend",
+        "27-animation-compatibility/weights-v001/weights.npz"
+      ],
+      "manual_inputs": [
+        "一次母版骨骼語義與座標軸規格",
+        "單次共用權重平滑設定：五輪、0.35、八影響",
+        "動作多角度與量測結果人工審查；未新增本貓關節座標、手工權重或遮罩"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "27-animation-compatibility/action_gate.json",
+        "repair_record": "27-animation-compatibility/weight-repair-gate.json"
+      },
+      "outcome": "five_clips_baked_597_frames_measured_3500_triangles_glb_roundtrip_pass_partial_weight_improvement_animation_quality_failed",
+      "review_record": "27-animation-compatibility/review.json",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E48",
+      "issues": [
+        "RIG-01",
+        "EXPORT-01",
+        "GEO-02"
+      ],
+      "script": "28-part-aware-rig/fit_parts.py",
+      "additional_scripts": [
+        "28-part-aware-rig/build_candidate.py",
+        "28-part-aware-rig/make_stress_fixtures.py",
+        "28-part-aware-rig/run_stress.py",
+        "28-part-aware-rig/audit_rest.py",
+        "28-part-aware-rig/assess_fit_gate.py",
+        "28-part-aware-rig/render_fit.py",
+        "28-part-aware-rig/render_stress.py",
+        "28-part-aware-rig/package_previews.py",
+        "28-part-aware-rig/finalize_review.py",
+        "27-animation-compatibility/bake_and_measure.py",
+        "27-animation-compatibility/export_verify.py"
+      ],
+      "inputs": [
+        "28-part-aware-rig/action_gate.json",
+        "28-part-aware-rig/surface-repair-gate.json",
+        "25-appearance-diagnostic/matte-candidate/cat.glb",
+        "27-animation-compatibility/inventory/report.json",
+        "27-animation-compatibility/inventory/source-mesh.npz",
+        "27-animation-compatibility/inventory/target-mesh.npz",
+        "27-animation-compatibility/weights-v001/animation-report.json"
+      ],
+      "outputs": [
+        "28-part-aware-rig/action_gate.json",
+        "28-part-aware-rig/assess_fit_gate.py",
+        "28-part-aware-rig/audit_rest.py",
+        "28-part-aware-rig/build_candidate.py",
+        "28-part-aware-rig/finalize_review.py",
+        "28-part-aware-rig/fit-v001/original/diagnostic/estimated-joints-opposite.png",
+        "28-part-aware-rig/fit-v001/original/diagnostic/estimated-joints.png",
+        "28-part-aware-rig/fit-v001/original/diagnostic/executed-source.py",
+        "28-part-aware-rig/fit-v001/original/diagnostic/report.json",
+        "28-part-aware-rig/fit-v001/original/diagnostic/target-parts.png",
+        "28-part-aware-rig/fit-v001/original/diagnostic/wrapped-scaffold.png",
+        "28-part-aware-rig/fit-v001/original/executed-source.py",
+        "28-part-aware-rig/fit-v001/original/fit.json",
+        "28-part-aware-rig/fit-v001/original/fit.npz",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/Idle-frames.json",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/Idle_to_Sit-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/Idle_to_Sit-frames.json",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/Sitting-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/Sitting-frames.json",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/Sitting_to_Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/Sitting_to_Idle-frames.json",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/Walk-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/Walk-frames.json",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/animated.blend",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/animation-report.json",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/executed-animation-source.py",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/executed-source.py",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/report.json",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/rigged-rest.blend",
+        "28-part-aware-rig/fit-v002/fat_body/candidate/weights.npz",
+        "28-part-aware-rig/fit-v002/fat_body/executed-source.py",
+        "28-part-aware-rig/fit-v002/fat_body/fit-gate.json",
+        "28-part-aware-rig/fit-v002/fat_body/fit.json",
+        "28-part-aware-rig/fit-v002/fat_body/fit.npz",
+        "28-part-aware-rig/fit-v002/fat_body/rest-audit-initial.json",
+        "28-part-aware-rig/fit-v002/fat_body/rest-audit.json",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/Idle-frames.json",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/Idle_to_Sit-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/Idle_to_Sit-frames.json",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/Sitting-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/Sitting-frames.json",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/Sitting_to_Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/Sitting_to_Idle-frames.json",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/Walk-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/Walk-frames.json",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/animated.blend",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/animation-report.json",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/executed-animation-source.py",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/executed-source.py",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/preview/Sitting-0001.png",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/preview/Walk-0014.png",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/preview/executed-source.py",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/preview/report.json",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/report.json",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/rigged-rest.blend",
+        "28-part-aware-rig/fit-v002/long_legs/candidate/weights.npz",
+        "28-part-aware-rig/fit-v002/long_legs/executed-source.py",
+        "28-part-aware-rig/fit-v002/long_legs/fit-gate.json",
+        "28-part-aware-rig/fit-v002/long_legs/fit.json",
+        "28-part-aware-rig/fit-v002/long_legs/fit.npz",
+        "28-part-aware-rig/fit-v002/long_legs/rest-audit-initial.json",
+        "28-part-aware-rig/fit-v002/long_legs/rest-audit.json",
+        "28-part-aware-rig/fit-v002/original/candidate/Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/original/candidate/Idle-frames.json",
+        "28-part-aware-rig/fit-v002/original/candidate/Idle_to_Sit-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/original/candidate/Idle_to_Sit-frames.json",
+        "28-part-aware-rig/fit-v002/original/candidate/Sitting-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/original/candidate/Sitting-frames.json",
+        "28-part-aware-rig/fit-v002/original/candidate/Sitting_to_Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/original/candidate/Sitting_to_Idle-frames.json",
+        "28-part-aware-rig/fit-v002/original/candidate/Walk-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/original/candidate/Walk-frames.json",
+        "28-part-aware-rig/fit-v002/original/candidate/animated.blend",
+        "28-part-aware-rig/fit-v002/original/candidate/animation-report.json",
+        "28-part-aware-rig/fit-v002/original/candidate/executed-animation-source.py",
+        "28-part-aware-rig/fit-v002/original/candidate/executed-source.py",
+        "28-part-aware-rig/fit-v002/original/candidate/export/cat-animated.glb",
+        "28-part-aware-rig/fit-v002/original/candidate/export/executed-source.py",
+        "28-part-aware-rig/fit-v002/original/candidate/export/reimported.blend",
+        "28-part-aware-rig/fit-v002/original/candidate/export/verification.json",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0001.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0003.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0005.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0007.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0009.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0011.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0013.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0015.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0017.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0019.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0021.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0023.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0025.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0027.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0029.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0031.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0033.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Idle_to_Sit-0035.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0001.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0003.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0005.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0007.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0009.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0011.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0013.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0015.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0017.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0019.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0021.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0023.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0025.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0027.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0029.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0031.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0033.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Sitting_to_Idle-0035.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0001.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0003.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0005.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0007.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0009.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0011.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0013.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0015.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0017.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0019.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0021.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0023.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0025.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/Walk-0027.png",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/executed-source.py",
+        "28-part-aware-rig/fit-v002/original/candidate/motion/report.json",
+        "28-part-aware-rig/fit-v002/original/candidate/preview/Idle-0001.png",
+        "28-part-aware-rig/fit-v002/original/candidate/preview/Idle_to_Sit-0018.png",
+        "28-part-aware-rig/fit-v002/original/candidate/preview/Idle_to_Sit-0035.png",
+        "28-part-aware-rig/fit-v002/original/candidate/preview/Sitting-0001.png",
+        "28-part-aware-rig/fit-v002/original/candidate/preview/Sitting_to_Idle-0018.png",
+        "28-part-aware-rig/fit-v002/original/candidate/preview/Sitting_to_Idle-0035.png",
+        "28-part-aware-rig/fit-v002/original/candidate/preview/Walk-0007.png",
+        "28-part-aware-rig/fit-v002/original/candidate/preview/Walk-0020.png",
+        "28-part-aware-rig/fit-v002/original/candidate/preview/executed-source.py",
+        "28-part-aware-rig/fit-v002/original/candidate/preview/report.json",
+        "28-part-aware-rig/fit-v002/original/candidate/report.json",
+        "28-part-aware-rig/fit-v002/original/candidate/rigged-rest.blend",
+        "28-part-aware-rig/fit-v002/original/candidate/weights.npz",
+        "28-part-aware-rig/fit-v002/original/diagnostic/estimated-joints-opposite.png",
+        "28-part-aware-rig/fit-v002/original/diagnostic/estimated-joints.png",
+        "28-part-aware-rig/fit-v002/original/diagnostic/executed-source.py",
+        "28-part-aware-rig/fit-v002/original/diagnostic/report.json",
+        "28-part-aware-rig/fit-v002/original/diagnostic/target-parts.png",
+        "28-part-aware-rig/fit-v002/original/diagnostic/wrapped-scaffold.png",
+        "28-part-aware-rig/fit-v002/original/executed-source.py",
+        "28-part-aware-rig/fit-v002/original/fit-gate.json",
+        "28-part-aware-rig/fit-v002/original/fit.json",
+        "28-part-aware-rig/fit-v002/original/fit.npz",
+        "28-part-aware-rig/fit-v002/original/rest-audit-initial.json",
+        "28-part-aware-rig/fit-v002/original/rest-audit.json",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/Idle-frames.json",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/Idle_to_Sit-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/Idle_to_Sit-frames.json",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/Sitting-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/Sitting-frames.json",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/Sitting_to_Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/Sitting_to_Idle-frames.json",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/Walk-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/Walk-frames.json",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/animated.blend",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/animation-report.json",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/executed-animation-source.py",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/executed-source.py",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/preview/Sitting-0001.png",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/preview/Walk-0014.png",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/preview/executed-source.py",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/preview/report.json",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/report.json",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/rigged-rest.blend",
+        "28-part-aware-rig/fit-v002/short_fat/candidate/weights.npz",
+        "28-part-aware-rig/fit-v002/short_fat/executed-source.py",
+        "28-part-aware-rig/fit-v002/short_fat/fit-gate.json",
+        "28-part-aware-rig/fit-v002/short_fat/fit.json",
+        "28-part-aware-rig/fit-v002/short_fat/fit.npz",
+        "28-part-aware-rig/fit-v002/short_fat/rest-audit-initial.json",
+        "28-part-aware-rig/fit-v002/short_fat/rest-audit.json",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/Idle-frames.json",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/Idle_to_Sit-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/Idle_to_Sit-frames.json",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/Sitting-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/Sitting-frames.json",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/Sitting_to_Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/Sitting_to_Idle-frames.json",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/Walk-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/Walk-frames.json",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/animated.blend",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/animation-report.json",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/executed-animation-source.py",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/executed-source.py",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/preview/Sitting-0001.png",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/preview/Walk-0014.png",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/preview/executed-source.py",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/preview/report.json",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/report.json",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/rigged-rest.blend",
+        "28-part-aware-rig/fit-v002/short_legs/candidate/weights.npz",
+        "28-part-aware-rig/fit-v002/short_legs/executed-source.py",
+        "28-part-aware-rig/fit-v002/short_legs/fit-gate.json",
+        "28-part-aware-rig/fit-v002/short_legs/fit.json",
+        "28-part-aware-rig/fit-v002/short_legs/fit.npz",
+        "28-part-aware-rig/fit-v002/short_legs/rest-audit-initial.json",
+        "28-part-aware-rig/fit-v002/short_legs/rest-audit.json",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/Idle-frames.json",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/Idle_to_Sit-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/Idle_to_Sit-frames.json",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/Sitting-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/Sitting-frames.json",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/Sitting_to_Idle-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/Sitting_to_Idle-frames.json",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/Walk-checkpoints.npz",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/Walk-frames.json",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/animated.blend",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/animation-report.json",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/executed-animation-source.py",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/executed-source.py",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/report.json",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/rigged-rest.blend",
+        "28-part-aware-rig/fit-v002/thin_body/candidate/weights.npz",
+        "28-part-aware-rig/fit-v002/thin_body/executed-source.py",
+        "28-part-aware-rig/fit-v002/thin_body/fit-gate.json",
+        "28-part-aware-rig/fit-v002/thin_body/fit.json",
+        "28-part-aware-rig/fit-v002/thin_body/fit.npz",
+        "28-part-aware-rig/fit-v002/thin_body/rest-audit-initial.json",
+        "28-part-aware-rig/fit-v002/thin_body/rest-audit.json",
+        "28-part-aware-rig/fit_parts.py",
+        "28-part-aware-rig/gate-verification.json",
+        "28-part-aware-rig/make_stress_fixtures.py",
+        "28-part-aware-rig/media/comparison.mp4",
+        "28-part-aware-rig/media/current/Idle.png",
+        "28-part-aware-rig/media/current/Sitting.png",
+        "28-part-aware-rig/media/current/review.mp4",
+        "28-part-aware-rig/media/current/sequence.ffconcat",
+        "28-part-aware-rig/media/current.gif",
+        "28-part-aware-rig/media/previous/Idle.png",
+        "28-part-aware-rig/media/previous/Sitting.png",
+        "28-part-aware-rig/media/previous/review.mp4",
+        "28-part-aware-rig/media/previous/sequence.ffconcat",
+        "28-part-aware-rig/media/provenance.json",
+        "28-part-aware-rig/media/sitting-comparison.png",
+        "28-part-aware-rig/package_previews.py",
+        "28-part-aware-rig/render_fit.py",
+        "28-part-aware-rig/render_stress.py",
+        "28-part-aware-rig/reproduction.json",
+        "28-part-aware-rig/rest-audit-summary.json",
+        "28-part-aware-rig/review.json",
+        "28-part-aware-rig/run_stress.py",
+        "28-part-aware-rig/stress-fat_body-status.json",
+        "28-part-aware-rig/stress-inputs/executed-source.py",
+        "28-part-aware-rig/stress-inputs/fat_body.npz",
+        "28-part-aware-rig/stress-inputs/long_legs.npz",
+        "28-part-aware-rig/stress-inputs/manifest.json",
+        "28-part-aware-rig/stress-inputs/short_fat.npz",
+        "28-part-aware-rig/stress-inputs/short_legs.npz",
+        "28-part-aware-rig/stress-inputs/thin_body.npz",
+        "28-part-aware-rig/stress-long_legs-status.json",
+        "28-part-aware-rig/stress-run.json",
+        "28-part-aware-rig/stress-short_fat-status.json",
+        "28-part-aware-rig/stress-short_legs-status.json",
+        "28-part-aware-rig/stress-thin_body-status.json",
+        "28-part-aware-rig/surface-repair-gate.json"
+      ],
+      "manual_inputs": [
+        "一次母版骨名/部位語義、朝向與演算法設定",
+        "兩個有明確差異的對應方法與人工結果審查；沒有逐貓手點/遮罩/權重修補"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "28-part-aware-rig/action_gate.json",
+        "repair_record": "28-part-aware-rig/surface-repair-gate.json"
+      },
+      "outcome": "part_segmentation_and_ARAP_fit_implemented_but_foldovers_and_animation_regressions_rejected_original_597_frames_plus_five_synthetic_cases_15_poses_each",
+      "review_record": "28-part-aware-rig/review.json",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E49",
+      "issues": [
+        "RIG-01",
+        "EXPORT-01"
+      ],
+      "script": "29-walk-sit-scope/select_clips.py",
+      "additional_scripts": [
+        "29-walk-sit-scope/verify_selected.py"
+      ],
+      "inputs": [
+        "29-walk-sit-scope/action_gate.json",
+        "27-animation-compatibility/weights-v001/export/cat-animated.glb",
+        "27-animation-compatibility/weights-v001/weights.npz",
+        "28-part-aware-rig/media/previous/review.mp4"
+      ],
+      "outputs": [
+        "29-walk-sit-scope/action_gate.json",
+        "29-walk-sit-scope/cat-walk-sit.glb",
+        "29-walk-sit-scope/executed-selection-source.py",
+        "29-walk-sit-scope/executed-verification-source.py",
+        "29-walk-sit-scope/preview-provenance.json",
+        "29-walk-sit-scope/preview.mp4",
+        "29-walk-sit-scope/scope.json",
+        "29-walk-sit-scope/select_clips.py",
+        "29-walk-sit-scope/selection.json",
+        "29-walk-sit-scope/verification.json",
+        "29-walk-sit-scope/verify_selected.py"
+      ],
+      "manual_inputs": [
+        "使用者選左側舊版並將行為縮成行走/坐姿；坐下語義已確認"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "29-walk-sit-scope/action_gate.json"
+      },
+      "outcome": "user_selected_previous_version_two_behaviors_four_clips_lossless_pack_roundtrip_12_poses_pass_no_animation_repair",
+      "review_record": "29-walk-sit-scope/scope.json",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E50",
+      "issues": [
+        "RENDER-01",
+        "RIG-01",
+        "TEX-03"
+      ],
+      "script": "30-catworld-comparison/render_comparison.py",
+      "additional_scripts": [
+        "30-catworld-comparison/package_images.py"
+      ],
+      "inputs": [
+        "29-walk-sit-scope/cat-walk-sit.glb",
+        "30-catworld-comparison/action_gate.json",
+        "30-catworld-comparison/provenance.json"
+      ],
+      "outputs": [
+        "30-catworld-comparison/action_gate.json",
+        "30-catworld-comparison/catworld-sitting_three_quarter.png",
+        "30-catworld-comparison/catworld-standing_front.png",
+        "30-catworld-comparison/catworld-standing_side.png",
+        "30-catworld-comparison/catworld-standing_three_quarter.png",
+        "30-catworld-comparison/comparison-sitting_three_quarter.png",
+        "30-catworld-comparison/comparison-standing_front.png",
+        "30-catworld-comparison/comparison-standing_side.png",
+        "30-catworld-comparison/comparison-standing_three_quarter.png",
+        "30-catworld-comparison/comparison.json",
+        "30-catworld-comparison/executed-package-source.py",
+        "30-catworld-comparison/executed-render-source.py",
+        "30-catworld-comparison/package_images.py",
+        "30-catworld-comparison/provenance.json",
+        "30-catworld-comparison/rejected-helper-bounds/rejection.json",
+        "30-catworld-comparison/rejected-helper-bounds/render_comparison.py",
+        "30-catworld-comparison/rejected-helper-bounds/selected-standing_front.png",
+        "30-catworld-comparison/rejected-helper-bounds/selected-standing_three_quarter.png",
+        "30-catworld-comparison/render_comparison.py",
+        "30-catworld-comparison/review.json",
+        "30-catworld-comparison/selected-sitting_three_quarter.png",
+        "30-catworld-comparison/selected-standing_front.png",
+        "30-catworld-comparison/selected-standing_side.png",
+        "30-catworld-comparison/selected-standing_three_quarter.png"
+      ],
+      "manual_inputs": [
+        "選擇已選版本與 catworld 現用模型；對應原生坐姿動作名、確認 +X 朝向及目視檢查。"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "30-catworld-comparison/action_gate.json"
+      },
+      "outcome": "four_same_camera_lighting_comparisons_actual_3D_renders_no_asset_edits",
+      "review_record": "30-catworld-comparison/review.json",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E51",
+      "issues": [
+        "EXPORT-01",
+        "RIG-01"
+      ],
+      "script": "31-catworld-integration/after/personalized_cat.gd",
+      "additional_scripts": [
+        "31-catworld-integration/after/main.gd",
+        "31-catworld-integration/check_integration.gd",
+        "31-catworld-integration/check_live_cycle.gd"
+      ],
+      "inputs": [
+        "29-walk-sit-scope/cat-walk-sit.glb",
+        "31-catworld-integration/action_gate.json",
+        "31-catworld-integration/before.json"
+      ],
+      "outputs": [
+        "31-catworld-integration/action_gate.json",
+        "31-catworld-integration/after/main.gd",
+        "31-catworld-integration/after/models/personalized_cat.glb.import",
+        "31-catworld-integration/after/personalized_cat.gd",
+        "31-catworld-integration/after/personalized_cat.gd.uid",
+        "31-catworld-integration/before/cat.gd",
+        "31-catworld-integration/before/cat_eyes.gd",
+        "31-catworld-integration/before/main.gd",
+        "31-catworld-integration/before/models/calico_cat.glb",
+        "31-catworld-integration/before/models/calico_tripo_walk.glb",
+        "31-catworld-integration/before/project.godot",
+        "31-catworld-integration/before/tripo_cat.gd",
+        "31-catworld-integration/before.json",
+        "31-catworld-integration/check_integration.gd",
+        "31-catworld-integration/check_live_cycle.gd",
+        "31-catworld-integration/integration-check.json",
+        "31-catworld-integration/live-cycle.json",
+        "31-catworld-integration/main.diff",
+        "31-catworld-integration/movie-review.png",
+        "31-catworld-integration/review.json",
+        "31-catworld-integration/room-personalized-close.png",
+        "31-catworld-integration/room-three-cats.png",
+        "31-catworld-integration/room-walk-sit.mp4",
+        "31-catworld-integration/test-room-layout.json"
+      ],
+      "manual_inputs": [
+        "Asset/semantic clip selection, +X facing, world height spec, room spawn/waypoints and visual QA"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "31-catworld-integration/action_gate.json"
+      },
+      "outcome": "added_selected_cat_to_catworld_as_third_character_Godot_import_and_22_behavior_checks_and_normal_live_cycle_pass_existing_mesh_contact_defects_remain",
+      "review_record": "31-catworld-integration/review.json",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E52",
+      "issues": [
+        "RENDER-01",
+        "TEX-03",
+        "RIG-01",
+        "QA-01"
+      ],
+      "script": "31-catworld-integration/probe_world_style.gd",
+      "inputs": [
+        "31-catworld-integration/style-analysis-action_gate.json",
+        "31-catworld-integration/review.json",
+        "31-catworld-integration/room-three-cats.png",
+        "31-catworld-integration/room-personalized-close.png",
+        "25-appearance-diagnostic/structure-analysis.json"
+      ],
+      "outputs": [
+        "31-catworld-integration/world-style-probe.json",
+        "31-catworld-integration/world-style-analysis.json"
+      ],
+      "manual_inputs": [
+        "Visual comparison and art-direction judgment; no model/light/material edits"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "31-catworld-integration/style-analysis-action_gate.json"
+      },
+      "outcome": "read_only_world_style_diagnosis_shared_shader_verified_abstraction_contrast_camera_contact_mismatch_identified_no_repair_or_style_acceptance",
+      "review_record": "31-catworld-integration/world-style-analysis.json",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E53",
+      "kind": "workflow_change_only_not_generation_experiment",
+      "issues": [
+        "SPRITE-01",
+        "QA-01"
+      ],
+      "inputs": [
+        "../../cat.png",
+        "32-sprite-workflow/workflow-3d-before.md",
+        "31-catworld-integration/world-style-analysis.json"
+      ],
+      "outputs": [
+        "../../workflow.md",
+        "32-sprite-workflow/change-record.json"
+      ],
+      "manual_inputs": [
+        "Workflow authoring and visual review of prototype; no per-cat landmarks/masks/asset edits"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "32-sprite-workflow/action_gate.json"
+      },
+      "outcome": "2D_sprite_workflow_documented_cat_png_prototype_old_3D_workflow_archived_no_generation_or_engine_test",
+      "review_record": "32-sprite-workflow/change-record.json",
+      "imagegen_calls": 0,
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E54",
+      "issues": [
+        "SPRITE-01",
+        "QA-01",
+        "RENDER-01"
+      ],
+      "script": "33-sprite-static/godot/main.gd",
+      "inputs": [
+        "../../cat.png",
+        "33-sprite-static/prompt-v001.txt",
+        "33-sprite-static/source-snapshot.json"
+      ],
+      "outputs": [
+        "33-sprite-static/review.json",
+        "33-sprite-static/godot/assets/cat-cutout-v001.png",
+        "33-sprite-static/evidence/01-overview.png",
+        "33-sprite-static/evidence/02-close.png",
+        "33-sprite-static/runtime-integrity.json",
+        "33-sprite-static/render-differences.json"
+      ],
+      "manual_inputs": [
+        "Single manually reviewed support pivot",
+        "shared world-size/shadow/camera specs",
+        "identity/art/contact visual review"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "33-sprite-static/action_gate.json",
+        "shared_test_correction": "33-sprite-static/layout-correction-action_gate.json"
+      },
+      "outcome": "static_2D_sprite_engine_candidate_alpha_shadow_depth_verified_manual_ground_pivot_and_AI_redrawing_remain_no_animation_or_new_cat_pass",
+      "review_record": "33-sprite-static/review.json",
+      "imagegen_calls": 1,
+      "imagegen_cost": "not_exposed",
+      "tripo_calls": 0,
+      "tripo_credits_consumed": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E55",
+      "issues": [
+        "SPRITE-01",
+        "RENDER-01",
+        "QA-01"
+      ],
+      "script": "34-sprite-lighting/godot/main.gd",
+      "inputs": [
+        "33-sprite-static/godot/assets/cat-cutout-v001.png",
+        "33-sprite-static/godot/profile.json"
+      ],
+      "outputs": [
+        "34-sprite-lighting/review.json",
+        "34-sprite-lighting/ab-check.json",
+        "34-sprite-lighting/evidence/comparison.png"
+      ],
+      "manual_inputs": [
+        "Existing support pivot inherited, no new per-cat inputs",
+        "Visual comparison of actual A/B"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "34-sprite-lighting/action_gate.json"
+      },
+      "outcome": "only_shaded_toggle_AB_verified_original_baseline_replayed_pixel_exact_B_minor_warmer_darker_no_clear_fusion_improvement_A_retained",
+      "review_record": "34-sprite-lighting/review.json",
+      "imagegen_calls": 0,
+      "tripo_calls": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E56",
+      "issues": [
+        "SPRITE-01",
+        "QA-01"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "35-sprite-contact-shadow/action_gate.json"
+      },
+      "review_record": "35-sprite-contact-shadow/review.json",
+      "outputs": [
+        "35-sprite-contact-shadow/evidence/comparison.png"
+      ],
+      "outcome": "Contact shadow candidate compared; user skipped remaining validation to art; B not adopted",
+      "imagegen_calls": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E57",
+      "issues": [
+        "SPRITE-01",
+        "QA-01"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "36-sprite-art/action_gate.json"
+      },
+      "review_record": "36-sprite-art/review.json",
+      "outputs": [
+        "36-sprite-art/evidence/comparison.png"
+      ],
+      "outcome": "Simplified facet sprite compared in room; registration and canvas invariants failed after one correction; not adopted",
+      "imagegen_calls": 2,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E58",
+      "issues": [
+        "SPRITE-01",
+        "QA-01"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "37-sprite-movement/action_gate.json"
+      },
+      "review_record": "37-sprite-movement/review.json",
+      "outcome": "Click-to-move navigation prototype verified in copied room; static sprite sliding only",
+      "imagegen_calls": 0,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E59",
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "38-sprite-walk/action_gate.json"
+      },
+      "review_record": "38-sprite-walk/review.json",
+      "outcome": "Two AI walk atlases rejected for art fidelity; no animation integrated",
+      "imagegen_calls": 2,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E60",
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "39-hires-walk/action_gate.json"
+      },
+      "review_record": "39-hires-walk/review.json",
+      "outcome": "User-approved high-resolution split sheets integrated into playable 8-direction 4-frame walk prototype;recorded actual world movement;naturalness and identity not fully passed",
+      "imagegen_completed_calls": 9,
+      "imagegen_interrupted_calls": 1,
+      "new_cat_automation_proven": false
+    },
+    {
+      "id": "E61",
+      "issues": [
+        "EXPORT-01",
+        "RENDER-01",
+        "RIG-01"
+      ],
+      "script": "32-single-cat-scene/after-main.gd",
+      "additional_scripts": [
+        "32-single-cat-scene/check_live_cycle.gd",
+        "32-single-cat-scene/room_check_single.gd"
+      ],
+      "inputs": [
+        "32-single-cat-scene/action_gate.json",
+        "32-single-cat-scene/before.json",
+        "29-walk-sit-scope/cat-walk-sit.glb"
+      ],
+      "outputs": [
+        "32-single-cat-scene/action_gate.json",
+        "32-single-cat-scene/after-main.gd",
+        "32-single-cat-scene/before-main.gd",
+        "32-single-cat-scene/before.json",
+        "32-single-cat-scene/check_live_cycle.gd",
+        "32-single-cat-scene/import.log",
+        "32-single-cat-scene/live-cycle.json",
+        "32-single-cat-scene/live-cycle.log",
+        "32-single-cat-scene/main.diff",
+        "32-single-cat-scene/review.json",
+        "32-single-cat-scene/room-check-first-attempt.log",
+        "32-single-cat-scene/room-check.log",
+        "32-single-cat-scene/room_check_single.gd",
+        "32-single-cat-scene/screenshot.log",
+        "32-single-cat-scene/single-cat-room.png"
+      ],
+      "manual_inputs": [
+        "User-selected existing 3D cat; scene scale1.25"
+      ],
+      "action_gate": {
+        "timing": "before_execution",
+        "record": "32-single-cat-scene/action_gate.json"
+      },
+      "outcome": "Existing_3D_Godot_room_now_has_only_current_cat_scaled_1p25_source_asset_unchanged_live_cycle_and_room_UI_pass",
+      "review_record": "32-single-cat-scene/review.json",
+      "scope_note": "This records the current chat 3D scene request only. Other concurrently updated sprite-workflow records and current workflow.md are preserved.",
+      "tripo_calls": 0,
+      "credits_consumed": 0,
+      "new_cat_automation_proven": false
+    }
+  ]
+}

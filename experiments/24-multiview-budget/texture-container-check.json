@@ -1,0 +1,64 @@
+{
+  "source": {
+    "file": "experiments/generation-v001/23-multiview-3500/native-v001/model_url.glb",
+    "materials": [
+      {
+        "name": "tripo_material_<redacted-id>",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "baseColorTexture": {
+            "index": 0
+          },
+          "metallicFactor": 0.0,
+          "roughnessFactor": 0.9
+        },
+        "doubleSided": true
+      }
+    ],
+    "images": [
+      {
+        "dimensions": [
+          2048,
+          2048
+        ],
+        "format": "JPEG",
+        "encoded_bytes": 979502,
+        "encoded_sha256": "f7b95e5e77d3f64c933d0fe107ca88bcb8c8f4e746c6588a01b98454ba0075ef",
+        "decoded_rgb_sha256": "2683b74107dca129bca386bcdd991f64dd30dc6770fcfc4c39c84085654233ee"
+      }
+    ]
+  },
+  "service": {
+    "file": "experiments/generation-v001/24-multiview-budget/basic-v001/model_url.glb",
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "tripo_mat_<redacted-id>",
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 0
+          },
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8999999761581421
+        }
+      }
+    ],
+    "images": [
+      {
+        "dimensions": [
+          2048,
+          2048
+        ],
+        "format": "JPEG",
+        "encoded_bytes": 461406,
+        "encoded_sha256": "2c1c90971a9f568a9a58b27e85daa45e5b1f39b722f5b413d2afb9567b3fa87e",
+        "decoded_rgb_sha256": "440c54257997a5f2e51f91fdeef3dc76320665ebc2c06d1876d353a92c885414"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "stage": "S00-S01 static cutout only",
+  "texture": "res://assets/cat-cutout-v001.png",
+  "source_alpha_bbox": [
+    18,
+    84,
+    1378,
+    1012
+  ],
+  "visual_width_world": 0.75,
+  "pivot_normalized": [
+    0.5,
+    0.935
+  ],
+  "pivot_provenance": "One manually reviewed layout pivot: x is composition center; y is the foreground forepaw contact baseline. This is not automatic semantic support detection and is not claimed valid for other poses/cats.",
+  "pivot_is_case_specific": true,
+  "alpha_cut": "discard",
+  "alpha_scissor_threshold": 0.5,
+  "billboard": "enabled",
+  "shaded": false,
+  "shadow": "independent_shared_ellipse",
+  "shadow_size_world": [
+    0.68,
+    0.34
+  ],
+  "shadow_opacity": 0.23,
+  "support_height": "derived from existing floor/rug AABB at test point; bed excluded",
+  "camera_view_dir": [
+    -1.05,
+    1.05,
+    1.4
+  ],
+  "close_camera_size": 1.7,
+  "normal_position": [
+    1.6,
+    0.0,
+    -0.85
+  ],
+  "normal_position_provenance": "existing room rug center; shared scene test point, not per-cat fitting",
+  "constraints": [
+    "not a walking animation",
+    "no pathfinding",
+    "no collision/nav claims",
+    "single 2D image, no opposite side",
+    "no new cat mesh or rig"
+  ]
+}

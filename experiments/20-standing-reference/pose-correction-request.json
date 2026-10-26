@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "provider": "built_in_imagegen",
+  "prompt_sha256": "4986a8b4618c10f1650222854c6262f368d95e77a551732a8688dd2979fa2191",
+  "submitted_epoch": 1790776570.621284,
+  "inputs": [
+    {
+      "path": "experiments/generation-v001/20-standing-reference/standing-v001.png",
+      "sha256": "fdc8e1e2deebe6d91e0783938bedf43132886ee7f3c008320fd6aad7e5eed704"
+    },
+    {
+      "path": "experiments/generation-v001/01-segmentation/identity-source.png",
+      "sha256": "257584de94d255197a7101bf8d97c1b733ed7daee487d421910b2dd78037fd85"
+    }
+  ],
+  "scope": "One pre-authorized head-direction-only correction",
+  "output": "experiments/generation-v001/20-standing-reference/standing-v002.png",
+  "output_sha256": "47f40c41ab279dd326915e182b70b595b29e1a9b1815d190fc669bd0b9449cd2",
+  "provider_output": "~/.codex/generated_images/<redacted-id>/exec-<redacted-id>.png",
+  "tool_elapsed_seconds": 32.1,
+  "completed_epoch": 1790776758.690488
+}

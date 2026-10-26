@@ -1,0 +1,20 @@
+{
+  "timing": "before_execution",
+  "recorded_at": "2026-10-01T02:05:06.385806+08:00",
+  "purpose": "隔離貓窩深度遮擋，排除原位置牆/窗台同時遮擋的混淆；驗證獨立陰影確實顯示。",
+  "scope": "唯一一次共用場景測試配置修正，不修圖、不改逐貓支撐點/尺寸。",
+  "automation": "以既有地毯中心自動決定測試床位，由床AABB及相機方向推導前/後/旁測試點；原全景與近景仍保持原家具位置。",
+  "manual_dependencies": [
+    "判斷原床位測試被牆和窗台混淆",
+    "原型pivot依賴仍保留"
+  ],
+  "case_necessity": "測試規則可用於其他sprite；房間測試佈局不是本貓修補。",
+  "validation": [
+    "新版保留原全景/近景畫面",
+    "前後/旁測試無窗台牆面切入貓圖",
+    "同相機depth-on/off渲染差異",
+    "同相機shadow-on/off渲染差異"
+  ],
+  "stop_condition": "完成一次配置修正及擷取；剩餘平面/接地限制直接紀錄，不續加補丁。",
+  "new_cat_automation_proven": false
+}

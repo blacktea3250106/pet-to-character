@@ -1,0 +1,60 @@
+{
+  "source_texture_room_profile_unchanged": true,
+  "views": {
+    "close": {
+      "only_recorded_property_changed": "contact_shadow_visible",
+      "pixels_changed_gt2": 1286,
+      "max_channel_delta": 22,
+      "mean_absolute_channel_delta_changed_pixels": 6.360808709175739,
+      "difference_bbox": [
+        502,
+        475,
+        838,
+        565
+      ],
+      "mean_signed_RGB_delta_changed_pixels": [
+        -7.706842923794713,
+        3.552099533437014,
+        7.179626749611198
+      ],
+      "baseline_replay_max_pixel_delta": 0
+    },
+    "overview": {
+      "only_recorded_property_changed": "contact_shadow_visible",
+      "pixels_changed_gt2": 169,
+      "max_channel_delta": 21,
+      "mean_absolute_channel_delta_changed_pixels": 6.22879684418146,
+      "difference_bbox": [
+        608,
+        661,
+        725,
+        691
+      ],
+      "mean_signed_RGB_delta_changed_pixels": [
+        -7.2485207100591715,
+        3.3550295857988166,
+        6.6390532544378695
+      ],
+      "baseline_replay_max_pixel_delta": 0
+    },
+    "bed-front": {
+      "only_recorded_property_changed": "contact_shadow_visible",
+      "pixels_changed_gt2": 640,
+      "max_channel_delta": 24,
+      "mean_absolute_channel_delta_changed_pixels": 7.956770833333334,
+      "difference_bbox": [
+        674,
+        594,
+        838,
+        628
+      ],
+      "mean_signed_RGB_delta_changed_pixels": [
+        -9.6828125,
+        -9.6921875,
+        -4.4953125
+      ],
+      "baseline_replay_max_pixel_delta": 0
+    }
+  },
+  "caveat": "These are rendering differences, not an identity/style improvement score."
+}

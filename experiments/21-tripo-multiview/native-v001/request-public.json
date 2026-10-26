@@ -1,0 +1,13 @@
+{
+  "endpoint": "/generation/image-to-multiview",
+  "source_file": "20-standing-reference/standing-v002.png",
+  "source_sha256": "47f40c41ab279dd326915e182b70b595b29e1a9b1815d190fc669bd0b9449cd2",
+  "source_image": {
+    "width": 1536,
+    "height": 1024,
+    "format": "PNG"
+  },
+  "source_review_sha256": "fbadf61c4a292fe3a067751534af46ca73275a11a092dad1af940f1806f3cc69",
+  "parameters": {},
+  "expected_credits": 10
+}

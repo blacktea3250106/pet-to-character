@@ -1,0 +1,22 @@
+{
+  "timing": "before_execution",
+  "purpose": "依使用者修正，直接產生適合 Image-to-3D 的完整中立站姿參考，並以原生 Tripo face_limit=3500 進行後續生成。",
+  "scope": "可共用的建模輸入姿勢與美術規則；本貓身份來自真實照片。",
+  "automation_method": "固定全身站姿、頭身同向、四肢／尾巴分離、乾淨背景與風格條件；照片與身份資料是每貓輸入。參考通過後使用配置化 API 請求，不手改面數。",
+  "remaining_manual_inputs": [
+    "現有照片選擇與身份描述",
+    "照片未呈現的站姿比例與背面推測",
+    "參考圖姿勢、美術和身份審核"
+  ],
+  "case_necessity": "新的輸入需要修正舊站姿參考頭身不同向、卷尾及過碎風格問題；不再生成相同趴姿圖作替代交付。",
+  "validation": "完整全身含耳尖與尾尖、恰好四腿、四腳分開、頭朝身體前方、無重疊尾巴、主要臉斑／粉鼻／白胸保留、接近 cat.png 的乾淨切面；明示推測部位。通過才送 Tripo，實際 GLB 另數三角面並檢查解剖與花色。",
+  "stop_condition": "先生成一張完整站姿；若有明確姿勢缺陷最多做一次針對該缺陷的修正。未通過不送 Tripo。通過後最多一個新的 Tripo 任務，face_limit=3500；不自動本地減面、不無限重生。",
+  "decision": "proceed_with_user_corrected_route",
+  "new_cat_automation_proven": false,
+  "route_clarification_after_user_question": {
+    "timing": "before_any_3D_submission",
+    "reason": "User asked whether multiview input is supported and documented; confirmed the original four-view workflow.",
+    "current_plan": "Use completed standing image as common pose anchor, prepare and validate cardinal views, then multiview-to-model. Do not silently treat this branch as single-image production.",
+    "new_3D_tasks_submitted": 0
+  }
+}

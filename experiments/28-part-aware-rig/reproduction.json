@@ -1,0 +1,36 @@
+{
+  "tools": {
+    "blender": "5.2.1 LTS",
+    "python": "3.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "method_references": [
+    {
+      "title": "SciPy sparse graph shortest paths",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.shortest_path.html",
+      "use": "表面網格最短路徑；本案語義推導為研究啟發式，不是文件保證。"
+    },
+    {
+      "title": "Sorkine and Alexa, ARAP Surface Modeling",
+      "url": "https://igl.ethz.ch/projects/ARAP/",
+      "use": "局部旋轉/位置交替解的依據；本案另加軟表面/部位約束，不是原论文完整重現，也無免自交保證。"
+    }
+  ],
+  "steps": [
+    "fit_parts.py",
+    "fit_parts.py --output fit-v002 --arap",
+    "Blender render_fit.py -- fit-v001 / fit-v002",
+    "Blender build_candidate.py -- --diagnostic-only（初次執行在新增 gate 之前；executed-source.py 保留舊版）",
+    "27/bake_and_measure.py -- <absolute candidate path>（原貓全幀）",
+    "make_stress_fixtures.py",
+    "run_stress.py（各 15 幀，所有點位重新推導）",
+    "Blender audit_rest.py → assess_fit_gate.py（目前已改為未來一般綁骨前置）",
+    "27/export_verify.py -- <absolute original candidate path>",
+    "27/render_motion.py -- <absolute original candidate path> / --motion",
+    "render_stress.py -- <relative candidate path>",
+    "package_previews.py",
+    "finalize_review.py"
+  ],
+  "preservation": "用新輸出目錄重現；原來源/外觀不可覆蓋。各工作目錄保存 executed-source，當前主腳本可能包含驗收修正。"
+}

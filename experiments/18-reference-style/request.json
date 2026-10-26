@@ -1,0 +1,39 @@
+{
+  "provider": "built_in_imagegen",
+  "model_version_exposed": false,
+  "seed_exposed": false,
+  "input_images": [
+    {
+      "order": 1,
+      "path": "experiments/generation-v001/01-segmentation/identity-source.png",
+      "role": "identity_and_pose",
+      "sha256": "257584de94d255197a7101bf8d97c1b733ed7daee487d421910b2dd78037fd85"
+    },
+    {
+      "order": 2,
+      "path": "cat.png",
+      "role": "style_only",
+      "sha256": "d54cb98dfb9093766654d549d279e56b8d8f57a351738462cba5486e31e6f06b"
+    }
+  ],
+  "baseline_prompt": "03-style/prompt.txt",
+  "baseline_prompt_sha256": "5d147eeb9956430920d98e485c421551b5d7492e6e378e24ad91a93b18642f2c",
+  "change": {
+    "old": "Transfer the natural full-volume feline anatomy and refined medium/small irregular facets from image 2, with denser smaller facets on the face, readable eyelids and nose.",
+    "new": "Match image 2's hierarchy of coherent medium-size planar facets that follow the feline volumes. Broad body areas and the white chest should read as calm, substantial planes, with restrained neighboring shades within each true coat-color patch. Keep smaller facets only where needed for the eyelids, nose, muzzle, paw contours and identity-bearing color boundaries. Preserve readable eyelids and nose. Avoid a dense triangular mosaic, splinter-like microfacets, repeated tiny triangles, mottled shading noise, and a faceted texture overlay unrelated to the form. Keep the original coat patches and fine identifying boundaries; do not simplify them into generic calico markings or large featureless polygons."
+  },
+  "prompt_sha256": "61ab6b4ea9ddc0dae4e63bb0c9d371c5369c42c47047b49c7b6eaa95466cec2d",
+  "output_kind": "AI_2D_reference_not_mesh",
+  "expected_output": "same-pose-v002.png",
+  "maximum_calls": 1,
+  "created_epoch": 1790775710.7931142,
+  "status": "completed_rejected",
+  "credits": null,
+  "submitted_epoch": 1790775730.011029,
+  "output": "experiments/generation-v001/18-reference-style/same-pose-v002.png",
+  "output_sha256": "77ee32b0704a00746375886cac6514d531511714d8ecfbeacc90c3952f5a8097",
+  "provider_output": "~/.codex/generated_images/<redacted-id>/exec-<redacted-id>.png",
+  "tool_elapsed_seconds": 34.8,
+  "completed_epoch": 1790775811.3601038,
+  "imagegen_calls": 1
+}

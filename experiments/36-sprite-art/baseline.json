@@ -1,0 +1,17 @@
+{
+  "parent": "../33-sprite-static",
+  "texture_sha256": "b6e8a2e5ef9f75d3e7db529f61d6d6ca0628f4e2fd2276b906125cfd7b0f0b47",
+  "room_sha256": "cd7de78001430fe07b4bd75314384de22994e9eec9ac91efa27d03744884e0de",
+  "profile_sha256": "c339ba58d04b07efe8a1d33584b2ed3f7ae6cc695cb5c51fb1e5981ebf17b197",
+  "baseline_script_sha256": "ef58db49f2921683a2f1036640c0ad2b65a698feb70e99b524d716ae19f44f91",
+  "readme_sha256": "2fb06f432eb2aad0cf187db9db1cd1bf4a27d573b0bb496275a3f71067298d4e",
+  "prototype_sha256": "d54cb98dfb9093766654d549d279e56b8d8f57a351738462cba5486e31e6f06b",
+  "variants": {
+    "A": {
+      "shaded": false
+    },
+    "B": {
+      "shaded": true
+    }
+  }
+}

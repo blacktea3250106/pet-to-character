@@ -1,0 +1,237 @@
+{
+  "source": "13-dorsal/color-v002/scene.blend",
+  "source_sha256": "156862c4ad7be9969c5e7c3ecc47013846f5c38c6fec31f9bbad33d0a9a98ad7",
+  "script_sha256": "5fe82b80ba2d73dcd2d4c4810b76a89a2af9d844d5fd29bbbea2f7c837705e79",
+  "method": "Blender Decimate COLLAPSE; head/contact vertices locked; remaining weights uniform; new UV and color/roughness rebaked from source",
+  "official_reference": "https://docs.blender.org/UATEST/manual/en/dev/modeling/modifiers/generate/decimate.html",
+  "requested_triangles": 3500,
+  "source_triangles": 5072,
+  "actual_triangles": 3500,
+  "reduction_fraction": 0.3099369085173501,
+  "modifier_seconds": 0.008961042040027678,
+  "manual_regions": {
+    "protected_head": "x > 0.15 and z > 0.18 metres",
+    "protected_paws": "z < 0.008 metres (contact vertices only)",
+    "nonzero_weight_policy": "all remaining vertices = 1",
+    "coordinate_system": "current normalized and manually oriented case",
+    "protected_vertices": 681
+  },
+  "protected_original_vertex_max_distance_m": 0.0,
+  "sampled_surface_distance_m": {
+    "source_to_candidate_max": 0.0021636532619595528,
+    "candidate_to_source_max": 0.0018995837308466434,
+    "source_to_candidate_p95": 0.0008028188225580369,
+    "candidate_to_source_p95": 0.000755965898861177,
+    "scope": "vertices and face-centers only; not a full surface maximum or deformation test"
+  },
+  "stats": {
+    "vertices": 1752,
+    "polygons": 3500,
+    "triangles": 3500,
+    "triangle_count_method": "evaluated mesh loop triangles, not polygon count",
+    "welded_vertices": 1752,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "low_height_components": [
+      {
+        "height": 0.05,
+        "count": 4,
+        "groups": [
+          {
+            "n": 112,
+            "center": [
+              -0.12124003044196538,
+              -0.10254484767626439,
+              0.015260879707057029
+            ]
+          },
+          {
+            "n": 104,
+            "center": [
+              -0.09913461898955014,
+              0.10907683041519843,
+              0.015422019037382247
+            ]
+          },
+          {
+            "n": 109,
+            "center": [
+              0.18316788889399363,
+              -0.08312362422226766,
+              0.015828591609083183
+            ]
+          },
+          {
+            "n": 116,
+            "center": [
+              0.2426878366747807,
+              0.050068015971317374,
+              0.01374018387788714
+            ]
+          }
+        ]
+      },
+      {
+        "height": 0.08,
+        "count": 4,
+        "groups": [
+          {
+            "n": 132,
+            "center": [
+              -0.12524470111185854,
+              -0.1004603620279919,
+              0.023002586263993926
+            ]
+          },
+          {
+            "n": 124,
+            "center": [
+              -0.1044751716357085,
+              0.10743583732795331,
+              0.02367838337311461
+            ]
+          },
+          {
+            "n": 121,
+            "center": [
+              0.18030469064131255,
+              -0.08231606830126983,
+              0.020719380525887506
+            ]
+          },
+          {
+            "n": 130,
+            "center": [
+              0.23823543683840678,
+              0.05100082634733273,
+              0.019094850979028986
+            ]
+          }
+        ]
+      },
+      {
+        "height": 0.11,
+        "count": 4,
+        "groups": [
+          {
+            "n": 153,
+            "center": [
+              -0.12787258439983418,
+              -0.09971923541788962,
+              0.03305430210566793
+            ]
+          },
+          {
+            "n": 141,
+            "center": [
+              -0.10848100885009089,
+              0.10675955801568132,
+              0.03260592543288854
+            ]
+          },
+          {
+            "n": 138,
+            "center": [
+              0.1746898837171603,
+              -0.08038653025700562,
+              0.030151322038601273
+            ]
+          },
+          {
+            "n": 144,
+            "center": [
+              0.2332498910319474,
+              0.05184102656009296,
+              0.026741313693087757
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "topology_changed": true,
+  "uv_layout_repacked": true,
+  "uv_interpolation_changed": true,
+  "bake": {
+    "resolution": [
+      2048,
+      2048
+    ],
+    "selected_to_active": true,
+    "cage_extrusion_m": 0.015,
+    "max_ray_distance_m": 0.03,
+    "margin_px": 16,
+    "passes": {
+      "base-color": {
+        "type": "DIFFUSE",
+        "seconds": 0.9143024170771241,
+        "path": "base-color.png"
+      },
+      "roughness": {
+        "type": "ROUGHNESS",
+        "seconds": 0.6934787079226226,
+        "path": "roughness.png"
+      }
+    }
+  },
+  "invalidated_data": [
+    "prior triangle IDs and barycentric correspondences",
+    "prior geometry QA and any deformation assumptions"
+  ],
+  "animation_compatibility": "not_tested; source and candidate are unrigged",
+  "new_cat_automation_proven": false,
+  "identity_or_art_pass": false,
+  "manual_review_pending": true,
+  "views": [
+    [
+      "hero",
+      -69,
+      10,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ],
+    [
+      "face",
+      -69,
+      9,
+      [
+        0.23,
+        0,
+        0.31
+      ],
+      0.28
+    ],
+    [
+      "opposite",
+      110,
+      10,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ],
+    [
+      "back-high",
+      110,
+      48,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ]
+  ],
+  "limitations": [
+    "Protected areas were manually defined for this case.",
+    "No semantic joint rings or deformation tests are available; 3500 triangles does not prove animation compatibility.",
+    "Decimation does not necessarily remove existing folded flank geometry.",
+    "Texture reprojection after this step must rebuild mappings using the new mesh."
+  ]
+}

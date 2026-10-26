@@ -1,0 +1,11 @@
+{
+  "task_id": "<redacted-id>",
+  "status": "success",
+  "output_keys": [
+    "model_url",
+    "rendered_image_url"
+  ],
+  "face_limit_received": 3000,
+  "quad_received": false,
+  "smart_low_poly_received": true
+}

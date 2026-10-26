@@ -1,0 +1,48 @@
+{
+  "artifact_kind": "actual_3D_diagnostic_render",
+  "palette": {
+    "body": [
+      0.35,
+      0.38,
+      0.42,
+      1
+    ],
+    "front_L": [
+      0.1,
+      0.65,
+      0.2,
+      1
+    ],
+    "front_R": [
+      0.1,
+      0.3,
+      0.9,
+      1
+    ],
+    "rear_L": [
+      0.95,
+      0.5,
+      0.05,
+      1
+    ],
+    "rear_R": [
+      0.8,
+      0.07,
+      0.1,
+      1
+    ],
+    "head": [
+      0.6,
+      0.15,
+      0.8,
+      1
+    ],
+    "tail": [
+      0.03,
+      0.65,
+      0.7,
+      1
+    ]
+  },
+  "joint_note": "Mapped heads/tails from surface fit; no claim of anatomical correctness or animation acceptance."
+}

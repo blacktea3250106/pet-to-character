@@ -1,0 +1,18 @@
+{
+  "provider": "built_in_imagegen",
+  "model_version_exposed": false,
+  "approved_for_P04_poc": true,
+  "review_method": "visual comparison against source and art reference",
+  "preserved": [
+    "asymmetric cheeks",
+    "black bridge",
+    "small pink nose-tip patch",
+    "white bib and paws",
+    "lying pose"
+  ],
+  "limitations": [
+    "Orange/black boundaries simplified; not pixel-exact",
+    "Tail remains clipped; standing tail shape inferred later",
+    "No automatic identity score claimed"
+  ]
+}

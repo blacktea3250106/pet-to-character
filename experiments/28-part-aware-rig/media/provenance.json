@@ -1,0 +1,16 @@
+{
+  "artifact_kind": "actual_skinned_3D_animation_renders",
+  "comparison_layout": "Left: previous stage 27 weights-v001. Right: new stage 28 fit-v002.",
+  "video_fps": 15,
+  "source_fps": 30,
+  "sample_step": 2,
+  "holds": [
+    "Idle static pose",
+    "Sitting static pose"
+  ],
+  "note": "Montage only; five full clips independently measured at every integer frame. New method rejected for animation regression.",
+  "sources": {
+    "previous": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/27-animation-compatibility/weights-v001",
+    "current": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/28-part-aware-rig/fit-v002/original/candidate"
+  }
+}

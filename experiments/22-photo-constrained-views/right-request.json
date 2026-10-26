@@ -1,0 +1,50 @@
+{
+  "provider": "built_in_imagegen",
+  "model": null,
+  "seed": null,
+  "view": "right",
+  "inputs": [
+    {
+      "id": "pose",
+      "path": "20-standing-reference/standing-v002.png",
+      "role": "AI neutral standing pose/proportion anchor only; real-photo markings override it",
+      "absolute_path": "experiments/generation-v001/20-standing-reference/standing-v002.png",
+      "sha256": "47f40c41ab279dd326915e182b70b595b29e1a9b1815d190fc669bd0b9449cd2"
+    },
+    {
+      "id": "front",
+      "path": "22-photo-constrained-views/front-v002.png",
+      "role": "checked AI frontal reference of the same standing cat; preserve its facial asymmetry and body proportions",
+      "absolute_path": "experiments/generation-v001/22-photo-constrained-views/front-v002.png",
+      "sha256": "1277db0fb28e3b9fd78973e2ce34103e1f43d73cdda89ba7543ac29f7f661db1"
+    },
+    {
+      "id": "identity",
+      "path": "01-segmentation/identity-source.png",
+      "role": "real cat face and anatomical right-side identity evidence; ignore its lying pose",
+      "absolute_path": "experiments/generation-v001/01-segmentation/identity-source.png",
+      "sha256": "257584de94d255197a7101bf8d97c1b733ed7daee487d421910b2dd78037fd85"
+    },
+    {
+      "id": "tail",
+      "path": "00-input/photo-06.png",
+      "role": "real tail/leg colors and facial asymmetry; ignore phone UI and lying pose",
+      "absolute_path": "experiments/generation-v001/00-input/photo-06.png",
+      "sha256": "00c6383cb6c9540f1a91e4bcaf79462d842c7e3eccd5b3732a1a5f29e284c26c"
+    },
+    {
+      "id": "style",
+      "path": "../../cat.png",
+      "role": "art direction only: clean faceted volume, matte surfaces, natural feline anatomy; do not copy its pose or markings",
+      "absolute_path": "cat.png",
+      "sha256": "d54cb98dfb9093766654d549d279e56b8d8f57a351738462cba5486e31e6f06b"
+    }
+  ],
+  "prompt": "Use case: identity-preserve. Asset: one full-body cardinal-view modeling reference of the same personalized cat.\nPrimary request: rotate ONLY the camera to the requested view of the supplied complete neutral standing cat, retaining its proportions, standing pose and raised open tail curve. Use the real photographs to preserve this individual cat's asymmetric markings. Photographs outrank generated references whenever markings conflict. Do not infer the opposite cheek by mirroring.\nPose: four anatomical legs, relaxed weight-bearing stance, level back, head/neck/muzzle aligned forward with the spine, all paws on one level ground plane. Camera rotation must not change limb positions, body length/width, head size or tail curve. Natural overlapping silhouettes in a cardinal view are allowed; never create extra legs for visibility. Include full ears, every visible paw and tail tip with generous margins.\nStyle: match the art reference's clean low-poly volume and natural adult feline facial structure. Medium coherent body planes, finer necessary eyelid/muzzle/paw planes, broad readable coat patches with restrained color variation. Solid matte surfaces and clean outlines; no fur strands, whiskers, spikes, wireframe, fake triangle outlines or dense decorative triangle noise. Do not shrink this into a toy or enlarge the head/eyes.\nPresentation: one cat, one view, square image, plain pale gray background, neutral even illumination, minimal cast shadow. Orthographic camera, no perspective glamour angle. No text, labels, panel collage, UI, props, border or watermark. This is an AI 2D modeling reference, not an image of the original lying pose.\n\nINPUT ROLES\nImage 1: AI neutral standing pose/proportion anchor only; real-photo markings override it.\nImage 2: checked AI frontal reference of the same standing cat; preserve its facial asymmetry and body proportions.\nImage 3: real cat face and anatomical right-side identity evidence; ignore its lying pose.\nImage 4: real tail/leg colors and facial asymmetry; ignore phone UI and lying pose.\nImage 5: art direction only: clean faceted volume, matte surfaces, natural feline anatomy; do not copy its pose or markings.\nREQUESTED CAMERA\nStrict anatomical RIGHT side profile, camera looks squarely at the animal's right flank; head and nose point to IMAGE RIGHT. Preserve the observed right cheek and right-side body markings from the real identity evidence.\nPER-CAT IDENTITY EVIDENCE\n- anatomical right cheek / image left: Orange around eye/cheek, white lower muzzle. [evidence=observed]\n- anatomical left cheek / image right: Large black cheek patch with warm orange/cream eyebrow. [evidence=observed]\n- central face: Broad black nasal bridge. [evidence=observed]\n- nose tip: Small pink mottled patch on otherwise dark nose tip; not all-black or all-pink. [evidence=observed]\n- chest: Large white chin and chest bib. [evidence=observed]\n- visible paws: White paws with orange markings on foreleg; exact standing sock boundaries need inference. [evidence=partly_observed]\n- dorsal coat: Black/orange mottled back and nape, no complete dorsal white collar. [evidence=observed]\n- eyes: Yellow-green irises; narrow pupils and partially closed eyelids in this lighting. [evidence=observed]\n- tail: Dark mottled tail, black tip supported by photo-06; lifted standing curve will be inferred. [evidence=partly_observed]\n- body and legs: Neutral standing limb lengths and hidden surfaces are inferred, not true measurements. [evidence=inferred]",
+  "status": "completed",
+  "artifact_kind": "AI_2D_not_mesh",
+  "output": "right-v001.png",
+  "output_sha256": "6df4054dd6ac875abbbb158dce58a4444bc96eb30cf83ed2cb2529f7ccd64888",
+  "provider_output": "~/.codex/generated_images/<redacted-id>/exec-<redacted-id>.png",
+  "tool_elapsed_seconds": 113.671
+}

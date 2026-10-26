@@ -1,0 +1,1173 @@
+{
+  "purpose": "All points excluded from estimator. This is retrospective single-case evaluation, not a held-out cat population.",
+  "flow_sha256": "64a00de0b5f3d31cc5ad078f00755ff3d1fddd70c0f186bdf3d6a127fb63fd6f",
+  "labels_sha256": "4ac824f4ba9356713934abaf7b3f52838128ae359174dbebcd2cf8df5e1a407d",
+  "all_points": {
+    "n": 56,
+    "baseline_rms_px": 24.966406000292245,
+    "flow_rms_px": 18.661145323818232,
+    "flow_median_px": 10.522460497785694,
+    "flow_p90_px": 26.493539238865424,
+    "flow_max_px": 75.49071605553331,
+    "points_over_15px": 16,
+    "trusted_points": 33,
+    "trusted_but_over_15px": [
+      "tail_outer_bend",
+      "hind_paw_top",
+      "belly_front",
+      "far_fore_paw_top",
+      "bib_left",
+      "eye_view_right_inner"
+    ]
+  },
+  "previously_unused_four_points": {
+    "n": 4,
+    "baseline_rms_px": 32.745228660065884,
+    "flow_rms_px": 8.019672696778583,
+    "flow_median_px": 4.345263356213755,
+    "flow_p90_px": 11.59268599815925,
+    "flow_max_px": 14.547514511499116,
+    "points_over_15px": 0,
+    "trusted_points": 3,
+    "trusted_but_over_15px": []
+  },
+  "face_points": {
+    "n": 15,
+    "baseline_rms_px": 23.497517599383414,
+    "flow_rms_px": 10.432267195664815,
+    "flow_median_px": 7.525192777853021,
+    "flow_p90_px": 17.48801145130731,
+    "flow_max_px": 19.071094018940773,
+    "points_over_15px": 3,
+    "trusted_points": 13,
+    "trusted_but_over_15px": [
+      "eye_view_right_inner"
+    ]
+  },
+  "points": [
+    {
+      "name": "tail_tip",
+      "group": "landmarks",
+      "input": [
+        90,
+        192
+      ],
+      "target": [
+        91,
+        193
+      ],
+      "estimated": [
+        90.44469916820526,
+        190.00228130817413
+      ],
+      "baseline_error_px": 1.4142135623730951,
+      "flow_error_px": 3.048717167779608,
+      "trusted": true,
+      "fb_error_px": 1.8683748245239258
+    },
+    {
+      "name": "tail_crown",
+      "group": "landmarks",
+      "input": [
+        186,
+        8
+      ],
+      "target": [
+        187,
+        28
+      ],
+      "estimated": [
+        200.83773708343506,
+        37.01480293273926
+      ],
+      "baseline_error_px": 20.024984394500787,
+      "flow_error_px": 16.515133650879065,
+      "trusted": false,
+      "fb_error_px": 8.38709545135498
+    },
+    {
+      "name": "tail_outer_bend",
+      "group": "landmarks",
+      "input": [
+        281,
+        62
+      ],
+      "target": [
+        279,
+        69
+      ],
+      "estimated": [
+        299.2175064086914,
+        88.21322059631348
+      ],
+      "baseline_error_px": 7.280109889280518,
+      "flow_error_px": 27.890776451509602,
+      "trusted": true,
+      "fb_error_px": 1.3042128086090088
+    },
+    {
+      "name": "tail_inner_bend",
+      "group": "landmarks",
+      "input": [
+        184,
+        113
+      ],
+      "target": [
+        190,
+        124
+      ],
+      "estimated": [
+        196.23840618133545,
+        119.84189939498901
+      ],
+      "baseline_error_px": 12.529964086141668,
+      "flow_error_px": 7.497166953237541,
+      "trusted": true,
+      "fb_error_px": 0.5347845554351807
+    },
+    {
+      "name": "tail_root_upper",
+      "group": "landmarks",
+      "input": [
+        383,
+        192
+      ],
+      "target": [
+        394,
+        209
+      ],
+      "estimated": [
+        389.5352087020874,
+        198.4540400505066
+      ],
+      "baseline_error_px": 20.248456731316587,
+      "flow_error_px": 11.452145326978481,
+      "trusted": true,
+      "fb_error_px": 1.6972825527191162
+    },
+    {
+      "name": "tail_root_lower",
+      "group": "landmarks",
+      "input": [
+        365,
+        321
+      ],
+      "target": [
+        364,
+        323
+      ],
+      "estimated": [
+        365.4378541111946,
+        312.7122611999512
+      ],
+      "baseline_error_px": 2.23606797749979,
+      "flow_error_px": 10.387732864446859,
+      "trusted": false,
+      "fb_error_px": 23.024356842041016
+    },
+    {
+      "name": "hip_top",
+      "group": "landmarks",
+      "input": [
+        631,
+        130
+      ],
+      "target": [
+        650,
+        144
+      ],
+      "estimated": [
+        650.4155864715576,
+        142.15951251983643
+      ],
+      "baseline_error_px": 23.600847442411894,
+      "flow_error_px": 1.886824390339645,
+      "trusted": true,
+      "fb_error_px": 1.2973694801330566
+    },
+    {
+      "name": "back_mid",
+      "group": "landmarks",
+      "input": [
+        789,
+        166
+      ],
+      "target": [
+        800,
+        161
+      ],
+      "estimated": [
+        800.5821266174316,
+        164.3013894557953
+      ],
+      "baseline_error_px": 12.083045973594572,
+      "flow_error_px": 3.3523191580693377,
+      "trusted": false,
+      "fb_error_px": 7.935423374176025
+    },
+    {
+      "name": "shoulder_top",
+      "group": "landmarks",
+      "input": [
+        949,
+        221
+      ],
+      "target": [
+        966,
+        219
+      ],
+      "estimated": [
+        968.570333480835,
+        216.90725994110107
+      ],
+      "baseline_error_px": 17.11724276862369,
+      "flow_error_px": 3.3145399615665285,
+      "trusted": true,
+      "fb_error_px": 0.31539443135261536
+    },
+    {
+      "name": "hind_outline_high",
+      "group": "landmarks",
+      "input": [
+        382,
+        434
+      ],
+      "target": [
+        382,
+        437
+      ],
+      "estimated": [
+        377.51035356521606,
+        425.0074462890625
+      ],
+      "baseline_error_px": 3.0,
+      "flow_error_px": 12.805400017925598,
+      "trusted": true,
+      "fb_error_px": 2.0373377799987793
+    },
+    {
+      "name": "hind_hock",
+      "group": "landmarks",
+      "input": [
+        344,
+        686
+      ],
+      "target": [
+        341,
+        670
+      ],
+      "estimated": [
+        342.89713871479034,
+        670.6548194885254
+      ],
+      "baseline_error_px": 16.278820596099706,
+      "flow_error_px": 2.0069688252957527,
+      "trusted": false,
+      "fb_error_px": 7.108656406402588
+    },
+    {
+      "name": "hind_ankle",
+      "group": "landmarks",
+      "input": [
+        393,
+        809
+      ],
+      "target": [
+        392,
+        796
+      ],
+      "estimated": [
+        380.05735969543457,
+        789.0546207427979
+      ],
+      "baseline_error_px": 13.038404810405298,
+      "flow_error_px": 13.815388176616846,
+      "trusted": true,
+      "fb_error_px": 1.8931279182434082
+    },
+    {
+      "name": "hind_paw_left",
+      "group": "landmarks",
+      "input": [
+        380,
+        899
+      ],
+      "target": [
+        379,
+        878
+      ],
+      "estimated": [
+        372.86898374557495,
+        873.402265548706
+      ],
+      "baseline_error_px": 21.02379604162864,
+      "flow_error_px": 7.663453685946004,
+      "trusted": true,
+      "fb_error_px": 0.6377860903739929
+    },
+    {
+      "name": "hind_paw_right",
+      "group": "landmarks",
+      "input": [
+        488,
+        902
+      ],
+      "target": [
+        478,
+        879
+      ],
+      "estimated": [
+        477.3486318588257,
+        890.9223918914795
+      ],
+      "baseline_error_px": 25.079872407968907,
+      "flow_error_px": 11.940172061965976,
+      "trusted": false,
+      "fb_error_px": 14.054237365722656
+    },
+    {
+      "name": "hind_paw_top",
+      "group": "landmarks",
+      "input": [
+        453,
+        857
+      ],
+      "target": [
+        446,
+        835
+      ],
+      "estimated": [
+        421.8841724395752,
+        841.9463109970093
+      ],
+      "baseline_error_px": 23.08679276123039,
+      "flow_error_px": 25.096302026221245,
+      "trusted": true,
+      "fb_error_px": 2.3415727615356445
+    },
+    {
+      "name": "far_hind_hock",
+      "group": "landmarks",
+      "input": [
+        570,
+        703
+      ],
+      "target": [
+        577,
+        669
+      ],
+      "estimated": [
+        576.4454317092896,
+        683.6501617431641
+      ],
+      "baseline_error_px": 34.713109915419565,
+      "flow_error_px": 14.660654319979358,
+      "trusted": false,
+      "fb_error_px": 5.796821117401123
+    },
+    {
+      "name": "far_hind_paw_left",
+      "group": "landmarks",
+      "input": [
+        641,
+        858
+      ],
+      "target": [
+        633,
+        807
+      ],
+      "estimated": [
+        584.7246971130371,
+        792.6044158935547
+      ],
+      "baseline_error_px": 51.62363799656123,
+      "flow_error_px": 50.37596361950557,
+      "trusted": false,
+      "fb_error_px": 15.7919921875
+    },
+    {
+      "name": "far_hind_paw_right",
+      "group": "landmarks",
+      "input": [
+        755,
+        850
+      ],
+      "target": [
+        732,
+        806
+      ],
+      "estimated": [
+        728.5154724121094,
+        807.006649017334
+      ],
+      "baseline_error_px": 49.64876634922564,
+      "flow_error_px": 3.627020092978578,
+      "trusted": false,
+      "fb_error_px": 7.999567985534668
+    },
+    {
+      "name": "belly_rear",
+      "group": "landmarks",
+      "input": [
+        580,
+        611
+      ],
+      "target": [
+        579,
+        602
+      ],
+      "estimated": [
+        567.499927520752,
+        594.7657337188721
+      ],
+      "baseline_error_px": 9.055385138137417,
+      "flow_error_px": 13.586253186740738,
+      "trusted": false,
+      "fb_error_px": 25.800209045410156
+    },
+    {
+      "name": "belly_front",
+      "group": "landmarks",
+      "input": [
+        845,
+        626
+      ],
+      "target": [
+        858,
+        621
+      ],
+      "estimated": [
+        838.3255319595337,
+        629.7633934020996
+      ],
+      "baseline_error_px": 13.92838827718412,
+      "flow_error_px": 21.537914397529143,
+      "trusted": true,
+      "fb_error_px": 1.174180030822754
+    },
+    {
+      "name": "near_fore_ankle",
+      "group": "landmarks",
+      "input": [
+        990,
+        852
+      ],
+      "target": [
+        982,
+        864
+      ],
+      "estimated": [
+        984.392804145813,
+        875.0551834106445
+      ],
+      "baseline_error_px": 14.422205101855956,
+      "flow_error_px": 11.311171111923375,
+      "trusted": true,
+      "fb_error_px": 0.6624269485473633
+    },
+    {
+      "name": "near_fore_paw_left",
+      "group": "landmarks",
+      "input": [
+        974,
+        931
+      ],
+      "target": [
+        980,
+        962
+      ],
+      "estimated": [
+        958.4955158233643,
+        937.7856650352478
+      ],
+      "baseline_error_px": 31.575306807693888,
+      "flow_error_px": 32.38482449370998,
+      "trusted": false,
+      "fb_error_px": 14.142770767211914
+    },
+    {
+      "name": "near_fore_paw_right",
+      "group": "landmarks",
+      "input": [
+        1087,
+        933
+      ],
+      "target": [
+        1083,
+        958
+      ],
+      "estimated": [
+        1083.621685743332,
+        956.3753414154053
+      ],
+      "baseline_error_px": 25.317977802344327,
+      "flow_error_px": 1.739542664023935,
+      "trusted": false,
+      "fb_error_px": 7.287406921386719
+    },
+    {
+      "name": "near_fore_paw_top",
+      "group": "landmarks",
+      "input": [
+        1040,
+        886
+      ],
+      "target": [
+        1037,
+        924
+      ],
+      "estimated": [
+        1023.3432731628418,
+        917.4159469604492
+      ],
+      "baseline_error_px": 38.118237105091836,
+      "flow_error_px": 15.16100070352795,
+      "trusted": false,
+      "fb_error_px": 3.279390335083008
+    },
+    {
+      "name": "far_fore_paw_left",
+      "group": "landmarks",
+      "input": [
+        1212,
+        904
+      ],
+      "target": [
+        1207,
+        914
+      ],
+      "estimated": [
+        1168.9383392333984,
+        848.8067626953125
+      ],
+      "baseline_error_px": 11.180339887498949,
+      "flow_error_px": 75.49071605553331,
+      "trusted": false,
+      "fb_error_px": 62.334632873535156
+    },
+    {
+      "name": "far_fore_paw_right",
+      "group": "landmarks",
+      "input": [
+        1331,
+        912
+      ],
+      "target": [
+        1306,
+        918
+      ],
+      "estimated": [
+        1322.329849243164,
+        913.8407821655273
+      ],
+      "baseline_error_px": 25.709920264364882,
+      "flow_error_px": 16.85120379376682,
+      "trusted": false,
+      "fb_error_px": 12.803915023803711
+    },
+    {
+      "name": "far_fore_paw_top",
+      "group": "landmarks",
+      "input": [
+        1260,
+        864
+      ],
+      "target": [
+        1259,
+        866
+      ],
+      "estimated": [
+        1218.1700057983398,
+        886.9553890228271
+      ],
+      "baseline_error_px": 2.23606797749979,
+      "flow_error_px": 45.89353718777434,
+      "trusted": true,
+      "fb_error_px": 2.3840973377227783
+    },
+    {
+      "name": "far_fore_ankle",
+      "group": "landmarks",
+      "input": [
+        1218,
+        801
+      ],
+      "target": [
+        1213,
+        800
+      ],
+      "estimated": [
+        1190.9092693328857,
+        795.1311912536621
+      ],
+      "baseline_error_px": 5.0990195135927845,
+      "flow_error_px": 22.620912448780633,
+      "trusted": false,
+      "fb_error_px": 6.293172359466553
+    },
+    {
+      "name": "bib_bottom",
+      "group": "landmarks",
+      "input": [
+        1120,
+        650
+      ],
+      "target": [
+        1124,
+        660
+      ],
+      "estimated": [
+        1124.450795173645,
+        658.632396697998
+      ],
+      "baseline_error_px": 10.770329614269007,
+      "flow_error_px": 1.4399844027725748,
+      "trusted": true,
+      "fb_error_px": 0.17657509446144104
+    },
+    {
+      "name": "bib_right",
+      "group": "landmarks",
+      "input": [
+        1307,
+        468
+      ],
+      "target": [
+        1302,
+        461
+      ],
+      "estimated": [
+        1308.7545076608658,
+        452.75668239593506
+      ],
+      "baseline_error_px": 8.602325267042627,
+      "flow_error_px": 10.65718813112453,
+      "trusted": true,
+      "fb_error_px": 2.319955348968506
+    },
+    {
+      "name": "bib_left",
+      "group": "landmarks",
+      "input": [
+        1023,
+        470
+      ],
+      "target": [
+        1021,
+        451
+      ],
+      "estimated": [
+        1027.8764085769653,
+        479.4961223602295
+      ],
+      "baseline_error_px": 19.1049731745428,
+      "flow_error_px": 29.314057796329283,
+      "trusted": true,
+      "fb_error_px": 1.89486825466156
+    },
+    {
+      "name": "coat_hip_dark",
+      "group": "landmarks",
+      "input": [
+        490,
+        439
+      ],
+      "target": [
+        494,
+        433
+      ],
+      "estimated": [
+        477.77171325683594,
+        437.095285654068
+      ],
+      "baseline_error_px": 7.211102550927978,
+      "flow_error_px": 16.737044398781094,
+      "trusted": false,
+      "fb_error_px": 10.223995208740234
+    },
+    {
+      "name": "coat_flank_orange",
+      "group": "landmarks",
+      "input": [
+        583,
+        382
+      ],
+      "target": [
+        572,
+        381
+      ],
+      "estimated": [
+        577.9306039810181,
+        382.4276220202446
+      ],
+      "baseline_error_px": 11.045361017187261,
+      "flow_error_px": 6.100013787882336,
+      "trusted": false,
+      "fb_error_px": 11.470291137695312
+    },
+    {
+      "name": "coat_mid_dark",
+      "group": "landmarks",
+      "input": [
+        695,
+        483
+      ],
+      "target": [
+        701,
+        479
+      ],
+      "estimated": [
+        695.1887390613556,
+        469.3244409561157
+      ],
+      "baseline_error_px": 7.211102550927978,
+      "flow_error_px": 11.286593662779977,
+      "trusted": false,
+      "fb_error_px": 10.373222351074219
+    },
+    {
+      "name": "coat_shoulder_orange",
+      "group": "landmarks",
+      "input": [
+        864,
+        407
+      ],
+      "target": [
+        861,
+        401
+      ],
+      "estimated": [
+        863.4878842830658,
+        408.1076967716217
+      ],
+      "baseline_error_px": 6.708203932499369,
+      "flow_error_px": 7.530532624140699,
+      "trusted": true,
+      "fb_error_px": 1.5475430488586426
+    },
+    {
+      "name": "ear_view_left_tip",
+      "group": "landmarks",
+      "input": [
+        953,
+        88
+      ],
+      "target": [
+        971,
+        39
+      ],
+      "estimated": [
+        972.0066051483154,
+        42.79876708984375
+      ],
+      "baseline_error_px": 52.20153254455275,
+      "flow_error_px": 3.929870904685685,
+      "trusted": true,
+      "fb_error_px": 0.3618347942829132
+    },
+    {
+      "name": "ear_view_right_tip",
+      "group": "landmarks",
+      "input": [
+        1343,
+        87
+      ],
+      "target": [
+        1384,
+        42
+      ],
+      "estimated": [
+        1380.712745666504,
+        49.458526611328125
+      ],
+      "baseline_error_px": 60.876925020897694,
+      "flow_error_px": 8.150807338232125,
+      "trusted": true,
+      "fb_error_px": 0.701410710811615
+    },
+    {
+      "name": "head_crown",
+      "group": "landmarks",
+      "input": [
+        1169,
+        126
+      ],
+      "target": [
+        1182,
+        101
+      ],
+      "estimated": [
+        1191.4670658111572,
+        101.27646255493164
+      ],
+      "baseline_error_px": 28.178005607210743,
+      "flow_error_px": 9.471101658047038,
+      "trusted": false,
+      "fb_error_px": 5.16593074798584
+    },
+    {
+      "name": "ear_left_base",
+      "group": "landmarks",
+      "input": [
+        1000,
+        197
+      ],
+      "target": [
+        1010,
+        180
+      ],
+      "estimated": [
+        1018.7689552307129,
+        170.83135604858398
+      ],
+      "baseline_error_px": 19.72308292331602,
+      "flow_error_px": 12.686946352297879,
+      "trusted": false,
+      "fb_error_px": 3.0603277683258057
+    },
+    {
+      "name": "ear_right_base",
+      "group": "landmarks",
+      "input": [
+        1299,
+        191
+      ],
+      "target": [
+        1329,
+        181
+      ],
+      "estimated": [
+        1324.922649383545,
+        175.9385175704956
+      ],
+      "baseline_error_px": 31.622776601683793,
+      "flow_error_px": 6.499491705794255,
+      "trusted": true,
+      "fb_error_px": 0.9968240261077881
+    },
+    {
+      "name": "cheek_left",
+      "group": "landmarks",
+      "input": [
+        1009,
+        309
+      ],
+      "target": [
+        1018,
+        297
+      ],
+      "estimated": [
+        1024.919776916504,
+        300.0782470703125
+      ],
+      "baseline_error_px": 15.0,
+      "flow_error_px": 7.57356703278368,
+      "trusted": true,
+      "fb_error_px": 0.7248314619064331
+    },
+    {
+      "name": "cheek_right",
+      "group": "landmarks",
+      "input": [
+        1286,
+        336
+      ],
+      "target": [
+        1303,
+        321
+      ],
+      "estimated": [
+        1297.1481885910034,
+        339.1511137485504
+      ],
+      "baseline_error_px": 22.67156809750927,
+      "flow_error_px": 19.071094018940773,
+      "trusted": false,
+      "fb_error_px": 13.815147399902344
+    },
+    {
+      "name": "eye_view_left_outer",
+      "group": "landmarks",
+      "input": [
+        1061,
+        274
+      ],
+      "target": [
+        1074,
+        251
+      ],
+      "estimated": [
+        1076.904670715332,
+        251.45991134643555
+      ],
+      "baseline_error_px": 26.419689627245813,
+      "flow_error_px": 2.940855387652996,
+      "trusted": true,
+      "fb_error_px": 1.1219960451126099
+    },
+    {
+      "name": "eye_view_left_inner",
+      "group": "landmarks",
+      "input": [
+        1122,
+        299
+      ],
+      "target": [
+        1140,
+        289
+      ],
+      "estimated": [
+        1137.9777545928955,
+        281.7516174316406
+      ],
+      "baseline_error_px": 20.591260281974,
+      "flow_error_px": 7.525192777853021,
+      "trusted": true,
+      "fb_error_px": 1.0180995464324951
+    },
+    {
+      "name": "eye_view_left_pupil",
+      "group": "landmarks",
+      "input": [
+        1087,
+        284
+      ],
+      "target": [
+        1107,
+        267
+      ],
+      "estimated": [
+        1104.2379570007324,
+        265.3643970489502
+      ],
+      "baseline_error_px": 26.248809496813376,
+      "flow_error_px": 3.20999665783095,
+      "trusted": true,
+      "fb_error_px": 0.11509139835834503
+    },
+    {
+      "name": "eye_view_right_inner",
+      "group": "landmarks",
+      "input": [
+        1207,
+        291
+      ],
+      "target": [
+        1223,
+        291
+      ],
+      "estimated": [
+        1226.5414485931396,
+        272.9426326751709
+      ],
+      "baseline_error_px": 16.0,
+      "flow_error_px": 18.40136877630728,
+      "trusted": true,
+      "fb_error_px": 0.5445495247840881
+    },
+    {
+      "name": "eye_view_right_outer",
+      "group": "landmarks",
+      "input": [
+        1260,
+        280
+      ],
+      "target": [
+        1285,
+        257
+      ],
+      "estimated": [
+        1287.0534381866455,
+        262.60438346862793
+      ],
+      "baseline_error_px": 33.97057550292606,
+      "flow_error_px": 5.968728713034629,
+      "trusted": true,
+      "fb_error_px": 0.7332097291946411
+    },
+    {
+      "name": "eye_view_right_pupil",
+      "group": "landmarks",
+      "input": [
+        1232,
+        291
+      ],
+      "target": [
+        1255,
+        274
+      ],
+      "estimated": [
+        1258.2925720214844,
+        272.2305736541748
+      ],
+      "baseline_error_px": 28.600699292150182,
+      "flow_error_px": 3.7379004949251935,
+      "trusted": true,
+      "fb_error_px": 0.37152689695358276
+    },
+    {
+      "name": "nose_pink",
+      "group": "landmarks",
+      "input": [
+        1160,
+        380
+      ],
+      "target": [
+        1177,
+        370
+      ],
+      "estimated": [
+        1181.4241313934326,
+        371.6233434677124
+      ],
+      "baseline_error_px": 19.72308292331602,
+      "flow_error_px": 4.712555845878175,
+      "trusted": true,
+      "fb_error_px": 0.2279692143201828
+    },
+    {
+      "name": "mouth_center",
+      "group": "landmarks",
+      "input": [
+        1163,
+        410
+      ],
+      "target": [
+        1179,
+        400
+      ],
+      "estimated": [
+        1194.7536315917969,
+        403.4076714515686
+      ],
+      "baseline_error_px": 18.867962264113206,
+      "flow_error_px": 16.117975463807365,
+      "trusted": false,
+      "fb_error_px": 17.929943084716797
+    },
+    {
+      "name": "muzzle_left",
+      "group": "landmarks",
+      "input": [
+        1110,
+        395
+      ],
+      "target": [
+        1115,
+        385
+      ],
+      "estimated": [
+        1125.316044807434,
+        385.7820281982422
+      ],
+      "baseline_error_px": 11.180339887498949,
+      "flow_error_px": 10.345643941864306,
+      "trusted": true,
+      "fb_error_px": 0.47925469279289246
+    },
+    {
+      "name": "muzzle_right",
+      "group": "landmarks",
+      "input": [
+        1213,
+        397
+      ],
+      "target": [
+        1234,
+        380
+      ],
+      "estimated": [
+        1234.7640857696533,
+        391.0826950073242
+      ],
+      "baseline_error_px": 27.018512172212592,
+      "flow_error_px": 11.109003361632215,
+      "trusted": true,
+      "fb_error_px": 2.228233814239502
+    },
+    {
+      "name": "eye_left_lower_rim",
+      "group": "holdout_landmarks",
+      "input": [
+        1094,
+        302
+      ],
+      "target": [
+        1114,
+        287
+      ],
+      "estimated": [
+        1110.2638607025146,
+        285.5925750732422
+      ],
+      "baseline_error_px": 25.0,
+      "flow_error_px": 3.99244057872795,
+      "trusted": true,
+      "fb_error_px": 0.20070964097976685
+    },
+    {
+      "name": "eye_right_lower_rim",
+      "group": "holdout_landmarks",
+      "input": [
+        1237,
+        310
+      ],
+      "target": [
+        1258,
+        292
+      ],
+      "estimated": [
+        1259.9682064056396,
+        293.9351978302002
+      ],
+      "baseline_error_px": 27.65863337187866,
+      "flow_error_px": 2.7602222912679495,
+      "trusted": true,
+      "fb_error_px": 0.5158225297927856
+    },
+    {
+      "name": "forehead_orange_tip",
+      "group": "holdout_landmarks",
+      "input": [
+        1158,
+        233
+      ],
+      "target": [
+        1173,
+        216
+      ],
+      "estimated": [
+        1184.7290229797363,
+        207.3941764831543
+      ],
+      "baseline_error_px": 22.67156809750927,
+      "flow_error_px": 14.547514511499116,
+      "trusted": true,
+      "fb_error_px": 2.6314027309417725
+    },
+    {
+      "name": "far_hind_paw_upper",
+      "group": "holdout_landmarks",
+      "input": [
+        690,
+        808
+      ],
+      "target": [
+        681,
+        760
+      ],
+      "estimated": [
+        681.2114553451538,
+        764.6933250427246
+      ],
+      "baseline_error_px": 48.83646178829912,
+      "flow_error_px": 4.698086133699559,
+      "trusted": false,
+      "fb_error_px": 12.16443157196045
+    }
+  ],
+  "adopted": false,
+  "review_pending": false,
+  "decision": "rejected_no_asset_projection",
+  "evaluator_source_sha256": "3078b732d469c8b439a6222d721cc41e96c2faf9125f5c40410f6431277dc4b1"
+}

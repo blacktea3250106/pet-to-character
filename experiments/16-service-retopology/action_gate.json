@@ -1,0 +1,16 @@
+{
+  "timing": "before_remaining_validation_after_user_instruction",
+  "purpose": "選出不需逐貓手動保護區、且保留來源外觀的 3500 面後處理候選。",
+  "scope": "通用階段候選；以單貓資料驗證，不是新貓成功率。",
+  "automation_method": "固定相機下自動計算輪廓/畫面差異；GLB 匯出回讀檢查；材質常數從來源取得，不新增手工部位資料。",
+  "remaining_manual_inputs": [
+    "本輪外觀目視審查",
+    "上游原照花色與參考圖曾人工處理；本次不聲稱已消除"
+  ],
+  "case_necessity": "本例用於驗證供應商是否保留面數/尺度/材質，以及單一共通修法能否成立；不再追加個案修臉或遮罩。",
+  "validation": "比較 raw、材質常數修復、重新烘焙三者；確認實際 3500 面、幾何未另改、原照身份不以 RGB 指標代替；保存失敗。",
+  "stop_condition": "本次只完成已產生候選的比較與匯出驗證；不再新增付費生成或個案幾何修補。若局部品質仍差，列為未通過。",
+  "decision": "proceed_with_bounded_validation",
+  "new_cat_automation_proven": false,
+  "historical_action_review": "本次規則新增前的減面與修色測試將標為回溯評估，不補造事前紀錄。"
+}

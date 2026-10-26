@@ -1,0 +1,133 @@
+{
+  "recorded_at": "2026-09-30T15:34:36.244734+00:00",
+  "status": "read_only_comparison_complete_no_asset_changes",
+  "action_gate": {
+    "timing": "retrospective_assessment_of_previous_read_only_inspection",
+    "purpose": "核對 catworld 的乾淨色塊來源，區分已證明的呈現方式與尚未成立的 3500 面個人化自動化。",
+    "scope": "既有程式、流程文件、實際 GLB 與渲染唯讀比較；不執行 catworld 腳本、不修改資產。",
+    "automation_method": "GLB indices 計數與檔案 hash 可自動取得；美術觀察及不同分支對應由人工檢查。",
+    "manual_dependencies": [
+      "cat.png 與兩個專案實際渲染的視覺比較",
+      "閱讀程式以確認效果來源及個案常數"
+    ],
+    "case_necessity": "判斷目前缺少的是顏色抽象化、幾何處理或兩者，避免再以減面和 flat shading 代替風格驗收。",
+    "stop_condition": "比較已結束，只保存證據與未驗證事項；不從這份分析自動接續修復。",
+    "limitation": "先前唯讀檢查未另存這份 gate；本項為事後補記，不宣稱行動前已登錄。"
+  },
+  "recording_gate": {
+    "timing": "before_documentation_mutation",
+    "purpose": "將已完成分析的來源、界線與未通過項目保存到既有實驗，不新增模型操作。",
+    "scope": "本報告、既有實驗 registries、workflow 狀態文字",
+    "stop_condition": "來源 hash 與紀錄引用檢查後結束。"
+  },
+  "sources": [
+    {
+      "path": "cat.png",
+      "sha256_at_recording": "d54cb98dfb9093766654d549d279e56b8d8f57a351738462cba5486e31e6f06b",
+      "bytes": 1695002
+    },
+    {
+      "path": "<catworld>/pipeline/PIPELINE.md",
+      "sha256_at_recording": "c47076f0912a8c58ff82a995fb671a62b4e28fe37069d5d70191a53ee6464680",
+      "bytes": 16869
+    },
+    {
+      "path": "<catworld>/pipeline/facet_texture.py",
+      "sha256_at_recording": "9f9f73bd89d0b67d99746c51adcb5a38ce8ce0293567b82015e329c906e782c4",
+      "bytes": 2254
+    },
+    {
+      "path": "<catworld>/pipeline/proj_bake.py",
+      "sha256_at_recording": "0e68e20df6e24a894ea0b61ad888c0477dfdd0308181fd08a5a830051936bddf",
+      "bytes": 6160
+    },
+    {
+      "path": "<catworld>/model/calico_facet.glb",
+      "sha256_at_recording": "e27020a9a7a27a0c38d449093fe7766938a5b1133592e3f5227ffda27ef64298",
+      "bytes": 1875784,
+      "triangles": 12300,
+      "animations": 0,
+      "skins": 0
+    },
+    {
+      "path": "<catworld>/output/3d-lp-proj-compare.png",
+      "sha256_at_recording": "f3db6ce377a74f6e923f563b7998ef49c36c4f293f12f2313372ed0e0aa9c0ea",
+      "bytes": 1264166
+    },
+    {
+      "path": "<catworld>/output/3d-facet-compare.png",
+      "sha256_at_recording": "a724752c2cce1c74ae7aff30f9aea7a9375a5732a709bbf3d0fc85173afef26b",
+      "bytes": 715788
+    },
+    {
+      "path": "experiments/generation-v001/25-appearance-diagnostic/matte-candidate/cat.glb",
+      "sha256_at_recording": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+      "bytes": 820016,
+      "triangles": 3500,
+      "animations": 0,
+      "skins": 0
+    },
+    {
+      "path": "experiments/generation-v001/25-appearance-diagnostic/matte-candidate/preview/original-az315-el12.png",
+      "sha256_at_recording": "127e09e33343c4a8c4f193a7e6674c4d0d6c562c5a9921e55bb332b1412ee872",
+      "bytes": 1094237
+    },
+    {
+      "path": "experiments/generation-v001/25-appearance-diagnostic/structure-analysis.json",
+      "sha256_at_recording": "dd639c9b183424d6966dd19997d217f4fe6806c950058f943eaacc0c8e2cb9fc",
+      "bytes": 7567
+    }
+  ],
+  "branch_scope": "catworld 的歷史 calico_facet 外觀分支；不是後來 Kasit 動畫移植或黑貓 5k 實驗。",
+  "confirmed_findings": [
+    {
+      "id": "CW-COLOR",
+      "finding": "catworld 先以多視角風格參考圖投影取色，再對三角面內的底色取平均；眼睛附近保留原貼圖。",
+      "evidence": [
+        "pipeline/PIPELINE.md:45",
+        "pipeline/PIPELINE.md:60",
+        "pipeline/facet_texture.py:29"
+      ],
+      "implication": "其乾淨三角色塊包含一個明確的表面顏色處理步驟。最新 24/25 分支並未執行此操作。"
+    },
+    {
+      "id": "CW-DENSITY",
+      "finding": "實際 calico_facet.glb 為 12300 三角面，目前候選為 3500 三角面。catworld 流程另含細分、局部耳朵保護與法線方向微擾。",
+      "implication": "不能把這組合的效果歸因於單一平均色操作，也不能宣稱直接符合 3500 面預算。"
+    },
+    {
+      "id": "CW-SEMANTICS",
+      "finding": "catworld 的投影頭部保護有固定 x/z 範圍；切面貼圖以 eyes.json 眼中心及 0.011m 半徑保留眼區。",
+      "implication": "需可靠的部位定位與尺度規則才能移植到任意新貓；現有案例不是通用自動化證據。"
+    },
+    {
+      "id": "CURRENT-FLAT",
+      "finding": "目前 3500 面候選已具有 flat 法線，底色仍含面內變化；來源為既有 structure-analysis.json 與底色隔離渲染。",
+      "implication": "重新開啟 flat、只降面數或調反光，都不足以代表完成花色風格轉換。"
+    }
+  ],
+  "visual_observations": [
+    "cat.png 同時呈現身體較大的轉折平面與臉胸腳部更細的角狀色塊；單張 2D AI 圖無法證明哪些邊界是網格。",
+    "目前候選白胸與脚掌已有可見平面；黑橘交界仍帶柔化毛絲，幾何和花色的抽象程度不一致。",
+    "catworld 3d-facet-compare.png 的右側版本呈現更密且較硬的三角色塊；這是幾何及色彩共同變化的對照，不是只改貼圖的受控實驗。"
+  ],
+  "feasibility": {
+    "comparable_style": "有既有 3D 實物支持相似風格可行；不等於像素相同。",
+    "3500_triangles": "尚未證明完整目標在本例 3500 面上通過，也沒有證據必須增加面数。可評估以幾何承擔體積、貼圖承擔細色塊，但此方案未實作驗收。",
+    "identity_preservation": "全臉或全身一律平均可能混合黑白界線並抹除眼鼻和小型身份斑；需獨立驗證。",
+    "new_cat_automation": "未證明；仍缺可泛化的語義分區、身份保護與美術驗收。",
+    "animation": "兩個本次計數的 GLB 均沒有動畫；本比較不驗證 Low Poly Animated Cats 相容性。"
+  },
+  "next_experiment_hypothesis_not_executed": {
+    "hypothesis": "維持 3500 面、相機、幾何與光照，單獨控制花色抽象化，可能移除顯著風格差距。",
+    "required_inputs": "由可泛化方法推導的眼鼻及身份斑保護區；人工依賴必須明示，不新增本貓座標冒充通用能力。",
+    "acceptance": "多視角與臉部近照的色塊更俐落；原照主要及小型身份斑不被抹除；眼鼻、UV 接縫與面數分開檢查。",
+    "stop": "若缺少可靠身份保護，不直接把逐面平均結果當成正式方案；需要新的執行前 gate 和有限候選上限。",
+    "execution_state": "not_started_user_requested_analysis_only"
+  },
+  "removed_manual_steps_this_comparison": [],
+  "new_cat_automation_proven": false,
+  "final_art_pass": false,
+  "additional_provider_calls": 0,
+  "model_mutations": 0
+}

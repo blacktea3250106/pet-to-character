@@ -1,0 +1,23 @@
+{
+  "output": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/17-stage-review/request-preview",
+  "single": true,
+  "parameters": {
+    "model": "v3.1-20260211",
+    "texture": true,
+    "pbr": false,
+    "texture_alignment": "original_image",
+    "texture_version": "v3.0-20250812",
+    "texture_quality": "standard",
+    "geometry_quality": "standard",
+    "smart_low_poly": true,
+    "face_limit": 3500,
+    "quad": false,
+    "auto_size": false,
+    "generate_parts": false,
+    "orientation": "default",
+    "export_uv": true,
+    "model_seed": 3101,
+    "texture_seed": 3102
+  },
+  "network_requests": 0
+}

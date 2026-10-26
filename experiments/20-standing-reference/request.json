@@ -1,0 +1,47 @@
+{
+  "provider": "built_in_imagegen",
+  "model_version_exposed": false,
+  "seed_exposed": false,
+  "input_images": [
+    {
+      "order": 1,
+      "path": "experiments/generation-v001/01-segmentation/identity-source.png",
+      "role": "primary_identity",
+      "sha256": "257584de94d255197a7101bf8d97c1b733ed7daee487d421910b2dd78037fd85"
+    },
+    {
+      "order": 2,
+      "path": "experiments/generation-v001/00-input/photo-03.png",
+      "role": "side_body_identity",
+      "sha256": "eab76a5997a118d22afb121546452eb5c2a0ddf7a5f92b818a3dadc0c758b819"
+    },
+    {
+      "order": 3,
+      "path": "experiments/generation-v001/00-input/photo-06.png",
+      "role": "tail_and_limbs_identity",
+      "sha256": "00c6383cb6c9540f1a91e4bcaf79462d842c7e3eccd5b3732a1a5f29e284c26c"
+    },
+    {
+      "order": 4,
+      "path": "cat.png",
+      "role": "style_only",
+      "sha256": "d54cb98dfb9093766654d549d279e56b8d8f57a351738462cba5486e31e6f06b"
+    }
+  ],
+  "prompt_sha256": "83b09348c37d23612c6a5f5a44537a2343f2954ce7b18b97e03ea590ee2b9db9",
+  "status": "completed_pose_correction_required",
+  "submitted_epoch": 1790776449.7976398,
+  "output_kind": "AI_2D_complete_standing_reference_not_mesh",
+  "maximum_initial_calls": 1,
+  "maximum_pose_correction_calls": 1,
+  "tripo_parameters_after_approval": {
+    "face_limit": 3500,
+    "smart_low_poly": true,
+    "quad": false
+  },
+  "output": "experiments/generation-v001/20-standing-reference/standing-v001.png",
+  "output_sha256": "fdc8e1e2deebe6d91e0783938bedf43132886ee7f3c008320fd6aad7e5eed704",
+  "provider_output": "~/.codex/generated_images/<redacted-id>/exec-<redacted-id>.png",
+  "tool_elapsed_seconds": 41.9,
+  "completed_epoch": 1790776570.389735
+}

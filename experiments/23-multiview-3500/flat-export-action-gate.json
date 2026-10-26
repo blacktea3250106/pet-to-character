@@ -1,0 +1,23 @@
+{
+  "timing": "before_execution",
+  "purpose": "將已渲染驗證的 flat shading 對照保存成可開啟的真實 GLB，避免把渲染對照誤當原始 GLB 的外觀。",
+  "scope": "所有三角面共用的法線處理；不是逐貓局部修模、手工點位或 UV 繪製。",
+  "automation_method": "載入來源、只設定平面著色、另存 GLB；重新載入後用逐三角面位置對應、法線和解碼貼圖 hash 檢查。",
+  "remaining_manual_inputs": [
+    "是否符合 cat.png 的整體美術仍需視覺判斷"
+  ],
+  "case_necessity": "新模型有保留身份的基礎外觀；將同一個通用風格規則驗證到實際可匯出的資產，不只展示 Blender 圖。",
+  "validation": [
+    "原始 GLB 不變",
+    "三角面仍為 5356，明示未達 3500",
+    "所有面幾何一致、UV 與解碼貼圖不變",
+    "匯出回讀後角點法線與幾何面法線一致"
+  ],
+  "stop_condition": "一個另存候選及回讀；失敗就保留結果並拒絕，不以手工修色或局部修改掩蓋差異。",
+  "new_cat_automation_proven": false,
+  "implementation_repair_before_retry": {
+    "reason": "First export retained inconsistent custom normals, and lazy image loading produced an empty pixel inventory. Strict roundtrip check rejected candidate.",
+    "scope": "Set every corner normal explicitly from its face and force-read shader-referenced images; no per-cat regions, geometry, UV or color modifications.",
+    "limit": "One code-corrected export/reimport; preserve original failed report, require nonempty texture inventory."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "original_geometry_uv_rig_sha256": "8fafb1180b3fea74fd2053022a2448d0e6d2c81023160926c880df3489f87c38",
+  "result_geometry_uv_rig_sha256": "8fafb1180b3fea74fd2053022a2448d0e6d2c81023160926c880df3489f87c38",
+  "vertices": 1078,
+  "triangles": 2144,
+  "uv_layers": [
+    "UVMap",
+    "UVMap_Lightmap"
+  ],
+  "source_animation_actions": 23,
+  "texture_size": [
+    2048,
+    2048
+  ],
+  "method": "Manual region registration and photographic pixel sampling into existing UV; no generative image model.",
+  "limits": [
+    "Pose registration is approximate, not calibrated multi-view reconstruction.",
+    "Some inner legs, paws and tail wraparound use reused photo samples.",
+    "Lighting is partially present in input pixels; this is not measured albedo.",
+    "Confidence labels are editorial region estimates, not calibrated probabilities."
+  ]
+}

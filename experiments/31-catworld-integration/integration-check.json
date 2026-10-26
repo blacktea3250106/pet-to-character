@@ -1,0 +1,203 @@
+{
+  "animation_quality_pass": false,
+  "checks": [
+    {
+      "check": "all_three_cats_present",
+      "pass": true
+    },
+    {
+      "check": "new_cat_ready",
+      "pass": true
+    },
+    {
+      "check": "new_cat_selected_by_default",
+      "pass": true
+    },
+    {
+      "check": "four_clips_only",
+      "pass": true
+    },
+    {
+      "check": "56_bones_preserved",
+      "pass": true
+    },
+    {
+      "check": "3500_base_triangles_preserved",
+      "pass": true
+    },
+    {
+      "check": "eight_skin_weights_preserved",
+      "pass": true
+    },
+    {
+      "check": "height_derived_from_rest_bounds",
+      "pass": true
+    },
+    {
+      "check": "selector_switches_to_original_cat",
+      "pass": true
+    },
+    {
+      "check": "selector_switches_to_tripo_cat",
+      "pass": true
+    },
+    {
+      "check": "selector_returns_to_personalized_cat",
+      "pass": true
+    },
+    {
+      "check": "editing_pauses_all_cats",
+      "pass": true
+    },
+    {
+      "check": "editing_resumes_all_cats",
+      "pass": true
+    },
+    {
+      "check": "floor_click_routes_to_selected_cat",
+      "pass": true
+    },
+    {
+      "check": "complete_sit_rise_walk_lower_sit_cycle",
+      "pass": true
+    },
+    {
+      "check": "root_stationary_during_transitions",
+      "pass": true
+    },
+    {
+      "check": "reaches_clicked_destination",
+      "pass": true
+    },
+    {
+      "check": "ends_sitting",
+      "pass": true
+    },
+    {
+      "check": "imported_bone_animation_changes_pose",
+      "pass": true
+    },
+    {
+      "check": "retarget_during_lowering_does_not_interrupt_pose",
+      "pass": true
+    },
+    {
+      "check": "queued_destination_rises_then_walks",
+      "pass": true
+    },
+    {
+      "check": "zoom_follows_selected_cat",
+      "pass": true
+    }
+  ],
+  "godot_version": "4.7.2-stable (official)",
+  "max_bone_rotation_change_radians": 3.12880373001099,
+  "motion_samples": [
+    {
+      "clip": "Sitting_to_Idle",
+      "frame": 0,
+      "position": "(1.6, 0.0, -0.48)",
+      "state": 1
+    },
+    {
+      "clip": "Sitting_to_Idle",
+      "frame": 60,
+      "position": "(1.6, 0.0, -0.48)",
+      "state": 1
+    },
+    {
+      "clip": "Walk",
+      "frame": 120,
+      "position": "(1.603444, 0.0, -0.483149)",
+      "state": 2
+    },
+    {
+      "clip": "Walk",
+      "frame": 180,
+      "position": "(1.717099, 0.0, -0.587064)",
+      "state": 2
+    },
+    {
+      "clip": "Walk",
+      "frame": 240,
+      "position": "(1.835185, 0.0, -0.695026)",
+      "state": 2
+    },
+    {
+      "clip": "Idle_to_Sit",
+      "frame": 300,
+      "position": "(1.931808, 0.0, -0.783366)",
+      "state": 3
+    },
+    {
+      "clip": "Idle_to_Sit",
+      "frame": 360,
+      "position": "(1.931808, 0.0, -0.783366)",
+      "state": 3
+    },
+    {
+      "clip": "Sitting",
+      "frame": 420,
+      "position": "(1.931808, 0.0, -0.783366)",
+      "state": 0
+    },
+    {
+      "clip": "Sitting",
+      "frame": 480,
+      "position": "(1.931808, 0.0, -0.783366)",
+      "state": 0
+    },
+    {
+      "clip": "Sitting",
+      "frame": 540,
+      "position": "(1.931808, 0.0, -0.783366)",
+      "state": 0
+    },
+    {
+      "clip": "Sitting",
+      "frame": 600,
+      "position": "(1.931808, 0.0, -0.783366)",
+      "state": 0
+    },
+    {
+      "clip": "Sitting",
+      "frame": 660,
+      "position": "(1.931808, 0.0, -0.783366)",
+      "state": 0
+    },
+    {
+      "clip": "Sitting",
+      "frame": 720,
+      "position": "(1.931808, 0.0, -0.783366)",
+      "state": 0
+    },
+    {
+      "clip": "Sitting",
+      "frame": 780,
+      "position": "(1.931808, 0.0, -0.783366)",
+      "state": 0
+    },
+    {
+      "clip": "Sitting",
+      "frame": 840,
+      "position": "(1.931808, 0.0, -0.783366)",
+      "state": 0
+    }
+  ],
+  "normalization": {
+    "position": "(-0.0, 0.215, 0.000297)",
+    "scale": "(0.516, 0.516, 0.516)"
+  },
+  "pass": true,
+  "rest_bounds": {
+    "position": "(-0.5, -0.416667, -0.262917)",
+    "size": "(1.0, 0.833333, 0.524682)"
+  },
+  "scope": "Godot import and integration behavior; does not repair existing deformation/contact defects or validate new cats.",
+  "states": [
+    1,
+    2,
+    3,
+    0
+  ]
+}

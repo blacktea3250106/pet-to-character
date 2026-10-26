@@ -1,0 +1,12 @@
+{
+	"art_identity_grounding_animation_automation": "Not established by these structural checks.",
+	"bed_restored_for_default_view": true,
+	"depth_test_enabled": true,
+	"observed_cat_sprite_count": 1,
+	"observed_character_meshes_excluding_shadow": 0,
+	"observed_skeleton_count": 0,
+	"orthographic_camera": true,
+	"shadow_is_separate_mesh": true,
+	"status": "pass",
+	"unshaded_sprite": true
+}

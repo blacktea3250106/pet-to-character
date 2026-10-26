@@ -1,0 +1,178 @@
+{
+  "input": "experiments/generation-v001/06c-raw-single/mesh.npz",
+  "sha256": "44c9a465c4894cacbf5b866985da950e6bda8fd6d7114044d4ea3b0bc68503e5",
+  "measurement_scope": "Topology and component measurements only; no semantic or artistic acceptance",
+  "render_vertices": 6168,
+  "analysis_vertices": 2576,
+  "triangles": 5128,
+  "weld_tolerance": 6.49999976158142e-07,
+  "weld_method": "quantized coordinates; analysis copy only",
+  "boundary_edges": 0,
+  "edges_with_more_than_two_faces": 0,
+  "degenerate_triangles": 0,
+  "component_count": 6,
+  "components": [
+    {
+      "vertex_count": 2538,
+      "triangle_count": 5072,
+      "center": [
+        0.041889272337639775,
+        -0.011024073098630084,
+        0.168590874876827
+      ],
+      "bounds": [
+        [
+          -0.32499998807907104,
+          -0.1447489708662033,
+          0.0
+        ],
+        [
+          0.32499998807907104,
+          0.1447489708662033,
+          0.41993486881256104
+        ]
+      ],
+      "principal_elongation": 1.3761625325086448,
+      "fraction_triangles": 0.9890795631825273
+    },
+    {
+      "vertex_count": 8,
+      "triangle_count": 12,
+      "center": [
+        0.24598157219588757,
+        -0.1278009181842208,
+        0.3426031097769737
+      ],
+      "bounds": [
+        [
+          0.23429346084594727,
+          -0.13015203177928925,
+          0.3361978828907013
+        ],
+        [
+          0.24892185628414154,
+          -0.1234240010380745,
+          0.35494497418403625
+        ]
+      ],
+      "principal_elongation": 3.275333532768783,
+      "fraction_triangles": 0.00234009360374415
+    },
+    {
+      "vertex_count": 8,
+      "triangle_count": 12,
+      "center": [
+        0.2892918437719345,
+        -0.09897344652563334,
+        0.3422906622290611
+      ],
+      "bounds": [
+        [
+          0.28506147861480713,
+          -0.10240107029676437,
+          0.3361978828907013
+        ],
+        [
+          0.2991294860839844,
+          -0.09134122729301453,
+          0.35494497418403625
+        ]
+      ],
+      "principal_elongation": 3.090737644219237,
+      "fraction_triangles": 0.00234009360374415
+    },
+    {
+      "vertex_count": 8,
+      "triangle_count": 12,
+      "center": [
+        0.29692579433321953,
+        -0.07816533744335175,
+        0.27230149507522583
+      ],
+      "bounds": [
+        [
+          0.2908715605735779,
+          -0.10505169630050659,
+          0.27120792865753174
+        ],
+        [
+          0.30168047547340393,
+          -0.04776197671890259,
+          0.2737075090408325
+        ]
+      ],
+      "principal_elongation": 10.871858292622212,
+      "fraction_triangles": 0.00234009360374415
+    },
+    {
+      "vertex_count": 7,
+      "triangle_count": 10,
+      "center": [
+        0.2477966696023941,
+        -0.1321980846779687,
+        0.2817420107977731
+      ],
+      "bounds": [
+        [
+          0.23016448318958282,
+          -0.13547736406326294,
+          0.279956579208374
+        ],
+        [
+          0.25960007309913635,
+          -0.12859807908535004,
+          0.2824561893939972
+        ]
+      ],
+      "principal_elongation": 7.418334122190725,
+      "fraction_triangles": 0.0019500780031201249
+    },
+    {
+      "vertex_count": 7,
+      "triangle_count": 10,
+      "center": [
+        0.2884031321321215,
+        -0.10558311641216278,
+        0.28156346508434843
+      ],
+      "bounds": [
+        [
+          0.2800145745277405,
+          -0.11172819137573242,
+          0.279956579208374
+        ],
+        [
+          0.2954852879047394,
+          -0.08869058638811111,
+          0.2824561893939972
+        ]
+      ],
+      "principal_elongation": 3.6660825072402146,
+      "fraction_triangles": 0.0019500780031201249
+    }
+  ],
+  "uv_finite": true,
+  "uv_outside_unit_square_corners": 0,
+  "small_component_review_candidates": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "candidate_policy": "Flag for semantic review, NEVER auto-delete; separate eyes, teeth or accessories can be intentional",
+  "anatomy_pass": null,
+  "identity_pass": null,
+  "style_pass": null,
+  "automatic_repair_performed": false,
+  "not_evaluated": [
+    "self intersections",
+    "correct leg count and anatomy",
+    "UV overlap",
+    "photo identity",
+    "facet aesthetics",
+    "skin deformation",
+    "animation",
+    "engine appearance"
+  ]
+}

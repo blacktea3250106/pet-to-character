@@ -1,0 +1,316 @@
+{
+  "camera": {
+    "position": "(-5.790453, 8.77417, 8.870104)",
+    "projection": 1,
+    "size": 5.55066442489624,
+    "viewport": "(1280, 960)"
+  },
+  "environment": {
+    "ambient_color": "(1.0, 0.94, 0.84, 1.0)",
+    "ambient_energy": 0.579999983310699,
+    "sdfgi_enabled": false,
+    "ssao_enabled": false,
+    "ssil_enabled": false,
+    "tonemap": 2
+  },
+  "lights": [
+    {
+      "color": "(1.0, 0.91, 0.76, 1.0)",
+      "energy": 1.70000004768372,
+      "name": "WindowSunlight",
+      "shadow": true,
+      "shadow_bias": 0.100000001490116,
+      "shadow_normal_bias": 0.449999988079071
+    },
+    {
+      "color": "(0.91, 0.94, 1.0, 1.0)",
+      "energy": 0.349999994039536,
+      "name": "SoftRoomFill",
+      "shadow": false,
+      "shadow_bias": 0.100000001490116,
+      "shadow_normal_bias": 2.0
+    }
+  ],
+  "objects": [
+    {
+      "meshes": [
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": null,
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.920000016689301,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": true,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "RoomBed"
+        },
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": null,
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.920000016689301,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": true,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "RoomFloor"
+        },
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": null,
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.920000016689301,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": true,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "RoomRug"
+        },
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": null,
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.920000016689301,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": true,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "RoomWalls"
+        },
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": null,
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.920000016689301,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": true,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "RoomWindowFrame"
+        },
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": null,
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.920000016689301,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": true,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "RoomWindowSeat"
+        },
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": null,
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.920000016689301,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": true,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "RoomWoodFrame"
+        },
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": null,
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.920000016689301,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": true,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "WindowGardenBackdrop"
+        },
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": null,
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.920000016689301,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": true,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "WindowGardenFoliage"
+        },
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": null,
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.920000016689301,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": true,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "WindowGardenStones"
+        }
+      ],
+      "name": "WindowRoom",
+      "rest_world_bounds_position": "(-0.037, -0.08, -2.845)",
+      "rest_world_bounds_size": "(3.722, 1.998, 2.865)",
+      "scale": "(1.0, 1.0, 1.0)"
+    },
+    {
+      "meshes": [
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": "(2048.0, 2048.0)",
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.899999976158142,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": false,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "CalicoCat"
+        }
+      ],
+      "name": "Cat",
+      "rest_world_bounds_position": "(1.132135, 0.222261, -0.971975)",
+      "rest_world_bounds_size": "(0.335729, 0.222378, 0.143951)",
+      "scale": "(1.3, 1.3, 1.3)"
+    },
+    {
+      "meshes": [
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": "(2048.0, 2048.0)",
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.899999976158142,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": false,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "Calico_Facet"
+        }
+      ],
+      "name": "TripoCat",
+      "rest_world_bounds_position": "(2.125, 0.227578, -0.649078)",
+      "rest_world_bounds_size": "(0.65, 0.444756, 0.198156)",
+      "scale": "(1.3, 1.3, 1.3)"
+    },
+    {
+      "meshes": [
+        {
+          "materials": [
+            {
+              "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+              "albedo_texture": "(2048.0, 2048.0)",
+              "ao_enabled": false,
+              "class": "StandardMaterial3D",
+              "emission_enabled": false,
+              "metallic": 0.0,
+              "normal_enabled": false,
+              "roughness": 0.899999976158142,
+              "shading_mode": 1,
+              "specular": 0.5,
+              "vertex_color_albedo": false,
+              "vertex_color_srgb": false
+            }
+          ],
+          "name": "PersonalizedCat"
+        }
+      ],
+      "name": "PersonalizedCat",
+      "rest_world_bounds_position": "(1.325479, 0.0, -0.650422)",
+      "rest_world_bounds_size": "(0.549042, 0.43, 0.340844)",
+      "scale": "(1.0, 1.0, 1.0)"
+    }
+  ],
+  "scope": "Runtime material parameters and REST mesh AABBs; AABBs are not animated surface contact/visibility measurements."
+}

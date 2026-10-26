@@ -1,0 +1,28 @@
+{
+  "artifact_kind": "actual_skinned_3D_animation_render",
+  "candidate": "fit-v002/long_legs/candidate",
+  "renders": [
+    {
+      "action": "Walk",
+      "frame": 14,
+      "file": "Walk-0014.png"
+    },
+    {
+      "action": "Sitting",
+      "frame": 1,
+      "file": "Sitting-0001.png"
+    }
+  ],
+  "fps_source": 30,
+  "frame_step": null,
+  "camera": {
+    "center": [
+      1.4901161193847656e-08,
+      0.0005762577056884766,
+      0.031250014901161194
+    ],
+    "ortho_scale": 1.6288503408432007,
+    "azimuth": -45
+  },
+  "note": "In-place source animation; no foot IK or locomotion root travel imposed."
+}

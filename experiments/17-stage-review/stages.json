@@ -1,0 +1,650 @@
+{
+  "schema_version": 1,
+  "case_id": "generation-v001",
+  "heading": "<a id=\"stage-results\"></a>\n\n## 9. 本輪逐階段成果（P00–P09）",
+  "summary": "本區展示 P00–P11 的歷史輸入與成果；完整時序見 experiment-history.json。最新多照片四視圖先生成 5356 面，再由 Tripo v1.0 服務减為實際 3500 面。共用 flat 法線匯出回讀通過，沒有手工減面保護區或額外重烘焙。AI 2D 參考與真實 3D 渲染分開標示；完整身份、cat.png 美術、眼部與動畫仍未通過。 最新 P09 已完成底色／反射隔離與一個共用霧面材質候選；只改材質因子，保留 3500 面與所有貼圖資料。 26 已在固定幾何下完成兩個自適應色塊候選，實際仍 3500 面；局部有變化，但使用者正常觀看看不出整體差異，已拒絕採用。 使用者接受目前外觀供動畫試驗；27 完成五動作與一次通用權重修正，597 幀量測與動畫 GLB 回讀已有證據，仍因變形/穿地未通過。 28 分部位與五種合成體型試驗已完成，發現包覆自交、骨軸與接觸問題；新動畫退步而不採用。 最新使用者選回27，範圍縮為行走/坐姿兩行為；29另提供四clip精簡包（含坐下/起立），不修改原曲線或模型。",
+  "stages": [
+    {
+      "id": "P00",
+      "title": "原照整理",
+      "status": "已執行",
+      "result": "保留 example 八張原始照片，建立 EXIF 方向與 RGB 正規化副本及檔案雜湊。",
+      "manual_dependency": "照片用途與清晰度由人工檢視。",
+      "remaining": "站姿腿長、隱藏表面與精確尺寸沒有完整照片證據。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/00-input/contact-sheet.jpg",
+          "kind": "photo",
+          "label": "八張輸入照片總覽"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/00-input/manifest.json",
+          "label": "來源、尺寸與雜湊"
+        }
+      ]
+    },
+    {
+      "id": "P01",
+      "title": "選貓與背景分割",
+      "status": "人工協助單例",
+      "result": "photo-05 使用人工輪廓再跑 3 次 GrabCut；保留完整身體與可見腳掌。",
+      "manual_dependency": "本例輪廓、裁切框及邊緣審查。",
+      "remaining": "原照截斷的尾尖仍截斷；尚非新貓自動分割。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/01-segmentation/comparison.jpg",
+          "kind": "photo_diagnostic",
+          "label": "原照、輪廓與去背結果"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/01-segmentation/manifest.json",
+          "label": "方法與人工輪廓"
+        },
+        {
+          "path": "experiments/generation-v001/01-segmentation/cutout.png",
+          "label": "透明去背圖"
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "title": "身份證據",
+      "status": "已建立人工基準",
+      "result": "保留貓咪自身右橘臉、左黑臉、黑鼻樑、小面積粉鼻、白胸與白腳等證據；記錄觀察與推測。",
+      "manual_dependency": "人工視覺描述、部位框與左右側核對。",
+      "remaining": "尚無自動身份偵測器；不得把 AI 補出的站姿與隱藏花紋當實測。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/02-identity/face-evidence.png",
+          "kind": "photo_diagnostic",
+          "label": "臉部身份證據"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/02-identity/features.json",
+          "label": "逐項身份與推測清單"
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "title": "同姿勢風格化",
+      "status": "AI 2D 候選",
+      "result": "保留趴姿和主要不對稱花色，用以拆開風格轉換與姿勢轉換的誤差。",
+      "manual_dependency": "提示詞與原照／cat.png 目視審查。",
+      "remaining": "色塊已被簡化；本次重看發現細碎切面比 cat.png 密集，不能將此圖視為已合格美術標準。此項為定性觀察，非量化風格分數。 後續只改切面風格段落的一次對照，仍有碎色並新增毛絲，未通過，不送 Tripo。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/03-style/same-pose.png",
+          "kind": "ai_reference",
+          "label": "同姿勢風格圖；不是模型"
+        },
+        {
+          "path": "experiments/generation-v001/18-reference-style/same-pose-v002.png",
+          "kind": "ai_reference",
+          "label": "共用切面規則對照 v002：有局部改善，但新增毛絲與鬍鬚，已拒絕推進"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/03-style/prompt.txt",
+          "label": "生成提示詞"
+        },
+        {
+          "path": "experiments/generation-v001/03-style/review.json",
+          "label": "當時審查與限制"
+        },
+        {
+          "path": "experiments/generation-v001/18-reference-style/review.json",
+          "label": "新風格規則的失敗審查"
+        },
+        {
+          "path": "experiments/generation-v001/18-reference-style/prompt.txt",
+          "label": "實際單段修改提示詞"
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "title": "標準站姿參考",
+      "status": "多照片約束四視圖已提交單次 3D POC",
+      "result": "原生單圖補四視圖曾把另一側黑臉猜成橘色，已拒絕。新一組直接帶入真實多照片與共用站姿，產出四張獨立 1254×1254 圖，保留主要左右臉差異；正面用一次修正使頭身較同軸，未人工裁圖。",
+      "manual_dependency": "既有照片角色與身份清單、一次正面姿勢修正、整組目視驗收；提示詞由配置與身份 JSON 組合，照片判讀尚未自動化。",
+      "remaining": "四張為 AI 2D，隱藏花紋及站姿比例有推測；相機、同尺度及精確花色邊界未量化。參考通過僅允許一次建模試验，尚非最終美術或動畫通過。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/04b-single-reference/standing.png",
+          "kind": "ai_reference",
+          "label": "實際送入第二次與 3500 面對照任務的參考"
+        },
+        {
+          "path": "experiments/generation-v001/20-standing-reference/standing-v002.png",
+          "kind": "ai_reference",
+          "label": "新的完整站姿基準：已送多視圖產圖，尚未送新 3D 任務"
+        },
+        {
+          "path": "experiments/generation-v001/21-tripo-multiview/native-v001/front.jpg",
+          "kind": "ai_reference",
+          "label": "服務 front：斜前方基準；AI 2D，非 3D 渲染"
+        },
+        {
+          "path": "experiments/generation-v001/21-tripo-multiview/native-v001/left.jpg",
+          "kind": "ai_reference",
+          "label": "服務 left：另一側臉被猜成橘色，身份不合格；AI 2D，非 3D 渲染"
+        },
+        {
+          "path": "experiments/generation-v001/21-tripo-multiview/native-v001/back.jpg",
+          "kind": "ai_reference",
+          "label": "服務 back：斜後方，隱藏花色屬推測；AI 2D，非 3D 渲染"
+        },
+        {
+          "path": "experiments/generation-v001/21-tripo-multiview/native-v001/right.jpg",
+          "kind": "ai_reference",
+          "label": "服務 right：另一側斜後方；AI 2D，非 3D 渲染"
+        },
+        {
+          "path": "experiments/generation-v001/22-photo-constrained-views/front-v002.png",
+          "kind": "ai_reference",
+          "label": "最新多照片約束 front；實際送入第四次 3D 任務的 AI 2D 參考"
+        },
+        {
+          "path": "experiments/generation-v001/22-photo-constrained-views/left-v001.png",
+          "kind": "ai_reference",
+          "label": "最新多照片約束 left；實際送入第四次 3D 任務的 AI 2D 參考"
+        },
+        {
+          "path": "experiments/generation-v001/22-photo-constrained-views/back-v001.png",
+          "kind": "ai_reference",
+          "label": "最新多照片約束 back；實際送入第四次 3D 任務的 AI 2D 參考"
+        },
+        {
+          "path": "experiments/generation-v001/22-photo-constrained-views/right-v001.png",
+          "kind": "ai_reference",
+          "label": "最新多照片約束 right；實際送入第四次 3D 任務的 AI 2D 參考"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/04b-single-reference/prompt.txt",
+          "label": "站姿提示詞"
+        },
+        {
+          "path": "experiments/generation-v001/04b-single-reference/review.json",
+          "label": "站姿審查"
+        },
+        {
+          "path": "experiments/generation-v001/04-views/normalized-four-views.jpg",
+          "label": "失敗四視圖組"
+        },
+        {
+          "path": "experiments/generation-v001/04-views/review.json",
+          "label": "跨視角問題"
+        },
+        {
+          "path": "experiments/generation-v001/20-standing-reference/review.json",
+          "label": "完整站姿與多視角路線狀態"
+        },
+        {
+          "path": "experiments/generation-v001/21-tripo-multiview/review.json",
+          "label": "原生多視圖實測：10 credits，身份失敗，未送 3D"
+        },
+        {
+          "path": "experiments/generation-v001/22-photo-constrained-views/review.json",
+          "label": "多照片四視圖審查與剩餘限制"
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "title": "Tripo 真實生成",
+      "status": "API 成功、品質未通過",
+      "result": "已完成四次 Tripo V3 3D 生成。最新一次以多照片約束的四視圖請求 3500 面，實際得到 5356 面，耗用 40 credits；主要左右臉斑保留。前三次失敗或診斷結果仍保留。",
+      "manual_dependency": "生成後的解剖、美術與身份判斷。",
+      "remaining": "API 成功不等於資產通過；原生 3500 面上限與此例實際輸出不符，原因未釐清。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/06-raw-model/threequarter.png",
+          "kind": "render",
+          "label": "第一隻：多腿，已拒絕"
+        },
+        {
+          "path": "experiments/generation-v001/06c-raw-single/threequarter.png",
+          "kind": "render",
+          "label": "第二隻原生模型：5128 面"
+        },
+        {
+          "path": "experiments/generation-v001/23-multiview-3500/raw-review/original-az315-el12.png",
+          "kind": "render",
+          "label": "最新第四次：原生模型及材質，5356 面；未減面"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/05-tripo/request-public.json",
+          "label": "多視角參數"
+        },
+        {
+          "path": "experiments/generation-v001/05b-tripo/request-public.json",
+          "label": "單圖完整參數"
+        },
+        {
+          "path": "experiments/generation-v001/05b-tripo/model_url.glb",
+          "label": "原始 GLB"
+        },
+        {
+          "path": "experiments/generation-v001/15-tripo-native-3500/review.json",
+          "label": "原生 3500 面對照結果"
+        },
+        {
+          "path": "experiments/generation-v001/23-multiview-3500/native-v001/request-public.json",
+          "label": "最新四視圖及 3500 面請求"
+        },
+        {
+          "path": "experiments/generation-v001/23-multiview-3500/review.json",
+          "label": "最新實測與剩餘差距"
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "title": "原始幾何檢查",
+      "status": "診斷已執行",
+      "result": "保存灰模、各方向渲染、分析網格及拓樸統計。多腿刪除／補洞方案失敗並保留。 最新模型用包圍盒自動取景；GLB 與 Blender 均為 5356 面，分析焊接後邊界／非流形邊為 0；目視辨認四腿與分離尾巴。",
+      "manual_dependency": "四肢、臉型與不合理凸起的目視判斷。",
+      "remaining": "封閉或非流形統計不能保證解剖正確；最新減面前後表面距離已抽樣比較，頭臉與關節變形仍需驗收。舊分支側腹折痕不直接當成新模型的已確認問題。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/06c-raw-single/clay-threequarter.png",
+          "kind": "render",
+          "label": "第二隻原始模型的灰模"
+        },
+        {
+          "path": "experiments/generation-v001/23-multiview-3500/raw-review/clay-az315-el12.png",
+          "kind": "render",
+          "label": "最新模型灰模；拓樸統計不是解剖或變形保證"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/06c-raw-single/report.json",
+          "label": "原始模型分析"
+        },
+        {
+          "path": "experiments/generation-v001/06b-repair/review.json",
+          "label": "多腿修復失敗紀錄"
+        },
+        {
+          "path": "experiments/generation-v001/23-multiview-3500/raw-review/report.json",
+          "label": "最新模型的自動取景與拓樸統計"
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "title": "幾何切面與 3500 面",
+      "status": "最新實際 3500 面；幾何／美術分開驗收",
+      "result": "最新 5356 面來源經 Tripo /mesh/decimate v1.0，一次任務得到 3500 面，10 credits、25.84 秒。沒有本地減面、手選頭部／腳掌保護區或局部形狀修補。共用 flat 法線改在減面後套用；双向表面距離抽樣最大約來源長度 0.34%，不是連續 Hausdorff 或解剖證明。",
+      "manual_dependency": "上游參考圖判斷和減面後外觀目視檢查；減面及抽樣比較沒有新增逐貓座標。",
+      "remaining": "三角面數合格不代表切面分布或可變形性合格；頭臉體積、切面美術和動畫尚未通過，尚未跨貓驗證。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/flat-candidate/preview/original-az315-el12.png",
+          "kind": "render",
+          "label": "最新 3500 面 GLB 的實際渲染；Tripo 服務減面＋共用 flat 法線"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/10-style-recovery/uniform20k/hero-clay.png",
+          "label": "拒絕的均勻細分對照"
+        },
+        {
+          "path": "experiments/generation-v001/16-service-retopology/profile-basic.json",
+          "label": "服務減面參數"
+        },
+        {
+          "path": "experiments/generation-v001/16-service-retopology/basic-v001/restored/preflight.json",
+          "label": "實際 GLB 面數"
+        },
+        {
+          "path": "experiments/generation-v001/16-service-retopology/review.json",
+          "label": "減面、尺度與材質結果"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/config.json",
+          "label": "最新服務減面參數"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/flat-candidate/preflight.json",
+          "label": "最新實際 GLB 面數"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/surface-samples.json",
+          "label": "減面前後表面距離與 UV 對應診斷"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/review.json",
+          "label": "最新完整驗收與剩餘差距"
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "title": "花色對應到 3D 表面",
+      "status": "色塊試驗改善不足、不採用；完整身份與美術未通過",
+      "result": "最新分支以多照片约束四視圖，再讓 Tripo 生成表面顏色；主要左右臉斑、白胸與黑肩保留。減面後 2048 貼圖仍在，對應表面平均 RGB 變化約 1.79/255，未觸發恢復／重烘焙；沒有套用舊人工投影點或背部窗口。 26 只改底色，以顏色變化自動選擇均色、貼圖內細分或保留；不增加幾何。",
+      "manual_dependency": "照片身份、AI 參考及實際模型目視核對仍由人工完成。舊支線另有 52 個點、眼區輪廓及背部限制；它們不是本版的處理。 本次色塊化未新增手工遮罩或點位，強度與美術審查仍人工。",
+      "remaining": "細斑與背部位置不完全忠於原照，模糊毛邊、烘焙明暗和未拍到的表面仍未通過。1.79/255 是減面相對生成來源的色差，不是照片身份分數。拓樸／UV 已變，不沿用舊 face ID。 使用者正常觀看看不出整體差異；26 A/B 僅保留為失敗對照，不繼續掃描相同強度參數。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/flat-candidate/preview/original-az045-el12.png",
+          "kind": "render",
+          "label": "最新模型黑臉側、黑肩及不對稱前腿"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/flat-candidate/preview/original-az180-el12.png",
+          "kind": "render",
+          "label": "最新模型背面；未拍到的細節仍含推測"
+        },
+        {
+          "path": "experiments/generation-v001/26-adaptive-facet-color/comparison-before-after.png",
+          "kind": "render",
+          "label": "固定 3500 面與光照的真實 3D 前後對照：左基準，右較強色塊候選 B"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/10-style-recovery/local-projection/registration-report.json",
+          "label": "人工配準證據"
+        },
+        {
+          "path": "experiments/generation-v001/11-other-side/review.json",
+          "label": "另一側修色"
+        },
+        {
+          "path": "experiments/generation-v001/13-dorsal/review.json",
+          "label": "背部與耳朵污染失敗"
+        },
+        {
+          "path": "experiments/generation-v001/12-auto-registration/review.json",
+          "label": "自動配準失敗"
+        },
+        {
+          "path": "experiments/generation-v001/16-service-retopology/basic-v001/restored/base-color.png",
+          "label": "舊分支實際底色貼圖"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/surface-color-check.json",
+          "label": "生成來源與減面模型的表面色差"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/texture-container-check.json",
+          "label": "減面前後貼圖及材質容器檢查"
+        },
+        {
+          "path": "experiments/generation-v001/26-adaptive-facet-color/review.json",
+          "label": "兩個色塊候選、限制與自動化範圍"
+        }
+      ]
+    },
+    {
+      "id": "P09",
+      "title": "眼睛、材質與匯出驗收",
+      "status": "3500 面 GLB 回讀通過；眼部／美術／動畫未通過",
+      "result": "最新實際匯出的 3500 面 GLB 回讀：相對服務減面輸出，角點位置／UV 差異 0，解碼貼圖像素一致，角點法線與面法線內積最低 0.99999985。金屬度 0、全表面粗糙度 0.9 保留，無需套用舊分支的材質修復。 25 實验確認反射會增亮深色毛塊；只改共用 specularFactor=0.3 的候選已實際回讀與渲染，幾何／UV／法線／貼圖二進位資料完全保留，黑毛呈現稍深。 26 的兩個候選實際匯入與相同鏡頭渲染通過；3 個臉部角度仍可辨认虹膜、瞳孔及小粉鼻，但未宣稱語義保護已完成。",
+      "manual_dependency": "外觀仍人工審查。舊分支眼區 roughness 0.3 依賴手工遮罩，最新分支沒有沿用；通用眼部定位尚未完成。",
+      "remaining": "尚無獨立眼球／眼皮、眼區材質或眨眼控制；黑色呈現、花色清晰度及頭臉仍與 cat.png 有差距。本階段的外觀 GLB 尚未綁骨；後續 P10 已另建立五動作測試候選，仍未通過動畫品質，Unity 未驗證。 霧面候選並未解決花色毛邊，且使用 KHR_materials_specular；Unity 接收端支援尚未驗證。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/flat-candidate/preview/original-az000-el12.png",
+          "kind": "render",
+          "label": "最新 GLB 正面：實際眼鼻與胸前切面；未綁骨"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/flat-candidate/preview/original-az270-el12.png",
+          "kind": "render",
+          "label": "最新 GLB 另一側輪廓與花色"
+        },
+        {
+          "path": "experiments/generation-v001/25-appearance-diagnostic/isolated-v001/base_color-az315.png",
+          "kind": "render",
+          "label": "實際模型的底色直出診斷：仍有柔化邊界；這不是成品材質"
+        },
+        {
+          "path": "experiments/generation-v001/25-appearance-diagnostic/matte-candidate/preview/original-az315-el12.png",
+          "kind": "render",
+          "label": "最新共用霧面材質候選：GLB 實際回讀渲染，3500 面"
+        },
+        {
+          "path": "experiments/generation-v001/25-appearance-diagnostic/matte-candidate/preview/original-az045-el12.png",
+          "kind": "render",
+          "label": "同一霧面候選另一側；眼睛與完整美術仍未通過"
+        },
+        {
+          "path": "experiments/generation-v001/26-adaptive-facet-color/comparison-face.png",
+          "kind": "render",
+          "label": "真實 GLB 臉部近照：左基準、中保守 A、右較強 B；幾何及相機一致"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/16-service-retopology/basic-v001/restored/cat.glb",
+          "label": "舊分支：3500 面模型"
+        },
+        {
+          "path": "experiments/generation-v001/16-service-retopology/basic-v001/restored/scene.blend",
+          "label": "舊分支：Blender 工作檔"
+        },
+        {
+          "path": "experiments/generation-v001/10-style-recovery/eye-material/report.json",
+          "label": "眼區設定與限制"
+        },
+        {
+          "path": "experiments/generation-v001/16-service-retopology/basic-v001/restored/export-review/report.json",
+          "label": "舊分支：GLB 回讀驗證"
+        },
+        {
+          "path": "experiments/generation-v001/16-service-retopology/reproduction.json",
+          "label": "舊分支：後處理重現指令"
+        },
+        {
+          "path": "experiments/generation-v001/23-multiview-3500/flat-candidate/cat.glb",
+          "label": "減面前 5356 面 flat 研究候選"
+        },
+        {
+          "path": "experiments/generation-v001/23-multiview-3500/flat-candidate/export-review.json",
+          "label": "減面前實際 GLB 回讀證據"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/flat-candidate/cat.glb",
+          "label": "最新 3500 面模型"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/flat-candidate/preview/scene.blend",
+          "label": "最新實際模型的 Blender 預覽場景"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/flat-candidate/export-review.json",
+          "label": "最新匯出回讀證據"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/flat-candidate/material-check.json",
+          "label": "服務到匯出材質常數比對"
+        },
+        {
+          "path": "experiments/generation-v001/24-multiview-budget/reproduction.json",
+          "label": "最新重現指令"
+        },
+        {
+          "path": "experiments/generation-v001/25-appearance-diagnostic/review.json",
+          "label": "底色／材質隔離結論與限制"
+        },
+        {
+          "path": "experiments/generation-v001/25-appearance-diagnostic/matte-candidate/cat.glb",
+          "label": "最新霧面材質 GLB 候選"
+        },
+        {
+          "path": "experiments/generation-v001/25-appearance-diagnostic/matte-candidate/import-verification.json",
+          "label": "材質以外資料不變、實際匯入與同鏡頭比較"
+        },
+        {
+          "path": "experiments/generation-v001/25-appearance-diagnostic/reproduction.json",
+          "label": "無付費任務的診斷及材質候選重現指令"
+        },
+        {
+          "path": "experiments/generation-v001/26-adaptive-facet-color/import-verification.json",
+          "label": "新候選實際匯入及同鏡頭驗證"
+        },
+        {
+          "path": "experiments/generation-v001/26-adaptive-facet-color/results-v001/delta28/cat.glb",
+          "label": "較強色塊候選 B：3500 面，未定稿；使用者回饋整體差異不足，不採用"
+        },
+        {
+          "path": "experiments/generation-v001/26-adaptive-facet-color/results-v001/delta18/cat.glb",
+          "label": "保守色塊候選 A：3500 面，未定稿；使用者回饋整體差異不足，不採用"
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "title": "五動作與體型適配基準",
+      "status": "能播放與匯出；變形/穿地及跨體型未通過",
+      "result": "目前 3500 面三花套用 Low Poly Animated Cats 的 Idle、Walk、Idle_to_Sit、Sitting、Sitting_to_Idle。以自動四腳與整體對齊建立 56 骨/權重，五段 597 幀量測。單次平滑加八影響減少部分拉伸；匯出回讀保留五動作、3500 面及原底色。 使用者後續選擇本版外觀/動作並移除獨立Idle行為；29以四clip精簡打包，沒有重做模型。",
+      "manual_dependency": "一次母版語義/朝向規格、共用平滑設定及多角度動作審查；本輪沒有逐貓手標關節或手刷權重。",
+      "remaining": "Walk 塌陷面數 25→31，Sitting 仍穿地約模型最大尺寸 4.16%；不能只報拉伸改善。未做解剖約束包覆、獨立腿長/胖瘦適配、接觸 IK、滑步判斷、Unity 或任何留出新貓。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/27-animation-compatibility/weights-v001/preview/Walk-0020.png",
+          "kind": "render",
+          "label": "實際蒙皮走路姿勢；單次通用權重修正後，仍有缺陷"
+        },
+        {
+          "path": "experiments/generation-v001/27-animation-compatibility/weights-v001/preview/Sitting-0001.png",
+          "kind": "render",
+          "label": "實際坐姿；可辨認動作，但不是穿模驗收通過"
+        },
+        {
+          "path": "experiments/generation-v001/27-animation-compatibility/weights-v001/preview-opposite/Sitting-0001.png",
+          "kind": "render",
+          "label": "另一側坐姿；後腳折疊與接地仍待改善"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/27-animation-compatibility/animation-preview.gif",
+          "label": "實際 3D 動畫預覽；待機/坐姿為靜幀停留"
+        },
+        {
+          "path": "experiments/generation-v001/27-animation-compatibility/animation-comparison.mp4",
+          "label": "動態前後對照：左基準、右平滑加八影響"
+        },
+        {
+          "path": "experiments/generation-v001/27-animation-compatibility/review.json",
+          "label": "完整結果、不同體型限制與下一階段要求"
+        },
+        {
+          "path": "experiments/generation-v001/27-animation-compatibility/weights-v001/animation-report.json",
+          "label": "五動作逐幀量測摘要"
+        },
+        {
+          "path": "experiments/generation-v001/27-animation-compatibility/weights-v001/export/cat-animated.glb",
+          "label": "可播放五段動作的研究 GLB；品質未通過"
+        },
+        {
+          "path": "experiments/generation-v001/27-animation-compatibility/weights-v001/export/verification.json",
+          "label": "實際匯出回讀證據"
+        },
+        {
+          "path": "experiments/generation-v001/27-animation-compatibility/reproduction.json",
+          "label": "重現步驟與工具版本"
+        },
+        {
+          "path": "experiments/generation-v001/29-walk-sit-scope/scope.json",
+          "label": "最新選擇：行走/坐姿兩行為"
+        },
+        {
+          "path": "experiments/generation-v001/29-walk-sit-scope/cat-walk-sit.glb",
+          "label": "使用者選定舊版的精簡動畫GLB"
+        },
+        {
+          "path": "experiments/generation-v001/29-walk-sit-scope/preview.mp4",
+          "label": "選定舊版單獨預覽"
+        },
+        {
+          "path": "experiments/generation-v001/29-walk-sit-scope/verification.json",
+          "label": "精簡包12姿勢回讀通過"
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "title": "分部位對應與體型壓力測試",
+      "status": "診斷完成；新動畫候選拒絕採用",
+      "result": "未新增逐貓手點，自動推導四腳/頭尾与七部位；最近頂點方法造成400面嚴重塌陷，連續表面/ARAP法降到8面。原貓再測五段597幀，另以同拓樸短腿/長腿/瘦/胖/短胖各測15幀，全部保留3500面。",
+      "manual_dependency": "一次母版骨名/部位語義、共用演算法與壓力範圍，包覆/關節/動作視覺審查；未新增逐貓權重塗刷。合成樣本不計新貓。",
+      "remaining": "距離改善沒有換成動作品質：原貓Walk拉長超過兩倍的邊樣本26→68；Sitting交叉對304→435。包覆靜止交叉46→566、尾骨方向偏離41–83度。短腿/胖身浮空、長腿穿地；需有效解剖中介、靜止姿勢重定向與接觸適配。",
+      "images": [
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/fit-v002/original/diagnostic/target-parts.png",
+          "kind": "render",
+          "label": "程序分區診斷：原幾何上顯示自動部位標籤，不是換花色成品"
+        },
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/media/sitting-comparison.png",
+          "kind": "render",
+          "label": "實際坐姿對照：左27既有版、右28新候選；新候選不採用"
+        },
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/fit-v002/short_legs/candidate/preview/Sitting-0001.png",
+          "kind": "render",
+          "label": "合成短腿壓力樣本坐姿浮空；不是另一隻真實貓"
+        },
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/fit-v002/long_legs/candidate/preview/Sitting-0001.png",
+          "kind": "render",
+          "label": "合成長腿壓力樣本坐姿穿地；不是另一隻真實貓"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/review.json",
+          "label": "完整比較、五種體型與拒絕理由"
+        },
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/media/comparison.mp4",
+          "label": "五行為片段對照：左舊右新；待機/坐姿靜幀停留"
+        },
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/fit-v002/original/diagnostic/estimated-joints.png",
+          "label": "自動推導位置，非解剖驗收通過"
+        },
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/rest-audit-summary.json",
+          "label": "包覆自交與骨軸診斷"
+        },
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/stress-inputs/manifest.json",
+          "label": "合成壓力範圍與限制"
+        },
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/gate-verification.json",
+          "label": "拒絕未通過對應直接綁骨的實測"
+        },
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/fit-v002/original/candidate/export/verification.json",
+          "label": "研究 GLB 回讀；動畫品質失敗"
+        },
+        {
+          "path": "experiments/generation-v001/28-part-aware-rig/reproduction.json",
+          "label": "重現流程與方法來源"
+        }
+      ]
+    }
+  ],
+  "conclusion": "**目前可確認：** 已有逐階段實物、四次真實 3D 生成，以及最新多照片身份約束到模型的結果。最新模型由 Tripo 服務減至 3500 面，主要臉斑保留，實際 GLB 的幾何／UV／貼圖／flat 法線匯出回讀通過，未使用舊逐點修色或手工減面保護區。**仍未完成：** 完整 cat.png 美術、細斑與隱藏表面的身份證据、通用眼部控制、Low Poly Animated Cats 動畫及未知貓自動化。技術達標不當成成品通過。 共用霧面候選改善了部分黑毛偏灰，仍未解決花色邊界或眼部；不把整體美術標為通過。 新增的 26 色塊試驗不依賴逐貓遮罩，已完成兩個 GLB 與全身／臉部對照；B 的額頭色塊偏大、胸邊仍細碎，兩版均未列為外觀定稿。 使用者回饋看不出差別後，26 A/B 改判整體風格改善不足；技術通過保留，美術不採用。 使用者接受目前外觀作為動畫實驗基準。27 已建立真實五動作/56 骨候選，匯出回讀通過；權重處理改善部分拉伸，但坐姿穿地與塌陷仍存在。新階段不是任意腿長/胖瘦自動化的證明；当前只測一隻生成貓。 28 更深入的體型試驗已完成：對應距離改善，但原貓動畫退步、五種合成體型都露出接觸/變形問題，新候選拒絕採用；包覆自交和骨軸驗收已加入後續前置檢查。沒有宣稱不同腿長/瘦胖已能自動適配。 最新依使用者決定保留27，縮成行走/坐姿與必要轉場；29四clip精簡包回讀通過。仍保留已知變形/接地限制，不將縮小範圍視為新貓自動化已完成。"
+}

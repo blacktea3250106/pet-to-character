@@ -1,0 +1,43 @@
+{
+  "status": "complete_standing_pose_anchor_candidate_multiview_pending",
+  "artifact_kind": "AI_2D_not_mesh",
+  "selected": "standing-v002.png",
+  "standing_alias": "standing.png",
+  "review_method": "Manual inspection against real photos and v001; not calibrated pose or identity metrics",
+  "visible_paws": 4,
+  "full_body_ears_tail_tip_visible": true,
+  "head_points_forward_with_body": "Visually corrected from camera-facing v001 to forward three-quarter side aspect",
+  "limbs_separated_in_image": true,
+  "approved_as_pose_anchor_for_multiview_poc": true,
+  "approved_for_poc_submission": false,
+  "reason_not_submitted": "Prepare and validate consistent front/left/back/right views before the multiview-to-model route; this oblique anchor is not itself a validated front view.",
+  "pose_inferred_not_measured": [
+    "standing limb lengths",
+    "tail curvature",
+    "hidden coat boundaries"
+  ],
+  "remaining_visual_limits": [
+    "Some small facets and fur-like edge detail remain",
+    "Far cheek hidden in this corrected view; must recheck in frontal reference",
+    "No cross-view consistency, 3D anatomy or animation evidence from this image"
+  ],
+  "identity_or_art_pass": false,
+  "new_cat_automation_proven": false,
+  "imagegen_calls": 2,
+  "new_tripo_calls": 0,
+  "current_model_changed": false,
+  "next_route": "real photos for identity -> complete neutral standing anchor -> consistent cardinal views -> multiview-to-model with smart_low_poly=true, face_limit=3500, quad=false -> actual GLB validation",
+  "official_api_check": {
+    "checked_on": "2026-09-30",
+    "url": "https://developers.tripo3d.ai/en/docs/generation-multiview-to-model/standard",
+    "minimum_views": 2,
+    "maximum_named_views": 4,
+    "required_view": "front",
+    "optional_views": [
+      "left",
+      "back",
+      "right"
+    ],
+    "project_policy": "Four views for this POC is a project choice, not the API minimum."
+  }
+}

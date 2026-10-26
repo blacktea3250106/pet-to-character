@@ -1,0 +1,59 @@
+{
+  "inputs": [
+    {
+      "path": "16-service-retopology/basic-v001/restored/scene.blend",
+      "sha256": "4535064c43c2d38a322507bfcb54e321544a4bfd9acbd6e26046b344bee476e0"
+    },
+    {
+      "path": "16-service-retopology/basic-v001/restored/cat.glb",
+      "sha256": "4487376d7a2816492d084c6d821a15188cdf4433f0aa847f55ee8d4fc7942b87"
+    },
+    {
+      "path": "16-service-retopology/basic-v001/restored/mesh.npz",
+      "sha256": "0ab1f6fd3547ab53c551352eb645fef18be7cc82c7108331b62f884625179e3b"
+    },
+    {
+      "path": "16-service-retopology/basic-v001/restored/render-report.json",
+      "sha256": "ecf94efc98a76dfae2c99a0086674443d23a60917652a8a506af08110368c067"
+    }
+  ],
+  "script_sha256": "46f6bcaf1655fd05bf3851c4100a6af0d0562f4d9ce38e58a9d99189e732d83e",
+  "render_helper_sha256": "b4523565a1a2abade7017326cda3842ffded00619feb8b0b727d33364846db61",
+  "mesh_count": 1,
+  "triangles": 3500,
+  "max_symmetric_vertex_distance_m": 0.0,
+  "geometry_roundtrip_pass": true,
+  "render_files": [
+    "hero.png",
+    "face.png",
+    "opposite.png",
+    "back-high.png"
+  ],
+  "render_pixel_comparison_pending": false,
+  "unity_validation": false,
+  "identity_or_art_pass": false,
+  "animation_validation": false,
+  "pixel_comparisons": {
+    "hero.png": {
+      "mean_absolute_rgb_error_255": 0.002461111111111111,
+      "max_channel_error_255": 4.0,
+      "pixels_error_above_5": 0
+    },
+    "face.png": {
+      "mean_absolute_rgb_error_255": 0.0018814814814814816,
+      "max_channel_error_255": 1.0,
+      "pixels_error_above_5": 0
+    },
+    "opposite.png": {
+      "mean_absolute_rgb_error_255": 0.0019216049382716049,
+      "max_channel_error_255": 4.0,
+      "pixels_error_above_5": 0
+    },
+    "back-high.png": {
+      "mean_absolute_rgb_error_255": 0.0016848765432098765,
+      "max_channel_error_255": 1.0,
+      "pixels_error_above_5": 0
+    }
+  },
+  "render_roundtrip_pass": true
+}

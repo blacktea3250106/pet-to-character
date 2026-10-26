@@ -1,0 +1,150 @@
+{
+  "stage": "local structural repair v2",
+  "automatic_repair": false,
+  "removed_vertices": 255,
+  "filled_boundary_edges": 50,
+  "method": "delete duplicate hindlimb branch; subdivide opening patch and locally fit to mirrored intact opposite flank geometry; no compressed hidden limb",
+  "geometry_inference": "local opposite-flank symmetry only for repair patch; not measured pet shape",
+  "patch_color": "temporary inferred dark fur; independent material, to reproject separately",
+  "selection_bounds": {
+    "x": [
+      -0.175,
+      -0.045
+    ],
+    "y": [
+      0.025,
+      0.115
+    ],
+    "z_max": 0.175
+  },
+  "vertices": 2696,
+  "triangles": 5373,
+  "welded_vertices": 2696,
+  "boundary_edges": 2,
+  "nonmanifold_edges": 4,
+  "low_height_components": [
+    {
+      "height": 0.05,
+      "count": 4,
+      "groups": [
+        {
+          "n": 150,
+          "center": [
+            -0.20593932668368023,
+            0.065466403439641,
+            0.01797781648735205
+          ]
+        },
+        {
+          "n": 180,
+          "center": [
+            0.17748857571019067,
+            0.07820776152527995,
+            0.020055442357746263
+          ]
+        },
+        {
+          "n": 181,
+          "center": [
+            0.16494387742234856,
+            0.016543234001912013,
+            0.019951666597256345
+          ]
+        },
+        {
+          "n": 145,
+          "center": [
+            -0.20502698513968237,
+            -0.012772789179218997,
+            0.017922257371889107
+          ]
+        }
+      ]
+    },
+    {
+      "height": 0.08,
+      "count": 5,
+      "groups": [
+        {
+          "n": 174,
+          "center": [
+            -0.2097290563343585,
+            0.06402478574764454,
+            0.0240293945046677
+          ]
+        },
+        {
+          "n": 211,
+          "center": [
+            0.173147846949044,
+            0.07783409467593753,
+            0.02617578663293855
+          ]
+        },
+        {
+          "n": 14,
+          "center": [
+            -0.17275027292115347,
+            0.037161129393747876,
+            0.07510997035673686
+          ]
+        },
+        {
+          "n": 213,
+          "center": [
+            0.16076664686063086,
+            0.016464543194365754,
+            0.02621068430303688
+          ]
+        },
+        {
+          "n": 169,
+          "center": [
+            -0.20905839991287367,
+            -0.011809421216203837,
+            0.02434140719065564
+          ]
+        }
+      ]
+    },
+    {
+      "height": 0.11,
+      "count": 4,
+      "groups": [
+        {
+          "n": 286,
+          "center": [
+            -0.20399240326214504,
+            0.0587737335908142,
+            0.05105372588638659
+          ]
+        },
+        {
+          "n": 243,
+          "center": [
+            0.168589177568263,
+            0.07817923306744286,
+            0.035098204789721546
+          ]
+        },
+        {
+          "n": 246,
+          "center": [
+            0.15685089832035506,
+            0.01567268366991671,
+            0.035202769903329816
+          ]
+        },
+        {
+          "n": 200,
+          "center": [
+            -0.21202592179179192,
+            -0.011130134732811712,
+            0.03541927067330107
+          ]
+        }
+      ]
+    }
+  ],
+  "view_transform": "Standard"
+}

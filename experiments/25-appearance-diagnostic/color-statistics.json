@@ -1,0 +1,212 @@
+{
+  "source_sha256": "e09acc1a792ba078ec32d53183ab816e01cc7dd1c7f6b50548926134371820d1",
+  "diagnostic_report_sha256": "e4d42879da224001959add0445cea7c23689ee34c409e8eae751c29957ca2623",
+  "images_sha256": {
+    "baseline-az315.png": "d98c51a0575b99e5405ef1b99ba045efba3e8db2dacd912eedb9bf244767878c",
+    "no_specular-az315.png": "160c52c8329d692ebf65504a21a322f0cacb62c833bfc7fb5c1806e05b22b46a",
+    "base_color-az315.png": "503b327064c452e5d030bb344e9096019ae3b20626ead0a7738c58fa088a323c",
+    "alpha-source-az315.png": "6188cb9412eabc1bfa389e2180b4e5dc75e24d0fc66d6048510460517cb3e185",
+    "baseline-az045.png": "85ea3fa1832124964b36f30595bf0ddc50341cc2d8cb43a5cedb26f2e7c0c4b9",
+    "no_specular-az045.png": "d4faa93a954bb320a64fff71b2e456ca5c416da15335cb45d88503bf670df35a",
+    "base_color-az045.png": "8be774565161f021872d3f2d143aa113d95336c84060019215722c0a3b37e675",
+    "alpha-source-az045.png": "e0e07fff28f98f24f209e4043ce3f422875a4146096a6faaf9a25b5f004ed091"
+  },
+  "views": [
+    {
+      "azimuth": -45,
+      "interior_pixels": 152845,
+      "bins": [
+        {
+          "base_color_luma_range": [
+            0,
+            70
+          ],
+          "pixel_count": 65315,
+          "fraction_of_mesh_interior": 0.4273283391671301,
+          "modes": {
+            "baseline": {
+              "mean_luma_255": 68.83964504631402,
+              "median_luma_255": 65.353,
+              "p10_luma_255": 58.212599999999995,
+              "p90_luma_255": 87.4052
+            },
+            "no_specular": {
+              "mean_luma_255": 53.10726181122254,
+              "median_luma_255": 52.0682,
+              "p10_luma_255": 41.996,
+              "p90_luma_255": 66.4974
+            },
+            "base_color": {
+              "mean_luma_255": 53.49870037816734,
+              "median_luma_255": 51.9278,
+              "p10_luma_255": 50.0682,
+              "p90_luma_255": 61.552400000000006
+            }
+          },
+          "baseline_minus_no_specular_mean_luma_255": 15.732383235091481,
+          "baseline_minus_no_specular_p90_luma_255": 22.5788
+        },
+        {
+          "base_color_luma_range": [
+            70,
+            140
+          ],
+          "pixel_count": 35616,
+          "fraction_of_mesh_interior": 0.23302038012365467,
+          "modes": {
+            "baseline": {
+              "mean_luma_255": 113.28567930143757,
+              "median_luma_255": 112.68299999999999,
+              "p10_luma_255": 81.60079999999999,
+              "p90_luma_255": 145.13
+            },
+            "no_specular": {
+              "mean_luma_255": 105.2314938342318,
+              "median_luma_255": 104.61340000000001,
+              "p10_luma_255": 72.1166,
+              "p90_luma_255": 139.55120000000002
+            },
+            "base_color": {
+              "mean_luma_255": 104.74730214510332,
+              "median_luma_255": 104.3366,
+              "p10_luma_255": 75.51079999999999,
+              "p90_luma_255": 134.4472
+            }
+          },
+          "baseline_minus_no_specular_mean_luma_255": 8.05418546720575,
+          "baseline_minus_no_specular_p90_luma_255": 13.011999999999993
+        },
+        {
+          "base_color_luma_range": [
+            140,
+            256
+          ],
+          "pixel_count": 51914,
+          "fraction_of_mesh_interior": 0.33965128070921524,
+          "modes": {
+            "baseline": {
+              "mean_luma_255": 184.79560989713755,
+              "median_luma_255": 190.055,
+              "p10_luma_255": 136.48814000000002,
+              "p90_luma_255": 233.34499999999997
+            },
+            "no_specular": {
+              "mean_luma_255": 182.8659224794853,
+              "median_luma_255": 188.77419999999998,
+              "p10_luma_255": 132.9214,
+              "p90_luma_255": 232.78339999999997
+            },
+            "base_color": {
+              "mean_luma_255": 199.29729842046459,
+              "median_luma_255": 223.6338,
+              "p10_luma_255": 147.7638,
+              "p90_luma_255": 233.71519999999998
+            }
+          },
+          "baseline_minus_no_specular_mean_luma_255": 1.9296874176522707,
+          "baseline_minus_no_specular_p90_luma_255": 3.8596000000000004
+        }
+      ]
+    },
+    {
+      "azimuth": 45,
+      "interior_pixels": 144341,
+      "bins": [
+        {
+          "base_color_luma_range": [
+            0,
+            70
+          ],
+          "pixel_count": 56337,
+          "fraction_of_mesh_interior": 0.39030490297282133,
+          "modes": {
+            "baseline": {
+              "mean_luma_255": 77.02279510091059,
+              "median_luma_255": 74.8556,
+              "p10_luma_255": 61.14039999999999,
+              "p90_luma_255": 96.2808
+            },
+            "no_specular": {
+              "mean_luma_255": 59.75457650212116,
+              "median_luma_255": 59.1312,
+              "p10_luma_255": 46.2126,
+              "p90_luma_255": 73.77420000000001
+            },
+            "base_color": {
+              "mean_luma_255": 54.27804865718799,
+              "median_luma_255": 52.0682,
+              "p10_luma_255": 50.0682,
+              "p90_luma_255": 62.474999999999994
+            }
+          },
+          "baseline_minus_no_specular_mean_luma_255": 17.268218598789428,
+          "baseline_minus_no_specular_p90_luma_255": 24.07220000000001
+        },
+        {
+          "base_color_luma_range": [
+            70,
+            140
+          ],
+          "pixel_count": 32219,
+          "fraction_of_mesh_interior": 0.22321447128674457,
+          "modes": {
+            "baseline": {
+              "mean_luma_255": 125.15408793569011,
+              "median_luma_255": 123.25260000000002,
+              "p10_luma_255": 91.66239999999999,
+              "p90_luma_255": 162.844
+            },
+            "no_specular": {
+              "mean_luma_255": 115.37756627455849,
+              "median_luma_255": 112.9552,
+              "p10_luma_255": 81.3808,
+              "p90_luma_255": 155.1686
+            },
+            "base_color": {
+              "mean_luma_255": 103.54212642229739,
+              "median_luma_255": 102.5346,
+              "p10_luma_255": 75.6704,
+              "p90_luma_255": 133.07512
+            }
+          },
+          "baseline_minus_no_specular_mean_luma_255": 9.776521661131628,
+          "baseline_minus_no_specular_p90_luma_255": 15.370199999999983
+        },
+        {
+          "base_color_luma_range": [
+            140,
+            256
+          ],
+          "pixel_count": 55785,
+          "fraction_of_mesh_interior": 0.3864806257404341,
+          "modes": {
+            "baseline": {
+              "mean_luma_255": 190.83049837052968,
+              "median_luma_255": 185.56159999999997,
+              "p10_luma_255": 146.85719999999998,
+              "p90_luma_255": 240.06419999999997
+            },
+            "no_specular": {
+              "mean_luma_255": 188.80341931702068,
+              "median_luma_255": 183.84339999999997,
+              "p10_luma_255": 143.42488,
+              "p90_luma_255": 239.63619999999997
+            },
+            "base_color": {
+              "mean_luma_255": 195.14572929999102,
+              "median_luma_255": 200.5536,
+              "p10_luma_255": 148.5512,
+              "p90_luma_255": 233.13639999999998
+            }
+          },
+          "baseline_minus_no_specular_mean_luma_255": 2.0270790535090075,
+          "baseline_minus_no_specular_p90_luma_255": 3.9358000000000146
+        }
+      ]
+    }
+  ],
+  "metric": "Rec.709-weighted display sRGB luma on 0–255 scale; not linear physical luminance",
+  "mask": "Actual rendered model alpha >=254, eroded two pixels; no hand regions or semantic labels",
+  "scope": "Same-camera material-isolation diagnostics. Equal weight per visible pixel. Bins are based on unlit base color. Does not measure photo identity, cat.png similarity, texture sharpness or animation quality.",
+  "quality_acceptance": false
+}

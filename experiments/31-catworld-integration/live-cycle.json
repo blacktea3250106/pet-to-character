@@ -1,0 +1,46 @@
+{
+  "changes": [
+    {
+      "clip": "Sitting",
+      "position": "(1.6, 0.0, -0.48)",
+      "state": 0,
+      "time": 0.025
+    },
+    {
+      "clip": "Sitting_to_Idle",
+      "position": "(1.6, 0.0, -0.48)",
+      "state": 1,
+      "time": 5.05833333333333
+    },
+    {
+      "clip": "",
+      "position": "(1.6, 0.0, -0.48)",
+      "state": 2,
+      "time": 6.19166666666665
+    },
+    {
+      "clip": "Idle_to_Sit",
+      "position": "(1.648884, 0.0, -1.526119)",
+      "state": 3,
+      "time": 13.4583333333333
+    },
+    {
+      "clip": "Sitting",
+      "position": "(1.648884, 0.0, -1.526119)",
+      "state": 0,
+      "time": 14.5916666666666
+    }
+  ],
+  "duration": 18.0250000000001,
+  "end_distance": 0.0239072553813457,
+  "end_speed": 0.0,
+  "fixed_fps": 30,
+  "pass": true,
+  "states": [
+    0,
+    1,
+    2,
+    3,
+    0
+  ]
+}

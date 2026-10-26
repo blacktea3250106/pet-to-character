@@ -1,0 +1,110 @@
+{
+  "mode": "analysis_only",
+  "question": "Why do the cats feel stylistically detached from the Godot game world?",
+  "evidence": [
+    "room-three-cats.png",
+    "room-personalized-close.png",
+    "room-walk-sit.mp4",
+    "world-style-probe.json",
+    "../30-catworld-comparison/comparison-standing_three_quarter.png",
+    "../25-appearance-diagnostic/structure-analysis.json",
+    "../25-appearance-diagnostic/isolated-v001/base_color-az315.png",
+    "../../../cat.png"
+  ],
+  "main_judgment": "Environment uses large simplified warm forms and broad color areas; cats retain realistic anatomy and dense high-contrast markings. Small game-camera presentation and weak/incorrect physical contact amplify the difference. All three cats exhibit parts of this mismatch; it is not confined to the new asset.",
+  "confidence_note": "Art priority is qualitative judgement, not a measured contribution percentage. No appearance ablation experiments were performed in this analysis.",
+  "verified_facts": {
+    "materials": "Room and all three cats use StandardMaterial3D; room roughness .92, cats .90; no normal maps, material AO maps or emission enabled. Room uses vertex colors; cats use 2048 textures.",
+    "geometry": "Room GLB totals 3002 base triangles including garden; new cat 3500. Triangle counts are not normalized visual-detail scores. Existing catworld visible body 12296 and Tripo body12300.",
+    "renderer": "Godot Mobile/Metal; warm directional key energy1.7, ambient .58, fill .35; Filmic tone mapping.",
+    "reflection_transfer": "Runtime metallic_specular reports .5 for all compared materials. New GLB declares KHR_materials_specular factor .3, but parameter spaces are not assumed numerically identical. No Godot specular-isolation test yet.",
+    "contact": "Imported asset retains prior measured foot contact/skin deformation failures; controller only grounds REST bounds, not every animated support phase.",
+    "scale": "New cat normalizes full REST AABB height to .43; raised tail contributes to extrema. This does not calibrate anatomical shoulder/head height across cats.",
+    "simulation": "No per-cat stride calibration, foot IK, multi-cat avoidance or furniture navigation added. Existing overlap seen in demo.",
+    "reference": "cat.png is a large near-view studio-style AI reference; it does not specify a unified room/character gameplay-scale art direction."
+  },
+  "ranked_findings": [
+    {
+      "priority": "primary",
+      "topic": "abstraction and detail hierarchy",
+      "finding": "Large designed room surfaces versus dense fur/marking/cut-plane details in a small cat silhouette."
+    },
+    {
+      "priority": "primary",
+      "topic": "local color and value contrast",
+      "finding": "Black-white-orange edges and dark eye contours attract attention repeatedly across the body; the room uses broad warmer midtones. Being a readable protagonist is useful, but high-frequency contrast competes with form readability."
+    },
+    {
+      "priority": "primary",
+      "topic": "shape language",
+      "finding": "Room uses thick simple beams, clean planes and toy-like rounded furniture; cats retain fine anatomical muzzle, eyes, toe, ankle and body transitions. Natural cat proportions must not be discarded merely to match a cartoon room."
+    },
+    {
+      "priority": "amplifier",
+      "topic": "camera and scale",
+      "finding": "Overview makes cat details subpixel/small; full-AABB scaling includes raised tails and is not a general anatomical calibration."
+    },
+    {
+      "priority": "amplifier",
+      "topic": "contact and lighting",
+      "finding": "Shared lights do not guarantee cohesive authored albedo or grounded paws; existing pose errors and incomplete local contact cues can create a composited-on-top impression."
+    },
+    {
+      "priority": "secondary_or_unisolated",
+      "topic": "material and baked shading",
+      "finding": "Roughness is already close. Detailed albedo survives the no-light diagnostic. Some apparent shading may be baked into source imagery, but true pigmentation and baked illumination have not been separated. Cross-engine specular influence remains unisolated."
+    },
+    {
+      "priority": "motion_amplifier",
+      "topic": "weight and world interaction",
+      "finding": "Foot contact, turning, stride/world-speed matching, deformation and lack of avoidance can make an otherwise attractive static cat feel disconnected while moving."
+    }
+  ],
+  "workflow_gaps": [
+    "Independent acceptance of character and environment without a shared full-game visual target.",
+    "Treating low-poly/triangle budget and operational engine tests as sufficient progress without a separate world-cohesion gate.",
+    "Judging most appearance changes in a neutral close-up instead of the main gameplay camera.",
+    "Using complete bounds as body-size/ground-contact semantics.",
+    "Verifying a Blender material adjustment without corresponding isolated Godot visual validation.",
+    "No representative coat/body set for automated style/identity validation."
+  ],
+  "proposed_next_diagnostics_not_executed": [
+    "Same-camera neutral gray-material comparison to isolate shape and scale.",
+    "Hold geometry/light fixed and compare semantically protected coat abstraction, preserving identity landmarks and eye/nose regions.",
+    "Hold asset fixed and compare contact/shadow settings supported by the target renderer; separate pose penetration from shadow bias.",
+    "Validate appearance at overview and interaction zoom, standing/walk/sit, then across black/white/tabby/calico and varied body types."
+  ],
+  "automation_implications": {
+    "shared_specs": [
+      "gameplay camera ranges",
+      "shape/detail hierarchy",
+      "surface shading and runtime material contract",
+      "world units and anatomical size conventions",
+      "supported shadow/contact treatment"
+    ],
+    "per_cat_derived": [
+      "semantic coat regions and protected identity marks",
+      "body size from reliable anatomical landmarks rather than tail extrema",
+      "support phases and foot contacts from validated rig semantics"
+    ],
+    "not_proven": [
+      "automatic semantic simplification preserving identity on unseen cats",
+      "arbitrary body animation/contact correction",
+      "quantitative score that substitutes for art review"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Godot renderer feature support",
+      "url": "https://docs.godotengine.org/en/stable/tutorials/rendering/renderers.html"
+    },
+    {
+      "title": "Godot shadow bias behavior",
+      "url": "https://docs.godotengine.org/en/stable/tutorials/3d/lights_and_shadows.html"
+    }
+  ],
+  "probe_caveat": "Initial headless run had a 64x64 viewport; probe was rerun in the normal Metal display at1280x960 before inspecting camera data. Static mesh AABBs are not skinned geometry/contact measurements.",
+  "formal_project_files_unchanged": true,
+  "no_paid_generation": true,
+  "new_cat_automation_proven": false
+}

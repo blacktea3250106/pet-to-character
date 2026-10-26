@@ -1,0 +1,35 @@
+{
+  "file": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/25-appearance-diagnostic/matte-candidate/cat.glb",
+  "sha256": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+  "bytes": 820016,
+  "scene_index": 0,
+  "mesh_triangle_counts": [
+    3500
+  ],
+  "active_mesh_instances": [
+    {
+      "node": 0,
+      "mesh": 0,
+      "triangles": 3500
+    }
+  ],
+  "active_scene_triangles": 3500,
+  "unique_mesh_triangles": 3500,
+  "unsupported_primitives": [],
+  "triangle_limit": 3500,
+  "budget_pass": true,
+  "status": "budget_pass",
+  "method": "TRIANGLES accessor count / 3 for each active scene mesh instance; index positions are not decoded here",
+  "skins": 0,
+  "animations": 0,
+  "asset_accepted": false,
+  "not_validated": [
+    "buffer/index integrity beyond JSON metadata",
+    "manifoldness and self-intersections",
+    "anatomy",
+    "photo identity",
+    "cat.png style",
+    "UV fidelity",
+    "skin deformation and source-animation compatibility"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "source_file": "13-dorsal/color-v002/cat.glb",
+  "output": "16-service-retopology/basic-v001",
+  "endpoint": "/mesh/decimate",
+  "parameters": {"model": "v1.0", "face_limit": 3500, "quad": false},
+  "official_docs": "https://developers.tripo3d.ai/en/docs/mesh-decimate",
+  "purpose": "After v2.0 exceeded the target at 4422 triangles, compare the provider's basic decimation on the identical 5072-triangle source.",
+  "source_provenance_warning": "Source already includes manual photo/texture work. No semantic masks or region coordinates are passed to this stage.",
+  "human_inputs_to_this_processing_stage": [],
+  "omitted_unsupported_parameters": ["bake", "part_names"],
+  "acceptance": "Count triangles and independently compare geometry, identity features and material/texture fidelity. No animation acceptance from a static decimation test.",
+  "request_limit_this_variant": 1
+}

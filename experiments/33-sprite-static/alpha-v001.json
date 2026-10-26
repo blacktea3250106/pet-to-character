@@ -1,0 +1,28 @@
+{
+  "file": "experiments/generation-v001/33-sprite-static/godot/assets/cat-cutout-v001.png",
+  "mode": "RGBA",
+  "size": [
+    1448,
+    1086
+  ],
+  "alpha_range": [
+    0,
+    255
+  ],
+  "transparent_fraction": 0.5294958181984677,
+  "semitransparent_fraction": 0.46981738957907265,
+  "alpha128_bbox": [
+    18,
+    84,
+    1378,
+    1012
+  ],
+  "opaque_border_pixel_count": 0,
+  "connected_components_alpha128": 1,
+  "largest_component_pixels": 721077,
+  "pixels_outside_largest_component": 0,
+  "component_areas_largest10": [
+    721077
+  ],
+  "semantic_identity_and_grounding_pass": "not_decided_by_alpha_statistics"
+}

@@ -1,0 +1,7 @@
+{
+  "all_four_images_decoded": true,
+  "minimum_256px_pass": true,
+  "independent_image_hashes": true,
+  "identity_pose_and_view_labels_reviewed": false,
+  "approved_for_3d_submission": false
+}

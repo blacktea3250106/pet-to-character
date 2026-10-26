@@ -1,0 +1,86 @@
+{
+  "stage": "P00",
+  "operation": "EXIF orientation and RGB normalization only; original files preserved",
+  "photos": [
+    {
+      "photo_id": "photo-01",
+      "source": "example/<redacted-id>.jpg",
+      "normalized": "experiments/generation-v001/00-input/photo-01.png",
+      "size": [
+        1535,
+        2729
+      ],
+      "sha256": "b1e3e4d89d5230365a5d441633bcccc3ecc6ac878dd4abd4ba44c7bb15c9c08a"
+    },
+    {
+      "photo_id": "photo-02",
+      "source": "example/S__48340996.jpg",
+      "normalized": "experiments/generation-v001/00-input/photo-02.png",
+      "size": [
+        1108,
+        1477
+      ],
+      "sha256": "29304384af96b1fa9e54d94ba16c127370068da4655978c2b59839849a53cd56"
+    },
+    {
+      "photo_id": "photo-03",
+      "source": "example/S__48340997.jpg",
+      "normalized": "experiments/generation-v001/00-input/photo-03.png",
+      "size": [
+        1108,
+        1477
+      ],
+      "sha256": "93741a6b11d99b1ddb78268e2f094dd683b2acdb8afd6fbe0aa3a9988ab1a7ce"
+    },
+    {
+      "photo_id": "photo-04",
+      "source": "example/S__48381956_0.jpg",
+      "normalized": "experiments/generation-v001/00-input/photo-04.png",
+      "size": [
+        1108,
+        1477
+      ],
+      "sha256": "50605b256d300d6102000b3d763c37c929fe5ea87b1e7048985abc0e5d7ba709"
+    },
+    {
+      "photo_id": "photo-05",
+      "source": "example/S__48381957_0.jpg",
+      "normalized": "experiments/generation-v001/00-input/photo-05.png",
+      "size": [
+        1108,
+        1477
+      ],
+      "sha256": "6d16e79c28455eb8d68e15974e51a61be5120bc9060a95f280d99c47b8cd32d4"
+    },
+    {
+      "photo_id": "photo-06",
+      "source": "example/S__48381958_0.jpg",
+      "normalized": "experiments/generation-v001/00-input/photo-06.png",
+      "size": [
+        869,
+        1884
+      ],
+      "sha256": "4ece7fe02dc73888ee42ecaab2fa96f6fff0a7109e03c71a1cfad45c6aafc657"
+    },
+    {
+      "photo_id": "photo-07",
+      "source": "example/S__48381959_0.jpg",
+      "normalized": "experiments/generation-v001/00-input/photo-07.png",
+      "size": [
+        869,
+        1884
+      ],
+      "sha256": "a75106f9a482e80da0e53f20d3b40d03c042df3b0e5739372f9de5e87efb6443"
+    },
+    {
+      "photo_id": "photo-08",
+      "source": "example/S__48381960_0.jpg",
+      "normalized": "experiments/generation-v001/00-input/photo-08.png",
+      "size": [
+        869,
+        1884
+      ],
+      "sha256": "5ddcb9c2521e65245dde2ad6d7b528fe5df0d04e1196d9c1d4441d9021dead6c"
+    }
+  ]
+}

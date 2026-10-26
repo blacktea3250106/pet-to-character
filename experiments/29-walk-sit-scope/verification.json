@@ -1,0 +1,87 @@
+{
+  "clips": [
+    "Walk",
+    "Idle_to_Sit",
+    "Sitting",
+    "Sitting_to_Idle"
+  ],
+  "poses_checked": 12,
+  "samples": [
+    {
+      "clip": "Walk",
+      "source_frame": 1,
+      "imported_frame": 0,
+      "max_vertex_error": 2.3752876586513594e-05
+    },
+    {
+      "clip": "Walk",
+      "source_frame": 14,
+      "imported_frame": 13,
+      "max_vertex_error": 2.0805677195312455e-05
+    },
+    {
+      "clip": "Walk",
+      "source_frame": 27,
+      "imported_frame": 26,
+      "max_vertex_error": 2.3752876586513594e-05
+    },
+    {
+      "clip": "Idle_to_Sit",
+      "source_frame": 1,
+      "imported_frame": 0,
+      "max_vertex_error": 1.956826054083649e-05
+    },
+    {
+      "clip": "Idle_to_Sit",
+      "source_frame": 18,
+      "imported_frame": 17,
+      "max_vertex_error": 3.30667789967265e-05
+    },
+    {
+      "clip": "Idle_to_Sit",
+      "source_frame": 35,
+      "imported_frame": 34,
+      "max_vertex_error": 4.2210980609524995e-05
+    },
+    {
+      "clip": "Sitting",
+      "source_frame": 1,
+      "imported_frame": 0,
+      "max_vertex_error": 4.082608575117774e-05
+    },
+    {
+      "clip": "Sitting",
+      "source_frame": 120,
+      "imported_frame": 119,
+      "max_vertex_error": 4.097917189938016e-05
+    },
+    {
+      "clip": "Sitting",
+      "source_frame": 240,
+      "imported_frame": 239,
+      "max_vertex_error": 4.097917189938016e-05
+    },
+    {
+      "clip": "Sitting_to_Idle",
+      "source_frame": 1,
+      "imported_frame": 0,
+      "max_vertex_error": 4.2210980609524995e-05
+    },
+    {
+      "clip": "Sitting_to_Idle",
+      "source_frame": 18,
+      "imported_frame": 17,
+      "max_vertex_error": 2.4360446332138963e-05
+    },
+    {
+      "clip": "Sitting_to_Idle",
+      "source_frame": 35,
+      "imported_frame": 34,
+      "max_vertex_error": 1.956826054083649e-05
+    }
+  ],
+  "max_vertex_error": 4.2210980609524995e-05,
+  "roundtrip_pass": true,
+  "animation_quality_pass": false,
+  "unity_pass": false
+}

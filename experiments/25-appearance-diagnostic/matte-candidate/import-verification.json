@@ -1,0 +1,47 @@
+{
+  "source_sha256": "e09acc1a792ba078ec32d53183ab816e01cc7dd1c7f6b50548926134371820d1",
+  "candidate_sha256": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+  "exact_json_changes": [
+    {
+      "path": "/extensionsUsed",
+      "before": null,
+      "after": [
+        "KHR_materials_specular"
+      ]
+    },
+    {
+      "path": "/materials/0/extensions",
+      "before": null,
+      "after": {
+        "KHR_materials_specular": {
+          "specularFactor": 0.3
+        }
+      }
+    }
+  ],
+  "binary_bytes_identical": true,
+  "same_preview_script": true,
+  "same_camera_and_source_bounds": true,
+  "blender_specular_ior_level": 0.15000000596046448,
+  "blender_import_verified": true,
+  "triangles": 3500,
+  "color_comparison": [
+    {
+      "azimuth": 315,
+      "dark_base_color_pixels": 65315,
+      "source_mean_display_luma_255": 68.90402719436577,
+      "candidate_mean_display_luma_255": 59.21859362780372,
+      "mean_display_luma_reduction_255": 9.685433566562043
+    },
+    {
+      "azimuth": 45,
+      "dark_base_color_pixels": 56337,
+      "source_mean_display_luma_255": 77.09258025098958,
+      "candidate_mean_display_luma_255": 66.39664211441858,
+      "mean_display_luma_reduction_255": 10.695938136570993
+    }
+  ],
+  "method": "Same 24-sample renderer, geometry, camera and material except specular. Pixel mask comes from the previous matched-camera alpha and base-color diagnostic, not a hand-picked region. Display luma is not physical luminance or identity score.",
+  "unity_verified": false,
+  "art_pass": false
+}

@@ -1,0 +1,49 @@
+{
+  "status": "movement_prototype_passed",
+  "features": [
+    "左鍵點地面尋路，最近可行網格目的地",
+    "連續固定速度移動，途中可改目的地",
+    "右鍵停止、R回地毯、滾輪縮放",
+    "地板邊界與家具保守避讓",
+    "依地板及地毯真實三角碰撞更新root高度"
+  ],
+  "implementation": "AStarGrid2D生成路徑；地板AABB只定義外界；家具由三角碰撞的垂直射線採樣阻擋，避免L形牆AABB覆蓋整間房。這是實作紀錄，非新增行動前gate。",
+  "asset": "33基準；36美術候選構圖未通過不採用",
+  "verified": {
+    "animation": "static lying sprite, no walking frames",
+    "cell_size": 0.075,
+    "distance_traveled": 1.7613961501047,
+    "frames_to_arrive": 177,
+    "max_height_error": 4.91738320201884e-10,
+    "passed": true,
+    "projected_click": true,
+    "radius": 0.375,
+    "reachable_cells": 552,
+    "reject_bed_and_outside": true,
+    "retarget_and_stop": true,
+    "scope": "one fixed room and cat.png prototype"
+  },
+  "evidence": [
+    "evidence/01-start.png",
+    "evidence/02-moving.png",
+    "evidence/03-arrived.png"
+  ],
+  "manual_work_removed": "无需逐個目的地輸入座標或手畫路徑；由點擊及場景幾何推導。",
+  "manual_dependencies": [
+    "沿用手工pivot",
+    "一次設定RoomFloor/RoomRug語義",
+    "目視審查"
+  ],
+  "limitations": [
+    "目前只有趴姿滑行，未有轉向/步行影格",
+    "圓形保守採樣碰撞，不是完整貓身體碰撞",
+    "只驗證目前固定房間與一張cat.png原型",
+    "家具移動後需要重新建立導航網格",
+    "貼地測試是root高度，不代表整張平面貓每個腳掌精確接觸"
+  ],
+  "new_cat_automation_proven": false,
+  "docs": [
+    "https://docs.godotengine.org/en/stable/classes/class_astargrid2d.html",
+    "https://docs.godotengine.org/en/stable/classes/class_physicsrayqueryparameters3d.html"
+  ]
+}

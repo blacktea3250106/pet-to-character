@@ -1,0 +1,29 @@
+{
+  "status": "stopped_by_user_before_further_validation",
+  "user_steering": "直接跳到美術階段吧",
+  "completed": [
+    "contact shadow A/B renders close/overview/bed-front",
+    "one shared color correction",
+    "A pixel-exact baseline replay",
+    "B darkens receiver without raising RGB"
+  ],
+  "observations": [
+    "Near-view contact cue slightly stronger; overall fusion not resolved",
+    "Rug/floor-height boundary remains visually limited"
+  ],
+  "incomplete": [
+    "support-surface diagnostic failed parsing; not repaired or counted as passed",
+    "no full support/grounding acceptance",
+    "no cross-cat/animation tests"
+  ],
+  "diagnostic_failure": "Geometry2D.is_point_in_triangle method unavailable; draft removed from runnable main, rejected source preserved",
+  "selected_for_next_stage": "Do not adopt contact B; art stage uses original33 A to isolate visual asset change",
+  "new_manual_per_cat_inputs": 0,
+  "inherited_manual_pivot": true,
+  "new_cat_automation_proven": false,
+  "artifacts": {
+    "comparison": "evidence/comparison.png",
+    "ab_check": "ab-check.json",
+    "source": "godot/main.gd"
+  }
+}

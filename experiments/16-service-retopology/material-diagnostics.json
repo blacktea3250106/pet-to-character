@@ -1,0 +1,68 @@
+{
+  "scope": "Full atlas statistics, including unused texels; not a surface-weighted metric. glTF metallic uses B channel times factor, roughness uses G channel times factor.",
+  "models": [
+    {
+      "file": "13-dorsal/color-v002/cat.glb",
+      "metallic_factor": 0,
+      "roughness_factor": 1,
+      "packed_texture_rgb_min": [
+        255,
+        76,
+        255
+      ],
+      "packed_texture_rgb_max": [
+        255,
+        229,
+        255
+      ],
+      "packed_texture_rgb_mean": [
+        255.0,
+        228.7804572582245,
+        255.0
+      ],
+      "metallic_blue_full_atlas_mean_after_factor": 0.0
+    },
+    {
+      "file": "16-service-retopology/basic-v001/model_url.glb",
+      "metallic_factor": 1,
+      "roughness_factor": 1,
+      "packed_texture_rgb_min": [
+        255,
+        0,
+        0
+      ],
+      "packed_texture_rgb_max": [
+        255,
+        255,
+        255
+      ],
+      "packed_texture_rgb_mean": [
+        255.0,
+        242.17197036743164,
+        254.25508785247803
+      ],
+      "metallic_blue_full_atlas_mean_after_factor": 0.9970787758920707
+    },
+    {
+      "file": "16-service-retopology/smart-v001/model_url.glb",
+      "metallic_factor": 1,
+      "roughness_factor": 1,
+      "packed_texture_rgb_min": [
+        255,
+        0,
+        0
+      ],
+      "packed_texture_rgb_max": [
+        255,
+        255,
+        0
+      ],
+      "packed_texture_rgb_mean": [
+        255.0,
+        242.1187334060669,
+        0.0
+      ],
+      "metallic_blue_full_atlas_mean_after_factor": 0.0
+    }
+  ]
+}

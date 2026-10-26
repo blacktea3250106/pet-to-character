@@ -1,0 +1,75 @@
+{
+  "review_type": "assistant_visual_inspection_not_automated_metric",
+  "scope": "three_original_photos_and_four_existing_generated_views",
+  "remaining_original_photos_to_review": 5,
+  "inputs": [
+    {
+      "path": "example/S__48381957_0.jpg",
+      "sha256": "6d16e79c28455eb8d68e15974e51a61be5120bc9060a95f280d99c47b8cd32d4"
+    },
+    {
+      "path": "example/S__48340997.jpg",
+      "sha256": "93741a6b11d99b1ddb78268e2f094dd683b2acdb8afd6fbe0aa3a9988ab1a7ce"
+    },
+    {
+      "path": "example/<redacted-id>.jpg",
+      "sha256": "b1e3e4d89d5230365a5d441633bcccc3ecc6ac878dd4abd4ba44c7bb15c9c08a"
+    },
+    {
+      "path": "<catworld>/gen_input/front.png",
+      "sha256": "da35e77276c6f5e939bc8d4e6735c7bb06eda707af1dd5c30c5f9cc43629eec4"
+    },
+    {
+      "path": "<catworld>/gen_input/left.png",
+      "sha256": "7d9906b0068a6702d1cc9d1d16d45e0f57ad1ceb6dde2a9ae13d7d219ef99f00"
+    },
+    {
+      "path": "<catworld>/gen_input/back.png",
+      "sha256": "2a846ee73421932c34c597664466f13957dc18f984cea650ba3b54c4afbc70a5"
+    },
+    {
+      "path": "<catworld>/gen_input/right.png",
+      "sha256": "ecc9b84662a46d86e999fca10bb2e7a70df3a1507c840ef003cbe2375514064a"
+    }
+  ],
+  "observations": [
+    {
+      "id": "REF-001",
+      "status": "needs_identity_correction",
+      "finding": "The original S__48381957_0.jpg shows a visible pink area on the nose tip; the existing generated front.png depicts a predominantly black nose tip.",
+      "scope_limit": "Visual observation; no pixel mask or calibrated color metric completed.",
+      "return_to": "P03/P04 identity preservation before any new 3D submission"
+    },
+    {
+      "id": "REF-002",
+      "status": "needs_camera_and_scale_registration",
+      "finding": "The side views occupy a visibly smaller vertical image span than front/back. Equal 1024 canvases do not establish equal world scale.",
+      "scope_limit": "Different cropping/scale does not prove inconsistent 3D anatomy; camera fitting is required before ratio comparisons.",
+      "return_to": "P04 shared projection/scale calibration"
+    },
+    {
+      "id": "REF-003",
+      "status": "does_not_match_new_pose_spec",
+      "finding": "The existing reference tail hangs near the ground; the new baseline requests a tail lifted clear of the limbs.",
+      "scope_limit": "This is a mismatch with the new experimental pose contract, not proof the old geometry must fail.",
+      "return_to": "P04 canonical pose generation or an explicitly validated alternative pose"
+    },
+    {
+      "id": "REF-004",
+      "status": "observed_feature_partially_preserved",
+      "finding": "Orange/black nape in the back reference agrees broadly with the inspected dorsal photograph; no complete white dorsal neck collar is present.",
+      "scope_limit": "Local positive check only; exact patch boundaries and the rest of the body remain unverified.",
+      "return_to": "continue complete identity checklist"
+    },
+    {
+      "id": "REF-005",
+      "status": "unverified",
+      "finding": "The original standing body proportions, other-side coat coverage and all four sock boundaries have not yet been calibrated from the full photo set.",
+      "scope_limit": "Three inspected photos are curled/lying/seated; they cannot alone establish exact standing morphology.",
+      "return_to": "P02 full eight-photo evidence review"
+    }
+  ],
+  "G04_passed": false,
+  "approved_for_new_tripo_submission": false,
+  "new_images_generated": false
+}

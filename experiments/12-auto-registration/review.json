@@ -1,0 +1,42 @@
+{
+  "issue_id": "TEX-01",
+  "purpose": "測試自動局部對齊能否取代每隻貓的 52 個手工點。",
+  "inputs": "已大致全局配準的模型 normal-camera 渲染、站姿 AI 參考及各自遮罩；不是任意原照直接到模型。",
+  "fit_landmark_count": 0,
+  "evaluation_landmark_count": 56,
+  "label_role": "人工點只用於事後評估，不餵入演算法；第二版因已看第一版結果，仍只是同例方法開發，不能當新貓留出驗證。",
+  "diagnostic_threshold": "15 px 是此 1536x1024 案例的診斷線，不是已驗證產品門檻；人工點本身也有誤差。",
+  "results": [
+    {
+      "variant": "dis-v001",
+      "algorithm_seconds": 2.225901582976803,
+      "all_point_rms_before_px": 24.966406000292245,
+      "all_point_rms_after_px": 18.661145323818232,
+      "max_error_px": 75.49071605553331,
+      "points_over_15_px": 16,
+      "confident_but_over_15_px": 6,
+      "nonpositive_jacobian_fraction": 0.08336769501818045,
+      "decision": "rejected_for_asset_projection",
+      "reason": "平均誤差改善但局部對錯；可信區仍包含錯配，細切面也被扭曲。"
+    },
+    {
+      "variant": "dis-boundary-v002",
+      "algorithm_seconds": 3.097575542051345,
+      "all_point_rms_before_px": 24.966406000292245,
+      "all_point_rms_after_px": 29.01879587905977,
+      "max_error_px": 105.62986481880685,
+      "points_over_15_px": 23,
+      "confident_but_over_15_px": 5,
+      "nonpositive_jacobian_fraction": 0.019593969836688284,
+      "decision": "rejected_for_asset_projection",
+      "reason": "折疊率下降但整體語意對應反而更差；腳掌拉伸與錯位。"
+    }
+  ],
+  "conclusion": "低像素殘差、來回一致或較平滑的位移都不能替代部位與身份對應。不能拿這兩版直接自動寫回最終 UV。",
+  "next_requirement": "建立可驗證的部位/關鍵點或稠密語意對應，再在各部位內配準；必須含未參與擬合的身份斑界與遮擋檢查。",
+  "no_mesh_or_texture_changed": true,
+  "new_paid_generation_tasks": 0,
+  "new_cat_automation_pass": false,
+  "source_documentation": "https://docs.opencv.org/5.0/main_modules/classcv_1_1DISOpticalFlow.html",
+  "reproducibility": "各變體保存輸入 hash、參數、flow、評估點誤差及與執行 hash 一致的 estimator-source.py。v002 另保存套件/Python 版本；v001 使用同一機器上相同實測套件版本。"
+}

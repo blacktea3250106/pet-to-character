@@ -1,0 +1,69 @@
+{
+  "question": "能否直接讓 Tripo 以 face_limit=3500 原生輸出符合 3500 三角面預算的模型？",
+  "reviewed_on": "2026-09-30",
+  "official_documentation": "https://developers.tripo3d.ai/en/docs/generation-image-to-model/standard",
+  "documented_semantics": "Maximum output polycount; smart_low_poly=true triangle range 500–20000; quad=false requests triangles",
+  "base_url": "https://openapi.tripo3d.ai/v3",
+  "endpoint": "/generation/image-to-model",
+  "task_id": "<redacted-id>",
+  "baseline_task_id": "<redacted-id>",
+  "parameter_difference": {
+    "face_limit": {
+      "before": 3000,
+      "after": 3500
+    }
+  },
+  "same_input_image_hash": true,
+  "server_received": {
+    "face_limit": 3500,
+    "smart_low_poly": true,
+    "quad": false,
+    "model_version": "v3.1-20260211",
+    "model_seed": 3101,
+    "texture_seed": 3102
+  },
+  "results": [
+    {
+      "requested_face_limit": 3000,
+      "actual_glb_triangles": 5128
+    },
+    {
+      "requested_face_limit": 3500,
+      "actual_glb_triangles": 5501
+    }
+  ],
+  "measurement": "Both direct GLB index accessor count / 3 and Blender calc_loop_triangles agree; one mesh and one mesh instance; original download has not been decimated.",
+  "output_keys": [
+    "model_url",
+    "rendered_image_url"
+  ],
+  "api_success": true,
+  "requested_face_budget_pass": false,
+  "service_and_download_seconds": 189.73,
+  "credits_consumed": 40.0,
+  "interpretation": "3500 is a supported request value and was received, but this H3.1 smart-low-poly output exceeds it. Root cause unknown; do not infer universal parameter ineffectiveness or a guaranteed face count from two single-cat trials.",
+  "visual_review": {
+    "images": [
+      "native-3000/hero.png",
+      "native-3500/hero.png"
+    ],
+    "finding": "主要輪廓相近，臉部與鬚片仍有差異。保留原生貼圖/材質/法線，沒有將此前修色版混入原生對照。尚未達 cat.png 美術驗收。"
+  },
+  "next_workflow": "Native 3500 first, then inspect exported triangles/appearance/anatomy. If accepted, skip decimation. If rejected, diagnose provider discrepancy and evaluate bounded retopology/decimation fallback with its own appearance and deformation checks.",
+  "local_fallback": "14-budget-3500/balanced-v002 has exactly 3500 triangles, but region protection is case-specific and does not prove unseen-cat automation.",
+  "animation_validated": false,
+  "new_cat_automation_proven": false,
+  "identity_or_art_pass": false,
+  "source_paths": [
+    "05b-tripo/request-public.json",
+    "15-tripo-native-3500/request-public.json",
+    "15-tripo-native-3500/task-status.json",
+    "15-tripo-native-3500/native-comparison.json"
+  ],
+  "geometry_diagnostics": {
+    "analysis_weld_tolerance_m": 6.5e-07,
+    "boundary_edges": 2,
+    "nonmanifold_edges": 3,
+    "scope": "Blender bmesh analysis copy after positional welding; locations and cause not investigated, so no watertight/rig-ready claim"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "endpoint": "/generation/image-to-multiview",
+  "source_file": "20-standing-reference/standing-v002.png",
+  "source_review": "20-standing-reference/review.json",
+  "source_approval_key": "approved_as_pose_anchor_for_multiview_poc",
+  "output": "21-tripo-multiview/native-v001",
+  "parameters": {},
+  "expected_credits": 10,
+  "official_contract": "https://developers.tripo3d.ai/en/docs/generation-image-to-multiview"
+}

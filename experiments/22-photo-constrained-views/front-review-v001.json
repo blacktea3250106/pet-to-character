@@ -1,0 +1,8 @@
+{
+  "artifact_kind": "AI_2D_not_mesh",
+  "identity_check": "Major right-orange/left-black cheek asymmetry retained; manual visual check",
+  "pose_check": "Head frontal but rump displaced to screen-left; body/neck not convincingly collinear",
+  "approved_as_cross_view_anchor": false,
+  "next_action": "one bounded frontal alignment correction",
+  "new_cat_automation_proven": false
+}

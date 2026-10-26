@@ -1,0 +1,270 @@
+{
+  "artifact_kind": "actual_3D_render",
+  "source": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/23-multiview-3500/native-v001/model_url.glb",
+  "source_sha256": "dfdaa1a27ad99495b8ef243c7686424c8a7f6c1be18c0b85e4dba206c247b791",
+  "source_bounds": [
+    [
+      -0.4980430603027344,
+      -0.2612524628639221,
+      -0.4178082346916199
+    ],
+    [
+      0.5,
+      0.2612524628639221,
+      0.41389429569244385
+    ]
+  ],
+  "review_bounds": [
+    [
+      -0.32500001788139343,
+      -0.17014706134796143,
+      0.0
+    ],
+    [
+      0.32499998807907104,
+      0.17014706134796143,
+      0.5416666269302368
+    ]
+  ],
+  "normalization": {
+    "scale": 0.6512745049325195,
+    "source_origin": [
+      0.0009784698486328125,
+      0.0,
+      -0.4178082346916199
+    ],
+    "scope": "Uniform scale and translation on review scene only; no rotation, mesh edits or true pet size claim"
+  },
+  "camera_semantics": "Azimuth in imported Blender world axes; anatomical labels not inferred automatically",
+  "blender": "5.2.1 LTS",
+  "geometry": [
+    {
+      "name": "tripo_node_<redacted-id>",
+      "vertices": 5915,
+      "triangles": 5356,
+      "polygons": 5356,
+      "uv_layers": 1,
+      "smooth_polygons": 5356
+    }
+  ],
+  "materials": [
+    {
+      "name": "tripo_material_<redacted-id>",
+      "use_nodes": true,
+      "images": [
+        {
+          "name": "Color_<redacted-id>",
+          "size": [
+            2048,
+            2048
+          ],
+          "color_space": "sRGB"
+        }
+      ],
+      "Metallic": {
+        "value": 0.0,
+        "linked": false
+      },
+      "Roughness": {
+        "value": 0.8999999761581421,
+        "linked": false
+      },
+      "Specular IOR Level": {
+        "value": 0.5,
+        "linked": false
+      }
+    }
+  ],
+  "renders": [
+    {
+      "file": "original-az315-el12.png",
+      "mode": "original",
+      "azimuth_degrees": -45,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "original-az000-el12.png",
+      "mode": "original",
+      "azimuth_degrees": 0,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "original-az045-el12.png",
+      "mode": "original",
+      "azimuth_degrees": 45,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "original-az090-el12.png",
+      "mode": "original",
+      "azimuth_degrees": 90,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "original-az135-el12.png",
+      "mode": "original",
+      "azimuth_degrees": 135,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "original-az180-el12.png",
+      "mode": "original",
+      "azimuth_degrees": 180,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "original-az225-el12.png",
+      "mode": "original",
+      "azimuth_degrees": 225,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "original-az270-el12.png",
+      "mode": "original",
+      "azimuth_degrees": 270,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "clay-az315-el12.png",
+      "mode": "clay",
+      "azimuth_degrees": -45,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "clay-az045-el12.png",
+      "mode": "clay",
+      "azimuth_degrees": 45,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "clay-az135-el12.png",
+      "mode": "clay",
+      "azimuth_degrees": 135,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "clay-az225-el12.png",
+      "mode": "clay",
+      "azimuth_degrees": 225,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "original-az045-el60.png",
+      "mode": "original",
+      "azimuth_degrees": 45,
+      "elevation_degrees": 60,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "flat-only-az315-el12.png",
+      "mode": "flat-only",
+      "azimuth_degrees": -45,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    },
+    {
+      "file": "flat-only-az045-el12.png",
+      "mode": "flat-only",
+      "azimuth_degrees": 45,
+      "elevation_degrees": 12,
+      "target": [
+        -1.4901161193847656e-08,
+        0.0,
+        0.2708333134651184
+      ],
+      "ortho_scale": 0.9849355816841125
+    }
+  ],
+  "asset_accepted": false,
+  "analysis_weld_tolerance_m": 6.5e-07,
+  "analysis_topology": {
+    "vertices": 2680,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "meaning": "Analysis-copy topology; not anatomical or animation acceptance"
+  },
+  "triangle_count": 5356,
+  "flat_only_scope": "Diagnostic shading flag only; no topology, color, material or geometry edits; saved scene retains source normals/shading"
+}

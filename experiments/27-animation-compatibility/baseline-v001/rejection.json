@@ -1,0 +1,12 @@
+{
+  "status": "rejected_implementation_error",
+  "reason": "New Blender edit bones had zero length when matrix was assigned; subsequent length set left all local Y axes pointing world Z. Target rest orientations did not match source, invalidating animation suitability conclusions.",
+  "evidence": [
+    "matrix-probe.json",
+    "matrix-flags-probe.py"
+  ],
+  "fix": "Initialize bone head/tail from intended rotation Y column, align roll with Z column, assert all rest rotations match canonical source within 1e-4.",
+  "preserved": true,
+  "animation_metrics_valid_for_suitability": false,
+  "scope": "Rest target mesh unchanged, but animation artifacts reflect implementation error; baseline-v002 will repeat same algorithm after correction."
+}

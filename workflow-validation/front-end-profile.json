@@ -1,0 +1,198 @@
+{
+  "profile_version": "photo-to-model-poc-0.1",
+  "status": "specified_not_end_to_end_validated",
+  "input": {
+    "accepted_photo_formats": [
+      "jpeg",
+      "png",
+      "webp",
+      "heic"
+    ],
+    "working_color_space": "sRGB",
+    "apply_exif_orientation": true,
+    "mirror_augmentation": false,
+    "max_selected_photos": 8,
+    "minimum_start_photos": 1,
+    "face_crop_review_below_px": 256,
+    "background_rgb": [
+      224,
+      224,
+      224
+    ],
+    "crop_padding_fraction": 0.1,
+    "normalized_view_size": [
+      1024,
+      1024
+    ],
+    "multi_view_scale_policy": "one_shared_scale_and_groundline_not_independent_bbox_fill",
+    "segmentation_candidate": {
+      "implementation": "SAM2ImagePredictor",
+      "checkpoint": "sam2.1_hiera_small.pt",
+      "config": "configs/sam2.1/sam2.1_hiera_s.yaml",
+      "status": "candidate_not_installed_or_tested",
+      "initial_prompts": "reviewed_cat_bbox_then_positive_ear_paw_tail_and_negative_background_points"
+    }
+  },
+  "image_reference": {
+    "poc_provider": "conversation_imagegen",
+    "production_provider": null,
+    "model_version": null,
+    "production_adapter_status": "unresolved_no_automated_quality_claim",
+    "style_reference": "cat.png",
+    "required_views": [
+      "front",
+      "left",
+      "back",
+      "right"
+    ],
+    "qa_views": [
+      "top",
+      "threequarter"
+    ],
+    "view_convention": "left_right_are_animal_anatomical_sides_pending_provider_marker_test",
+    "hard_requirements": [
+      "same_individual_and_neutral_standing_pose",
+      "preserve_confirmed_asymmetric_markings",
+      "four_separate_limbs_and_tail_clear_of_body",
+      "no_letters_panels_ground_shadow_in_uploaded_view",
+      "unknown_regions_remain_labelled_inferred"
+    ]
+  },
+  "tripo": {
+    "base_url": "https://openapi.tripo3d.ai/v3",
+    "upload_endpoint": "/files",
+    "generation_endpoint": "/generation/multiview-to-model",
+    "query_endpoint": "/tasks/{task_id}",
+    "baseline_id": "h31_smart3500_standard",
+    "request_parameters": {
+      "model": "v3.1-20260211",
+      "texture": true,
+      "pbr": false,
+      "texture_alignment": "original_image",
+      "texture_version": "v3.0-20250812",
+      "texture_quality": "standard",
+      "geometry_quality": "standard",
+      "smart_low_poly": true,
+      "face_limit": 3500,
+      "quad": false,
+      "auto_size": false,
+      "generate_parts": false,
+      "orientation": "default",
+      "export_uv": true,
+      "model_seed": 3101,
+      "texture_seed": 3102
+    },
+    "intentionally_omitted": [
+      "compress",
+      "export_orientation",
+      "delight",
+      "prompt",
+      "negative_prompt",
+      "type",
+      "model_version",
+      "files"
+    ],
+    "poll_seconds": 8,
+    "soft_deadline_minutes": 20,
+    "post_timeout_policy": "record_unknown_submission_do_not_automatically_submit_again",
+    "seed_policy": "fixed_experimental_seeds_not_recovered_catworld_seeds",
+    "variants": {
+      "texture_detailed": {
+        "texture_quality": "detailed"
+      },
+      "texture_delight": {
+        "texture_version": "v3.5-20260815",
+        "delight": true
+      },
+      "historical_geometry_3000": {
+        "face_limit": 3000
+      }
+    },
+    "experiment_policy": "Current request default is 3500; historical 3000 retained only as an explicit comparison. Inspect actual GLB triangles and appearance. Conditional service v1.0 reduction has single-cat evidence; no unseen-cat guarantee.",
+    "live_v3_generation_tested": true,
+    "current_user_triangle_target": 3500,
+    "geometry_3500_test": {
+      "requested": 3500,
+      "exported_triangles": 5501,
+      "budget_pass": false,
+      "case": "generation-v001",
+      "report": "../generation-v001/15-tripo-native-3500/review.json"
+    },
+    "historical_baseline": {
+      "id": "h31_smart3000_standard",
+      "face_limit": 3000,
+      "request_records": [
+        "../generation-v001/05-tripo/request-public.json",
+        "../generation-v001/05b-tripo/request-public.json"
+      ],
+      "policy": "Historical task requests are immutable; current defaults do not rewrite them."
+    }
+  },
+  "local_geometry": {
+    "canonical_axes": {
+      "forward": "+X",
+      "anatomical_left": "+Y",
+      "up": "+Z"
+    },
+    "unit": "meter",
+    "normalized_nose_to_tailbase_m": 0.5,
+    "length_is_actual_pet_measurement": false,
+    "weld_policy": "analysis_copy_only_preserve_render_uv_normals_and_corners",
+    "weld_tolerance_body_length_ratio": 1e-06,
+    "subdivision_levels_max": 0,
+    "smooth_blend_candidate": 0.6,
+    "normal_jitter_default_m": 0.0,
+    "normal_jitter_experiment_m": 0.0007,
+    "protect_regions": [
+      "eyes",
+      "nose",
+      "mouth",
+      "ear_tips",
+      "paw_tips",
+      "identity_marking_boundaries"
+    ],
+    "subdivision_policy": "Uniform subdivision disabled by default after failed 5128-to-20512 art comparison. Any local topology change needs a new action gate and must respect the 3500-triangle budget."
+  },
+  "surface_color": {
+    "atlas_size": [
+      2048,
+      2048
+    ],
+    "sampling_color_space": "linear_sRGB_exact_transfer_function",
+    "view_cosine_power": 4,
+    "projection_depth_tolerance_body_length_ratio": 0.008,
+    "projection_requires_visibility_and_identity_approved_reference": true,
+    "conflicting_color_views": "pick_trusted_source_or_reject_not_blind_average",
+    "feature_protection": "semantic_masks_and_surface_anchors_not_hardcoded_world_coordinates",
+    "eye_radius_head_width_ratio_candidate": 0.1,
+    "uv_padding_px": 16,
+    "material": {
+      "metallic": 0.0,
+      "roughness": 0.9,
+      "generated_normal_map_enabled": false
+    },
+    "unknown_surface_policy": "retain_generated_base_but_mark_inferred",
+    "face_color_mean_policy": "body_facets_only_with_identity_boundary_and_feature_exceptions"
+  },
+  "qa": {
+    "threshold_status": "initial_review_triggers_not_calibrated_product_acceptance",
+    "mandatory_confirmed_identity_feature_recall": 1.0,
+    "standalone_engineering_pass_is_visual_pass": false,
+    "api_success_is_asset_pass": false,
+    "view_keypoint_error_body_span_ratio_review_above": 0.03,
+    "model_reference_silhouette_iou_review_below": 0.85,
+    "identity_feature_boundary_head_width_ratio_review_above": 0.03,
+    "extra_limbs_allowed": 0,
+    "missing_limbs_allowed": 0,
+    "intermediate_requires_visual_review": true,
+    "open_blockers": [
+      "photo_identity_and_landmark_adapter_not_implemented",
+      "segmentation_candidate_not_tested_on_example",
+      "image_reference_production_provider_not_selected",
+      "reference_cross_view_consistency_not_verified",
+      "provider_left_right_convention_not_tested",
+      "semantic_surface_projection_not_generalized",
+      "visual_acceptance_thresholds_not_calibrated"
+    ]
+  }
+}

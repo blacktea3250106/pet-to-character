@@ -1,0 +1,610 @@
+{
+  "schema_version": 1,
+  "case_id": "generation-v001",
+  "updated": "2026-10-01",
+  "purpose": "每次修正都留下問題、依據、介入與驗收紀錄，並判斷能否泛化到未見過的貓。",
+  "current_system_status": "cat.png單張2D趴姿已在房間副本實測alpha/陰影/深度；靜態候選保留，仍有AI重畫及人工落地pivot。方向、動畫及新真實貓個人化未驗證。",
+  "production_automation_pass": false,
+  "status_definitions": {
+    "implemented_measurement": "已有可執行量測，只證明所量測的性質",
+    "case_replay": "有程式但依賴這隻貓的座標、標點或人工選擇",
+    "proposed_unvalidated": "僅提出自動化方向，尚無跨貓實測",
+    "requires_evidence": "缺輸入證據，不能靠自動生成得到真值"
+  },
+  "issues": [
+    {
+      "id": "INPUT-01",
+      "stage": "P01-P02",
+      "problem": "分割與身份清單依賴人工輪廓、裁切和特徵框。",
+      "evidence": [
+        "prepare.py",
+        "01-segmentation/manifest.json",
+        "02-identity/features.json",
+        "13-dorsal/projection-v001/source-mask.png",
+        "13-dorsal/projection-v002/source-mask.png",
+        "13-dorsal/review.json"
+      ],
+      "current_fix": "先手工標輪廓，再跑 GrabCut；人工核對左右臉、粉鼻、白胸和腳掌。 背部參考的矩形 GrabCut 誤收地面陰影；用已知渲染輪廓約束後改善，但曾把錯位耳朵的背景強制當前景，因此不能把遮罩 IoU 視為獨立驗證。",
+      "automation_status": "case_replay",
+      "future_detection": "分割與關鍵點候選器輸出遮罩、可見部位、左右側及可信度。",
+      "future_repair": "可信度不足時補拍指定視角或局部修正標註；不能把尾巴裁切區自動當成已觀測。",
+      "validation": "在不同花色、姿勢、背景和遮擋的留出照片上分別量測分割、左右側判斷與身份特徵漏失。",
+      "risk": "黑貓、黑背景、長毛、閉眼和截圖邊框都可能使本例的方法失效。"
+    },
+    {
+      "id": "REF-01",
+      "stage": "P03-P04",
+      "problem": "風格化會簡化真實斑紋；多視圖的比例、四肢和尾巴未一致，仍被推進。 逐階段重看也發現 P03 的細碎切面已偏離 cat.png，P04 延續此方向；不能將所有差距歸因於 3D 減面。",
+      "evidence": [
+        "03-style/review.json",
+        "04-views/review.json",
+        "04b-single-reference/review.json",
+        "17-stage-review/review.json",
+        "18-reference-style/prompt.txt",
+        "18-reference-style/review.json",
+        "18-reference-style/same-pose-v002.png",
+        "20-standing-reference/review-v001.json",
+        "20-standing-reference/review.json",
+        "21-tripo-multiview/review.json",
+        "21-tripo-multiview/native-v001/left.jpg",
+        "21-tripo-multiview/transport-check.json",
+        "22-photo-constrained-views/review.json",
+        "22-photo-constrained-views/front-review-v001.json",
+        "22-photo-constrained-views/integrity-check.json"
+      ],
+      "current_fix": "人工重生、裁切、依耳尖到地面縮放，之後改試單圖。 共用切面風格提示詞單次對照有局部改善，但新增毛絲／鬍鬚且仍細碎，已拒絕推進，不採納為生產預設。 原生 Image to Multiview 已由單圖自動取得四張獨立圖、無人工裁切，但將另一側黑臉補成橘色，身份閘門拒絕；未送 3D。實際巢狀回應已做明確 adapter，沿用同一任務下載。 帶入多張原照與共用站姿的四張獨立參考已保留主要左右臉差異；初版正面頭身不同軸，用一次修正。目視核准一輪 3D POC，但精確相機、尺度与花色邊界未量化，仍非自動品質保證。",
+      "automation_status": "proposed_unvalidated",
+      "future_detection": "各圖回到同一份原照身份證據；分別檢查左右斑、關鍵點比例、姿勢和跨視角對應。",
+      "future_repair": "只修失敗視角，限制重試；拒絕品質不足的參考組，不以放寬門檻換成功。 多視圖生成需帶入其他原照的每側身份證據；單圖補視角無法取得未觀測的真實花色。服務 view 名稱須核對實際視角，不直接等同解剖正交方向。",
+      "validation": "身份保留與視角一致性分開計分；用未參與生成的原照核對，不以生成圖相互相似取代真實身份。",
+      "risk": "生成成功或自動評分高分仍可能斑紋錯側；目前沒有可靠自動身份裁判。"
+    },
+    {
+      "id": "GEN-01",
+      "stage": "P05-P06",
+      "problem": "Tripo 第一隻生成五腿；封閉網格也可能解剖錯誤。",
+      "evidence": [
+        "06-raw-model/threequarter.png",
+        "06b-repair/review.json",
+        "automation-evidence/five-leg.json"
+      ],
+      "current_fix": "局部刪腿補洞失敗；第二次單圖重生得到四腳候選。",
+      "automation_status": "proposed_unvalidated",
+      "future_detection": "部位分割、肢體中心線和地面接觸候選聯合判斷；連通分量與低高度切片只提供警訊。",
+      "future_repair": "在已驗證輸入姿勢與品質範圍內有限重生；無可信修復時返回失敗或已驗收替代模型。",
+      "validation": "對正常四腿、多腿、黏腿、抬腳、尾巴落地分别測漏判與誤判。",
+      "risk": "不能把最低四個部件直接當四腳，也不能把拓樸無破洞當解剖通過。"
+    },
+    {
+      "id": "GEO-01",
+      "stage": "P07",
+      "problem": "UV 拆點被分別平滑，造成 5052 條邊界。",
+      "evidence": [
+        "07b-geometry/rejected-uv-split-smoothing/report.json",
+        "blender_stage.py"
+      ],
+      "current_fix": "幾何工作副本焊接重合位置，保留 face-corner UV，再變形。",
+      "automation_status": "implemented_measurement",
+      "future_detection": "變形前後檢查幾何邊界、UV 屬性、位置分組與退化面。",
+      "future_repair": "用共享位置對應變形並傳回渲染拆點；接縫、硬邊和貼圖屬性分開保存。",
+      "validation": "包含 UV 接縫、硬邊與彼此很近但不相連的腳趾；確認沒有錯焊。",
+      "risk": "全局距離焊接可能黏合相鄰部位；目前容差只在本案例尺度實測。"
+    },
+    {
+      "id": "GEO-02",
+      "stage": "P07",
+      "problem": "把 5128 面均勻細分到 20512 面，未證明更接近 cat.png。",
+      "evidence": [
+        "07b-geometry/report.json",
+        "10-style-recovery/review.json",
+        "14-budget-3500/weighted-v001/render-report.json",
+        "14-budget-3500/balanced-v002/render-report.json",
+        "14-budget-3500/balanced-v002/export-review/report.json",
+        "15-tripo-native-3500/review.json",
+        "16-service-retopology/review.json",
+        "25-appearance-diagnostic/structure-analysis.json",
+        "25-appearance-diagnostic/catworld-comparison.json",
+        "26-adaptive-facet-color/review.json"
+      ],
+      "current_fix": "取消均勻加密。使用者指定約 3500 三角面；本地兩次減面，第一版造成軀幹大面及貼圖污染而拒絕，第二版重分配權重/UV/烘焙取得 3500 面候選。流程順序修正為先測 Tripo 原生 face_limit=3500，再決定是否需要本地 fallback；原生 3500 任務已完成，實際 5501 三角面；維持原生優先但加入輸出預算驗收與條件式後處理。 新增Tripo v1.0基本減面：原始服務輸出正好3500面，不需頭/腳手動保護區；同例材質修復後工作候選，跨貓與動畫未驗證。 唯讀量測確認目前 3500 面的全部面角法線符合 flat 容差；相鄰面折角中位數由原生約 13.0° 到 16.4°。面角本身不能作美術分數，也不能因此推論各部位切面分布已合格。 catworld 對照確認其切面成品實際 12300 面，另含細分及微擾；不能直接搬用並宣稱符合本專案 3500 面，也不能由對照推論必須加面。 26 固定幾何與 3500 面，只改底色即可觀察到更明顯角狀花色；不代表現有面分布已符合最終美術。",
+      "automation_status": "proposed_unvalidated",
+      "future_detection": "分部位量測曲率、輪廓誤差、面積分布與身份邊界解析度；美術合格樣本另作評估。",
+      "future_repair": "針對具體缺陷分配局部幾何密度；不把面數或 flat shading 當風格目標。",
+      "validation": "固定相機光照的盲比、頭身局部特徵與多視角輪廓；不能只比較面數。",
+      "risk": "cat.png 是 2D AI 圖，沒有可直接恢復的真實面數；自動美術評分未驗證。"
+    },
+    {
+      "id": "GEO-03",
+      "stage": "P06-P07",
+      "problem": "眉毛和鬍鬚變成五個獨立刺片。",
+      "evidence": [
+        "10-style-recovery/native/face-clay.png",
+        "10-style-recovery/clean-flat/report.json",
+        "automation-evidence/raw-single.json",
+        "automation-evidence/clean-single.json"
+      ],
+      "current_fix": "人工確認五個分離部件後刪除 56 面，主體 5072 面保留。",
+      "automation_status": "implemented_measurement",
+      "future_detection": "通用量測器已能標出五個小分離部件；還需部位、形狀和多視圖語意判斷用途。",
+      "future_repair": "只有高可信度判為不需要的眉鬚刺片才可刪除；其他部件交由審查。",
+      "validation": "必須加入正常獨立眼球、牙齒、爪子與配件作負例，量測誤刪率。",
+      "risk": "不能把刪除所有小部件當通用修復。"
+    },
+    {
+      "id": "GEO-04",
+      "stage": "P07",
+      "problem": "左後側主體出現鰓片狀凸起；局部平滑仍未消除乾淨。",
+      "evidence": [
+        "11-other-side/review.json",
+        "11-other-side/opposite-clay.png",
+        "11-other-side/flank-relax/opposite-clay.png",
+        "11-other-side/flank-relax-v2/opposite-clay.png",
+        "11-other-side/flank-relax-v2/geometry-check.json"
+      ],
+      "current_fix": "以人工橢圓區域測試 normal-only 與 full-neighbor 平滑；兩版都保留為未通過候選。",
+      "automation_status": "case_replay",
+      "future_detection": "曲率、法線突變、局部厚度和褶皺可產生疑似缺陷區；需部位語意區分正常肩胛、關節或毛簇。",
+      "future_repair": "只在可信身體表面限制位移修整；修後驗輪廓、自交、面積與身份貼圖。失敗則返回重建或有界人工審查。",
+      "validation": "正常肩胛/腿根作負例；比較缺陷削弱、形體漂移與失真，而非只看無破洞。",
+      "risk": "目前沒有通用缺陷定位器；9 mm 位移上限也只是本例設定，不能套所有貓。"
+    },
+    {
+      "id": "TEX-01",
+      "stage": "P08",
+      "problem": "全身對齊 IoU 0.8058，新增投影 0%；全局相機不足以對齊眼鼻與腳掌。",
+      "evidence": [
+        "08b-coat/processing-report.json",
+        "local_landmarks.json",
+        "10-style-recovery/local-projection/report.json",
+        "12-auto-registration/review.json",
+        "12-auto-registration/dis-v001/evaluation.json",
+        "12-auto-registration/dis-boundary-v002/evaluation.json",
+        "11-other-side/projection-v001/diagnostic-report.json",
+        "11-other-side/projection-v002/report.json",
+        "13-dorsal/projection-v003/report.json",
+        "13-dorsal/color-v001/back-high.png"
+      ],
+      "current_fix": "52 個人工對應點做局部配準，四個未參與擬合的檢查點 RMS 4.34 px；37.2% 有效 UV 像素取得參考色。 另測兩種無手工點的光流候選，均因錯配被拒絕，沒有寫回模型。 另一側先用實際灰模鎖定參考姿勢，再以無手工點的輪廓尺度/平移校正，IoU 0.725→0.938；僅本例投影候選，頭部仍有差異。 背部先拒絕耳朵污染版本，再以人工軀幹窗口限制修色；這一步尚無自動身體分區。",
+      "automation_status": "case_replay",
+      "future_detection": "自動估計姿勢、相機、語意關鍵點和可見表面，分頭臉/四肢/軀幹建立稠密對應與不確定度。",
+      "future_repair": "分部位配準，保留 source image、triangle ID、重心座標及可信度；對應不可信區不投影。",
+      "validation": "不只測擬合点；留出原照地標與斑界，檢查錯側、跨肢體、遮擋、映射折疊和局部拉伸。",
+      "risk": "手工點重播不等於自動配準；無折疊也不代表語意正確，局部面積縮放已達 0.124–3.5 倍。",
+      "automatic_alignment_experiments": {
+        "count": 2,
+        "accepted": 0,
+        "main_failure": "來回一致性高的點仍可能語意錯配；輪廓輔助不能保證改善"
+      },
+      "known_camera_silhouette_experiment": {
+        "accepted_as_working_color_candidate": true,
+        "semantic_alignment_validated": false,
+        "new_cat_automation_proven": false,
+        "report": "11-other-side/projection-v002/report.json"
+      }
+    },
+    {
+      "id": "TEX-02",
+      "stage": "P02-P08",
+      "problem": "另一側原先使用 Tripo 推測花色；修正肩斑後，背部與未拍攝部位的身份、覆蓋及新舊來源一致性仍未通過。",
+      "evidence": [
+        "00-input/photo-03.png",
+        "00-input/photo-01.png",
+        "10-style-recovery/local-color/opposite.png",
+        "11-other-side/reference-prompt.txt",
+        "11-other-side/reference-v001/review.json",
+        "11-other-side/color-v001/opposite.png",
+        "11-other-side/color-v001/back-high.png",
+        "11-other-side/review.json",
+        "13-dorsal/reference-v001/review.json",
+        "13-dorsal/color-v002/back-high.png",
+        "13-dorsal/review.json",
+        "22-photo-constrained-views/review.json",
+        "23-multiview-3500/review.json",
+        "24-multiview-budget/review.json"
+      ],
+      "current_fix": "依 photo-03 / photo-01 生成同姿勢正常視角參考，再確定性投影到 UV；實際 3D 已改善黑肩斑與頸侧白毛，兩側 AI 參考聯集覆蓋 67.465%，不能當原照還原率。 背部補色後 AI 參考聯集為 69.439%，大面積灰暗區改善；細斑仍是依照片引導的生成結果。 新多照片約束參考到 3D 保留主要左右臉與黑肩，未沿用 52 點投影或背部手工窗口；細斑及隱藏身份仍未驗證，不把該舊修色支線當每隻貓必經步驟。 最新分支保留主要左右臉斑及黑肩，但精細身體斑紋與原照仍有差異，沒有把服務減面前後色差當成照片還原率。",
+      "automation_status": "requires_evidence",
+      "future_detection": "每個表面區分原照可見、生成推測、來源衝突和完全缺失；本輪的 AI 參考投影覆蓋率不能當原照覆蓋率。",
+      "future_repair": "有原照就先建立可見性與對應；沒有原照就要求補拍或在產品支援範圍內明示推測。",
+      "validation": "按身體部位量測原照證據覆蓋及衝突，留出另一側照片查驗。",
+      "risk": "無法自動恢復從未被拍到的真實斑紋；不能鏡射一側後宣称還原。"
+    },
+    {
+      "id": "TEX-03",
+      "stage": "P08-P09",
+      "problem": "模糊毛邊、灰色黑斑與參考圖已包含的陰影；投影可能疊加光照。",
+      "evidence": [
+        "08b-coat/unlit.png",
+        "10-style-recovery/local-color/hero.png",
+        "10-style-recovery/local-color/face.png",
+        "11-other-side/color-v001/back-high.png",
+        "25-appearance-diagnostic/structure-analysis.json",
+        "25-appearance-diagnostic/structure-analysis-rejected-uv-origin-note.json",
+        "25-appearance-diagnostic/catworld-comparison.json",
+        "26-adaptive-facet-color/review.json"
+      ],
+      "current_fix": "對齊後投影較清楚的正常視角參考；保留面內細節，不讓 ImageGen 編輯 UV。 新侧投影更清楚，但俯視背部仍有灰暗模糊區與來源銜接落差，不能放行。 每面 55 個固定重心採樣顯示目前仍有面內顏色變化，與底色直出畫面的柔化花邊一致；不能把其中的真實斑界或眼睛當噪聲一律平均。直接讀取 glTF UV 時須採左上原點；第一次量測誤用 Blender UV 原點的結果已拒絕並保存，未動模型。 catworld 的切面版有明確逐面均色且保護眼區；最新 24/25 分支保留了原貼圖的柔化毛邊。這支持檢驗受控顏色抽象化，但不支持無差別平均全部三角面。 26 新增無逐貓遮罩的最大色差自適應色塊化，兩個強度已匯出 3500 面 GLB 並渲染；身體與尾巴更角狀，但白胸交界仍細碎，B 額頭塊偏大，未定稿。 使用者認為整體看不出差別，26 A/B 已改判風格改善不足、不採用；局部像素改動仍保留作技術證據，不等於美術進步。",
+      "automation_status": "implemented_measurement",
+      "future_detection": "對照純 base color、灰模和固定燈光，檢查身份斑界、來源陰影和接縫。",
+      "future_repair": "經驗證的色彩正規化與部位風格整理；保護眼鼻嘴及小型身份斑。",
+      "validation": "跨燈光、跨角度觀察是否重複陰影或改變花色；原照是真實身份依據。 正常全身觀看須有可辨認的目標風格改善，不能只靠放大局部或像素統計。",
+      "risk": "單張照片無法唯一分離毛色與光照；三色量化或面內平均可能吞掉辨識特徵。 色差上限保護的是像素，不知道何者是眼睛、身份斑或該移除的毛絲；整體風格與未知貓仍未通過。"
+    },
+    {
+      "id": "EYE-01",
+      "stage": "P09",
+      "problem": "眼區來源對齊、原生眼眶及眼皮幾何尚未通過多角度品質；roughness 改動小。",
+      "evidence": [
+        "10-style-recovery/eye-material/report.json",
+        "11-other-side/face-oblique-a.png",
+        "11-other-side/face-oblique-b.png",
+        "25-appearance-diagnostic/review.json",
+        "25-appearance-diagnostic/catworld-comparison.json",
+        "26-adaptive-facet-color/review.json"
+      ],
+      "current_fix": "人工畫眼裂遮罩，從表面對應轉到 roughness；保留原生凹槽幾何。 最新 24/25 分支沒有沿用舊眼區遮罩；目前全表面 roughness=0.9，25 的反射調整也未區分眼睛。不得視為眼部處理完成。 catworld 使用眼中心及固定 11mm 保護半徑；此局部例外說明眼區不能與全身一律均色，但固定常數不等於未知貓的可靠定位。 26 沒有沿用手工眼罩，以色差保留細節；三角度實際近照仍可辨認眼鼻，但這不是語義眼睛偵測或所有眼型保證。",
+      "automation_status": "case_replay",
+      "future_detection": "眼角、眼裂、虹膜與瞳孔分區，連結 3D 錨點；不可只依黄色閾值找眼睛。",
+      "future_repair": "在可靠定位下調材質；若幾何缺失，需眼球/眼皮模組適配或局部重建。",
+      "validation": "不同眼色、閉眼和遮擋；正面、斜面、側面檢查瞳孔數量、方向、眼皮邊界，動畫另驗。",
+      "risk": "材質數值自動套用很容易，但不能修復錯誤眼眶或多餘瞳孔。"
+    },
+    {
+      "id": "RENDER-01",
+      "stage": "QA",
+      "problem": "早期燈光和色彩管理不固定，讓模型偏亮偏灰，干擾前後比較。",
+      "evidence": [
+        "06-raw-model/initial-lighting.png",
+        "style_probe.py",
+        "10-style-recovery/native/report.json",
+        "23-multiview-3500/raw-review/report.json",
+        "23-multiview-3500/flat-candidate/preview/report.json",
+        "25-appearance-diagnostic/isolated-v001/report.json",
+        "25-appearance-diagnostic/color-statistics.json"
+      ],
+      "current_fix": "固定相機、Standard 色彩管理、燈光、材質基準與灰模對照。 新模型以包圍盒自動取景，不沿用舊貓手工臉部鏡頭；最終預覽加大共同地板以移除背景板邊緣。 新增兩角度三模式隔離：原材質、零鏡面、底色直出。用模型 alpha 自動排除背景，發現反射會讓深色區域变亮，但模糊毛邊仍在底色中；不能只歸因燈光或只靠材質修好。",
+      "automation_status": "implemented_measurement",
+      "future_detection": "場景設定與版本快照；偏離基準就不接受比較。",
+      "future_repair": "在隔離場景重建固定審查條件，再產出相同視角。",
+      "validation": "同一資產重跑與 GLB 回讀比較；引擎呈現另作對照。",
+      "risk": "畫面一致只證明比較條件一致，不等於美術通過。"
+    },
+    {
+      "id": "QA-01",
+      "stage": "P05/QA",
+      "problem": "V3 文件將 face_limit 定義為上限，但同一 H3.1 單貓案例請求 3000→5128 三角面，3500→5501 三角面；伺服器收到正確值。原因未明，不能把請求成功當預算通過。舊統計另有 polygon/triangle 命名錯誤。 新多照片四視圖請求 3500 又輸出 5356，GLB 與 Blender 計數一致；不是單圖分支特有的已知結果。",
+      "evidence": [
+        "05b-tripo/request-public.json",
+        "06b-repair/report.json",
+        "automation-evidence/failed-repair.json",
+        "automation-evidence/stats-definition-check.json",
+        "inspect_geometry.py",
+        "blender_stage.py",
+        "15-tripo-native-3500/review.json",
+        "15-tripo-native-3500/native-comparison.json",
+        "16-service-retopology/basic-v001/model_url-preflight.json",
+        "23-multiview-3500/native-v001/task-status.json",
+        "23-multiview-3500/native-v001/model_url-preflight.json",
+        "23-multiview-3500/review.json",
+        "24-multiview-budget/review.json",
+        "24-multiview-budget/flat-candidate/preflight.json"
+      ],
+      "current_fix": "修正 polygon/triangle 統計；新增直接原生 3500 控制對照。只改 face_limit，原始 GLB index count/3 與 Blender loop triangles 均為 5501。保存參數差分、伺服器 input、原始模型、實際 credits 與渲染；本次面數驗收失敗。 下載流程新增active-scene三角面數 gate，服務v2.0的4422面自動拒絕，v1.0的3500面只通過面數驗收。 最新四視圖 5356 面模型經一次 v1.0 服務減為 3500；GLB metadata 與 Blender 回讀一致。沒有本地減面或局部保護區。",
+      "automation_status": "implemented_measurement",
+      "future_detection": "入庫前讀實際 topology、UV、材質與三角化面數；記錄量測算法和容差。",
+      "future_repair": "原生 face_limit=3500 優先；實際模型驗收不合格再進入經驗證的伺服器重拓樸/本地減面候選或有界重試。面數、身份、美術、動畫分別驗證。",
+      "validation": "包含 quads/ngons、UV 拆點與有孔壞網格；各工具量測定義要一致。",
+      "risk": "不同焊接/邊界定義不能直接混比；本例修正不證明減面能保持外觀。"
+    },
+    {
+      "id": "OPS-01",
+      "stage": "execution",
+      "problem": "flank-relax-v2 腳本已寫出成果，但命令缺少腳本參數分隔符，Blender 把 --full 當檔案，程序最終 exit 1。",
+      "evidence": [
+        "flank-relax-v2.log",
+        "11-other-side/flank-relax-v2/report.json",
+        "11-other-side/color-v001-render.log",
+        "11-other-side/color-v001-render-attempt02.log",
+        "11-other-side/review.json"
+      ],
+      "current_fix": "登記為 artifacts_created_but_process_failed；正確參數使用 --python SCRIPT -- --full。未為了刷成功狀態重跑修模。 本輪也發現 Blender Python import 失敗卻退出 0；後續命令加入 --python-exit-code 1，並檢查新產物和實際結果。",
+      "automation_status": "implemented_measurement",
+      "future_detection": "分開追蹤 process exit、預期檔案、新鮮度、輸入輸出 hash 與視覺驗收。",
+      "future_repair": "以參數陣列建立命令，固定腳本退出碼；缺少程序或成果證據時不可宣布完成。",
+      "validation": "注入腳本失敗、退出失敗、舊檔殘留與部分輸出，確認不會誤報成功。",
+      "risk": "檔案存在、日誌印 COMPLETE、程序 exit 0 各自都不足以證明品質完成。"
+    },
+    {
+      "id": "EXPORT-01",
+      "stage": "P09/QA",
+      "problem": "工作檔好看不保證匯出的 GLB 保留幾何、UV 和材質。",
+      "evidence": [
+        "10-style-recovery/export-review/report.json",
+        "verify_recovery_glb.py",
+        "11-other-side/color-v001/export-review/report.json",
+        "23-multiview-3500/flat-rejected-v001/export-review.json",
+        "23-multiview-3500/flat-candidate/export-review.json",
+        "23-multiview-3500/flat-candidate/material-check.json",
+        "24-multiview-budget/flat-candidate/export-review.json",
+        "26-adaptive-facet-color/review.json",
+        "27-animation-compatibility/weights-v001/export/verification.json",
+        "27-animation-compatibility/export_verify.py",
+        "28-part-aware-rig/fit-v002/original/candidate/export/verification.json",
+        "29-walk-sit-scope/selection.json",
+        "29-walk-sit-scope/verification.json"
+      ],
+      "current_fix": "重新匯入 GLB；頂點差距 0，固定渲染平均 RGB 差距低於 0.003/255。 新雙側花色候選同樣回讀；頂點差距 0，三視角平均 RGB 差距皆低於 0.003/255。 新模型只設 smooth=false 的第一次匯出仍有自訂法線不一致；改成明確寫入面角點法線並強制解碼材質影像。5356 面回讀位置與 UV 差異 0、非空貼圖像素 hash 一致、法線內積最低 0.99999986。 同一共用法線規則已用於新 3500 面候選：相對服務減面輸出的位置／UV 差異 0、解碼貼圖一致、法線內積最低 0.99999985。 27 新動畫 GLB 保留 3500 面、56 骨、五段 action 和八影響；回讀 15 個姿勢最大頂點差約 4.22e-5/最大模型尺寸，底色像素差 0。量化排序造成的角點誤判已以雙向空間/UV 配對修正。 28 的失敗動畫研究 GLB 也完成回讀，3500面、五動作和底色保留，15姿勢最大差約7.98e-5；匯出成功不改變不採用決定。",
+      "automation_status": "implemented_measurement",
+      "future_detection": "版本化匯出回讀、拓樸/尺寸/材質檢查及固定渲染比較。",
+      "future_repair": "只修明確的匯出或材質相容問題；無法重現則拒絕交付。",
+      "validation": "目前僅 Blender 回讀；Unity shader、色彩管理、mipmap 與動畫匯入仍待實測。",
+      "risk": "匯出正確不代表模型身份、美術或動畫合格。"
+    },
+    {
+      "id": "RIG-01",
+      "stage": "P06–P09 → rig/animation",
+      "problem": "2D 花色點不能當 3D 關節。27 已將五段来源動作套到目前生成貓，但仿射骨架位置與最近表面權重仍出現拉伸、相交和穿地；不同腿長/胖瘦未驗證。 28 分部位/ARAP 中介雖改善貼近距離，仍新增包覆自交；只映射關節位置、保留來源骨軸及縮放位置曲線，無法適配翹尾與獨立腿長。",
+      "evidence": [
+        "automation-evidence/animation-compatibility-current.json",
+        "local_landmarks.json",
+        "../texture-transfer-v001/mesh-info.json",
+        "../../workflow.md",
+        "11-other-side/color-v001/export-review/report.json",
+        "23-multiview-3500/flat-candidate/preflight.json",
+        "27-animation-compatibility/action_gate.json",
+        "27-animation-compatibility/weight-repair-gate.json",
+        "27-animation-compatibility/foot-detection.json",
+        "27-animation-compatibility/baseline-v001/rejection.json",
+        "27-animation-compatibility/baseline-v002/animation-report.json",
+        "27-animation-compatibility/weights-v001/animation-report.json",
+        "27-animation-compatibility/review.json",
+        "27-animation-compatibility/animation-comparison.mp4",
+        "28-part-aware-rig/review.json",
+        "28-part-aware-rig/rest-audit-summary.json",
+        "28-part-aware-rig/stress-run.json",
+        "28-part-aware-rig/gate-verification.json",
+        "28-part-aware-rig/media/comparison.mp4",
+        "29-walk-sit-scope/scope.json"
+      ],
+      "current_fix": "實作站姿四腳自動定位、整體對齊、56 骨同軸轉移及每幀量測。有效基準加一個平滑/八影響候選，共五段 597 幀；Walk 超過兩倍的邊樣本 164→26，Sitting 仍穿地約尺寸 4.16%，部分塌陷惡化。動畫 GLB 回讀通過，品質拒絕放行。 28 完成自動七部位/端點、兩種包覆法、原貓五段597幀及五個合成體型各15幀。新版本動畫退步而拒絕，來源與原外觀不變；加入靜止包覆交叉與骨軸診斷、後續綁骨前置 gate（實驗後補上，非回溯聲稱）。 使用者選回27並縮為行走/坐姿兩行為；29精簡包只保留Walk、Sitting及坐下/起立兩轉場，未重新綁骨或修動作。",
+      "automation_status": "implemented_measurement",
+      "future_detection": "先驗部位/關節/骨段與尾巴對應信心，再驗動作表面、支撐期和接觸；來源原有接觸與轉移新增問題分開。",
+      "future_repair": "需帶解剖約束的分部位非剛性對應、每段骨長/方向適配與語義限制權重；再做接地 IK 與體型碰撞。均未完成，不以更多平滑或每貓手修代替。",
+      "validation": "使用者選定 Idle、Walk、Idle_to_Sit、Sitting、Sitting_to_Idle；這五段每幀已量測，Unity 未測。標準/短腿/長腿/瘦/胖等體型與独立新貓需另作留出驗證，其餘 18 段未納入。 合成短腿/長腿/瘦/胖/短胖均未過，短腿與胖身坐姿浮空、長腿穿地；這些不是独立新貓。後續先驗有效中介表面/解剖約束、靜止姿勢旋轉轉換，再處理接觸。 最新範圍以29/scope.json為準：兩行為、四clip；歷史五clip全幀證據保留，未測其他動作。",
+      "risk": "四腳與整體尺度不能提供真實肘膝或獨立胖瘦；腿合併高度受腹部影響。最近點可跨錯部位；平滑無法修正關節。骨架、匯出正確仍不保證零穿模。"
+    },
+    {
+      "id": "MAT-01",
+      "stage": "P07/P09",
+      "problem": "服務端減面改變尺度/中心與材質。基本版遺失 metallicFactor=0 且 B 通道近白，使毛色金屬化；specular 設定與貼圖格式/尺寸也改動。",
+      "evidence": [
+        "16-service-retopology/review.json",
+        "16-service-retopology/material-diagnostics.json",
+        "16-service-retopology/render-fidelity-final.json",
+        "16-service-retopology/basic-v001/restored/render-report.json",
+        "24-multiview-budget/texture-container-check.json",
+        "24-multiview-budget/surface-color-check.json",
+        "24-multiview-budget/surface-samples.json",
+        "24-multiview-budget/flat-candidate/material-check.json",
+        "25-appearance-diagnostic/review.json",
+        "25-appearance-diagnostic/matte-candidate/import-verification.json"
+      ],
+      "current_fix": "用來源 bounds 自動恢復位置/等比尺度；比較材質常數恢復與來源重烘焙，保留後者為外觀較接近來源的3500面候選，沒有手工部位遮罩。 最新 24 分支並未重現全部材質遺失：metallic=0、roughness≈0.9、2048 貼圖均保留；貼圖重新編碼且 UV 改變，但對應表面 10500 點平均 RGB 差約 1.79/255、p95 約 5.61/255。因此沒有恢復或重烘焙，保留舊失敗，按結果判斷而非每隻強制修復。 新增單一非金屬表面的共用霧面候選：specularFactor=0.3，實際 GLB 在 Blender 匯入生效；二進位幾何／UV／貼圖全相同。此為風格候選，不是恢復遺失材質，Unity 擴充支援及獨立眼部仍未驗證。",
+      "automation_status": "implemented_measurement",
+      "future_detection": "比較輸入輸出幾何尺度、材質scalar/texture通道、影像編碼、UV及固定渲染；不可只確認有材質欄位。",
+      "future_repair": "保留來源材質快照，依材質型別恢復。對應可靠時按需烘焙；無法對應或多材質未知時拒絕而不是套本例常數。",
+      "validation": "本例單一mesh/材質已比較；需在其他貓和材質組合檢查誤修、渲染一致性及引擎匯入。",
+      "risk": "來源本身的花色或造型缺陷會被保留；此修復不能代替原照身份、美術與動畫驗收。"
+    },
+    {
+      "id": "SPRITE-01",
+      "stage": "S01-S07",
+      "problem": "2D多方向與逐格生成可能改變臉斑、左右花色、體型、俯角及支撐點；固定提示詞不保證動畫一致。",
+      "evidence": [
+        "32-sprite-workflow/action_gate.json",
+        "32-sprite-workflow/change-record.json",
+        "33-sprite-static/review.json",
+        "33-sprite-static/alpha-v001.json",
+        "33-sprite-static/render-differences.json",
+        "34-sprite-lighting/review.json"
+      ],
+      "evidence_status": "single_static_AI_prototype_tested; multi-frame/direction risks remain untested",
+      "current_fix": "S00-S01完成單例靜態候選：一次ImageGen去背、共用Sprite3D場景與影格檢查，驗證alpha/陰影/床邊深度；仍需一組人工落地pivot且原圖局部切面被重畫，不放行全自動或擴做動畫。",
+      "automation_status": "proposed_unvalidated",
+      "future_detection": "檔案/alpha/幀序檢查配合逐幀、跨方向與遊戲內視覺審查；語義身份與支撐點定位需另驗證。",
+      "future_repair": "每個明確測試單位一版加最多一次受控修正；仍依賴大量逐幀手修就停止擴張。",
+      "validation": "1張AI原型、0隻新真實貓；Godot全景/近景/家具前後旁測試。只有床邊有投影重疊並證明depth切換差異，沒有把零差異後方圖當通過證據。",
+      "risk": "未知側面為推測；不能用鏡像代替不對稱個體另一側。平面角色有家具交錯限制，資產及效能成本仍未知。"
+    }
+  ],
+  "product_runtime_policy": {
+    "proposed_not_implemented": true,
+    "states": [
+      "accepted",
+      "retry_with_reason",
+      "needs_more_photos",
+      "needs_review",
+      "failed"
+    ],
+    "requirements": [
+      "階段入/出庫都綁定 case、mesh、source image、參數、程式與模型版本；位置/拓樸改動後重建受影響對應。",
+      "幾何結構、個體身份、美術風格、匯出及動畫各自驗收，不共用一個 pass。",
+      "可信度不足可拒絕、補拍或進入有界審查；不可靜默把推測改成觀測。",
+      "每隻貓人工干預次數、分鐘、重試次數、服務耗時、已知成本、失敗階段都列入統計。",
+      "自動化目標是新貓不需新增座標/遮罩/程式碼，仍通過身份與美術驗收。"
+    ]
+  },
+  "generalization_validation_plan": {
+    "status": "not_run",
+    "calibration_case": "generation-v001；不得計入留出成功率",
+    "cohort": "獨立留出多種花色、體型、眼色、姿势和照片品質；十隻只能作探索性測試，不能證明任意玩家資料可靠",
+    "metrics": [
+      "無人工介入且全部品質門檻通過的比例",
+      "錯誤通過率，尤其錯側花色和解剖問題",
+      "拒絕/補拍/人工處理比例",
+      "每隻人工分鐘與更改量",
+      "各階段與端到端耗時分布",
+      "重試與實際成本",
+      "原照證據覆蓋與推測比例",
+      "用戶能否辨識自己的貓及美術偏好"
+    ],
+    "targets": "尚未由產品需求與樣本量制定；不先填造成功率或分鐘數承諾"
+  },
+  "missing_historical_metrics": {
+    "total_manual_minutes": null,
+    "total_manual_intervention_count": null,
+    "reason": "先前未逐次計時，現在不能從檔案修改時間捏造；已知具體標點數和各次技術輸出另記。"
+  },
+  "user_geometry_constraint": {
+    "target_exported_triangles": 3500,
+    "source": "User: 感覺可以改成3500面",
+    "art_standard": "cat.png",
+    "acceptance": "实际匯出三角面數、輪廓/臉/腳掌/UV/材質視覺比較，以及後續動畫变形分别驗證；3,500 面不等於已證明品質或可動畫。",
+    "applies_to": "historical_3D_branch_only; 2026-10-01 sprite route does not require cat mesh/3500 triangles"
+  },
+  "action_policy": {
+    "source": "../../AGENTS.md",
+    "always_apply_rule": "../../.cursor/rules/automation-first.mdc",
+    "adopted_from_user": "2026-09-30",
+    "requirements": [
+      "行動前判斷原需求、自動化、全系統/個案範圍",
+      "個案需證明是否為一致性調整的必要驗證及泛化路徑",
+      "列人工依賴、驗證與停止條件",
+      "舊行動的補記只能標為回溯評估"
+    ],
+    "current_action_gate": "34-sprite-lighting/action_gate.json"
+  },
+  "selected_animation_scope": {
+    "record": "29-walk-sit-scope/scope.json",
+    "behaviors": [
+      "Walk",
+      "Sitting"
+    ],
+    "clips": [
+      "Walk",
+      "Idle_to_Sit",
+      "Sitting",
+      "Sitting_to_Idle"
+    ],
+    "selected_candidate": "27-animation-compatibility/weights-v001",
+    "reason": "User preferred previous version and explicitly reduced behavior scope."
+  },
+  "latest_visual_comparison": {
+    "event": "E50",
+    "review": "30-catworld-comparison/review.json",
+    "provenance": "30-catworld-comparison/provenance.json",
+    "note": "只比較兩個既有資產；未提升生成或動畫泛化驗收狀態。"
+  },
+  "latest_engine_integration": {
+    "event": "E51",
+    "record": "31-catworld-integration/review.json",
+    "godot_integration_pass": true,
+    "animation_quality_pass": false,
+    "unity_pass": false,
+    "new_cat_automation_proven": false
+  },
+  "latest_world_style_analysis": {
+    "event": "E52",
+    "record": "31-catworld-integration/world-style-analysis.json",
+    "style_cohesion_pass": false,
+    "asset_or_scene_modified": false
+  },
+  "latest_sprite_workflow": {
+    "event": "E53",
+    "record": "32-sprite-workflow/change-record.json",
+    "workflow": "../../workflow.md",
+    "prototype": "../../cat.png",
+    "route": "existing_3D_room_plus_2D_low_poly_sprite",
+    "status": "S00-S01_static_candidate_tested_full_quality_not_passed; S02-S07_not_executed",
+    "core_behaviors": [
+      "Walk",
+      "Sitting"
+    ],
+    "transitions": [
+      "SitDown",
+      "StandUp"
+    ],
+    "initial_direction_count": 4,
+    "direction_count_status": "prototype_plan_not_validated",
+    "photo_identity_policy": "cat.png is initial prototype; subsequent cats use real photos for identity and cat.png for style",
+    "sprite_generation_pass": false,
+    "animation_quality_pass": false,
+    "engine_integration_pass": false,
+    "new_cat_automation_proven": false
+  },
+  "latest_sprite_static": {
+    "event": "E54",
+    "record": "33-sprite-static/review.json",
+    "static_engine_pass": true,
+    "full_S01_quality_pass": false,
+    "fully_automatic_grounding_pass": false,
+    "animation_quality_pass": false,
+    "new_cat_automation_proven": false
+  },
+  "latest_sprite_lighting": {
+    "event": "E55",
+    "record": "34-sprite-lighting/review.json",
+    "only_changed_property": "shaded",
+    "baseline_replay_pixel_exact": true,
+    "visual_fusion_improvement_pass": false,
+    "selected_baseline": "33-sprite-static A unshaded",
+    "new_cat_automation_proven": false
+  },
+  "incremental_visual_review_policy": {
+    "source": "User: 一個一個階段改 然後看每個階段差別",
+    "rule": "每階段保留原版/候選，同圖同鏡頭只改一類因素，提供實際A/B；未證明改善不累加到下一階段。",
+    "current_phase": 1,
+    "current_topic": "受光",
+    "current_comparison": "34-sprite-lighting/evidence/comparison.png"
+  },
+  "latest_sprite_art_experiment": {
+    "experiment": "36-sprite-art",
+    "status": "art_candidate_not_adopted",
+    "finding": "共用美術提示可簡化切面，但兩次生成未保住位置／輪廓。自動生成成功不等於素材驗收通過。",
+    "manual_dependencies": [
+      "人眼身份風格審查",
+      "沿用 pivot"
+    ],
+    "next_generalization_need": "在增加方向動畫前，建立可拒絕構圖與身份漂移的共同驗收；不新增本例手工點位。",
+    "review": "36-sprite-art/review.json"
+  },
+  "latest_sprite_movement": {
+    "experiment": "37-sprite-movement",
+    "status": "movement_prototype_passed",
+    "removed_manual": "點擊目的地與場景幾何推導路徑、高度，不需手填每次坐標",
+    "remaining_manual": [
+      "原pivot",
+      "房間表面語義設定",
+      "外觀審查"
+    ],
+    "unverified": [
+      "新貓",
+      "新房間",
+      "動畫與精確身體接觸"
+    ]
+  },
+  "latest_walk_atlas": {
+    "status": "rejected_by_user_art_fidelity",
+    "experiment": "38-sprite-walk",
+    "finding": "單次多影格生成未保住cat.png清楚切面與身份，不可當可用動畫",
+    "animation_integrated": false
+  },
+  "latest_walk_integration": {
+    "experiment": "39-hires-walk",
+    "status": "playable_animation_prototype",
+    "removed_manual": "無逐格手畫切面或逐格手點pivot；以共同alpha規則計算註冊。",
+    "remaining": [
+      "風格、身份、步態目視審查",
+      "共用world height .62及cycle distance .42為原型規格",
+      "地面底部輪廓估算不等於解剖足底"
+    ],
+    "quality_limits": [
+      "每方向4格，節奏仍偏逐格；不宣稱完全自然",
+      "左後初版有回頭及2個邊界像素，最後修正被使用者中斷；標為待修正候選",
+      "背面花色為AI推測；不同方向與幀間花紋仍有漂移",
+      "停下使用接觸相位，尚無專用站立idle與停步轉場",
+      "不是逐足鎖地，仍可能腳滑",
+      "只測此原型和此房間，跨貓未驗證"
+    ]
+  }
+}

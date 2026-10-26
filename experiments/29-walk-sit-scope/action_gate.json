@@ -1,0 +1,17 @@
+{
+  "timing": "before_execution",
+  "authorization": "使用者選擇影片左側上一版，縮為行走與坐下；已確認坐下指屁股落地、前腳撐直的坐姿。",
+  "purpose": "把已選版本整理成兩種行為的測試包，明確保存範圍；不繼續 28 對應方法或改外觀。",
+  "source": "../27-animation-compatibility/weights-v001/export/cat-animated.glb",
+  "behavior_scope": ["Walk", "Sitting"],
+  "supporting_transitions": ["Idle_to_Sit", "Sitting_to_Idle"],
+  "excluded_behavior": "Idle 作為獨立行為不保留；兩個轉場名稱沿用來源，只用於行走/坐姿切換。",
+  "automation": "以固定 clip 名單篩選 GLB animation metadata，保留原二進位資料、骨架、權重、UV、底色與所有保留曲線；再回讀實際姿勢比較。",
+  "manual_dependencies": ["使用者選動作範圍一次", "既有來源生成/動畫的人工審查"],
+  "scope": "通用資產打包規則；沒有逐貓幾何、關節或權重修補。",
+  "validation": ["只含兩行為＋兩轉場共四 clip", "原 BIN 和保留動畫通道完全相同", "3500 面與56骨保留", "Blender 回讀四 clip 的首中末姿勢", "品質限制保留，不把縮減範圍當作修復"],
+  "stop_condition": "完成一次篩選、回讀和範圍記錄；不因此重跑生成或修改動畫。",
+  "new_cat_automation_proven": false,
+  "animation_quality_pass": false,
+  "unity_pass": false
+}

@@ -1,0 +1,600 @@
+{
+  "status": "completed_bounded_trial_rejected_animation_regression",
+  "purpose": "測試不同腿長/胖瘦所需的部位對應與關節定位；不是外觀修圖或新生成。",
+  "input_hashes": {
+    "source": {
+      "path": "experiments/texture-transfer-v001/source/SKM_Cat_Domestic_Shorthair.fbx",
+      "sha256": "2c052fe87f29e0c11fb78432f7af9c7d293a41eeed7b76470d38556aa65c1e4d",
+      "unchanged": true
+    },
+    "target": {
+      "path": "experiments/generation-v001/25-appearance-diagnostic/matte-candidate/cat.glb",
+      "sha256": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+      "unchanged": true
+    }
+  },
+  "triangles": 3500,
+  "source_bones": 56,
+  "methods": [
+    {
+      "name": "fit-v001",
+      "method": "內在表面路徑分區＋最近頂點對應＋位移平滑",
+      "result": "拒絕；400 個母版面積縮到初始 10% 以下。"
+    },
+    {
+      "name": "fit-v002",
+      "method": "同一自動部位資訊＋三角形連續對應＋局部剛性 ARAP 約束",
+      "result": "面積嚴重縮小減至 8 面，但包覆自交/動畫驗收仍失敗；不採用。"
+    }
+  ],
+  "measured_changes": [
+    {
+      "action": "Idle",
+      "coverage_frames": 260,
+      "previous": {
+        "nonadjacent_crossing_pairs": 19,
+        "max_edge_stretch": 1.725907564163208,
+        "edges_stretched_over_2x": 0,
+        "faces_area_below_30pct": 10,
+        "vertices_below_1pct_extent": 0,
+        "lowest_relative_to_ground": -0.001790851354598999,
+        "worst_crossing_frame": 123
+      },
+      "current": {
+        "nonadjacent_crossing_pairs": 42,
+        "max_edge_stretch": 2.5961339473724365,
+        "edges_stretched_over_2x": 12,
+        "faces_area_below_30pct": 21,
+        "vertices_below_1pct_extent": 0,
+        "lowest_relative_to_ground": -0.0030869245529174805,
+        "worst_crossing_frame": 123
+      }
+    },
+    {
+      "action": "Walk",
+      "coverage_frames": 27,
+      "previous": {
+        "nonadjacent_crossing_pairs": 73,
+        "max_edge_stretch": 4.163490295410156,
+        "edges_stretched_over_2x": 26,
+        "faces_area_below_30pct": 31,
+        "vertices_below_1pct_extent": 16,
+        "lowest_relative_to_ground": -0.012391984462738037,
+        "worst_crossing_frame": 12
+      },
+      "current": {
+        "nonadjacent_crossing_pairs": 68,
+        "max_edge_stretch": 5.927670955657959,
+        "edges_stretched_over_2x": 68,
+        "faces_area_below_30pct": 23,
+        "vertices_below_1pct_extent": 106,
+        "lowest_relative_to_ground": -0.02274411916732788,
+        "worst_crossing_frame": 25
+      }
+    },
+    {
+      "action": "Idle_to_Sit",
+      "coverage_frames": 35,
+      "previous": {
+        "nonadjacent_crossing_pairs": 319,
+        "max_edge_stretch": 2.7373716831207275,
+        "edges_stretched_over_2x": 38,
+        "faces_area_below_30pct": 73,
+        "vertices_below_1pct_extent": 231,
+        "lowest_relative_to_ground": -0.03916984796524048,
+        "worst_crossing_frame": 27
+      },
+      "current": {
+        "nonadjacent_crossing_pairs": 338,
+        "max_edge_stretch": 3.3813588619232178,
+        "edges_stretched_over_2x": 90,
+        "faces_area_below_30pct": 67,
+        "vertices_below_1pct_extent": 679,
+        "lowest_relative_to_ground": -0.034318506717681885,
+        "worst_crossing_frame": 35
+      }
+    },
+    {
+      "action": "Sitting",
+      "coverage_frames": 240,
+      "previous": {
+        "nonadjacent_crossing_pairs": 304,
+        "max_edge_stretch": 2.659940004348755,
+        "edges_stretched_over_2x": 14,
+        "faces_area_below_30pct": 65,
+        "vertices_below_1pct_extent": 231,
+        "lowest_relative_to_ground": -0.04155510663986206,
+        "worst_crossing_frame": 49
+      },
+      "current": {
+        "nonadjacent_crossing_pairs": 435,
+        "max_edge_stretch": 3.3206894397735596,
+        "edges_stretched_over_2x": 96,
+        "faces_area_below_30pct": 84,
+        "vertices_below_1pct_extent": 667,
+        "lowest_relative_to_ground": -0.03396555781364441,
+        "worst_crossing_frame": 49
+      }
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "coverage_frames": 35,
+      "previous": {
+        "nonadjacent_crossing_pairs": 320,
+        "max_edge_stretch": 3.114511728286743,
+        "edges_stretched_over_2x": 22,
+        "faces_area_below_30pct": 69,
+        "vertices_below_1pct_extent": 231,
+        "lowest_relative_to_ground": -0.03916984796524048,
+        "worst_crossing_frame": 2
+      },
+      "current": {
+        "nonadjacent_crossing_pairs": 393,
+        "max_edge_stretch": 3.333691120147705,
+        "edges_stretched_over_2x": 90,
+        "faces_area_below_30pct": 64,
+        "vertices_below_1pct_extent": 679,
+        "lowest_relative_to_ground": -0.03509491682052612,
+        "worst_crossing_frame": 4
+      }
+    }
+  ],
+  "interpretation": [
+    "原貓五動作 597 幀；與 27 weights-v001 使用同一量測器、相同五輪/0.35 平滑和八影響，原幾何/UV/底色保持。",
+    "來源到目標最近表面距離 p95 由最大尺寸約 21.9% 降至 7.54%，仍不能證明有效語義對應。",
+    "Walk 超過兩倍的邊樣本 26→68，最低點 -1.24%→-2.27%；新方法有退步。",
+    "Sitting 最深穿地由 4.16% 降至 3.40%，但相交面對 304→435、塌陷面 65→84；不能只報穿地改善。",
+    "同一母版面索引的靜止交叉對由 46→566；新增 563 對，527 對集中在頭/頭。ARAP 沒有保證一對一或避免自交。",
+    "四根尾骨仍保留來源靜止軸，與擬合後骨頭方向差約 40.9–82.6 度；現行只改骨頭位置/複製旋轉不足以處理不同尾巴姿勢。",
+    "骨頭位置由局部表面仿射映射推導，並未加入關節角度、骨段長度比或關節中心必須落於可靠解剖區域的約束。56 根骨包含控制/輔助骨，不能當成 56 個解剖關節。",
+    "部位推導成功與程式跑完不等於骨架/動畫成功；新候選不替換 27，27 本身也還不是正式通過。"
+  ],
+  "synthetic_stress": [
+    {
+      "case": "short_legs",
+      "leg_height_factor": 0.75,
+      "torso_expansion_factor": 1,
+      "triangles": 3500,
+      "min_area_ratio": 0.7499987483024597,
+      "path": "short_legs.npz",
+      "coverage": "first_middle_last_only",
+      "frames": 15,
+      "actions": [
+        {
+          "action": "Idle",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 33,
+            "max_edge_stretch": 2.0514023303985596,
+            "edges_stretched_over_2x": 2,
+            "faces_area_below_30pct": 13,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": -0.006722360849380493,
+            "worst_crossing_frame": 130
+          }
+        },
+        {
+          "action": "Walk",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 75,
+            "max_edge_stretch": 4.345038414001465,
+            "edges_stretched_over_2x": 28,
+            "faces_area_below_30pct": 16,
+            "vertices_below_1pct_extent": 163,
+            "lowest_relative_to_ground": -0.03348737955093384,
+            "worst_crossing_frame": 14
+          }
+        },
+        {
+          "action": "Idle_to_Sit",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 366,
+            "max_edge_stretch": 3.25244140625,
+            "edges_stretched_over_2x": 78,
+            "faces_area_below_30pct": 68,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": -0.005195051431655884,
+            "worst_crossing_frame": 35
+          }
+        },
+        {
+          "action": "Sitting",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 362,
+            "max_edge_stretch": 3.1864864826202393,
+            "edges_stretched_over_2x": 72,
+            "faces_area_below_30pct": 66,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": 0.04142013192176819,
+            "worst_crossing_frame": 120
+          }
+        },
+        {
+          "action": "Sitting_to_Idle",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 366,
+            "max_edge_stretch": 3.25244140625,
+            "edges_stretched_over_2x": 78,
+            "faces_area_below_30pct": 65,
+            "vertices_below_1pct_extent": 125,
+            "lowest_relative_to_ground": -0.018541783094406128,
+            "worst_crossing_frame": 1
+          }
+        }
+      ],
+      "target_rest_crossings": 0,
+      "new_scaffold_crossings": 796,
+      "seeds_automatically_recomputed": true,
+      "new_cat": false,
+      "quality_pass": false
+    },
+    {
+      "case": "long_legs",
+      "leg_height_factor": 1.25,
+      "torso_expansion_factor": 1,
+      "triangles": 3500,
+      "min_area_ratio": 0.9978947043418884,
+      "path": "long_legs.npz",
+      "coverage": "first_middle_last_only",
+      "frames": 15,
+      "actions": [
+        {
+          "action": "Idle",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 18,
+            "max_edge_stretch": 2.5357987880706787,
+            "edges_stretched_over_2x": 10,
+            "faces_area_below_30pct": 11,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": -0.0006275475025177002,
+            "worst_crossing_frame": 130
+          }
+        },
+        {
+          "action": "Walk",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 52,
+            "max_edge_stretch": 4.3658833503723145,
+            "edges_stretched_over_2x": 46,
+            "faces_area_below_30pct": 15,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": 0.003975212574005127,
+            "worst_crossing_frame": 14
+          }
+        },
+        {
+          "action": "Idle_to_Sit",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 362,
+            "max_edge_stretch": 3.3824446201324463,
+            "edges_stretched_over_2x": 124,
+            "faces_area_below_30pct": 67,
+            "vertices_below_1pct_extent": 2268,
+            "lowest_relative_to_ground": -0.11787533760070801,
+            "worst_crossing_frame": 35
+          }
+        },
+        {
+          "action": "Sitting",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 349,
+            "max_edge_stretch": 3.3987014293670654,
+            "edges_stretched_over_2x": 126,
+            "faces_area_below_30pct": 60,
+            "vertices_below_1pct_extent": 2254,
+            "lowest_relative_to_ground": -0.11787533760070801,
+            "worst_crossing_frame": 1
+          }
+        },
+        {
+          "action": "Sitting_to_Idle",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 362,
+            "max_edge_stretch": 3.3824446201324463,
+            "edges_stretched_over_2x": 124,
+            "faces_area_below_30pct": 61,
+            "vertices_below_1pct_extent": 2268,
+            "lowest_relative_to_ground": -0.11787533760070801,
+            "worst_crossing_frame": 1
+          }
+        }
+      ],
+      "target_rest_crossings": 0,
+      "new_scaffold_crossings": 807,
+      "seeds_automatically_recomputed": true,
+      "new_cat": false,
+      "quality_pass": false
+    },
+    {
+      "case": "thin_body",
+      "leg_height_factor": 1,
+      "torso_expansion_factor": 0.8,
+      "triangles": 3500,
+      "min_area_ratio": 0.5453827381134033,
+      "path": "thin_body.npz",
+      "coverage": "first_middle_last_only",
+      "frames": 15,
+      "actions": [
+        {
+          "action": "Idle",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 11,
+            "max_edge_stretch": 2.375955581665039,
+            "edges_stretched_over_2x": 10,
+            "faces_area_below_30pct": 0,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": -0.0026104748249053955,
+            "worst_crossing_frame": 1
+          }
+        },
+        {
+          "action": "Walk",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 46,
+            "max_edge_stretch": 5.206005573272705,
+            "edges_stretched_over_2x": 34,
+            "faces_area_below_30pct": 21,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": 3.94284725189209e-05,
+            "worst_crossing_frame": 1
+          }
+        },
+        {
+          "action": "Idle_to_Sit",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 262,
+            "max_edge_stretch": 3.4249699115753174,
+            "edges_stretched_over_2x": 88,
+            "faces_area_below_30pct": 50,
+            "vertices_below_1pct_extent": 949,
+            "lowest_relative_to_ground": -0.044504791498184204,
+            "worst_crossing_frame": 35
+          }
+        },
+        {
+          "action": "Sitting",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 256,
+            "max_edge_stretch": 3.4043636322021484,
+            "edges_stretched_over_2x": 90,
+            "faces_area_below_30pct": 48,
+            "vertices_below_1pct_extent": 942,
+            "lowest_relative_to_ground": -0.044504791498184204,
+            "worst_crossing_frame": 1
+          }
+        },
+        {
+          "action": "Sitting_to_Idle",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 262,
+            "max_edge_stretch": 3.4249699115753174,
+            "edges_stretched_over_2x": 88,
+            "faces_area_below_30pct": 49,
+            "vertices_below_1pct_extent": 949,
+            "lowest_relative_to_ground": -0.044504791498184204,
+            "worst_crossing_frame": 1
+          }
+        }
+      ],
+      "target_rest_crossings": 0,
+      "new_scaffold_crossings": 494,
+      "seeds_automatically_recomputed": true,
+      "new_cat": false,
+      "quality_pass": false
+    },
+    {
+      "case": "fat_body",
+      "leg_height_factor": 1,
+      "torso_expansion_factor": 1.25,
+      "triangles": 3500,
+      "min_area_ratio": 0.5085741877555847,
+      "path": "fat_body.npz",
+      "coverage": "first_middle_last_only",
+      "frames": 15,
+      "actions": [
+        {
+          "action": "Idle",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 74,
+            "max_edge_stretch": 2.4375808238983154,
+            "edges_stretched_over_2x": 2,
+            "faces_area_below_30pct": 11,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": -0.00739094614982605,
+            "worst_crossing_frame": 130
+          }
+        },
+        {
+          "action": "Walk",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 76,
+            "max_edge_stretch": 4.446022987365723,
+            "edges_stretched_over_2x": 32,
+            "faces_area_below_30pct": 12,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": -0.003364652395248413,
+            "worst_crossing_frame": 14
+          }
+        },
+        {
+          "action": "Idle_to_Sit",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 475,
+            "max_edge_stretch": 4.091423511505127,
+            "edges_stretched_over_2x": 84,
+            "faces_area_below_30pct": 77,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": -0.005859643220901489,
+            "worst_crossing_frame": 35
+          }
+        },
+        {
+          "action": "Sitting",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 478,
+            "max_edge_stretch": 4.006972312927246,
+            "edges_stretched_over_2x": 80,
+            "faces_area_below_30pct": 78,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": 0.05070608854293823,
+            "worst_crossing_frame": 1
+          }
+        },
+        {
+          "action": "Sitting_to_Idle",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 475,
+            "max_edge_stretch": 4.091423511505127,
+            "edges_stretched_over_2x": 84,
+            "faces_area_below_30pct": 77,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": -0.005859643220901489,
+            "worst_crossing_frame": 1
+          }
+        }
+      ],
+      "target_rest_crossings": 0,
+      "new_scaffold_crossings": 725,
+      "seeds_automatically_recomputed": true,
+      "new_cat": false,
+      "quality_pass": false
+    },
+    {
+      "case": "short_fat",
+      "leg_height_factor": 0.75,
+      "torso_expansion_factor": 1.25,
+      "triangles": 3500,
+      "min_area_ratio": 0.4530041217803955,
+      "path": "short_fat.npz",
+      "coverage": "first_middle_last_only",
+      "frames": 15,
+      "actions": [
+        {
+          "action": "Idle",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 92,
+            "max_edge_stretch": 2.2224464416503906,
+            "edges_stretched_over_2x": 6,
+            "faces_area_below_30pct": 17,
+            "vertices_below_1pct_extent": 7,
+            "lowest_relative_to_ground": -0.011807113885879517,
+            "worst_crossing_frame": 130
+          }
+        },
+        {
+          "action": "Walk",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 75,
+            "max_edge_stretch": 3.775430679321289,
+            "edges_stretched_over_2x": 34,
+            "faces_area_below_30pct": 18,
+            "vertices_below_1pct_extent": 163,
+            "lowest_relative_to_ground": -0.03369209170341492,
+            "worst_crossing_frame": 14
+          }
+        },
+        {
+          "action": "Idle_to_Sit",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 465,
+            "max_edge_stretch": 3.6970455646514893,
+            "edges_stretched_over_2x": 92,
+            "faces_area_below_30pct": 89,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": -0.009265094995498657,
+            "worst_crossing_frame": 35
+          }
+        },
+        {
+          "action": "Sitting",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 460,
+            "max_edge_stretch": 3.5649640560150146,
+            "edges_stretched_over_2x": 86,
+            "faces_area_below_30pct": 90,
+            "vertices_below_1pct_extent": 0,
+            "lowest_relative_to_ground": 0.05307412147521973,
+            "worst_crossing_frame": 1
+          }
+        },
+        {
+          "action": "Sitting_to_Idle",
+          "metrics": {
+            "nonadjacent_crossing_pairs": 465,
+            "max_edge_stretch": 3.6092052459716797,
+            "edges_stretched_over_2x": 92,
+            "faces_area_below_30pct": 89,
+            "vertices_below_1pct_extent": 58,
+            "lowest_relative_to_ground": -0.01571318507194519,
+            "worst_crossing_frame": 1
+          }
+        }
+      ],
+      "target_rest_crossings": 0,
+      "new_scaffold_crossings": 1165,
+      "seeds_automatically_recomputed": true,
+      "new_cat": false,
+      "quality_pass": false
+    }
+  ],
+  "stress_interpretation": [
+    "合成短腿、長腿、偏瘦、胖身與短腿胖身各 15 個首/中/末姿勢；不是完整 597 幀，也不是五隻独立新貓。",
+    "五種輸入靜止網格都未檢出嚴格非相鄰交叉，面數仍 3500；沒有用輸入自身的明顯折疊冒充動畫失敗。",
+    "Sitting 抽樣：短腿最低點在地上 4.14%、長腿在地下 11.79%、偏瘦在地下 4.45%、胖身在地上 5.07%、短腿胖身在地上 5.31%；全部以每個輸入最大尺寸歸一化，非公分。",
+    "短腿/胖身浮空、長腿穿地表明根運動和支撐接觸不能用初始整體尺度代替；本輪尚未加入接地 IK。"
+  ],
+  "visual_evidence": {
+    "part_map": "fit-v002/original/diagnostic/target-parts.png",
+    "scaffold": "fit-v002/original/diagnostic/wrapped-scaffold.png",
+    "estimated_joints": "fit-v002/original/diagnostic/estimated-joints.png",
+    "comparison": "media/comparison.mp4",
+    "layout": "左 27 既有版本；右 28 新測試，已拒絕採用。",
+    "short_legs": "fit-v002/short_legs/candidate/preview/Sitting-0001.png",
+    "long_legs": "fit-v002/long_legs/candidate/preview/Sitting-0001.png",
+    "short_fat": "fit-v002/short_fat/candidate/preview/Sitting-0001.png",
+    "review": "新原貓動作可辨認，但尾巴在坐姿捲入腿/腹周圍；短腿/短胖浮空和長腿陷地在實際渲染可見。未因畫面仍可看而放行。"
+  },
+  "automation": {
+    "new_capabilities": [
+      "無目標手點的四脚/頭尾候選與七部位粗分區",
+      "分部位中介表面擬合及局部關節推導",
+      "同規則重跑五種合成體型",
+      "靜止包覆自交和骨軸差異診斷"
+    ],
+    "manual_target_landmarks_added": 0,
+    "manual_target_weight_paint": false,
+    "fixed_template_work": [
+      "來源骨名對身體部位語義映射",
+      "來源/輸入朝向約定",
+      "無量綱方法參數与壓力範圍"
+    ],
+    "remaining_manual_work": [
+      "部位/關節與動作視覺審查",
+      "方法/門檻解讀",
+      "先前照片及参考生成仍有人工依賴"
+    ],
+    "tested_independent_generated_cats": 1,
+    "synthetic_variants": 5,
+    "held_out_generated_cats": 0,
+    "conclusion": "部分資料取得與診斷可自動執行；可靠自動綁骨仍未完成，不填造成功率。"
+  },
+  "workflow_error_found": {
+    "error": "本輪先以距離/面積和可視化決定是否作診斷綁骨，靜止包覆自交檢查放得太晚；此順序漏掉頭部折疊。",
+    "fix": "新增 assess_fit_gate.py，後續一般 build_candidate 必須有有效 fit-gate；已拒絕或缺證據時只允許明確 diagnostic-only 分析。",
+    "timing": "實驗後發現並修正，不能回溯宣稱本次候選曾先通過此 gate。",
+    "verification": "gate-verification.json"
+  },
+  "next_priorities_not_implemented": [
+    "以一次母版設定建立可靠解剖/骨段約束與可包覆表面；頭部內外層/嘴部要有獨立語義或使用簡化中介籠，先通過自交與對應驗收。",
+    "對姿勢不同的尾巴與肢體重新建立靜止方向，連同旋轉座標轉換驗證；不能一方面把位置彎成曲線，一方面假設原骨軸仍正確。",
+    "以每條腿的骨段及來源支撐期適配根運動與接地 IK/坐姿避碰；不得只抬整隻貓掩蓋穿地。",
+    "上述成立後，再用真正独立生成的不同體型驗證；合成變體不能當留出貓。"
+  ],
+  "export_roundtrip_pass": true,
+  "export_note": "新研究 GLB 保留 3500 面、56 骨、五動畫，底色解碼差 0；15 個回讀姿勢最大差約 7.98e-5/最大尺寸。檔案正確不修復既有動畫缺陷。",
+  "animation_quality_pass": false,
+  "body_variation_support_pass": false,
+  "unity_pass": false,
+  "new_cat_automation_proven": false,
+  "paid_api_calls": 0,
+  "decision": "兩種對應方法已完成，不再掃參數/逐貓手修。保留診斷和攔截能力，新動畫候選拒絕採用；原外觀與 27 實驗檔不被替換。"
+}

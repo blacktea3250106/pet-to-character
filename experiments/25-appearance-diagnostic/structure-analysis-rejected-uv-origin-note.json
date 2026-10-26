@@ -1,0 +1,8 @@
+{
+  "status": "rejected_analysis_only",
+  "failure": "Direct GLB TEXCOORD uses upper-left origin; initial sampler incorrectly used the bottom-left Blender UV convention. Color statistics are invalid. Geometry/normal calculations were independent, but the entire first report is retained as rejected.",
+  "source_assets_modified": false,
+  "correction": "Direct glTF UV sampling uses y=v*height-0.5. Add a fixed 2x2 four-color pixel-center orientation check.",
+  "official_spec": "https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Khronos/KHR_texture_transform/README.md",
+  "scope": "This new read-only analyzer only. Existing stage24 correspondence uses Blender UVs and its y flip is appropriate; existing actual model renders are unaffected."
+}

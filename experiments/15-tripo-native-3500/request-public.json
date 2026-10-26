@@ -1,0 +1,25 @@
+{
+  "inputs": [
+    {
+      "view": "standing",
+      "sha256": "650fbbf8b0374c0c8259496439054ed82527fe54980c72ca94ad15875b29efaf"
+    }
+  ],
+  "enable_image_autofix": false,
+  "model": "v3.1-20260211",
+  "texture": true,
+  "pbr": false,
+  "texture_alignment": "original_image",
+  "texture_version": "v3.0-20250812",
+  "texture_quality": "standard",
+  "geometry_quality": "standard",
+  "smart_low_poly": true,
+  "face_limit": 3500,
+  "quad": false,
+  "auto_size": false,
+  "generate_parts": false,
+  "orientation": "default",
+  "export_uv": true,
+  "model_seed": 3101,
+  "texture_seed": 3102
+}

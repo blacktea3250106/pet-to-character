@@ -1,0 +1,23 @@
+{
+  "provider": "built_in_imagegen",
+  "submitted_at": "2026-10-01T02:00:18.158283+08:00",
+  "model_version_exposed": false,
+  "seed_exposed": false,
+  "output_kind": "AI_2D_background_extraction_not_3D_render",
+  "input_images": [
+    {
+      "path": "cat.png",
+      "role": "edit_target_and_identity_style_prototype",
+      "sha256": "d54cb98dfb9093766654d549d279e56b8d8f57a351738462cba5486e31e6f06b"
+    }
+  ],
+  "prompt_file": "prompt-v001.txt",
+  "prompt_sha256": "71db661fa73dd20aaa4ac107eecd3d4235923273e38466941502702f3941de75",
+  "max_generation_calls": 2,
+  "status": "completed_pending_visual_and_engine_review",
+  "completed_at": "2026-10-01T02:02:08.951781+08:00",
+  "provider_output": "~/.codex/generated_images/<redacted-id>/exec-<redacted-id>.png",
+  "output": "experiments/generation-v001/33-sprite-static/godot/assets/cat-cutout-v001.png",
+  "output_sha256": "b6e8a2e5ef9f75d3e7db529f61d6d6ca0628f4e2fd2276b906125cfd7b0f0b47",
+  "tool_elapsed_seconds": 49.7
+}

@@ -1,0 +1,71 @@
+{
+  "audit_date": "2026-09-30",
+  "trigger": "你有越做越偏嗎？檢查一下",
+  "overall_quality_pass": false,
+  "pipeline_validated": false,
+  "approved_visual_baseline": null,
+  "conclusion": "本輪推進偏向產出可處理網格，未充分守住原照片身份與 cat.png 整體美術品質。技術步驟完成不代表外觀通過。",
+  "requirements": {
+    "identity_authority": "00-input 原照片；AI 參考圖不能取代身份依據",
+    "art_authority": "../../cat.png；包含形體、頭臉、切面尺度、花色邊界、眼睛和材質",
+    "eventual_capability": "可重複的個人化流程與共用動畫適配；本輪尚未證明"
+  },
+  "findings": [
+    {
+      "id": "reference_gate",
+      "evidence": ["03-style/review.json", "04-views/review.json", "04b-single-reference/review.json"],
+      "finding": "2D 風格候選較接近美術目標，但斑塊已被簡化；四視圖仍有尺度、姿勢、尾巴與低原生解析度問題，卻被允許繼續提交。單圖重生只證明這次少了多腿錯誤，並非受控路線比較。",
+      "decision": "保留為候選與失敗證據；不得稱身份、跨視角或最佳路線已驗證。"
+    },
+    {
+      "id": "structure_vs_art",
+      "evidence": ["06-raw-model/report.json", "06b-repair/review.json", "06c-raw-single/report.json"],
+      "finding": "第一隻有多腿；局部修補未成功。第二隻有四個腳部候選分量且邊界檢查通過，但形體、臉部品質與花色保真仍未通過。",
+      "decision": "06b-repair 與衍生 07-geometry 不得作為有效基準；06c 僅保留為未修改的工程候選。"
+    },
+    {
+      "id": "facets",
+      "evidence": ["07b-geometry/report.json", "07b-geometry/threequarter.png"],
+      "finding": "5128 面均勻細分成 20512 面，再平滑與 flat shading；沒有實作依形體與特徵控制的切面配置。增加面數未證明更接近 cat.png，也未修正頭臉形體。",
+      "decision": "07b 為未通過美術驗收的處理對照，不是 low-poly 成功版本。"
+    },
+    {
+      "id": "projection",
+      "evidence": ["08b-coat/processing-report.json", "08b-coat/registration-overlay.png"],
+      "finding": "160 px 輪廓 IoU 為 0.805824098090073，低於本實驗 0.85 門檻；新增參考圖投影覆蓋率 0。14927 個面使用 Tripo 原始貼圖做面內均色，其餘 5585 面保留邊界或特徵。並未完成額外的參考圖對應修色，更未完成原照片逐區表面映射。",
+      "decision": "拒絕投影是正確保護；其後均色輸出只能作診斷，不能稱花色轉移完成。0% 指本次後處理新增投影，不代表 Tripo 未從輸入參考圖生成花色。"
+    },
+    {
+      "id": "face_and_render",
+      "evidence": ["06c-raw-single/face.png", "08b-coat/face-threequarter.png", "08b-coat/hero.png", "08b-coat/unlit.png", "08b-coat/report.json"],
+      "finding": "眼部、口鼻、模糊毛邊及刺片狀眉鬚仍未達標。整片保護頭部能避免誤投，不能替代眼皮、眼球與局部花色重建。最初燈光也造成洗白；後續統一呈現仍未消除幾何與貼圖差距。",
+      "decision": "不得把完整外觀差距歸因於尚未套用最終材質；P09 眼睛與材質驗收未完成。"
+    },
+    {
+      "id": "automation_and_evidence",
+      "evidence": ["prepare.py", "normalize_views.py", "blender_stage.py", "surface_color.py"],
+      "finding": "目前包含人工輪廓、裁切、方向判斷與單隻貓的座標遮罩；沒有證明通用自動化。換輸入路線、修網格與早期呈現設定的變更，也不足以做整條路線的因果優劣比較。",
+      "decision": "明確標為人工協助的單例 POC；保留每次失敗，不把步驟跑完當成系統成功。"
+    }
+  ],
+  "stage_disposition": {
+    "00-input_to_02-identity": "保留原照、分割與人工身份證據；未證明自動化",
+    "03-style": "風格候選，重新核對原照身份；不是已合格 3D 基準",
+    "04-views": "跨視角品質未通過",
+    "04b-single-reference": "單圖探索候選；不是最佳路線證據",
+    "06-raw-model": "多腿，不通過",
+    "06b-repair": "修復失敗",
+    "07-geometry": "失敗修復的衍生產物，不採用",
+    "06c-raw-single": "四腿且基本邊界檢查通過；美術未通過；保留原始對照",
+    "07b-geometry": "均勻細分對照；美術未通過",
+    "08b-coat": "原始 Tripo 貼圖的局部均色對照；新增投影失敗；非完成版",
+    "09-material_and_rig": "未完成、未驗證"
+  },
+  "next_validation_order": [
+    "先固定原照片身份清單、cat.png 美術要求、比較相機與呈現，回到未修改的四腿模型檢查輪廓與頭臉。姿勢不同不可拿像素相似度當美術分數。",
+    "以最小外觀對照分開驗證形體、flat shading 與局部切面配置；沒有提升便不採用四倍均勻細分。",
+    "先排除參考圖與網格的姿勢、相機及局部形狀不符，再驗證受可見性限制的表面對應。輪廓 IoU 單一數值不足以證明臉斑定位正確。",
+    "頭臉近照、身體斑塊及多視角外觀通過後，才把結果作為後續材質、母版及動畫適配的合格輸入。"
+  ],
+  "actions_during_audit": "只讀取產物、核對程式及更新狀態；沒有新增生成、模型修補或動畫工作。既有渲染已完成。"
+}

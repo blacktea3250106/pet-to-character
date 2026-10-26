@@ -1,0 +1,12 @@
+{
+  "timing": "before_execution",
+  "purpose": "回應使用者只分析、不修復的要求，驗證目前低面數與 flat 法線為何仍未形成 cat.png 的俐落切面及乾淨毛色。",
+  "scope": "唯讀診斷：原生 5356 面與目前 3500 面 GLB 的面角、面積分布及面內顏色變化；不修改、重繪或生成模型。",
+  "automation_method": "從 GLB 實際 indices／POSITION／NORMAL／UV 與嵌入底色自動計算，不使用逐貓座標、人工分區或新參考圖。僅支持單一無變換網格／單一材質，其他格式明確拒絕。",
+  "remaining_manual_inputs": ["把量測與已看過的實際渲染對照", "cat.png 只有 2D 圖，無法提供真實網格分布作數值真值"],
+  "case_necessity": "避免把已正確輸出的 flat normals 誤認為尚未打開，或把面數與材質調整誤當成已完成風格化。",
+  "validation": ["來源檔案 hash 前後不變", "實際面數與既有報告一致", "相鄰面由完全相同的位置合併建立，記錄邊界／非流形例外", "三角面內固定重心採樣，不以 UV 像素鄰接冒充 3D 鄰接", "所有門檻只作診斷分組，不用來宣布美術通過"],
+  "stop_condition": "只分析兩個既有資產一次，必要時修正一次量測實作。無法由量測證明的美術判斷明列限制；不接續修復或付費生成。",
+  "decision": "read_only_geometry_and_surface_analysis",
+  "new_cat_automation_proven": false
+}

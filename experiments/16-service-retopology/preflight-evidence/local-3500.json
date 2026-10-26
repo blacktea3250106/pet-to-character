@@ -1,0 +1,35 @@
+{
+  "file": "experiments/generation-v001/14-budget-3500/balanced-v002/cat.glb",
+  "sha256": "363e6cd824a1b310fcedce1d768a86cb72b7288a06f8a70338d4573b13033977",
+  "bytes": 2794008,
+  "scene_index": 0,
+  "mesh_triangle_counts": [
+    3500
+  ],
+  "active_mesh_instances": [
+    {
+      "node": 0,
+      "mesh": 0,
+      "triangles": 3500
+    }
+  ],
+  "active_scene_triangles": 3500,
+  "unique_mesh_triangles": 3500,
+  "unsupported_primitives": [],
+  "triangle_limit": 3500,
+  "budget_pass": true,
+  "status": "budget_pass",
+  "method": "TRIANGLES accessor count / 3 for each active scene mesh instance; index positions are not decoded here",
+  "skins": 0,
+  "animations": 0,
+  "asset_accepted": false,
+  "not_validated": [
+    "buffer/index integrity beyond JSON metadata",
+    "manifoldness and self-intersections",
+    "anatomy",
+    "photo identity",
+    "cat.png style",
+    "UV fidelity",
+    "skin deformation and source-animation compatibility"
+  ]
+}

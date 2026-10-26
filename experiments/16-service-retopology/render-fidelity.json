@@ -1,0 +1,71 @@
+{
+  "script_sha256": "497f7e2e3e985084d8bf91a5c4cabe8aa516c5276bc17310b187f5e12bbc8e0b",
+  "comparisons": [
+    {
+      "baseline": "experiments/generation-v001/16-service-retopology/smart-v001/baseline",
+      "candidate": "experiments/generation-v001/16-service-retopology/basic-v001/candidate-aligned",
+      "views": {
+        "hero": {
+          "silhouette_iou": 0.9950033958956039,
+          "compared_cat_pixels": 332557,
+          "mean_absolute_rgb_difference_255": 24.379269318242187,
+          "p95_per_pixel_mean_rgb_difference_255": 39.0
+        },
+        "face": {
+          "silhouette_iou": 0.9965190016342794,
+          "compared_cat_pixels": 595736,
+          "mean_absolute_rgb_difference_255": 24.03997911826715,
+          "p95_per_pixel_mean_rgb_difference_255": 43.0
+        },
+        "opposite": {
+          "silhouette_iou": 0.9947581876062972,
+          "compared_cat_pixels": 342162,
+          "mean_absolute_rgb_difference_255": 28.487053890652188,
+          "p95_per_pixel_mean_rgb_difference_255": 42.666666666666664
+        },
+        "back-high": {
+          "silhouette_iou": 0.9959819901971959,
+          "compared_cat_pixels": 314559,
+          "mean_absolute_rgb_difference_255": 30.600273186694174,
+          "p95_per_pixel_mean_rgb_difference_255": 44.666666666666664
+        }
+      },
+      "interpretation": "Image-space change from the source under identical presentation, measured only on intersection of projected cat silhouettes. Includes geometry/lighting/material/texture differences, not pure albedo error.",
+      "identity_or_art_pass": false,
+      "camera_assumption": "Saved orthographic views with identical resolution and pixel aspect; raster projection convention previously checked against Blender."
+    },
+    {
+      "baseline": "experiments/generation-v001/16-service-retopology/smart-v001/baseline",
+      "candidate": "experiments/generation-v001/16-service-retopology/basic-v001/restored",
+      "views": {
+        "hero": {
+          "silhouette_iou": 0.9950033958956039,
+          "compared_cat_pixels": 332557,
+          "mean_absolute_rgb_difference_255": 2.0557147596752836,
+          "p95_per_pixel_mean_rgb_difference_255": 7.333333333333333
+        },
+        "face": {
+          "silhouette_iou": 0.9965190016342794,
+          "compared_cat_pixels": 595736,
+          "mean_absolute_rgb_difference_255": 2.5127097685328175,
+          "p95_per_pixel_mean_rgb_difference_255": 9.333333333333334
+        },
+        "opposite": {
+          "silhouette_iou": 0.9947581876062972,
+          "compared_cat_pixels": 342162,
+          "mean_absolute_rgb_difference_255": 1.8242703748516784,
+          "p95_per_pixel_mean_rgb_difference_255": 6.333333333333333
+        },
+        "back-high": {
+          "silhouette_iou": 0.9959819901971959,
+          "compared_cat_pixels": 314559,
+          "mean_absolute_rgb_difference_255": 1.5595399697142136,
+          "p95_per_pixel_mean_rgb_difference_255": 5.333333333333333
+        }
+      },
+      "interpretation": "Image-space change from the source under identical presentation, measured only on intersection of projected cat silhouettes. Includes geometry/lighting/material/texture differences, not pure albedo error.",
+      "identity_or_art_pass": false,
+      "camera_assumption": "Saved orthographic views with identical resolution and pixel aspect; raster projection convention previously checked against Blender."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "provider": "built_in_imagegen",
+  "model": null,
+  "seed": null,
+  "status": "completed",
+  "reason": "One permitted head/body alignment correction",
+  "inputs": [
+    {
+      "path": "experiments/generation-v001/22-photo-constrained-views/front-v001.png",
+      "sha256": "4771ff9b7b855bee348860a83c70491fb3e0fbf7aba172cb4f3e5be2e5914ed0"
+    },
+    {
+      "path": "experiments/generation-v001/01-segmentation/identity-source.png",
+      "sha256": "257584de94d255197a7101bf8d97c1b733ed7daee487d421910b2dd78037fd85"
+    },
+    {
+      "path": "cat.png",
+      "sha256": "d54cb98dfb9093766654d549d279e56b8d8f57a351738462cba5486e31e6f06b"
+    }
+  ],
+  "prompt_file": "front-correction-prompt.txt",
+  "output": "front-v002.png",
+  "output_sha256": "1277db0fb28e3b9fd78973e2ce34103e1f43d73cdda89ba7543ac29f7f661db1",
+  "provider_output": "~/.codex/generated_images/<redacted-id>/exec-<redacted-id>.png",
+  "tool_elapsed_seconds": 35.0
+}

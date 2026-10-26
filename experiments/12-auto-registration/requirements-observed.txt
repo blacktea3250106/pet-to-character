@@ -1,0 +1,5 @@
+# Versions actually used in this local experiment; not a production compatibility claim.
+numpy==2.5.3
+scipy==1.18.1
+pillow==12.3.0
+opencv-python-headless==5.0.0.93

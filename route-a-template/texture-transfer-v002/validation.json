@@ -1,0 +1,47 @@
+{
+  "method": "Manually interpreted semantic coat regions, polygon simplification, original-UV raster bake. No photo RGB projection.",
+  "vertices": 1078,
+  "triangles": 2144,
+  "animation_actions_retained": 23,
+  "original_geometry_uv_rig_sha256": "8fafb1180b3fea74fd2053022a2448d0e6d2c81023160926c880df3489f87c38",
+  "result_geometry_uv_rig_sha256": "8fafb1180b3fea74fd2053022a2448d0e6d2c81023160926c880df3489f87c38",
+  "texture_size": [
+    2048,
+    2048
+  ],
+  "padding_pixels": 12,
+  "limits": [
+    "Manual feature interpretation, not an automated pipeline.",
+    "Unobserved boundaries are inferred.",
+    "Original narrow face and body proportions differ from cat.png.",
+    "This stage is a simplified semantic layout, not final texture art.",
+    "Generated UV atlas is 1254 x 1254, not the requested 2048 x 2048.",
+    "12-pixel padding is guaranteed only on the semantic bake, not on the generated atlas.",
+    "A matching mesh/UV/skin/bone digest does not validate coat identity or animation playback."
+  ],
+  "generated_texture_size": [
+    1254,
+    1254
+  ],
+  "image_generation_mode": "built-in imagegen",
+  "image_generation_prompt": "imagegen-prompt.txt",
+  "final_stage": "AI refinement of semantic UV color regions; local render inspection required",
+  "glb_purpose": "Static visual preview without animations; blend retains all original actions and weights.",
+  "glb_limit": "glTF preview keeps top 4 skin weights; do not use as master animation asset.",
+  "visual_review": {
+    "status": "prototype_needs_refinement",
+    "reviewed": [
+      "preview/lowpoly-front-right.png",
+      "preview/lowpoly-back-top.png"
+    ],
+    "findings": [
+      "Faceted pigment style is present; this is an actual Blender render of the existing mesh.",
+      "Orange/black patterns are only approximate, and AI refinement changed their boundaries.",
+      "Chest bib is smaller than in the reference photo; tail bands are too regular.",
+      "Original face and body proportions still differ strongly from cat.png.",
+      "Back-top camera crops ear tips.",
+      "Exact generated UV island alignment and cross-island color continuity have not been quantitatively verified."
+    ],
+    "viewer_status": "HTML and embedded assets generated; browser runtime unverified because computer-use reported no available browser."
+  }
+}

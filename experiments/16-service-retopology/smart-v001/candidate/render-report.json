@@ -1,0 +1,174 @@
+{
+  "variant": "candidate",
+  "source_file": "13-dorsal/color-v002/cat.glb",
+  "source_sha256": "c24aaef29901a18e66dc6f7888562dd4e0be97857e1a6ae68c9e6afa67a67ada",
+  "service_output_sha256": "639c0459ca9fe2a0a9df6884683a7dfe2f5d391d0533fb5e95345e315c0e24b7",
+  "stats": {
+    "vertices": 5225,
+    "polygons": 4422,
+    "triangles": 4422,
+    "triangle_count_method": "evaluated mesh loop triangles, not polygon count",
+    "welded_vertices": 2213,
+    "boundary_edges": 11,
+    "nonmanifold_edges": 14,
+    "low_height_components": [
+      {
+        "height": 0.05,
+        "count": 1,
+        "groups": [
+          {
+            "n": 1450,
+            "center": [
+              0.034835009081610316,
+              0.0016762261760645898,
+              -0.16217828347765167
+            ]
+          }
+        ]
+      },
+      {
+        "height": 0.08,
+        "count": 2,
+        "groups": [
+          {
+            "n": 1519,
+            "center": [
+              0.0355774025096165,
+              0.0021650093884119635,
+              -0.15186566910985427
+            ]
+          },
+          {
+            "n": 11,
+            "center": [
+              0.3991282744841142,
+              -0.14881693775003607,
+              0.0755203745581887
+            ]
+          }
+        ]
+      },
+      {
+        "height": 0.11,
+        "count": 1,
+        "groups": [
+          {
+            "n": 1640,
+            "center": [
+              0.04535105733609781,
+              -0.0010787077066374989,
+              -0.1338193870535711
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "glb": {
+    "triangles": 4422,
+    "mesh_count": 1,
+    "skins": 0,
+    "animations": 0,
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "Cat_material",
+        "normalTexture": {
+          "index": 0
+        },
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 1
+          },
+          "metallicRoughnessTexture": {
+            "index": 2
+          }
+        }
+      }
+    ],
+    "image_count": 3
+  },
+  "bounds_m": [
+    [
+      -0.5,
+      -0.2240704596042633,
+      -0.3238747715950012
+    ],
+    [
+      0.5,
+      0.2221134901046753,
+      0.3219178318977356
+    ]
+  ],
+  "smooth_polygon_count": 4422,
+  "manual_processing_regions": [],
+  "local_geometry_edits": false,
+  "local_material_edits": false,
+  "local_texture_edits": false,
+  "automatic_alignment_applied": false,
+  "views": [
+    [
+      "hero",
+      -69,
+      10,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ],
+    [
+      "face",
+      -69,
+      9,
+      [
+        0.23,
+        0,
+        0.31
+      ],
+      0.28
+    ],
+    [
+      "opposite",
+      110,
+      10,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ],
+    [
+      "back-high",
+      110,
+      48,
+      [
+        0,
+        0,
+        0.2
+      ],
+      0.79
+    ]
+  ],
+  "identity_or_art_pass": false,
+  "animation_compatibility": "not_tested",
+  "new_cat_automation_proven": false,
+  "sampled_surface_distance": {
+    "source_to_candidate": {
+      "max_m": 0.1762794852256775,
+      "p95_m": 0.13396934345364567,
+      "mean_m": 0.06273263458958346,
+      "samples": 7610
+    },
+    "candidate_to_source": {
+      "max_m": 0.3537786602973938,
+      "p95_m": 0.32848337590694426,
+      "mean_m": 0.16686750380263177,
+      "samples": 9647
+    },
+    "scope": "Unaligned world-space vertices and triangle centroids only; not continuous Hausdorff maximum or deformation validation"
+  },
+  "budget_pass": false
+}

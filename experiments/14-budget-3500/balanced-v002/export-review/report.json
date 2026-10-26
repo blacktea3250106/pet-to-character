@@ -1,0 +1,59 @@
+{
+  "inputs": [
+    {
+      "path": "14-budget-3500/balanced-v002/scene.blend",
+      "sha256": "2292a1bc6cd75cb6acf4bbfaf8b2021bade9c58f7ab90032ff003ba91a07a918"
+    },
+    {
+      "path": "14-budget-3500/balanced-v002/cat.glb",
+      "sha256": "363e6cd824a1b310fcedce1d768a86cb72b7288a06f8a70338d4573b13033977"
+    },
+    {
+      "path": "14-budget-3500/balanced-v002/mesh.npz",
+      "sha256": "9195fdfb9c6cf78abb24e6f32a0078fa53f77f40f15a730ebc6ee28cd2660808"
+    },
+    {
+      "path": "14-budget-3500/balanced-v002/render-report.json",
+      "sha256": "6a9a49c562a49dd96e5a572853ff452ac59a98ae8b79b612a110f6f97b82ced4"
+    }
+  ],
+  "script_sha256": "46f6bcaf1655fd05bf3851c4100a6af0d0562f4d9ce38e58a9d99189e732d83e",
+  "render_helper_sha256": "b4523565a1a2abade7017326cda3842ffded00619feb8b0b727d33364846db61",
+  "mesh_count": 1,
+  "triangles": 3500,
+  "max_symmetric_vertex_distance_m": 0.0,
+  "geometry_roundtrip_pass": true,
+  "render_files": [
+    "hero.png",
+    "face.png",
+    "opposite.png",
+    "back-high.png"
+  ],
+  "render_pixel_comparison_pending": false,
+  "unity_validation": false,
+  "identity_or_art_pass": false,
+  "animation_validation": false,
+  "pixel_comparisons": {
+    "hero.png": {
+      "mean_absolute_rgb_error_255": 0.002639814814814815,
+      "maximum_channel_error_255": 5,
+      "pixels_any_channel_error_above_5": 0
+    },
+    "face.png": {
+      "mean_absolute_rgb_error_255": 0.0021861111111111113,
+      "maximum_channel_error_255": 1,
+      "pixels_any_channel_error_above_5": 0
+    },
+    "opposite.png": {
+      "mean_absolute_rgb_error_255": 0.0020030864197530863,
+      "maximum_channel_error_255": 3,
+      "pixels_any_channel_error_above_5": 0
+    },
+    "back-high.png": {
+      "mean_absolute_rgb_error_255": 0.00185679012345679,
+      "maximum_channel_error_255": 2,
+      "pixels_any_channel_error_above_5": 0
+    }
+  },
+  "render_roundtrip_pass": true
+}

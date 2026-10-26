@@ -1,0 +1,26 @@
+{
+  "approved_for_poc_submission": true,
+  "production_quality_pass": false,
+  "review_method": "visual identity and camera/pose review with annotated common ear-ground normalization",
+  "identity_preserved": [
+    "asymmetric orange/black cheeks",
+    "black bridge and small pink tip",
+    "white bib",
+    "black/orange dorsal nape",
+    "white paws"
+  ],
+  "corrections": [
+    "v1 camera layout rejected",
+    "v2 cropped with explicit rectangles",
+    "uniform scale from reviewed ear/ground landmarks",
+    "background masks checked"
+  ],
+  "remaining_uncertainties": [
+    "Standing leg lengths and hidden sock borders inferred",
+    "Tail projection varies slightly between views; inspect reconstructed tail",
+    "Native crops range from 325x595 to 740x570; 1024 files contain upscaling",
+    "API anatomical left/right convention will be checked on output",
+    "Top/threequarter v1 were rejected as metric camera evidence; use model renders for next QA",
+    "No numeric landmark detector or automatic identity score"
+  ]
+}

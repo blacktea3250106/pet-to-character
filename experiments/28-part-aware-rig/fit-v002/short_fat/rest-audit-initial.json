@@ -1,0 +1,562 @@
+{
+  "case": "short_fat",
+  "target_rest_crossing_pairs": 0,
+  "scaffold_rest_crossing_pairs": 1171,
+  "joints": [
+    {
+      "bone": "DEF-spine",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 9.964575890763859
+    },
+    {
+      "bone": "DEF-spine.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 8.176471183803567
+    },
+    {
+      "bone": "DEF-spine.002",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 3.7342268370074874
+    },
+    {
+      "bone": "DEF-spine.003",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 8.55217706781552
+    },
+    {
+      "bone": "DEF-spine.004",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 9.65235491232579
+    },
+    {
+      "bone": "DEF-spine.005",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 7.612632705167458
+    },
+    {
+      "bone": "DEF-spine.006",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 3.9089261658539285
+    },
+    {
+      "bone": "DEF-jaw",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 20.65906049411949
+    },
+    {
+      "bone": "DEF-tongue",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 40.435118864446565
+    },
+    {
+      "bone": "DEF-tongue.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 53.11700526426395
+    },
+    {
+      "bone": "DEF-eye.R",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 10.78890473827721
+    },
+    {
+      "bone": "DEF-eye.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 13.587985962970464
+    },
+    {
+      "bone": "DEF-eyelids.R",
+      "mapped_head_inside_target": false,
+      "ray_votes": [
+        false,
+        false,
+        false
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 22.19927999698117
+    },
+    {
+      "bone": "DEF-eyelids.L",
+      "mapped_head_inside_target": false,
+      "ray_votes": [
+        false,
+        false,
+        false
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 15.599105826658395
+    },
+    {
+      "bone": "DEF-ear.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 18.633560284643398
+    },
+    {
+      "bone": "DEF-ear.R",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 25.851245720833532
+    },
+    {
+      "bone": "DEF-Breast.C",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 2.48057651213366
+    },
+    {
+      "bone": "DEF-shoulder.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 2.457209866808937
+    },
+    {
+      "bone": "DEF-upper_arm.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 6.1193414752862445
+    },
+    {
+      "bone": "DEF-upper_arm.L.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 2.711065097014161
+    },
+    {
+      "bone": "DEF-forearm.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 9.053291194510123
+    },
+    {
+      "bone": "DEF-forearm.L.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 9.244377713059906
+    },
+    {
+      "bone": "DEF-hand.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 9.691077823174055
+    },
+    {
+      "bone": "DEF-hand.L.001",
+      "mapped_head_inside_target": false,
+      "ray_votes": [
+        false,
+        false,
+        false
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 12.49327144302465
+    },
+    {
+      "bone": "DEF-f_toe.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 5.486396294149732
+    },
+    {
+      "bone": "DEF-shoulder.R",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 6.136112996681123
+    },
+    {
+      "bone": "DEF-upper_arm.R",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 2.8588712496878252
+    },
+    {
+      "bone": "DEF-upper_arm.R.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 5.694225205560348
+    },
+    {
+      "bone": "DEF-forearm.R",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 6.373036082926763
+    },
+    {
+      "bone": "DEF-forearm.R.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 6.263617494878024
+    },
+    {
+      "bone": "DEF-hand.R",
+      "mapped_head_inside_target": false,
+      "ray_votes": [
+        false,
+        false,
+        false
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 12.287224554607976
+    },
+    {
+      "bone": "DEF-hand.R.001",
+      "mapped_head_inside_target": false,
+      "ray_votes": [
+        false,
+        false,
+        false
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 14.63357460365119
+    },
+    {
+      "bone": "DEF-f_toe.R",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 18.38241686786809
+    },
+    {
+      "bone": "DEF-belly.C",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 4.642467859701133
+    },
+    {
+      "bone": "DEF-thigh.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 5.922598773684533
+    },
+    {
+      "bone": "DEF-thigh.L.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 10.802449603795631
+    },
+    {
+      "bone": "DEF-shin.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 22.537185314023784
+    },
+    {
+      "bone": "DEF-shin.L.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 14.697427478089045
+    },
+    {
+      "bone": "DEF-foot.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 21.811094399436488
+    },
+    {
+      "bone": "DEF-foot.L.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 8.412006877072573
+    },
+    {
+      "bone": "DEF-r_toe.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 10.574241497430803
+    },
+    {
+      "bone": "DEF-thigh.R",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 4.3835489888001336
+    },
+    {
+      "bone": "DEF-thigh.R.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 3.006516680166664
+    },
+    {
+      "bone": "DEF-shin.R",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 9.908312122220046
+    },
+    {
+      "bone": "DEF-shin.R.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 11.252895269653937
+    },
+    {
+      "bone": "DEF-foot.R",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 28.00191734563709
+    },
+    {
+      "bone": "DEF-foot.R.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 21.311296855326468
+    },
+    {
+      "bone": "DEF-r_toe.R",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 14.944901103303623
+    },
+    {
+      "bone": "DEF-tail.001",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 54.21596878006195
+    },
+    {
+      "bone": "DEF-tail.002",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 84.42820753079133
+    },
+    {
+      "bone": "DEF-tail.003",
+      "mapped_head_inside_target": false,
+      "ray_votes": [
+        false,
+        false,
+        false
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 71.87080901357142
+    },
+    {
+      "bone": "DEF-tail.004",
+      "mapped_head_inside_target": false,
+      "ray_votes": [
+        false,
+        false,
+        false
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 43.51356577359365
+    },
+    {
+      "bone": "DEF-pelvis.L",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 11.263103496519268
+    },
+    {
+      "bone": "DEF-pelvis.R",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 3.3860142281747647
+    },
+    {
+      "bone": "DEF-pelvis.C",
+      "mapped_head_inside_target": true,
+      "ray_votes": [
+        true,
+        true,
+        true
+      ],
+      "retained_axis_vs_mapped_bone_degrees": 6.1169341644154755
+    }
+  ],
+  "limitations": [
+    "Bone controls/helper bones need not all lie inside skin; ray parity alone is not anatomical acceptance.",
+    "Strict crossing check excludes tangent/coplanar contact and may miss degeneracies.",
+    "Scaffold may include source mouth/internal geometry; not every crossing is newly introduced."
+  ]
+}

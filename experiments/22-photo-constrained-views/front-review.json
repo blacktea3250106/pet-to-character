@@ -1,0 +1,15 @@
+{
+  "artifact_kind": "AI_2D_not_mesh",
+  "selected": "front-v002.png",
+  "review_method": "Manual visual check against actual photos and first front candidate",
+  "identity": "Major orange right cheek, black left cheek, black nose bridge and pink nose retained",
+  "pose": "Shoulders and rear body now centered behind frontal head; hind paws naturally occluded, no requirement to expose all four feet",
+  "approved_as_cross_view_anchor": true,
+  "approved_for_3d_submission": false,
+  "remaining": [
+    "Tail projection/hidden proportions remain inference",
+    "Facets and white bib still finer than desired in parts",
+    "Cross-view consistency pending"
+  ],
+  "new_cat_automation_proven": false
+}

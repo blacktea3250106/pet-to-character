@@ -1,0 +1,28 @@
+{
+  "artifact_kind": "actual_skinned_3D_animation_render",
+  "candidate": "fit-v002/short_fat/candidate",
+  "renders": [
+    {
+      "action": "Walk",
+      "frame": 14,
+      "file": "Walk-0014.png"
+    },
+    {
+      "action": "Sitting",
+      "frame": 1,
+      "file": "Sitting-0001.png"
+    }
+  ],
+  "fps_source": 30,
+  "frame_step": null,
+  "camera": {
+    "center": [
+      1.4901161193847656e-08,
+      0.015590935945510864,
+      -0.03124995529651642
+    ],
+    "ortho_scale": 1.5583715438842773,
+    "azimuth": -45
+  },
+  "note": "In-place source animation; no foot IK or locomotion root travel imposed."
+}

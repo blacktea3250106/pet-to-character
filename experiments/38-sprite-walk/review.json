@@ -1,0 +1,16 @@
+{
+  "status": "rejected_by_user_art_fidelity",
+  "reason": "使用者指出每個畫風都糊掉；低poly明確切面和花紋身份未保留",
+  "imagegen_calls": 2,
+  "implemented_animation": false,
+  "decision": "停止此生成路徑，不將候選接入遊戲或宣稱自然動畫完成",
+  "manual_dependencies": [
+    "目視畫風/身份/步態驗收"
+  ],
+  "new_cat_automation_proven": false,
+  "assets": [
+    "atlas-v001.png",
+    "atlas-v002.png"
+  ],
+  "next": "查證專門動畫工具與保留原畫風的製作方式"
+}

@@ -1,0 +1,25 @@
+{
+	"animation": "4 distinct walk poses per direction, phase driven by distance",
+	"directions_seen": [
+		"1",
+		"0",
+		"2",
+		"3",
+		"4",
+		"5",
+		"6",
+		"7"
+	],
+	"distance": 8.98003659024075,
+	"elapsed": 22.0,
+	"frames_seen": [
+		"0",
+		"1",
+		"2",
+		"3"
+	],
+	"limitations": "4-frame cadence; rear-left head angle; no dedicated idle pose; AI patch drift",
+	"max_heading_step": 0.0666666666666669,
+	"max_step": 0.01,
+	"source_frame_size": 627
+}

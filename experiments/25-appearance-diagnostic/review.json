@@ -1,0 +1,132 @@
+{
+  "status": "material_contribution_identified_provisional_matte_candidate_verified",
+  "artifact_kind": "actual_3D_renders_and_material_only_GLB",
+  "action_gates": [
+    "action_gate.json",
+    "candidate-action-gate.json"
+  ],
+  "source": "../24-multiview-budget/flat-candidate/cat.glb",
+  "source_sha256": "e09acc1a792ba078ec32d53183ab816e01cc7dd1c7f6b50548926134371820d1",
+  "model": "matte-candidate/cat.glb",
+  "model_sha256": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+  "tripo_calls": 0,
+  "imagegen_calls": 0,
+  "additional_provider_credits": 0,
+  "diagnostic": {
+    "modes": [
+      "baseline",
+      "no_specular",
+      "base_color"
+    ],
+    "camera_azimuths": [
+      -45,
+      45
+    ],
+    "actual_renders": 8,
+    "dark_display_bin": [
+      0,
+      70
+    ],
+    "bin_scope": "Display base-color luma bin, not an anatomical or coat-color segmentation",
+    "baseline_minus_no_specular_mean_luma_255": [
+      15.732383235091481,
+      17.268218598789428
+    ],
+    "finding": "Both sides show a material-reflection contribution to the gray appearance. Removing reflection does not fix texture boundary softness. Base-color display still contains softened fur-like borders and baked detail.",
+    "limitations": [
+      "Only two fixed-lit views of one cat tested",
+      "Non-physical display luma is not material reflectance or photo reconstruction accuracy",
+      "No separation of fur, iris, eyelid, nose or inner-ear regions",
+      "Zero-specular and emission views are diagnostics, not delivered materials"
+    ]
+  },
+  "candidate": {
+    "specular_factor": 0.3,
+    "blender_specular_ior_level": 0.15000000596046448,
+    "roughness": 0.9,
+    "metallic": 0,
+    "triangles": 3500,
+    "all_binary_data_identical": true,
+    "only_json_changes": [
+      {
+        "path": "/extensionsUsed",
+        "before": null,
+        "after": [
+          "KHR_materials_specular"
+        ]
+      },
+      {
+        "path": "/materials/0/extensions",
+        "before": null,
+        "after": {
+          "KHR_materials_specular": {
+            "specularFactor": 0.3
+          }
+        }
+      }
+    ],
+    "blender_import_verified": true,
+    "same_camera_color_comparison": [
+      {
+        "azimuth": 315,
+        "dark_base_color_pixels": 65315,
+        "source_mean_display_luma_255": 68.90402719436577,
+        "candidate_mean_display_luma_255": 59.21859362780372,
+        "mean_display_luma_reduction_255": 9.685433566562043
+      },
+      {
+        "azimuth": 45,
+        "dark_base_color_pixels": 56337,
+        "source_mean_display_luma_255": 77.09258025098958,
+        "candidate_mean_display_luma_255": 66.39664211441858,
+        "mean_display_luma_reduction_255": 10.695938136570993
+      }
+    ],
+    "review": "Both actual renders show modestly deeper dark patches while maintaining visible geometric planes and existing coat placement. Retain as a provisional matte baseline; not a final art preset.",
+    "scope": "Single opaque non-metallic surface only; unsupported material setups fail closed. No per-cat coordinates, painting, masks, decimation or skinning.",
+    "implementation_note": "After generating the asset, the shared verifier was tightened to restore only the authorized extension field rather than an entire extension container. Independent exact JSON diff confirms this candidate contains only the two expected declaration/factor changes. Executed source and current source are both preserved.",
+    "engine_support": "Uses KHR_materials_specular. Blender 5.2.1 import verified; Unity importer/shader behavior not tested.",
+    "official_spec": "https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_materials_specular"
+  },
+  "requirements": {
+    "photo_identity": "Major marking locations retained byte-for-byte from source, which still has unresolved fine-patch differences from original photos. No claim of improved identity.",
+    "cat_png_style": "Matte reflection improved modestly; head volume, geometric plane distribution and clean coat boundaries remain unresolved.",
+    "eyes": "Still one whole-surface material, no iris/eyelid localization or separate controls. Do not transfer this setting to separate eye materials automatically.",
+    "animation": "Geometry and all current asset data preserved, but asset still has no skins or animations; Low Poly Animated Cats compatibility remains untested.",
+    "automatic_system": "Material application and technical diagnostics require no per-cat manual region; photo interpretation/reference approvals and visual art judgment remain manual; unseen cats not tested."
+  },
+  "next_priority": "Address semantic surface regions and clean coat boundaries without old manual masks; eye/fur separation must be reliable before region-specific materials or color simplification. Do not use a yellow-pixel threshold alone as an eye detector.",
+  "geometry_technical_pass": true,
+  "material_import_pass": true,
+  "full_identity_pass": false,
+  "final_art_pass": false,
+  "eyes_pass": false,
+  "animation_pass": false,
+  "new_cat_automation_proven": false,
+  "production_pass": false,
+  "analysis_only_followup": {
+    "user_request": "分析為何不像 cat.png、是否可行；本階段不修復模型。",
+    "report": "structure-analysis.json",
+    "rejected_measurement": "structure-analysis-rejected-uv-origin-note.json",
+    "facts": {
+      "current_triangles": 3500,
+      "flat_corner_fraction_within_1e_5": 1.0,
+      "native_median_adjacent_angle_degrees": 13.03449595253311,
+      "current_median_adjacent_angle_degrees": 16.439854918378295,
+      "current_fraction_faces_sampled_channel_range_above_20_of_255": 0.6082857142857143,
+      "samples_per_face": 55,
+      "source_files_unchanged": true
+    },
+    "interpretation": [
+      "Flat shading is already correctly encoded; enabling it again cannot supply the missing color-block design.",
+      "Reduced mesh has larger median adjacent-face angle than native mesh; do not generally attribute softness to decimation flattening all geometric facets. This is not a regional shape-quality proof.",
+      "Substantial within-face color variation remains, consistent with the existing unlit texture diagnostic; variation can include legitimate markings and eyes, so it is not itself a defect count.",
+      "Geometric facet layout and color-block layout are separate controls. The strongest demonstrated missing capability is controlled surface-color abstraction preserving identity, not a missing flat-shading switch.",
+      "cat.png has no known mesh; no numerical target for its face angles or exact triangle count can be inferred from this analysis."
+    ],
+    "feasibility": "Comparable visual style is technically plausible through controlled geometry and surface color. A single clean texture treatment might improve much of the current gap but has not been proven sufficient; eye/face geometry, multiple views, identity and deformation still require independent acceptance.",
+    "automation_boundary": "Read-only diagnostics are coordinate-free on the supported GLB layout. Semantic eye/coat separation and aesthetic simplification remain unimplemented; no unseen-cat automation claim.",
+    "no_followup_asset_mutation": true,
+    "catworld_comparison": "catworld-comparison.json"
+  }
+}

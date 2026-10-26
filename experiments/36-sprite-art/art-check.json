@@ -1,0 +1,81 @@
+{
+	"captures": [
+		{
+			"alpha_cut": 1,
+			"camera_size": 1.70000004768372,
+			"file": "close-A.png",
+			"no_depth_test": false,
+			"offset": [
+				0.0,
+				472.409973144531
+			],
+			"pixel_size": 0.000551470613572747,
+			"position": [
+				1.60000002384186,
+				0.0209999997168779,
+				-0.850000023841858
+			],
+			"shaded": false,
+			"shadow_visible": true,
+			"texture": "res://assets/cat-cutout-v001.png"
+		},
+		{
+			"alpha_cut": 1,
+			"camera_size": 1.70000004768372,
+			"file": "close-B.png",
+			"no_depth_test": false,
+			"offset": [
+				0.0,
+				472.409973144531
+			],
+			"pixel_size": 0.000551470613572747,
+			"position": [
+				1.60000002384186,
+				0.0209999997168779,
+				-0.850000023841858
+			],
+			"shaded": false,
+			"shadow_visible": true,
+			"texture": "res://assets/cat-art-v002.png"
+		},
+		{
+			"alpha_cut": 1,
+			"camera_size": 4.85158824920654,
+			"file": "overview-A.png",
+			"no_depth_test": false,
+			"offset": [
+				0.0,
+				472.409973144531
+			],
+			"pixel_size": 0.000551470613572747,
+			"position": [
+				1.60000002384186,
+				0.0209999997168779,
+				-0.850000023841858
+			],
+			"shaded": false,
+			"shadow_visible": true,
+			"texture": "res://assets/cat-cutout-v001.png"
+		},
+		{
+			"alpha_cut": 1,
+			"camera_size": 4.85158824920654,
+			"file": "overview-B.png",
+			"no_depth_test": false,
+			"offset": [
+				0.0,
+				472.409973144531
+			],
+			"pixel_size": 0.000551470613572747,
+			"position": [
+				1.60000002384186,
+				0.0209999997168779,
+				-0.850000023841858
+			],
+			"shaded": false,
+			"shadow_visible": true,
+			"texture": "res://assets/cat-art-v002.png"
+		}
+	],
+	"changed_property": "Sprite3D.texture"
+}

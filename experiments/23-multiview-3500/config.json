@@ -1,0 +1,7 @@
+{
+  "reference_review": "22-photo-constrained-views/review.json",
+  "request_profile": "../workflow-validation-v001/front-end-profile.json",
+  "output": "23-multiview-3500/native-v001",
+  "endpoint": "/generation/multiview-to-model",
+  "expected_credits": 40
+}

@@ -1,0 +1,163 @@
+{
+  "stage": "raw",
+  "source": "model_url.glb",
+  "source_bounds": [
+    [
+      -0.5,
+      -0.20645791292190552,
+      -0.3923678994178772
+    ],
+    [
+      0.5,
+      0.20841485261917114,
+      0.3904109597206116
+    ]
+  ],
+  "normalization": "longest bbox extent 0.65 m, centered XY, floor Z=0; not measured pet size",
+  "scale": 0.6499999761581421,
+  "vertices": 5710,
+  "triangles": 5416,
+  "materials": 1,
+  "blender": "5.2.1 LTS",
+  "image_files": [
+    "material-0-Color_<redacted-id>.png"
+  ],
+  "analysis_welded_vertices": 2710,
+  "boundary_edges": 0,
+  "nonmanifold_edges": 0,
+  "low_height_components": [
+    {
+      "height": 0.050880622863769535,
+      "count": 5,
+      "groups": [
+        {
+          "vertices": 150,
+          "centroid": [
+            -0.20593932668368023,
+            0.065466403439641,
+            0.01797781648735205
+          ]
+        },
+        {
+          "vertices": 184,
+          "centroid": [
+            0.1646776265748169,
+            0.01626659436252616,
+            0.02045594304597572
+          ]
+        },
+        {
+          "vertices": 145,
+          "centroid": [
+            -0.20502698513968237,
+            -0.012772789179218997,
+            0.017922257371889107
+          ]
+        },
+        {
+          "vertices": 143,
+          "centroid": [
+            -0.11534868785134562,
+            0.06182173806262183,
+            0.02069026421612272
+          ]
+        },
+        {
+          "vertices": 180,
+          "centroid": [
+            0.17748857571019067,
+            0.07820776152527995,
+            0.020055442357746263
+          ]
+        }
+      ],
+      "meaning": "geometric candidate components, not automatic anatomical proof"
+    },
+    {
+      "height": 0.08140899658203125,
+      "count": 5,
+      "groups": [
+        {
+          "vertices": 174,
+          "centroid": [
+            -0.2097290563343585,
+            0.06402478574764454,
+            0.0240293945046677
+          ]
+        },
+        {
+          "vertices": 214,
+          "centroid": [
+            0.1605592765888878,
+            0.016357886108839623,
+            0.026462676360437247
+          ]
+        },
+        {
+          "vertices": 169,
+          "centroid": [
+            -0.20905839991287367,
+            -0.011809421216203837,
+            0.02434140719065564
+          ]
+        },
+        {
+          "vertices": 166,
+          "centroid": [
+            -0.12124760807996773,
+            0.06040541630193411,
+            0.027095461485862553
+          ]
+        },
+        {
+          "vertices": 213,
+          "centroid": [
+            0.17267462306878936,
+            0.07799307188727486,
+            0.02668246454799749
+          ]
+        }
+      ],
+      "meaning": "geometric candidate components, not automatic anatomical proof"
+    },
+    {
+      "height": 0.11193737030029297,
+      "count": 4,
+      "groups": [
+        {
+          "vertices": 410,
+          "centroid": [
+            -0.17135601498004865,
+            0.06070927274299831,
+            0.03757719881719024
+          ]
+        },
+        {
+          "vertices": 247,
+          "centroid": [
+            0.1566973864609896,
+            0.015547433181341571,
+            0.035508286456769775
+          ]
+        },
+        {
+          "vertices": 200,
+          "centroid": [
+            -0.21202592179179192,
+            -0.011130134732811712,
+            0.03541927067330107
+          ]
+        },
+        {
+          "vertices": 243,
+          "centroid": [
+            0.168589177568263,
+            0.07817923306744286,
+            0.035098204789721546
+          ]
+        }
+      ],
+      "meaning": "geometric candidate components, not automatic anatomical proof"
+    }
+  ]
+}

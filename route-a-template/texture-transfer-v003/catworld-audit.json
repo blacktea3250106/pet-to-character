@@ -1,0 +1,47 @@
+{
+  "reference_project": "<catworld>",
+  "reference_project_modified": false,
+  "sources": {
+    "WORKFLOW.md": "25e9909200d7b44da76a255630be4b5d3aa19655c1672edbe365b44640835aa2",
+    "pipeline/PIPELINE.md": "c47076f0912a8c58ff82a995fb671a62b4e28fe37069d5d70191a53ee6464680",
+    "pipeline/facet_texture.py": "9f9f73bd89d0b67d99746c51adcb5a38ce8ce0293567b82015e329c906e782c4",
+    "pipeline/proj_bake.py": "0e68e20df6e24a894ea0b61ad888c0477dfdd0308181fd08a5a830051936bddf",
+    "pipeline/proj_paint.py": "8fd1dd9c2ff3d50f09beaefac0cf0788b956d8f2e19531447edca5b8048056ff",
+    "godot/models/calico_cat.glb": "c74fa3c814a165bf2ccbccadb252f17ea5b12ffd3b46ee518c388492d973586a"
+  },
+  "current_runtime_meshes": [
+    {
+      "name": "Calico_Facet.002_belly_surface",
+      "triangles": 12296
+    },
+    {
+      "name": "SleepingEyelidsSurface",
+      "triangles": 3716
+    }
+  ],
+  "findings": [
+    "AI is used for ordinary-view reference images and Tripo base model/texture upstream.",
+    "Projection uses silhouette fitting, visibility/depth checks and view-facing weights.",
+    "facet_texture.py deterministically averages linearized texture colors over each triangle.",
+    "Eye regions within 11 mm of stored eye centers retain detailed texture; current method is hybrid, not strictly one color on every face.",
+    "Documented facet mesh was subdivided from 3075 to 12300 triangles, with surface smoothing and small normal displacement; latest runtime body has 12296 triangles.",
+    "Reference views and geometry are better matched than the purchased template; this cannot be attributed only to the color storage method.",
+    "AI reference views are not independent ground-truth photographs, and documented front silhouette fitting IoU is about 0.50."
+  ],
+  "v003_decision": "Use strict original-triangle corner colors as a controlled diagnostic. Do not reproduce the full catworld generative/remeshing pipeline or alter its files.",
+  "v003_vs_catworld": {
+    "our_triangle_count": 2144,
+    "catworld_current_body_triangle_count": 12296,
+    "ratio": 5.735,
+    "our_geometry": "unchanged positions, explicit original render triangles",
+    "catworld_geometry": "generated then subdivided/smoothed/displaced and repaired",
+    "our_face_labels": "manually authored semantic regions with majority vote and four face-ID eye corrections",
+    "catworld_face_colors": "linear color average from projected/base texture, eyes exempt"
+  },
+  "conclusions": [
+    "Reject unconstrained image generation of final UV atlases for this experiment.",
+    "Deterministic UV baking remains a valid output format; avoiding image generation does not require abandoning UV.",
+    "A strict face-color diagnostic is not proof of the best attainable likeness on this template.",
+    "AI-only cat.png has no inspectable reference mesh, so image appearance cannot establish true polygon/marking alignment."
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "status": "actual_multiview_model_generated_budget_rejected_flat_export_verified",
+  "artifact_kind": "actual_3D_asset_and_Blender_renders",
+  "task_id": "<redacted-id>",
+  "tripo_calls": 1,
+  "credits_consumed": 40.0,
+  "submission_to_download_seconds": 206.78,
+  "server_task_seconds": 194.529,
+  "input_review": "22-photo-constrained-views/review.json",
+  "raw_model": "native-v001/model_url.glb",
+  "shading_candidate": "flat-candidate/cat.glb",
+  "geometry": {
+    "requested_triangles": 3500,
+    "actual_triangles": 5356,
+    "glb_and_blender_counts_agree": true,
+    "budget_pass": false,
+    "analysis_welded_topology": {
+      "vertices": 2680,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "meaning": "Analysis-copy topology; not anatomical or animation acceptance"
+    },
+    "visual_anatomy": "Four recognizable legs and one tail, no obvious extra limb in reviewed full-body views. Not automated anatomy proof.",
+    "local_geometry_edits": false,
+    "remeshing_performed": false,
+    "manual_model_coordinates": []
+  },
+  "identity": {
+    "major_features": "Anatomical right orange cheek / left black cheek, dark nasal bridge, small pink nose, white chest, broad black shoulders and asymmetric forelegs visible in actual model.",
+    "method": "Manual visual comparison against four references and real-photo feature list",
+    "remaining": [
+      "Exact fine coat boundaries and unseen surfaces not verified",
+      "Coat still has fuzzy edges and baked tonal variation",
+      "No calibrated identity score or full UV correspondence proof"
+    ],
+    "full_identity_pass": false
+  },
+  "style": {
+    "flat_shading": "Stronger visible chest, paws and body planes without adding or removing faces; actual GLB corner normals now explicit.",
+    "remaining": [
+      "Head/muzzle volume and full cat.png likeness need further review",
+      "Painted coat detail and real mesh facets are not always aligned",
+      "Not all body regions read as cleanly as cat.png"
+    ],
+    "final_art_pass": false
+  },
+  "eyes_and_material": {
+    "base_color_dimensions": [
+      2048,
+      2048
+    ],
+    "metallic": 0,
+    "roughness_all_surfaces": 0.9,
+    "separate_eye_roughness_or_geometry_added": false,
+    "blink_controls_added": false,
+    "material_factors_preserved_on_flat_export": true,
+    "eyes_pass": false
+  },
+  "export": {
+    "failed_v001": "flat-rejected-v001/export-review.json",
+    "failure": "Per-polygon smooth flag did not ensure exported normals; first pixel inventory was also empty due lazy image loading and cannot establish texture fidelity.",
+    "repair": "Shared rule explicitly writes each face normal to its corners; shader-referenced images must decode and be nonempty.",
+    "verified_roundtrip": "flat-candidate/export-review.json",
+    "max_position_delta": 0.0,
+    "max_uv_delta": 0.0,
+    "decoded_texture_pixels_identical": true,
+    "normal_dot_min": 0.9999998644297499,
+    "roundtrip_pass": true
+  },
+  "animation": {
+    "skins": 0,
+    "animations": 0,
+    "low_poly_animated_cats_tested": false,
+    "pass": false
+  },
+  "render_method": {
+    "framing": "Source bbox only; no old-case body points or manual face camera coordinates",
+    "raw_review_renders": 15,
+    "actual_export_reimport_renders": 2,
+    "note": "Initial raw diagnostic ground plane edge was visible; final GLB previews use an enlarged common ground plane. This is review-scene setup, not asset geometry."
+  },
+  "automation_gain": [
+    "New model did not use previous 52 manual projection points, eye polygon, dorsal torso window or local shape repair",
+    "View prompts read identity data and input roles; photo role assignment and judgments remain manual",
+    "Raw model framing and counts derive from asset data",
+    "Flat normals export and roundtrip verification use all faces, no per-cat selections"
+  ],
+  "new_cat_automation_proven": false,
+  "production_pass": false,
+  "next_requirement": "Resolve 3500 exported-triangle budget using a separately gated provider-side fallback if retained; then recheck texture/geometry and continue remaining style, eyes and animation acceptance. No local decimation silently applied."
+}

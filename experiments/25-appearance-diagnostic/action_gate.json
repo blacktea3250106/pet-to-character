@@ -1,0 +1,12 @@
+{
+  "timing": "before_execution",
+  "purpose": "釐清最新 3500 面模型黑毛偏灰與切面不清的來源，避免把燈光或材質問題誤當成需要逐貓重畫花色。",
+  "scope": "通用唯讀外觀診斷；同一模型、UV、貼圖、鏡頭、光源與色彩管理，只隔離表面反射項或直接顯示底色。",
+  "automation_method": "讀入有來源 hash 的既有 Blender 預覽場景，以模型 bounds 設兩個鏡頭；比較原材質、移除介電鏡面反射、底色直出三種模式。從模型 alpha 自動取得有效像素，按底色亮度分析，不使用人工部位座標或遮罩。",
+  "remaining_manual_inputs": ["目視判斷 cat.png 美術方向", "物理成因診斷不等於自動審美或身份通過"],
+  "case_necessity": "驗證 H4：偏灰是否主要來自材質反射或貼圖底色。若共用材質規則足以改善，就不新增逐貓重繪程序。",
+  "validation": ["三種模式均來自真實 3D 模型", "相同鏡頭與輸入 hash", "來源 GLB／blend 不變", "保留六張正式對照與兩張 alpha 診斷", "顏色統計只用模型內部像素，不宣稱照片還原率"],
+  "stop_condition": "最多一組三模式×兩角度對照，以及一次必要的實作修正。診斷不直接覆蓋 GLB，不從全身反射測試推論眼睛可以套用相同材質。只有明確證據支持後，另立閘門測試可交付材質候選。",
+  "decision": "bounded_material_and_base_color_isolation",
+  "new_cat_automation_proven": false
+}

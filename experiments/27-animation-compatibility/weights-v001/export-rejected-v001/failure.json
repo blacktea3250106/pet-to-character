@@ -1,0 +1,6 @@
+{
+  "status": "failed_roundtrip_rest_check",
+  "reason": "Rest vertex or sorted corner comparison failed; inspect before assigning to model quality.",
+  "log": "../../weights-export.log",
+  "resolved_cause": "Quantized corner sorting changed order under ~1.4e-6 position roundoff; source/destination rest positions were consistent. Replaced sort with bidirectional spatial/UV neighbor comparison. Export roundtrip v002 passed."
+}

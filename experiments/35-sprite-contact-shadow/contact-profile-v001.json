@@ -1,0 +1,20 @@
+{
+  "supported_pose": "lying",
+  "method": "lower_contour_ground_projection_visual_contact_proxy",
+  "lower_band_start_fraction_of_alpha_height": 0.62,
+  "sample_stride_pixels": 8,
+  "half_width_fraction_of_world_width": 0.036,
+  "opacity": 0.46,
+  "color": [
+    0.16,
+    0.105,
+    0.065
+  ],
+  "floor_lift_world": 0.002,
+  "alpha_threshold": 0.5,
+  "endpoint_fade_fraction": 0.06,
+  "semantic_ground_contact_inferred": false,
+  "source_pivot_modified": false,
+  "new_per_cat_manual_coordinates": 0,
+  "failure_policy": "reject unknown pose or empty/insufficient alpha contour; no manual fallback"
+}

@@ -1,0 +1,46 @@
+{
+  "first_check": "failed strict all-input hash comparison on render-report.json; investigated, not ignored",
+  "export_inputs": [
+    {
+      "path": "16-service-retopology/basic-v001/restored/scene.blend",
+      "recorded_sha256": "4535064c43c2d38a322507bfcb54e321544a4bfd9acbd6e26046b344bee476e0",
+      "current_sha256": "4535064c43c2d38a322507bfcb54e321544a4bfd9acbd6e26046b344bee476e0",
+      "exact_match": true
+    },
+    {
+      "path": "16-service-retopology/basic-v001/restored/cat.glb",
+      "recorded_sha256": "4487376d7a2816492d084c6d821a15188cdf4433f0aa847f55ee8d4fc7942b87",
+      "current_sha256": "4487376d7a2816492d084c6d821a15188cdf4433f0aa847f55ee8d4fc7942b87",
+      "exact_match": true
+    },
+    {
+      "path": "16-service-retopology/basic-v001/restored/mesh.npz",
+      "recorded_sha256": "0ab1f6fd3547ab53c551352eb645fef18be7cc82c7108331b62f884625179e3b",
+      "current_sha256": "0ab1f6fd3547ab53c551352eb645fef18be7cc82c7108331b62f884625179e3b",
+      "exact_match": true
+    },
+    {
+      "path": "16-service-retopology/basic-v001/restored/render-report.json",
+      "recorded_sha256": "ecf94efc98a76dfae2c99a0086674443d23a60917652a8a506af08110368c067",
+      "current_sha256": "4de6dad1b11199a47843da915d31f1d753703326a9d02f661e3896d1a73d4c61",
+      "exact_match": false,
+      "explained_changes": [
+        {
+          "path": "sampled_surface_distance.scope",
+          "old": "Unaligned world-space vertices and triangle centroids only; not continuous Hausdorff maximum or deformation validation",
+          "new": "World-space vertices and triangle centroids after the recorded uniform scale/translation; not continuous Hausdorff maximum or deformation validation"
+        },
+        {
+          "path": "metric_description_correction",
+          "old": "absent",
+          "new": "The executed code initially mislabeled aligned world-space measurements as unaligned; values and geometry are unchanged."
+        }
+      ],
+      "reversing_only_these_changes_matches_recorded_bytes": true
+    }
+  ],
+  "source_photos_unchanged_from_original_manifest": 8,
+  "conclusion": "Scene, GLB and analysis mesh match original verification hashes. Render-report differs only in a proven description correction and its note; reverting those two fields reconstructs the exact historical SHA256. No geometry, camera, numeric or material-report field changed.",
+  "new_render_performed": false,
+  "identity_or_art_pass": false
+}

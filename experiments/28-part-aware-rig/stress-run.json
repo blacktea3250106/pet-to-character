@@ -1,0 +1,111 @@
+{
+  "cases": [
+    {
+      "case": "long_legs",
+      "steps": [
+        {
+          "step": "fit",
+          "exit_code": 0,
+          "log": "stress-long_legs-fit.log"
+        },
+        {
+          "step": "bind",
+          "exit_code": 0,
+          "log": "stress-long_legs-bind.log"
+        },
+        {
+          "step": "sampled_animation",
+          "exit_code": 0,
+          "log": "stress-long_legs-sampled_animation.log"
+        }
+      ],
+      "status": "diagnostics_completed_not_quality_pass"
+    },
+    {
+      "case": "short_legs",
+      "steps": [
+        {
+          "step": "fit",
+          "exit_code": 0,
+          "log": "stress-short_legs-fit.log"
+        },
+        {
+          "step": "bind",
+          "exit_code": 0,
+          "log": "stress-short_legs-bind.log"
+        },
+        {
+          "step": "sampled_animation",
+          "exit_code": 0,
+          "log": "stress-short_legs-sampled_animation.log"
+        }
+      ],
+      "status": "diagnostics_completed_not_quality_pass"
+    },
+    {
+      "case": "thin_body",
+      "steps": [
+        {
+          "step": "fit",
+          "exit_code": 0,
+          "log": "stress-thin_body-fit.log"
+        },
+        {
+          "step": "bind",
+          "exit_code": 0,
+          "log": "stress-thin_body-bind.log"
+        },
+        {
+          "step": "sampled_animation",
+          "exit_code": 0,
+          "log": "stress-thin_body-sampled_animation.log"
+        }
+      ],
+      "status": "diagnostics_completed_not_quality_pass"
+    },
+    {
+      "case": "fat_body",
+      "steps": [
+        {
+          "step": "fit",
+          "exit_code": 0,
+          "log": "stress-fat_body-fit.log"
+        },
+        {
+          "step": "bind",
+          "exit_code": 0,
+          "log": "stress-fat_body-bind.log"
+        },
+        {
+          "step": "sampled_animation",
+          "exit_code": 0,
+          "log": "stress-fat_body-sampled_animation.log"
+        }
+      ],
+      "status": "diagnostics_completed_not_quality_pass"
+    },
+    {
+      "case": "short_fat",
+      "steps": [
+        {
+          "step": "fit",
+          "exit_code": 0,
+          "log": "stress-short_fat-fit.log"
+        },
+        {
+          "step": "bind",
+          "exit_code": 0,
+          "log": "stress-short_fat-bind.log"
+        },
+        {
+          "step": "sampled_animation",
+          "exit_code": 0,
+          "log": "stress-short_fat-sampled_animation.log"
+        }
+      ],
+      "status": "diagnostics_completed_not_quality_pass"
+    }
+  ],
+  "coverage": "15 poses per successful fixture, not full clips",
+  "new_cat_automation_proven": false
+}

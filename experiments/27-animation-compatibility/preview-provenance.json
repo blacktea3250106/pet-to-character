@@ -1,0 +1,23 @@
+{
+  "artifact_kind": "actual_skinned_3D_animation_render",
+  "source_render_fps": 30,
+  "sample_step": 2,
+  "clips": [
+    "Idle still",
+    "Walk repeated four times",
+    "Idle_to_Sit",
+    "Sitting still",
+    "Sitting_to_Idle",
+    "Idle still"
+  ],
+  "note": "Idle and Sitting are held preview frames in this montage; their full clips were separately measured every frame.",
+  "before": "baseline-v002/motion/review.mp4",
+  "after": "weights-v001/motion/review.mp4",
+  "comparison": "animation-comparison.mp4",
+  "preview": "animation-preview.gif",
+  "comparison_layout": "Left: baseline-v002, four influences. Right: weights-v001, smoothed with eight influences.",
+  "packaging_note": "Installed FFmpeg has no drawtext filter; labels supplied here and in linked workflow instead of burned into video.",
+  "animation_quality_pass": false,
+  "nominal_video_fps": 15,
+  "timing_limit": "Montage holds/repeats poses and is a visual preview, not a timing or support-phase validation. Source five actions were measured at every integer frame at 30 fps."
+}

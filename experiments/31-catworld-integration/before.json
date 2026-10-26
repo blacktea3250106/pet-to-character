@@ -1,0 +1,37 @@
+[
+  {
+    "path": "<catworld>/godot/main.gd",
+    "sha256": "9293aa6f820ce7f71ea039001934af80562eb96c909a81418c886e727afc2765",
+    "backup": "before/main.gd"
+  },
+  {
+    "path": "<catworld>/godot/cat.gd",
+    "sha256": "657e5434ee7049a6927b3c688972b6a53846690ddd231366f933678f105201be",
+    "backup": "before/cat.gd"
+  },
+  {
+    "path": "<catworld>/godot/tripo_cat.gd",
+    "sha256": "c18e6c3d9715a8103cdfb58bbddcb35ad33dad34890fb0a99dff9130ad50aaa8",
+    "backup": "before/tripo_cat.gd"
+  },
+  {
+    "path": "<catworld>/godot/cat_eyes.gd",
+    "sha256": "04aec08500dc7ee375b26cdbd622903171191289fdabcbc8223549ae14f5ee7d",
+    "backup": "before/cat_eyes.gd"
+  },
+  {
+    "path": "<catworld>/godot/project.godot",
+    "sha256": "2500609eb8838918d5216ec47f884152d677c99392244248fc3e0d6492f54c03",
+    "backup": "before/project.godot"
+  },
+  {
+    "path": "<catworld>/godot/models/calico_cat.glb",
+    "sha256": "c74fa3c814a165bf2ccbccadb252f17ea5b12ffd3b46ee518c388492d973586a",
+    "backup": "before/models/calico_cat.glb"
+  },
+  {
+    "path": "<catworld>/godot/models/calico_tripo_walk.glb",
+    "sha256": "e78a03b437efb9cc49770856fbc032674c9cdb1509436fe95d67c82d4b6fd676",
+    "backup": "before/models/calico_tripo_walk.glb"
+  }
+]

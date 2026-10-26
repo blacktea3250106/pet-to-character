@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "case": "completed_task_replay",
+      "pass": true,
+      "network_requests": 0
+    },
+    {
+      "case": "unknown_submission_refuses_resubmission",
+      "pass": true,
+      "network_requests": 0
+    },
+    {
+      "case": "request_mismatch_refuses_reuse",
+      "pass": true,
+      "network_requests": 0
+    }
+  ],
+  "passed": 3,
+  "scope": "Transport and payment retry guards only, not visual quality",
+  "task_id": "<redacted-id>"
+}

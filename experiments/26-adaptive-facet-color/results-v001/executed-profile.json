@@ -1,0 +1,13 @@
+{
+  "source": "25-appearance-diagnostic/matte-candidate/cat.glb",
+  "source_sha256": "3eb2bf3c63d4fea7580f01ab55026067a68ba41fcbaee37bafbd513ddf4e8b57",
+  "output": "26-adaptive-facet-color/results-v001",
+  "required_triangles": 3500,
+  "max_subdivision_depth": 2,
+  "min_cell_texels": 8,
+  "padding_pixels": 12,
+  "variants": [
+    {"id": "delta18", "max_delta_e76": 18.0},
+    {"id": "delta28", "max_delta_e76": 28.0}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "timing": "before_execution",
+  "purpose": "把已保留主要身份的新多視角模型從 5356 面降至實際 3500 面，同時驗證外形、花色與材質保留。",
+  "scope": "通用條件式 Tripo 服務後處理；沒有本貓頭部、腳掌保護區或局部手工減面。",
+  "automation_method": "原生生成若超出預算，使用 Tripo /mesh/decimate v1.0 指定 face_limit=3500；原始 GLB 作輸入，flat 法線於減面後再套用。對來源與輸出做包圍盒／表面／材質／UV 檢查，必要時依來源恢復材質或烘焙貼圖。",
+  "remaining_manual_inputs": ["上游身份與參考圖曾人工核對", "減面後的五官、輪廓、花色及 cat.png 美術判斷"],
+  "case_necessity": "H3.1 本例四視圖已實際收到 3500 參數仍輸出 5356；先使用有既有單例證據的服務減面，驗證可否省掉逐模型手工修復。",
+  "validation": ["GLB metadata 與 Blender 均驗證面數", "減面後與來源同尺度的雙向表面距離（抽樣，非全域 Hausdorff）", "全身／臉部／另一側實際渲染與原照主要身份核對", "檢查金屬度、粗糙度、底色貼圖與角點法線", "實際匯出回讀；舊 face ID、UV 對應或骨架資料不得沿用"],
+  "stop_condition": "僅一個 v1.0 服務任務，預估 10 credits；未知提交不重送。面數或形狀失敗就拒絕，不再連續減面。若材質有明確遺失，最多一個依來源自動恢復／重烘焙候選及一次實作修正，不畫 UV 或設局部本貓座標。",
+  "decision": "one_provider_basic_decimation_and_generic_fidelity_review",
+  "new_cat_automation_proven": false
+}

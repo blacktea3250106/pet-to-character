@@ -1,0 +1,15 @@
+{
+  "case": "fat_body",
+  "timing": "added_after_experiment_for_future_runs",
+  "status": "needs_review",
+  "production_binding_allowed": false,
+  "reasons": [
+    "New nonadjacent scaffold crossings require review before production binding.",
+    "Retained tail axes differ materially from mapped directions; rest-pose retargeting must be validated."
+  ],
+  "new_scaffold_crossing_pairs": 725,
+  "tail_axis_max_degrees": 83.16250206794015,
+  "threshold_note": "30 degrees is a conservative research warning, not a calibrated support boundary. New crossing counts require interpretation, not a production success metric.",
+  "original_runs": "Existing candidate bind/animation outputs were diagnostic experiments before this gate was added; not claimed pre-approved.",
+  "new_cat_automation_proven": false
+}

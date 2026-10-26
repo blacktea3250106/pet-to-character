@@ -1,0 +1,41 @@
+{
+  "status": "selected_previous_version_two_behaviors_packaged",
+  "user_decision": "使用者選擇比較影片左側上一版，只需坐下與行走；已確認坐下為屁股落地、前腳撐直的坐姿。",
+  "selected_candidate": "27-animation-compatibility/weights-v001",
+  "rejected_candidate": "28-part-aware-rig/fit-v002/original/candidate",
+  "user_visible_behaviors": [
+    "Walk",
+    "Sitting"
+  ],
+  "core_actions": [
+    "Walk",
+    "Idle_to_Sit",
+    "Sitting",
+    "Sitting_to_Idle"
+  ],
+  "supporting_transitions": [
+    "Idle_to_Sit",
+    "Sitting_to_Idle"
+  ],
+  "purpose_of_transitions": "兩種行為間銜接用，保留來源命名；不是新增獨立待機功能。",
+  "scope_rule": "後續僅針對這兩行為與必要轉場處理，不自動擴回五行為或23個來源動作。",
+  "output": "cat-walk-sit.glb",
+  "preview": "preview.mp4",
+  "unchanged": [
+    "原27版本幾何與3500面",
+    "骨架/權重",
+    "UV/貼圖/材質",
+    "保留的動畫曲線"
+  ],
+  "automation_gain": "動作白名單打包不需要每隻貓重新選曲線；此輪沒有修復新貓適配能力。",
+  "verification": "四clip首中末共12姿勢回讀通過，原BIN與保留曲線相同。",
+  "remaining": [
+    "上一版走路拉伸與坐姿穿地等缺陷仍存在",
+    "原地走路的世界位移、停步/轉場混合未做Unity驗證",
+    "不同體型與未知貓不能因動作變少而自動視為通過"
+  ],
+  "animation_quality_pass": false,
+  "unity_pass": false,
+  "new_cat_automation_proven": false,
+  "paid_api_calls": 0
+}

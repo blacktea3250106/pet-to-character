@@ -1,0 +1,57 @@
+{
+  "input": "experiments/generation-v001/06b-repair/mesh.npz",
+  "sha256": "3c1028b638afecb60b88de0c585bc235d037e447377f1fdb91ceadb10da9cb04",
+  "measurement_scope": "Topology and component measurements only; no semantic or artistic acceptance",
+  "render_vertices": 2696,
+  "analysis_vertices": 2696,
+  "triangles": 5388,
+  "weld_tolerance": 6.49999976158142e-07,
+  "weld_method": "quantized coordinates; analysis copy only",
+  "boundary_edges": 2,
+  "edges_with_more_than_two_faces": 3,
+  "degenerate_triangles": 0,
+  "component_count": 1,
+  "components": [
+    {
+      "vertex_count": 2696,
+      "triangle_count": 5388,
+      "center": [
+        -0.01727516305625894,
+        0.03052649628814035,
+        0.180856441028792
+      ],
+      "bounds": [
+        [
+          -0.32499998807907104,
+          -0.13483364880084991,
+          0.0
+        ],
+        [
+          0.32499998807907104,
+          0.13483364880084991,
+          0.5088062286376953
+        ]
+      ],
+      "principal_elongation": 1.437175228171578,
+      "fraction_triangles": 1.0
+    }
+  ],
+  "uv_finite": true,
+  "uv_outside_unit_square_corners": 0,
+  "small_component_review_candidates": [],
+  "candidate_policy": "Flag for semantic review, NEVER auto-delete; separate eyes, teeth or accessories can be intentional",
+  "anatomy_pass": null,
+  "identity_pass": null,
+  "style_pass": null,
+  "automatic_repair_performed": false,
+  "not_evaluated": [
+    "self intersections",
+    "correct leg count and anatomy",
+    "UV overlap",
+    "photo identity",
+    "facet aesthetics",
+    "skin deformation",
+    "animation",
+    "engine appearance"
+  ]
+}

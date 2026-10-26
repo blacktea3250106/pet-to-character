@@ -1,0 +1,30 @@
+{
+  "source": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/24-multiview-budget/basic-v001/model_url.glb",
+  "source_sha256": "798df81b9cfda049cfa684037bb7362e900f591dadb7d9b82f683dde0b4ccc34",
+  "candidate_sha256": "e09acc1a792ba078ec32d53183ab816e01cc7dd1c7f6b50548926134371820d1",
+  "triangles": 3500,
+  "target_triangles": 3500,
+  "budget_pass": true,
+  "unique_triangle_correspondence": true,
+  "max_corner_position_difference_source_units": 0.0,
+  "max_corner_uv_difference": 0.0,
+  "decoded_texture_hashes_identical": true,
+  "texture_images": [
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256_decoded_rgba32": "1f7df9f937b2271a917ad71dff7a40e1807bf364cf9fa2004185960454c9f6b2"
+    }
+  ],
+  "minimum_exported_corner_normal_dot_geometric_face_normal": 0.9999998521599744,
+  "nondegenerate_triangles_checked": 3500,
+  "source_file_unchanged": true,
+  "shading_export_roundtrip_pass": true,
+  "method": "Nearest triangle-centroid correspondence, six corner permutations, UV correspondence and exact decoded pixel hashes; geometric normal dot-product after actual GLB reimport",
+  "scope": "Shading-only candidate. No geometry reduction, coat recolor, eye control or rigging. Technical pass is not final art acceptance.",
+  "art_pass": false,
+  "animation_pass": false,
+  "new_cat_automation_proven": false
+}

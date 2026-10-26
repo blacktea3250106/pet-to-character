@@ -1,0 +1,32 @@
+{
+  "source": {
+    "baseColorFactor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "metallicFactor": 0.0,
+    "roughnessFactor": 0.9,
+    "doubleSided": true,
+    "alphaMode": "OPAQUE",
+    "skins": 0,
+    "animations": 0
+  },
+  "flat": {
+    "baseColorFactor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "metallicFactor": 0,
+    "roughnessFactor": 0.8999999761581421,
+    "doubleSided": true,
+    "alphaMode": "OPAQUE",
+    "skins": 0,
+    "animations": 0
+  },
+  "preserved": true,
+  "numeric_tolerance": 1e-06
+}

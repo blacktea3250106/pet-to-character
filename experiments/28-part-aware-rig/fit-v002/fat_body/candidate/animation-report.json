@@ -1,0 +1,164 @@
+{
+  "candidate": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/28-part-aware-rig/fit-v002/fat_body/candidate",
+  "actions": [
+    {
+      "action": "Idle",
+      "frames": 3,
+      "range": [
+        1,
+        260
+      ],
+      "metrics": {
+        "source": {
+          "nonadjacent_crossing_pairs": 154,
+          "max_edge_stretch": 4.050886168239832,
+          "edges_stretched_over_2x": 2,
+          "faces_area_below_30pct": 2,
+          "vertices_below_1pct_extent": 0,
+          "lowest_relative_to_ground": -0.0005119970244120142,
+          "worst_crossing_frame": 130
+        },
+        "target": {
+          "nonadjacent_crossing_pairs": 74,
+          "max_edge_stretch": 2.4375808238983154,
+          "edges_stretched_over_2x": 2,
+          "faces_area_below_30pct": 11,
+          "vertices_below_1pct_extent": 0,
+          "lowest_relative_to_ground": -0.00739094614982605,
+          "worst_crossing_frame": 130
+        }
+      },
+      "source_object_motion_max_delta": 0.0
+    },
+    {
+      "action": "Walk",
+      "frames": 3,
+      "range": [
+        1,
+        27
+      ],
+      "metrics": {
+        "source": {
+          "nonadjacent_crossing_pairs": 182,
+          "max_edge_stretch": 5.67276987348282,
+          "edges_stretched_over_2x": 2,
+          "faces_area_below_30pct": 5,
+          "vertices_below_1pct_extent": 0,
+          "lowest_relative_to_ground": -0.005341693217658594,
+          "worst_crossing_frame": 14
+        },
+        "target": {
+          "nonadjacent_crossing_pairs": 76,
+          "max_edge_stretch": 4.446022987365723,
+          "edges_stretched_over_2x": 32,
+          "faces_area_below_30pct": 12,
+          "vertices_below_1pct_extent": 0,
+          "lowest_relative_to_ground": -0.003364652395248413,
+          "worst_crossing_frame": 14
+        }
+      },
+      "source_object_motion_max_delta": 0.0
+    },
+    {
+      "action": "Idle_to_Sit",
+      "frames": 3,
+      "range": [
+        1,
+        35
+      ],
+      "metrics": {
+        "source": {
+          "nonadjacent_crossing_pairs": 359,
+          "max_edge_stretch": 6.426979802659891,
+          "edges_stretched_over_2x": 8,
+          "faces_area_below_30pct": 49,
+          "vertices_below_1pct_extent": 0,
+          "lowest_relative_to_ground": -0.004496666214786504,
+          "worst_crossing_frame": 35
+        },
+        "target": {
+          "nonadjacent_crossing_pairs": 475,
+          "max_edge_stretch": 4.091423511505127,
+          "edges_stretched_over_2x": 84,
+          "faces_area_below_30pct": 77,
+          "vertices_below_1pct_extent": 0,
+          "lowest_relative_to_ground": -0.005859643220901489,
+          "worst_crossing_frame": 35
+        }
+      },
+      "source_object_motion_max_delta": 0.0
+    },
+    {
+      "action": "Sitting",
+      "frames": 3,
+      "range": [
+        1,
+        240
+      ],
+      "metrics": {
+        "source": {
+          "nonadjacent_crossing_pairs": 369,
+          "max_edge_stretch": 4.522201146467925,
+          "edges_stretched_over_2x": 6,
+          "faces_area_below_30pct": 29,
+          "vertices_below_1pct_extent": 0,
+          "lowest_relative_to_ground": -0.0007205053778571169,
+          "worst_crossing_frame": 120
+        },
+        "target": {
+          "nonadjacent_crossing_pairs": 478,
+          "max_edge_stretch": 4.006972312927246,
+          "edges_stretched_over_2x": 80,
+          "faces_area_below_30pct": 78,
+          "vertices_below_1pct_extent": 0,
+          "lowest_relative_to_ground": 0.05070608854293823,
+          "worst_crossing_frame": 1
+        }
+      },
+      "source_object_motion_max_delta": 0.0
+    },
+    {
+      "action": "Sitting_to_Idle",
+      "frames": 3,
+      "range": [
+        1,
+        35
+      ],
+      "metrics": {
+        "source": {
+          "nonadjacent_crossing_pairs": 359,
+          "max_edge_stretch": 5.667282926424576,
+          "edges_stretched_over_2x": 6,
+          "faces_area_below_30pct": 29,
+          "vertices_below_1pct_extent": 0,
+          "lowest_relative_to_ground": -0.004496666214786504,
+          "worst_crossing_frame": 1
+        },
+        "target": {
+          "nonadjacent_crossing_pairs": 475,
+          "max_edge_stretch": 4.091423511505127,
+          "edges_stretched_over_2x": 84,
+          "faces_area_below_30pct": 77,
+          "vertices_below_1pct_extent": 0,
+          "lowest_relative_to_ground": -0.005859643220901489,
+          "worst_crossing_frame": 1
+        }
+      },
+      "source_object_motion_max_delta": 0.0
+    }
+  ],
+  "fps": 30,
+  "ground": -0.4166666269302368,
+  "extent": 1.0,
+  "coverage": "first_middle_last_only",
+  "collision_method": "BVH candidate pairs, exclude shared welded vertices, strict edge/triangle interior crossings; tangent and coplanar contacts excluded.",
+  "limits": [
+    "Intersection counts do not measure penetration depth or all contacts.",
+    "Ground metrics use current static input ground; root/foot IK not applied.",
+    "Edge/area ratios are relative to the input rest mesh, not an aesthetic verdict.",
+    "Foot sliding not scored: source support phases/root travel not yet calibrated."
+  ],
+  "animation_pass": false,
+  "unity_pass": false,
+  "new_cat_automation_proven": false
+}

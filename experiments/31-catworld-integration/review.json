@@ -1,0 +1,110 @@
+{
+  "authorization": "User explicitly requested adding this project cat into catworld; narrow exception to prior read-only boundary recorded before mutation.",
+  "source": "29-walk-sit-scope/cat-walk-sit.glb",
+  "source_sha256": "635596ba49316e441969b73bb627ad953290bf0c93e0fc12bd31b49c6e99c475",
+  "godot_version": "4.7.2-stable (official)",
+  "result": "Added third cat to existing room. Selected by default; left-top selector cycles Your Cat / original cat / previous Tripo companion. Floor clicks command selected cat, zoom follows it, decorating pauses all three.",
+  "behavior_scope": [
+    "walking",
+    "sitting"
+  ],
+  "supporting_transitions": [
+    "Idle_to_Sit",
+    "Sitting_to_Idle"
+  ],
+  "imported_asset": {
+    "base_triangles": 3500,
+    "bones": 56,
+    "weights_per_vertex": 8,
+    "clips": 4,
+    "source_bytes_unchanged": true,
+    "automatic_lods": false,
+    "animation_optimizer": false
+  },
+  "automation_delta": "Scale and resting ground offset derive from imported REST bounds; controller uses configurable semantic clip names and handles queued destinations during transitions. No per-cat vertices, weights, masks or joint edits.",
+  "manual_dependencies": [
+    "source model and semantic clip mapping",
+    "known +X facing",
+    "one-time world height specification (0.43), room spawn and waypoints",
+    "visual render review"
+  ],
+  "tested_inputs": [
+    "selected stage29 cat only",
+    "two existing catworld scene cats retained"
+  ],
+  "validation": {
+    "integration_checks": 22,
+    "all_checks_pass": true,
+    "live_normal_processing_sequence": [
+      0,
+      1,
+      2,
+      3,
+      0
+    ],
+    "live_sits_after_seconds": 14.5916666666666,
+    "headless_report": "integration-check.json",
+    "live_report": "live-cycle.json",
+    "actual_room_screenshot": "room-personalized-close.png",
+    "movie": "room-walk-sit.mp4",
+    "movie_capture": "Godot Movie Maker; normal main.tscn game process, 30 fps, 18s; no generated imagery.",
+    "movie_review": "Sampled frames show initial sitting, rising, walking and return to sitting. Existing cats visible; close-up camera follows new cat."
+  },
+  "failures_during_validation": [
+    "Test harness initially had an untyped dynamic property; explicit String annotation fixed parsing.",
+    "Initial animation-motion assertion inspected only bone0 local translation (constant in rotation-driven rig); replaced with all 56 bone rotations. Final test observes 3.1288 rad maximum change. No asset repair claimed."
+  ],
+  "limitations": [
+    "Existing source foot-contact and skin deformation defects remain.",
+    "No inter-cat collision avoidance or furniture pathfinding added; cats can overlap, observed during room playback.",
+    "Configured travel speed is room-level setting, not calibrated per-cat stride/IK.",
+    "Only this existing cat tested; no unseen-cat generation or cross-body rig adaptation validation.",
+    "Godot import/behavior pass does not imply final animation quality or Unity validation."
+  ],
+  "preserved_source_files": [
+    "<catworld>/godot/cat.gd",
+    "<catworld>/godot/tripo_cat.gd",
+    "<catworld>/godot/cat_eyes.gd",
+    "<catworld>/godot/project.godot",
+    "<catworld>/godot/models/calico_cat.glb",
+    "<catworld>/godot/models/calico_tripo_walk.glb"
+  ],
+  "before_manifest": "before.json",
+  "after_files": [
+    {
+      "path": "<catworld>/godot/main.gd",
+      "snapshot": "after/main.gd",
+      "sha256": "e283c6f80c73688ce3269e56198e89711ec5a56d88a1bf663378a7882f151509"
+    },
+    {
+      "path": "<catworld>/godot/personalized_cat.gd",
+      "snapshot": "after/personalized_cat.gd",
+      "sha256": "2c5a643ebfc1af65e0b6965c07b1468a2da1d9ca089080367721184625f1f0b3"
+    },
+    {
+      "path": "<catworld>/godot/personalized_cat.gd.uid",
+      "snapshot": "after/personalized_cat.gd.uid",
+      "sha256": "ab96a1df01c2585fd44c12314454af2df89b93f45e26a2460ca83be2f5c3a9c1"
+    },
+    {
+      "path": "<catworld>/godot/models/personalized_cat.glb.import",
+      "snapshot": "after/models/personalized_cat.glb.import",
+      "sha256": "e3d5f0e21e176df892c5bc7aa87bc5a3b28949b3e209a6fe1eb19fb311c82bb5"
+    },
+    {
+      "path": "<catworld>/godot/models/personalized_cat.glb",
+      "source": "../29-walk-sit-scope/cat-walk-sit.glb",
+      "sha256": "635596ba49316e441969b73bb627ad953290bf0c93e0fc12bd31b49c6e99c475"
+    }
+  ],
+  "documentation": [
+    "https://docs.godotengine.org/en/latest/classes/class_mesh.html",
+    "https://docs.godotengine.org/en/4.4/classes/class_animationplayer.html"
+  ],
+  "godot_integration_pass": true,
+  "animation_quality_pass": false,
+  "unity_pass": false,
+  "new_cat_automation_proven": false,
+  "tripo_calls": 0,
+  "credits_consumed": 0
+}

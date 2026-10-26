@@ -1,0 +1,24 @@
+{
+  "environment": {
+    "blender": "5.2.1 LTS",
+    "python": "3.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "working_directory": ".",
+  "policy": "在新的輸出目錄重現，勿覆蓋本次證據；腳本以自身所在目錄定位資料。",
+  "steps": [
+    "Blender background: inspect_sources.py",
+    "Python with numpy/scipy: locate_feet.py",
+    "Blender background: bind_baseline.py -- --output baseline-v002 --influences 4 --smooth-iterations 0",
+    "Blender background: bake_and_measure.py -- baseline-v002",
+    "Blender background: bind_baseline.py -- --output weights-v001 --influences 8 --smooth-iterations 5 --smooth-factor 0.35",
+    "Blender background: bake_and_measure.py -- weights-v001",
+    "Blender background: render_motion.py -- <candidate>; render_motion.py -- <candidate> --motion",
+    "Blender background: render_motion.py -- weights-v001 --azimuth 135 --output-name preview-opposite",
+    "Blender background: export_verify.py -- weights-v001",
+    "Python: assemble_previews.py; finalize_review.py"
+  ],
+  "source_of_truth": "各輸出目錄 executed-source.py / executed-animation-source.py 保存當次執行程式；最新主腳本可能包含後續診斷選項。",
+  "preview_note": "動畫拼接展示原地走路/坐下/起立，待機及坐姿使用靜幀停留；五完整片段的所有 597 幀另有量測。"
+}

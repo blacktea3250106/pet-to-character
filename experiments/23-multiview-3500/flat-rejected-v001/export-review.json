@@ -1,0 +1,22 @@
+{
+  "source": "~/Documents/\u500b\u4eba\u5316\u8c93\u54aa\u751f\u6210\u7cfb\u7d71/experiments/generation-v001/23-multiview-3500/native-v001/model_url.glb",
+  "source_sha256": "dfdaa1a27ad99495b8ef243c7686424c8a7f6c1be18c0b85e4dba206c247b791",
+  "candidate_sha256": "515908a2688efcc4f11fe99c75dfe625a3009b4de7c6838a945ed8836eea11c8",
+  "triangles": 5356,
+  "target_triangles": 3500,
+  "budget_pass": false,
+  "unique_triangle_correspondence": true,
+  "max_corner_position_difference_source_units": 0.0,
+  "max_corner_uv_difference": 0.0,
+  "decoded_texture_hashes_identical": true,
+  "texture_images": [],
+  "minimum_exported_corner_normal_dot_geometric_face_normal": -0.24763067502201008,
+  "nondegenerate_triangles_checked": 5356,
+  "source_file_unchanged": true,
+  "shading_export_roundtrip_pass": false,
+  "method": "Nearest triangle-centroid correspondence, six corner permutations, UV correspondence and exact decoded pixel hashes; geometric normal dot-product after actual GLB reimport",
+  "scope": "Shading-only candidate. No geometry reduction, coat recolor, eye control or rigging. Technical pass is not final art acceptance.",
+  "art_pass": false,
+  "animation_pass": false,
+  "new_cat_automation_proven": false
+}
